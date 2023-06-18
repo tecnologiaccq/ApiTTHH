@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="511e9d67971d4c9b840c8976124c87b8" Name="Diagram1">
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_ESTADO_CIVIL" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_GENERO" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_IDIOMAS" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_NACIONALIDAD" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ESTUDIO" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_IDIOMA" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_TIPO_IDENTIFICACION" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_CIUDAD" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_PROVINCIAS" Width="1.5" PointX="6.75" PointY="12.125" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_USUARIO" Width="1.5" PointX="3.375" PointY="7" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ACADEMICO" Width="1.5" PointX="2.25" PointY="13.75" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Width="1.5" PointX="10.875" PointY="0.75" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_ESTADONIVELACADEMICO" Width="1.5" PointX="8.625" PointY="10.625" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" Width="1.5" PointX="13.25" PointY="4.875" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL" Width="1.5" PointX="13.25" PointY="8.625" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Width="1.5" PointX="11" PointY="6.75" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA" Width="1.5" PointX="16.25" PointY="10" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_RELACION_REF_CAT" Width="1.5" PointX="14" PointY="13.5" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL" />
+        <EntityTypeShape EntityType="TALENTO_HUMANOModel.BEMPL_CAT_CAPACITACIONES" Width="1.5" PointX="5.375" PointY="6.875" />
+        <AssociationConnector Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

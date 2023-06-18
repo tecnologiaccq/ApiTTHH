@@ -1,0 +1,2735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ApiTTHH</RootNamespace>
+    <AssemblyName>ApiTTHH</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44333</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.32.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.32.0\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs, Version=12.16.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Blobs.12.16.0\lib\netstandard2.0\Azure.Storage.Blobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Common, Version=12.15.0.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Common.12.15.0\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v23.1.Export, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.Desktop.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v23.1.UI, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v23.1.Core, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v23.1, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v23.1.Extensions, Version=23.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=5.0.17.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.5.0.17\lib\net461\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=3.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.3.0.5\lib\net461\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.7.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.8\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.24\lib\net461\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime.Azure, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.Azure.3.3.19\lib\net461\Microsoft.Rest.ClientRuntime.Azure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OnLineCCQ.ApiEnvioCorreoAlphaTech">
+      <HintPath>..\..\..\..\Users\rgrandes\Downloads\OnLineCCQ.ApiEnvioCorreoAlphaTech.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Hashing, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Hashing.7.0.0\lib\net462\System.IO.Hashing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.7.0.0\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory.Data, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.Data.7.0.0\lib\net462\System.Memory.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.3\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.9\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.9\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.9\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Catalogos\tGN_EmpresasController.cs" />
+    <Compile Include="Controllers\Catalogos\tNm_BeneficiosCCQController.cs" />
+    <Compile Include="Controllers\Catalogos\tNM_DepartamentosController.cs" />
+    <Compile Include="Controllers\Catalogos\tNM_TiposColaboradoresController.cs" />
+    <Compile Include="Controllers\Colaboradores\tNM_ColaboradoresController.cs" />
+    <Compile Include="Controllers\EstadosCuenta\tNM_EstadosCuentaColaboradorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_CAPACITACIONESController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_CIUDADController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_ESTADO_CIVILController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_GENEROController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_IDIOMASController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NACIONALIDADController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_ACADEMICOController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_ESTUDIOController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_IDIOMAController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_PROVINCIASController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_TIPO_IDENTIFICACIONController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_DATOSPOSTULANTEController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_RELACION_REF_CATController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_USUARIOController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_EstadosFlujoAusenciasController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_SolicitudVacacionesCabController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_TiposAusenciaController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_ApiProvider.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_GeneralConfig.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_HistoricoLoginAdmSuscripcion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_HistoryLoginDataManager.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_Marca.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_OpcionPorRol.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_Proveedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_RolPorUsuario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AGET_TOKENS_USERS.cs">
+      <DependentUpon>EspaciosTrabajo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Analysis.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ATS_Compras.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_CAPACITACIONES.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_CIUDAD.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_ESTADO_CIVIL.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_GENERO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_IDIOMAS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NACIONALIDAD.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_ACADEMICO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_ESTUDIO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_IDIOMA.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_PROVINCIAS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_TIPO_IDENTIFICACION.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_DATOSPOSTULANTE.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_DATOS_ACADEMICOS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_ESTADONIVELACADEMICO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_EXPERIENCIA_LABORAL.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_IDIOMAS_POSTULANTE.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_REFERENCIAS_LABORA.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_RELACION_REF_CAT.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_USUARIO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuzonCCQAdjuntos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuzonCCQArea.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuzonCCQFormulario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BuzonCCQTiposFeedBack.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatConfigDataType.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatConfigKey.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatError.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEstadoAlerta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEstadoContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEstadoEquipo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEvento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatEventoPulsador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatMensaje.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatModulo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatOption.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatRole.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatSeveridad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatTipoMail.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatTipoPulsador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CodigosValidacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ConfigMail.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\correo_listanegra.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Custom\AsiganicionRol.cs" />
+    <Compile Include="Models\Custom\CertificateParameters.cs" />
+    <Compile Include="Models\Custom\Cupo.cs" />
+    <Compile Include="Models\Custom\InformacionPostulanteCustom.cs" />
+    <Compile Include="Models\Custom\Pago.cs" />
+    <Compile Include="Models\Custom\ParametersRoles.cs" />
+    <Compile Include="Models\Custom\ParametrosFilterReportBEmpl.cs" />
+    <Compile Include="Models\Custom\UsuarioModel.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DashboardDefinition.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERPTTHH.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERPTTHH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERPTTHH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Event.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_BoletoElectronico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_BoletoElectronico_Certificados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_Direccion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_Evento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_Inscripcion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_TipoEvento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EV_UrlDireccion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileData.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileSystemStoreObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_ATS_ObtenerRetenciones_Iva_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_ATS_ObtenerRetenciones_Renta_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_ATS_TodosRegistrosRetencionesExtendidosIvaRentaPeriodoContable_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_ATS_TodosRegistrosRetencionesIvaRentaPorPeriodoContable_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_CG_GetTablaPeriodosContablesParaReprocesoSaldosMayor_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_ObtenerTablaPeriodosContablesParaReprocesoSaldosMayor_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\fn_Split_String_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_Categoria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_ProductoServicio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_ResetearClave.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_Rol.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_SocioPortal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_Usuario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GC_UsuariosAdmin.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HADES_tGS_Socios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HCategory.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITIL_Categoria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITIL_Frecuencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ITIL_GestionInventarios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KpiDefinition.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KpiHistoryItem.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KpiInstance.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KpiScorecard.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KpiScorecardScorecards_KpiInstanceIndicators.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LicenseKeys.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LogApp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lpd_ContactoNuevo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lpd_HistoricoNuevoContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lpd_HistoricoSuscripcionNuevoContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Lpd_SuscripcionNuevoContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mAF_Depreciacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\mAF_MaestroActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDifference.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDifferenceAspect.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModuleInfo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSG_PlantillaWhatsapp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MSG_Whatsapp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P2PRetencionesTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P2P_LiquidacionesCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P2P_LiquidacionesDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P2P_TransaccionesCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\P2P_TransaccionesDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PA_Cobro.cs">
+      <DependentUpon>PaCobro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pbcatcol.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pbcatedt.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pbcatfmt.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pbcattbl.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pbcatvld.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyMemberPermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyNavigationPermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyObjectPermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyRole.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyTypePermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyUser.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermissionPolicyUserUsers_PermissionPolicyRoleRoles.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ptabla_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegisteredInstances.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ReportDataV2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Resource.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ResourceResources_EventEvents.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rNM_RecibosPago_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuencialCatalogo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemMemberPermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemObjectPermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemRole.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemRoleParentRoles_SecuritySystemRoleChildRoles.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemRoleRoles_DashboardDefinitionDashboardDefinitions.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemTypePermissionsObject.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemUser.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemUserCustom.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecuritySystemUserUsers_SecuritySystemRoleRoles.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SecurityUserBase.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sec_Alerta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sec_HistoricoAlerta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sec_Pulsador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SplitStringGeneral_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosSupervisorColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesVacacionesAprobJefe_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesVacacionesColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_ReportPostulantes_Result.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tnmDiasVacacionesColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tNMFeriados_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_AnexoMaestro.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_AnexosDesincorporaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_AnexosIncorporaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_AsientosContables.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Clases.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Colores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Depreciacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Desincorporaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Estados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Incorporaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_MaestroActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Marcas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Materiales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_MotivosBaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Movimientos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Situaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_TiposActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tAF_Ubicaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_CodigosConciliacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_ConciliacionBancaria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_Conciliaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_Cruces.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_CrucesBancarios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_CrucesContables.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_EquivalenciaDeDocumento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_EstadoCuentaBancoGeneral.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_MaestroConciliacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_MaestroConciliacionDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_MovimientosBancarios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCB_MovimientosContables.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCCQ_EspaciosComedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCCQ_ReservaComedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCCQ_TimbradoRegistros.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCCQ_TiposTimbrado.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCCQ_TurnosComedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AnexosCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AperturaCierreCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AsientosXCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AsientosXCruces.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AsientosXDescargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AsientosXDescargosDevolucionesParcialesCAM.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AuditoriaCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AutorizacionBancoBolivariano.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AutorizacionBancoPacifico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AutorizacionesCheque.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_AutorizacionesDepositoTransferencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Caja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoCheque.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoChequeGarantia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoChequeRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoDepositoTransferencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoDepositoTransferenciaRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoEfectivo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoEfectivoRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoRetenciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoRetencionesCero.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoRetencionesRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoTarjetaCredito.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaIngresoTarjetaCreditoRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CajaSolicitudesEgresos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargoCredito.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosCabExtension.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosCabHistorialTransferenciaCartera.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosCabProyeccionCobro.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosCabProyeccionCobroPrevio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CargosRelacionesPagoAuxiliar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Clientes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Cobradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobradoresCajas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoBolivariano.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoGuayaquil.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoInternacional.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoPacifico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoPichincha.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroBancoProdubanco.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaAmericanExpress.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaBankard.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaDiners.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaDiners_fixError_DELETED.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaDiscover.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaMasterCard.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CobroTarjetaVisa.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_ConfirmacionBancosAuxiliar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_ConfirmacionTarjetasAuxiliar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Contactos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_CruceDocumentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_DescargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_DescargosCabExtension.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_DescargosCabRelacionPagoTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_DescargosDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_EstadoCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_FallosDebitoBancos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_FallosDebitoTarjetas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_HistorialAperturaCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_HistorialCierreCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_HistorialLiquidacionSaldosFacturas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_HistoricoCargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tcc_HistoricoDescargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_IngresoRetencionesXml.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_LinkLpdVendedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_ReferenciasDebitoBanco.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_RegistroPagoRecaudadores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_RelacionPago.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Retenciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_RetencionesDebitoBanco.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TempCargosTarjetas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TemporalCruceDoc.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TempTransaccionesComerciales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposCobrador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposCobros.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposContactos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposContribuyentes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposDocumentosCCQ.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_TiposVendedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCC_Vendedores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_AnexosEventosCursos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_CategoriasEventosCursosXDictar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_DireccionesEventosCursos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EstadosEstudiantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EstadosEventosCursosXDictar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_Estudiantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EstudiantesInscritos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EstudiantesTemporalesWeb.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EventosCursos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_EventosCursosXDictar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_HabilidadesInstructores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_HistorialNovedadesInstructor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_Inscripciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_Instructores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_ModalidadesContratacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_PoliticasPromocion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_Probabilidades.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_TiposEventosCursos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCEC_UbicacionesEventosCursos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_AsientosContableCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_AsientosContableDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_GrupoComprobantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_GrupoCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_IntAsientosContableCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_IntAsientosContableDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_ObjetosConsumos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_ObjetosCostos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_PeriodoContable.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_PlanCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_PlanCuentasEmpresa.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_ProcesoMayorizacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_Reporte_Por_Periodos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_Reporte_Por_Periodos_Seis.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_Reporte_Por_Periodos_Tres.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_SaldoMayor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_SangriasReportes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_SecuencialesComprobantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCG_TipoGrupoComprobante.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AnexosCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AnexosProveedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AprobacionDePagos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AprobacionDePagosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ArchivoBancoAnticipado.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ArchivoDeEnvio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ArchivoGuayaquil.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AsientosXCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AsientosXCruces.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AsientosXDescargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_AuditoriaCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CargosCabReembolso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CargosDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ConfirmacionBancoGuayaquil.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ConfirmacionBancosAuxiliar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_ConsecutivoArchivoBanco.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CorreoElectronicoParaProveedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CruceDocumentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_CuentasContablesDescargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_DescargosCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_DescargosDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_EstadosAprobacionJefeFinanciero.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_FallosDebitoBancos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_FinanciamientoCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_HistorialLiquidacionSaldosFacturas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_LiquidacionComprasImpuestosPorReembolso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_LiquidacionComprasReembolsos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_OrdenesPagos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_Proveedores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_RetencionesIVA.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_RetencionesRenta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_SustentoSRI.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_TemporalAprobacionPagos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_TemporalCruceDoc.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_Temporal_Descargos_ConfirmacionBancos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_TiposCargosDetalles.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_TiposContribuyentes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCP_TiposSustentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_Categoria1.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_Categoria2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_Categoria3.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CategoriaJerarquica1_1.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CategoriaJerarquica1_2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CategoriaProducto1.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CategoriaProducto2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CategoriaProducto3.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_CodigoDocumentoSRI.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_EstadoAsientoContableCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_EstadoCruceDocumento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_EstadoDocumentoSRI.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_EstadoPeriodoContable.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_FormasPagoSRI.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_FrecuenciaReinicioPeriodo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_ListaPrecios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_PeriodosSocietarios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_TipoGrupoCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_TipoObjetoCosto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tCT_TipoPlanCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempCam_DELETED.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempCobroTarjetaDiners_DELETED.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\temporal_CorrecionFechasAsientosMarciaSanchez.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempo_delete_backup_tGN_ContactoPersona_antes_sync_datos_proyecto_pasantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempo_delete_backup_tGN_Direcciones_antes_sync_datos_proyecto_pasantes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempo_delete_backup_tGN_Personas_antes_update_representante_legal_vbohorques_2023_03.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tempo_delete_correos_comex.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\temp_vClientesDN.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tEM_Cuotas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tEM_Cuotas2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tEM_SaldosCuotas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_CuotasSociales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_FacturaCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_FacturaCabFormasPago.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_FacturaDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_Productos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tFT_ProductosListaPrecios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Bancos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_BancosCCQ.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Cargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CargosPersonas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CAT_BANCOS_HOMOLOGADOS.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CAT_TarifaIce.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CentrosCostos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Certificados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Certificados_A_Imprimir.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Ciudad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CodigoInstitucionFinancieraGye.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_CodigosCasosCuentasContables.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ColumnasTablasSistema.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ContactoPersona.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ContactoPersona_bckup_depuracion_atmailing.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ContactoPersona_Suscripcion_Temporal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_DepartamentosSocio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Direcciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Emails.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Empresas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_EquivalenciasCuentasFideicomisos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Establecimientos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_EstadoCivil.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_EstadoSocio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormaPagoTarjetaCredito.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Formas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CajaIngresoChequeftCC_CajaIngresoCheques.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CajaIngresoDepositoTransferenciatCC_CajaIngresoDepositoTransferencias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CajaIngresoEfectivotCC_CajaIngresoEfectivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CajaIngresoRetencionesftCC_CajaIngresoRetenciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CajaIngresoTarjetaCreditoftCC_CajaIngresoTarjetaCreditos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_CargoCreditoftCC_CargoCreditos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_FormastGN_Formass_tCC_DescargosCabRelacionPagoTemptCC_DescargosCabsRelacionCobrosAux.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_HistoricoContactoPersona.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_InformacionesAdicionalesDocumentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Localidad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Logs.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_MediosContactos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_MediosPagos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_MesFormaPagoTarjeta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ModulosErp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_NivelInstruccion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Notaria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Paises.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Parametros.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ParametrosBancos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ParametrosGenerales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Parentescos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Parroquias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Personas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Provincias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_PuntosEmision.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Secuenciales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Sucursal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TablasSistema.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TarjetaCredito.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TipoCertificado.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposAnexos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TipoSangre.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposDirecciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposDocumentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposEmpresas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposIdentificacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposImpuestos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposImpuestosIva.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_TiposPersonas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Titulos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_UsuariosProveedoresServicios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Zonas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ZonaSeguridad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_ActividadesCIIU.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_AnexoSocio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_AreasGestion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Asesor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Atenciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_AuditoriaSocio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Beneficiario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Beneficio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Casos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Consorcios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Cuotas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_CuotasAfiliacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Cuotas_V2.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Desuscripciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_DocumentoSocios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_EstadosCasos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_FrecuenciaGeneracionCuotas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_GrupoAfinidad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_HistorialAltasYBajas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_HistoricoSuscripcionContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_MotivosAltasYBajas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Nucleo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_NucleoBeneficio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_ProductosServicios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_ServicioDocumento.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Servicios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_ServiciosClientes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SocioEmpleados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SocioNucleo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Socios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SociosActividadesCIIU.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SociosActivosFacturadosCualquierConcepto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SociosPreregistro.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SolicitudCuotaAnticipada.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SuscripcionContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SuscripcionContacto_Temporal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_Suscripciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_SuscripcionesClientes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TamanoSocio.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TelefonosPlanSeguridad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TemporalDirecciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TemporalSocios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TipoPago.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TiposAltasYBajas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TiposContactoAtencion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TiposGestionAtencion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_TipoSuscripcion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Ajustes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Articulos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Bodegas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Contabilizacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_ConversionUnidades.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_DetalleRecepciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_DetalleSolicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Fisico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_MaestroFisico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_MaestroRecepciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_MaestroSolicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Saldos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_TiposArticulos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_TiposTransacciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_Transacciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tIV_UnidadesMedida.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tMN_Destinatarios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tMN_Notificaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tMN_Reglas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_AdjuntoSolicitudPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_AnexosSolicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Areas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_BasesCalculadas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_BasesCalculo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNm_BeneficiosCCQ.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_BitacoraColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CalendarioNominas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CalendarioNominasEnvioMail.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CambiosDepartamentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CapacitacionColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Cargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CategoriasColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CategoriasOcupacionales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ClasesColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Colaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ColaboradoresAuditoria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Competencias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CompetenciasCargo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CompetenciasColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptoCetificado.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Conceptos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosFijos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosGlobales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosTiposNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CondicionDiscapacidad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_DatosBiometrico.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Declaracion13.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Declaracion14.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Departamentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Dependientes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_DetalleVacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Distribucion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Empleados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Empleados_Colaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EntradasSalidas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EstadosColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EstadosCuentaColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EstadosFlujoAusencias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Feriados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_FormasCalculo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Formulario107.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_FormularioGP.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_GruposArchivoBancoCalendarioNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_GruposColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_HistoriaLaboral.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_HistorialCargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_HistorialConceptosFijos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_HistorialVacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_IngresosBeneficiosColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_JustificacionPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_LimitesGP.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_LiquidacionLaboral.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_MediosPago.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ModosCalculoLiquidacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_MotivosEgreso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_NominaDefinitiva.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_NominaDefinitiva_bkp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_NominaPreliminar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_PagosFueraNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ProgramasColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ProyectosColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_RelacionIESS.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SaldosCuentaColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SectorialIESS.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Solicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudesTablaAmortizacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudVacacionesCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudVacacionesDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SubtipoSolicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Sucursales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TablaBeneficioDiscapacidad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TablaIR.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposAusencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposContrato.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposDiscapacidad.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposEstadoCuenta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposRelacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposSolicitudes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Titulos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_tmp_ImpuestoAgostoNuevo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Vacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_VacacionesDetalle.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ValidacionNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Variaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_Ajustes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetalleComparativo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetalleFormulacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetalleFormulacionFlujoCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetalleFormulacionMes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetallePresupuesto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_DetallePresupuestoFlujoCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_MaestroAjustes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_MaestroFormulacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_MaestroFormulacionFlujoCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_MaestroPresupuesto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tPR_MaestroPresupuestoFlujoCaja.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRPt_PresupuestoVentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRP_Fechas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRP_PresupuestoVendedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRP_PresupuestoVentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRP_VentasDiariasArea.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tRP_VentasDiariasVendedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tUA_UsuariosCertificados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vAfiliacionesWR.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vAfiliadosTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vAnticipadasWR.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vAsientosContablesCabMayorizados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vBaseDatosContabilidadCompleta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vCargosTarjetasCredito.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vCargosTarjetasCreditoFacturasPagadas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vCG_GrupoCuentas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vClientesSocios.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vCP_ProveedorCargosDescargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vCuotasAnticipadasMasivas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vDatosRepresentantesSociosActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEmisionesWR.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vEventosBaseEventos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vHistorialPagoClientes.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vListadoDireccionesSociosActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMacro.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailing.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingBoletinComercioExterior_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingBoletinesInformacionEspecializada_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingBoletinNoticias_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingEscuelaNegocios_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingEventos_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingFacturasDebe.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingPagoProveedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingPersonales_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingPublicidad_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingRevistaCriterios_lpd.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingSinSuscripcion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingSociosActivosSuspensosDesafiliados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailingSociosActivosTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailing_AllSociosActivos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vMailing_ERP.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vPlanificacionCuotasAnticipadasEmisionBimestral.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vPublicacidadRecaudacion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vRegistroAtencionCliente.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vRegistrosEventoWorkShop.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSG_OpcionesMenuUsuario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSG_RolesPorUsuario.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSociosActivosActividadPrincipalYMacro.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vSociosParaComex.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vTempoFixSucripcionContacto.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vTempoSociosBajas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vTipoEmpresaTemp.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vUsuariosNotificaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vVistaCumpleanieros.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vVistaSocioNuevo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vVistaSocioReingreso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_Certificado.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_GC_SocioPortal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\v_tempoSociosConPersoneria.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XPObjectType.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoInstanceKey.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoRunningWorkflowInstanceInfo.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoStartWorkflowRequest.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoTrackingRecord.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoUserActivityVersion.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoWorkflowDefinition.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoWorkflowInstance.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\XpoWorkflowInstanceControlCommandRequest.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\zTempMigracionSociosHaciaCRM.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Asignaciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboral.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboral.Designer.cs">
+      <DependentUpon>CertificadoLaboral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboralSueldo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboralSueldo.Designer.cs">
+      <DependentUpon>CertificadoLaboralSueldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Deducciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RoldePagos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\SolicitudVacacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="api\pdf\JACQUI.png" />
+    <Content Include="api\pdf\menbretada.png" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\ERPTTHH.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+      <LastGenOutput>ERPTTHH.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ERPTTHH.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+      <LastGenOutput>ERPTTHH.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EspaciosTrabajo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+      <LastGenOutput>EspaciosTrabajo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EspaciosTrabajo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+      <LastGenOutput>EspaciosTrabajo.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PaCobro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+      <LastGenOutput>PaCobro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PaCobro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+      <LastGenOutput>PaCobro.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TTHHBEMP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+      <LastGenOutput>TTHHBEMP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TTHHBEMP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+      <LastGenOutput>TTHHBEMP.cs</LastGenOutput>
+    </Content>
+    <EntityDeploy Include="Models\PaCobro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaCobro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PaCobro.edmx.diagram">
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\TTHHBEMP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TTHHBEMP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TTHHBEMP.edmx.diagram">
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+    </Content>
+    <Content Include="api\pdf\515329c537b849e58b3aa7dac0a57707.pdf" />
+    <Content Include="api\pdf\9e0463f6048846c59afd069e515efedc.pdf" />
+    <Content Include="api\pdf\a7a8d64baffe413b8d3b5f8d998ca5a3.pdf" />
+    <Content Include="api\pdf\c189530fbf15451685ffae282de62547.pdf" />
+    <Content Include="api\pdf\RoldePagos.pdf" />
+    <EntityDeploy Include="Models\EspaciosTrabajo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EspaciosTrabajo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EspaciosTrabajo.edmx.diagram">
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+    </Content>
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\ERPTTHH.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERPTTHH.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ERPTTHH.edmx.diagram">
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <None Include="Scripts\jquery-3.7.0-vsdoc.js" />
+    <Content Include="Scripts\jquery-3.7.0.js" />
+    <Content Include="Scripts\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.0.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reportes\Asignaciones.resx">
+      <DependentUpon>Asignaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CertificadoLaboral.resx">
+      <DependentUpon>CertificadoLaboral.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CertificadoLaboralSueldo.resx">
+      <DependentUpon>CertificadoLaboralSueldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Deducciones.resx">
+      <DependentUpon>Deducciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RoldePagos.resx">
+      <DependentUpon>RoldePagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SolicitudVacacion.resx">
+      <DependentUpon>SolicitudVacacion.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21618</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

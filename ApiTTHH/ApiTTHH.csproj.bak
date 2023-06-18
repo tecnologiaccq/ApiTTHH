@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ApiTTHH</RootNamespace>
+    <AssemblyName>ApiTTHH</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44333</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azure.Core, Version=1.8.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Core.1.8.1\lib\net461\Azure.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Blobs, Version=12.8.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Blobs.12.8.1\lib\netstandard2.0\Azure.Storage.Blobs.dll</HintPath>
+    </Reference>
+    <Reference Include="Azure.Storage.Common, Version=12.7.1.0, Culture=neutral, PublicKeyToken=92742159e12e44c8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Azure.Storage.Common.12.7.1\lib\netstandard2.0\Azure.Storage.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.2.Export, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.2.UI, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Xpo.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.2.Core, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.2.Extensions, Version=18.2.16.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OnLineCCQ.ApiEnvioCorreoAlphaTech">
+      <HintPath>..\..\..\..\Users\rgrandes\Downloads\OnLineCCQ.ApiEnvioCorreoAlphaTech.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.6.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.4.6.0\lib\net461\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\Catalogos\tGN_EmpresasController.cs" />
+    <Compile Include="Controllers\Catalogos\tNm_BeneficiosCCQController.cs" />
+    <Compile Include="Controllers\Catalogos\tNM_DepartamentosController.cs" />
+    <Compile Include="Controllers\Catalogos\tNM_TiposColaboradoresController.cs" />
+    <Compile Include="Controllers\Colaboradores\tNM_ColaboradoresController.cs" />
+    <Compile Include="Controllers\EstadosCuenta\tNM_EstadosCuentaColaboradorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_CAPACITACIONESController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_CIUDADController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_ESTADO_CIVILController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_GENEROController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_IDIOMASController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NACIONALIDADController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_ACADEMICOController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_ESTUDIOController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_NIVEL_IDIOMAController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_PROVINCIASController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_CAT_TIPO_IDENTIFICACIONController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_DATOSPOSTULANTEController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_RELACION_REF_CATController.cs" />
+    <Compile Include="Controllers\TTHController\BEMPL_USUARIOController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_EstadosFlujoAusenciasController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_SolicitudVacacionesCabController.cs" />
+    <Compile Include="Controllers\Vacaciones\tNM_TiposAusenciaController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AGET_TOKENS_USERS.cs">
+      <DependentUpon>EspaciosTrabajo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_CAPACITACIONES.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_CIUDAD.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_ESTADO_CIVIL.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_GENERO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_IDIOMAS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NACIONALIDAD.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_ACADEMICO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_ESTUDIO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_NIVEL_IDIOMA.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_PROVINCIAS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_CAT_TIPO_IDENTIFICACION.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_DATOSPOSTULANTE.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_DATOS_ACADEMICOS.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_ESTADONIVELACADEMICO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_EXPERIENCIA_LABORAL.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_IDIOMAS_POSTULANTE.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_REFERENCIAS_LABORA.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_RELACION_REF_CAT.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BEMPL_USUARIO.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Custom\AsiganicionRol.cs" />
+    <Compile Include="Models\Custom\CertificateParameters.cs" />
+    <Compile Include="Models\Custom\Cupo.cs" />
+    <Compile Include="Models\Custom\InformacionPostulanteCustom.cs" />
+    <Compile Include="Models\Custom\Pago.cs" />
+    <Compile Include="Models\Custom\ParametersRoles.cs" />
+    <Compile Include="Models\Custom\ParametrosFilterReportBEmpl.cs" />
+    <Compile Include="Models\Custom\UsuarioModel.cs" />
+    <Compile Include="Models\ERPTTHH.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERPTTHH.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ERPTTHH.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EspaciosTrabajo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PaCobro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PA_Cobro.cs">
+      <DependentUpon>PaCobro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\rNM_RecibosPago_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_AusenciasCCQ_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_CalculoCertificadoSueldo_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosSupervisorColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesVacacionesAprobJefe_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesVacacionesColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_ReportPostulantes_Result.cs">
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tnmDiasVacacionesColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tNMFeriados_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tNMFeriados_Result1.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_ContactoPersona.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Empresas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Personas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGN_Sucursal.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_AdjuntoSolicitudPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNm_BeneficiosCCQ.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_CalendarioNominas.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Cargos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Colaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Conceptos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosFijos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosGlobales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ConceptosTiposNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Departamentos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_DetalleVacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EstadosCuentaColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_EstadosFlujoAusencias.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Feriados.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_HistorialVacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_IngresosBeneficiosColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_JustificacionPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_NominaDefinitiva.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SaldosCuentaColaborador.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudPermiso.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudVacacionesCab.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_SolicitudVacacionesDet.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Sucursales.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposAusencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposColaboradores.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposEstadoCuenta.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposNomina.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_Vacaciones.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_VacacionesDetalle.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TTHHBEMP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Asignaciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboral.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboral.Designer.cs">
+      <DependentUpon>CertificadoLaboral.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboralSueldo.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CertificadoLaboralSueldo.Designer.cs">
+      <DependentUpon>CertificadoLaboralSueldo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\Deducciones.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\RoldePagos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\SolicitudVacacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="api\pdf\JACQUI.png" />
+    <Content Include="api\pdf\menbretada.png" />
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Models\ERPTTHH.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ERPTTHH.Context.cs</LastGenOutput>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ERPTTHH.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+      <LastGenOutput>ERPTTHH.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EspaciosTrabajo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+      <LastGenOutput>EspaciosTrabajo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EspaciosTrabajo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+      <LastGenOutput>EspaciosTrabajo.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PaCobro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+      <LastGenOutput>PaCobro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PaCobro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+      <LastGenOutput>PaCobro.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TTHHBEMP.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+      <LastGenOutput>TTHHBEMP.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TTHHBEMP.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+      <LastGenOutput>TTHHBEMP.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="Models\ERPTTHH.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERPTTHH.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ERPTTHH.edmx.diagram">
+      <DependentUpon>ERPTTHH.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\PaCobro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PaCobro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PaCobro.edmx.diagram">
+      <DependentUpon>PaCobro.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\TTHHBEMP.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TTHHBEMP.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\TTHHBEMP.edmx.diagram">
+      <DependentUpon>TTHHBEMP.edmx</DependentUpon>
+    </Content>
+    <Content Include="api\pdf\515329c537b849e58b3aa7dac0a57707.pdf" />
+    <Content Include="api\pdf\9e0463f6048846c59afd069e515efedc.pdf" />
+    <Content Include="api\pdf\a7a8d64baffe413b8d3b5f8d998ca5a3.pdf" />
+    <Content Include="api\pdf\c189530fbf15451685ffae282de62547.pdf" />
+    <Content Include="api\pdf\RoldePagos.pdf" />
+    <EntityDeploy Include="Models\EspaciosTrabajo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EspaciosTrabajo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EspaciosTrabajo.edmx.diagram">
+      <DependentUpon>EspaciosTrabajo.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Reportes\Asignaciones.resx">
+      <DependentUpon>Asignaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CertificadoLaboral.resx">
+      <DependentUpon>CertificadoLaboral.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CertificadoLaboralSueldo.resx">
+      <DependentUpon>CertificadoLaboralSueldo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Deducciones.resx">
+      <DependentUpon>Deducciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RoldePagos.resx">
+      <DependentUpon>RoldePagos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SolicitudVacacion.resx">
+      <DependentUpon>SolicitudVacacion.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>21618</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:44333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

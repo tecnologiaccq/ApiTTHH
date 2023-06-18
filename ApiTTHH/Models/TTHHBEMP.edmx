@@ -1,0 +1,1556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TALENTO_HUMANOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BEMPL_CAT_CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="IdCapacitacion" />
+          </Key>
+          <Property Name="IdCapacitacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_CIUDAD">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="int" Nullable="false" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="100" />
+          <Property Name="IdProvincia" Type="int" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="IdEstadoCivil" />
+          </Key>
+          <Property Name="IdEstadoCivil" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_GENERO">
+          <Key>
+            <PropertyRef Name="IdGenero" />
+          </Key>
+          <Property Name="IdGenero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_IDIOMAS">
+          <Key>
+            <PropertyRef Name="IdIdioma" />
+          </Key>
+          <Property Name="IdIdioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdiomaDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NACIONALIDAD">
+          <Key>
+            <PropertyRef Name="IdNacionalidad" />
+          </Key>
+          <Property Name="IdNacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_ACADEMICO">
+          <Key>
+            <PropertyRef Name="IdEstadoNivelAcademico" />
+          </Key>
+          <Property Name="IdEstadoNivelAcademico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DescripcionNivelAcademico" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_ESTUDIO">
+          <Key>
+            <PropertyRef Name="IdNivelEstudio" />
+          </Key>
+          <Property Name="IdNivelEstudio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NivelEstudioDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_IDIOMA">
+          <Key>
+            <PropertyRef Name="IdNivelIdioma" />
+          </Key>
+          <Property Name="IdNivelIdioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NivelIdiomaDescripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_PROVINCIAS">
+          <Key>
+            <PropertyRef Name="IdProvincia" />
+          </Key>
+          <Property Name="IdProvincia" Type="int" Nullable="false" />
+          <Property Name="Provincia" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_TIPO_IDENTIFICACION">
+          <Key>
+            <PropertyRef Name="IdTipoIdentificacion" />
+          </Key>
+          <Property Name="IdTipoIdentificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_DATOS_ACADEMICOS">
+          <Key>
+            <PropertyRef Name="IdEstudio" />
+          </Key>
+          <Property Name="IdEstudio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdDatosPostulante" Type="int" />
+          <Property Name="Institucion" Type="varchar" MaxLength="450" />
+          <Property Name="IdNivelEstudio" Type="int" />
+          <Property Name="IdEstadonivelAcademico" Type="int" />
+          <Property Name="AnioInicio" Type="int" />
+          <Property Name="MesInicio" Type="int" />
+          <Property Name="AnioFin" Type="int" />
+          <Property Name="MesFin" Type="int" />
+          <Property Name="AlPresente" Type="bit" />
+          <Property Name="Titulo" Type="varchar" MaxLength="350" />
+          <Property Name="MesInicioDesc" Type="varchar" MaxLength="3" />
+          <Property Name="MesFinDesc" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="BEMPL_DATOSPOSTULANTE">
+          <Key>
+            <PropertyRef Name="IdPostulante" />
+          </Key>
+          <Property Name="IdPostulante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="250" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="250" />
+          <Property Name="IdTipoIdentificacion" Type="int" />
+          <Property Name="Identificacion" Type="varchar" MaxLength="50" />
+          <Property Name="IdGenero" Type="int" />
+          <Property Name="IdEstadoCivil" Type="int" />
+          <Property Name="IdProvincia" Type="int" />
+          <Property Name="IdCiudad" Type="int" />
+          <Property Name="MoilizacionPropia" Type="bit" />
+          <Property Name="CarnetDiscapacidad" Type="bit" />
+          <Property Name="DiasCambio" Type="int" />
+          <Property Name="AreaInteresCapacitacion" Type="varchar" MaxLength="250" />
+          <Property Name="UrlAdjuntoCV" Type="varchar" MaxLength="250" />
+          <Property Name="UrlVideo" Type="varchar" MaxLength="250" />
+          <Property Name="AspiracionSalarial" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="UrlDiscapacidad" Type="varchar" MaxLength="250" />
+          <Property Name="DetalleDiscapacidades" Type="varchar" MaxLength="1048" />
+          <Property Name="IdUsuario" Type="int" />
+          <Property Name="Correo" Type="varchar" MaxLength="150" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Celular" Type="varchar" MaxLength="10" />
+          <Property Name="PorcentajeHojaVida" Type="int" />
+          <Property Name="UrlImagenPerfil" Type="varchar" MaxLength="350" />
+          <Property Name="IdNacionalidad" Type="int" />
+          <Property Name="IsEnviadoEmailCandidato" Type="bit" />
+          <Property Name="FechaHoraEnviadoEmailCandidato" Type="datetime" />
+          <Property Name="CreadoPor" Type="nvarchar" MaxLength="32" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="EstacionCreacion" Type="nvarchar" MaxLength="32" />
+          <Property Name="UltimaModificacion" Type="datetime" />
+          <Property Name="ModificadoPor" Type="nvarchar" MaxLength="32" />
+          <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
+          <Property Name="AniosExperiencia" Type="int" />
+          <Property Name="IdCapacitacion" Type="int" />
+          <Property Name="Otros" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="BEMPL_ESTADONIVELACADEMICO">
+          <Key>
+            <PropertyRef Name="IdEstadoAcademico" />
+          </Key>
+          <Property Name="IdEstadoAcademico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="BEMPL_EXPERIENCIA_LABORAL">
+          <Key>
+            <PropertyRef Name="IdExperiencia" />
+          </Key>
+          <Property Name="IdExperiencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPostulante" Type="int" />
+          <Property Name="Empresa" Type="varchar" MaxLength="250" />
+          <Property Name="MesIni" Type="int" />
+          <Property Name="AnioInicio" Type="int" />
+          <Property Name="MesFin" Type="int" />
+          <Property Name="AnioFin" Type="int" />
+          <Property Name="MesInicioDesc" Type="varchar" MaxLength="50" />
+          <Property Name="MesFinDesc" Type="varchar" MaxLength="50" />
+          <Property Name="AlPresente" Type="bit" />
+          <Property Name="ResumenActividades" Type="varchar" MaxLength="1024" />
+          <Property Name="PersonasACargo" Type="int" />
+          <Property Name="Puesto" Type="varchar" MaxLength="350" />
+          <Property Name="PresupuestoVentasMensual" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_IDIOMAS_POSTULANTE">
+          <Key>
+            <PropertyRef Name="IdIdiomaPostulante" />
+          </Key>
+          <Property Name="IdIdiomaPostulante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPostulante" Type="int" />
+          <Property Name="IdIdioma" Type="int" />
+          <Property Name="IdNivelIdiomaOral" Type="int" />
+          <Property Name="IdNivelIdiomaEscrito" Type="int" />
+        </EntityType>
+        <EntityType Name="BEMPL_REFERENCIAS_LABORA">
+          <Key>
+            <PropertyRef Name="IdReferencia" />
+          </Key>
+          <Property Name="IdReferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdPostulante" Type="int" />
+          <Property Name="Nombre" Type="varchar" MaxLength="350" />
+          <Property Name="Apellido" Type="varchar" MaxLength="350" />
+          <Property Name="Telefono" Type="varchar" MaxLength="10" />
+          <Property Name="Correo" Type="varchar" MaxLength="450" />
+          <Property Name="IdRelacionReferenciaCat" Type="int" />
+          <Property Name="IdExperiencia" Type="int" />
+        </EntityType>
+        <EntityType Name="BEMPL_RELACION_REF_CAT">
+          <Key>
+            <PropertyRef Name="IdRelacionReferencia" />
+          </Key>
+          <Property Name="IdRelacionReferencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Estado" Type="bit" />
+        </EntityType>
+        <EntityType Name="BEMPL_USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="250" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="250" />
+          <Property Name="CorreoUsuario" Type="varchar" MaxLength="150" />
+          <Property Name="Password" Type="varchar" MaxLength="250" />
+          <Property Name="Estado" Type="bit" />
+          <Property Name="IsRecuperaPassword" Type="bit" />
+          <Property Name="CreadoPor" Type="nvarchar" MaxLength="32" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="EstacionCreacion" Type="nvarchar" MaxLength="32" />
+          <Property Name="UltimaModificacion" Type="datetime" />
+          <Property Name="ModificadoPor" Type="nvarchar" MaxLength="32" />
+          <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO">
+          <End Role="BEMPL_CAT_NIVEL_ESTUDIO" Type="Self.BEMPL_CAT_NIVEL_ESTUDIO" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOS_ACADEMICOS" Type="Self.BEMPL_DATOS_ACADEMICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_ESTUDIO">
+              <PropertyRef Name="IdNivelEstudio" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdNivelEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS">
+          <End Role="BEMPL_DATOS_ACADEMICOS" Type="Self.BEMPL_DATOS_ACADEMICOS" Multiplicity="1" />
+          <End Role="BEMPL_DATOS_ACADEMICOS1" Type="Self.BEMPL_DATOS_ACADEMICOS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdEstudio" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS1">
+              <PropertyRef Name="IdEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO">
+          <End Role="BEMPL_CAT_NIVEL_ACADEMICO" Type="Self.BEMPL_CAT_NIVEL_ACADEMICO" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOS_ACADEMICOS" Type="Self.BEMPL_DATOS_ACADEMICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_ACADEMICO">
+              <PropertyRef Name="IdEstadoNivelAcademico" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdEstadonivelAcademico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES">
+          <End Role="BEMPL_CAT_CAPACITACIONES" Type="Self.BEMPL_CAT_CAPACITACIONES" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_CAPACITACIONES">
+              <PropertyRef Name="IdCapacitacion" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdCapacitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD">
+          <End Role="BEMPL_CAT_CIUDAD" Type="Self.BEMPL_CAT_CIUDAD" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_CIUDAD">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL">
+          <End Role="BEMPL_CAT_ESTADO_CIVIL" Type="Self.BEMPL_CAT_ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_ESTADO_CIVIL">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO">
+          <End Role="BEMPL_CAT_GENERO" Type="Self.BEMPL_CAT_GENERO" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_GENERO">
+              <PropertyRef Name="IdGenero" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD">
+          <End Role="BEMPL_CAT_NACIONALIDAD" Type="Self.BEMPL_CAT_NACIONALIDAD" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NACIONALIDAD">
+              <PropertyRef Name="IdNacionalidad" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdNacionalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS">
+          <End Role="BEMPL_CAT_PROVINCIAS" Type="Self.BEMPL_CAT_PROVINCIAS" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_PROVINCIAS">
+              <PropertyRef Name="IdProvincia" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION">
+          <End Role="BEMPL_CAT_TIPO_IDENTIFICACION" Type="Self.BEMPL_CAT_TIPO_IDENTIFICACION" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_TIPO_IDENTIFICACION">
+              <PropertyRef Name="IdTipoIdentificacion" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdTipoIdentificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO">
+          <End Role="BEMPL_USUARIO" Type="Self.BEMPL_USUARIO" Multiplicity="0..1" />
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE">
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Role="BEMPL_EXPERIENCIA_LABORAL" Type="Self.BEMPL_EXPERIENCIA_LABORAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_EXPERIENCIA_LABORAL">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS">
+          <End Role="BEMPL_CAT_IDIOMAS" Type="Self.BEMPL_CAT_IDIOMAS" Multiplicity="0..1" />
+          <End Role="BEMPL_IDIOMAS_POSTULANTE" Type="Self.BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_IDIOMAS">
+              <PropertyRef Name="IdIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA">
+          <End Role="BEMPL_CAT_NIVEL_IDIOMA" Type="Self.BEMPL_CAT_NIVEL_IDIOMA" Multiplicity="0..1" />
+          <End Role="BEMPL_IDIOMAS_POSTULANTE" Type="Self.BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_IDIOMA">
+              <PropertyRef Name="IdNivelIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdNivelIdiomaOral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1">
+          <End Role="BEMPL_CAT_NIVEL_IDIOMA" Type="Self.BEMPL_CAT_NIVEL_IDIOMA" Multiplicity="0..1" />
+          <End Role="BEMPL_IDIOMAS_POSTULANTE" Type="Self.BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_IDIOMA">
+              <PropertyRef Name="IdNivelIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdNivelIdiomaEscrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE">
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Role="BEMPL_IDIOMAS_POSTULANTE" Type="Self.BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE">
+          <End Role="BEMPL_DATOSPOSTULANTE" Type="Self.BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Role="BEMPL_REFERENCIAS_LABORA" Type="Self.BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL">
+          <End Role="BEMPL_EXPERIENCIA_LABORAL" Type="Self.BEMPL_EXPERIENCIA_LABORAL" Multiplicity="0..1" />
+          <End Role="BEMPL_REFERENCIAS_LABORA" Type="Self.BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_EXPERIENCIA_LABORAL">
+              <PropertyRef Name="IdExperiencia" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdExperiencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT">
+          <End Role="BEMPL_RELACION_REF_CAT" Type="Self.BEMPL_RELACION_REF_CAT" Multiplicity="0..1" />
+          <End Role="BEMPL_REFERENCIAS_LABORA" Type="Self.BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_RELACION_REF_CAT">
+              <PropertyRef Name="IdRelacionReferencia" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdRelacionReferenciaCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_ReportPostulantes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idGenero" Type="int" Mode="In" />
+          <Parameter Name="carnetDiscapacidad" Type="bit" Mode="In" />
+          <Parameter Name="movilizacion" Type="bit" Mode="In" />
+          <Parameter Name="aniosExperienciaDesde" Type="int" Mode="In" />
+          <Parameter Name="aniosExperienciaHasta" Type="int" Mode="In" />
+          <Parameter Name="sueldoPretendidoDesde" Type="decimal" Mode="In" />
+          <Parameter Name="sueldoPretendidoHasta" Type="decimal" Mode="In" />
+          <Parameter Name="edadDesde" Type="int" Mode="In" />
+          <Parameter Name="edadHasta" Type="int" Mode="In" />
+          <Parameter Name="puesto" Type="varchar" Mode="In" />
+          <Parameter Name="estudio" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TALENTO_HUMANOModelStoreContainer">
+          <EntitySet Name="BEMPL_CAT_CAPACITACIONES" EntityType="Self.BEMPL_CAT_CAPACITACIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_CIUDAD" EntityType="Self.BEMPL_CAT_CIUDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_ESTADO_CIVIL" EntityType="Self.BEMPL_CAT_ESTADO_CIVIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_GENERO" EntityType="Self.BEMPL_CAT_GENERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_IDIOMAS" EntityType="Self.BEMPL_CAT_IDIOMAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_NACIONALIDAD" EntityType="Self.BEMPL_CAT_NACIONALIDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_ACADEMICO" EntityType="Self.BEMPL_CAT_NIVEL_ACADEMICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_ESTUDIO" EntityType="Self.BEMPL_CAT_NIVEL_ESTUDIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_IDIOMA" EntityType="Self.BEMPL_CAT_NIVEL_IDIOMA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_PROVINCIAS" EntityType="Self.BEMPL_CAT_PROVINCIAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_CAT_TIPO_IDENTIFICACION" EntityType="Self.BEMPL_CAT_TIPO_IDENTIFICACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_DATOS_ACADEMICOS" EntityType="Self.BEMPL_DATOS_ACADEMICOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_DATOSPOSTULANTE" EntityType="Self.BEMPL_DATOSPOSTULANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_ESTADONIVELACADEMICO" EntityType="Self.BEMPL_ESTADONIVELACADEMICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_EXPERIENCIA_LABORAL" EntityType="Self.BEMPL_EXPERIENCIA_LABORAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_IDIOMAS_POSTULANTE" EntityType="Self.BEMPL_IDIOMAS_POSTULANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_REFERENCIAS_LABORA" EntityType="Self.BEMPL_REFERENCIAS_LABORA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_RELACION_REF_CAT" EntityType="Self.BEMPL_RELACION_REF_CAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BEMPL_USUARIO" EntityType="Self.BEMPL_USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO" Association="Self.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO">
+            <End Role="BEMPL_CAT_NIVEL_ESTUDIO" EntitySet="BEMPL_CAT_NIVEL_ESTUDIO" />
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS" Association="Self.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS">
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+            <End Role="BEMPL_DATOS_ACADEMICOS1" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO" Association="Self.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO">
+            <End Role="BEMPL_CAT_NIVEL_ACADEMICO" EntitySet="BEMPL_CAT_NIVEL_ACADEMICO" />
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES">
+            <End Role="BEMPL_CAT_CAPACITACIONES" EntitySet="BEMPL_CAT_CAPACITACIONES" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD">
+            <End Role="BEMPL_CAT_CIUDAD" EntitySet="BEMPL_CAT_CIUDAD" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL">
+            <End Role="BEMPL_CAT_ESTADO_CIVIL" EntitySet="BEMPL_CAT_ESTADO_CIVIL" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO">
+            <End Role="BEMPL_CAT_GENERO" EntitySet="BEMPL_CAT_GENERO" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD">
+            <End Role="BEMPL_CAT_NACIONALIDAD" EntitySet="BEMPL_CAT_NACIONALIDAD" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS">
+            <End Role="BEMPL_CAT_PROVINCIAS" EntitySet="BEMPL_CAT_PROVINCIAS" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION">
+            <End Role="BEMPL_CAT_TIPO_IDENTIFICACION" EntitySet="BEMPL_CAT_TIPO_IDENTIFICACION" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO" Association="Self.FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO">
+            <End Role="BEMPL_USUARIO" EntitySet="BEMPL_USUARIO" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE" Association="Self.FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_EXPERIENCIA_LABORAL" EntitySet="BEMPL_EXPERIENCIA_LABORAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS" Association="Self.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS">
+            <End Role="BEMPL_CAT_IDIOMAS" EntitySet="BEMPL_CAT_IDIOMAS" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA" Association="Self.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA">
+            <End Role="BEMPL_CAT_NIVEL_IDIOMA" EntitySet="BEMPL_CAT_NIVEL_IDIOMA" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1" Association="Self.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1">
+            <End Role="BEMPL_CAT_NIVEL_IDIOMA" EntitySet="BEMPL_CAT_NIVEL_IDIOMA" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE" Association="Self.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE" Association="Self.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL" Association="Self.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL">
+            <End Role="BEMPL_EXPERIENCIA_LABORAL" EntitySet="BEMPL_EXPERIENCIA_LABORAL" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT" Association="Self.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT">
+            <End Role="BEMPL_RELACION_REF_CAT" EntitySet="BEMPL_RELACION_REF_CAT" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TALENTO_HUMANOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BEMPL_CAT_ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="IdEstadoCivil" />
+          </Key>
+          <Property Name="IdEstadoCivil" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL" FromRole="BEMPL_CAT_ESTADO_CIVIL" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_GENERO">
+          <Key>
+            <PropertyRef Name="IdGenero" />
+          </Key>
+          <Property Name="IdGenero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO" FromRole="BEMPL_CAT_GENERO" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_IDIOMAS">
+          <Key>
+            <PropertyRef Name="IdIdioma" />
+          </Key>
+          <Property Name="IdIdioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdiomaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_IDIOMAS_POSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS" FromRole="BEMPL_CAT_IDIOMAS" ToRole="BEMPL_IDIOMAS_POSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NACIONALIDAD">
+          <Key>
+            <PropertyRef Name="IdNacionalidad" />
+          </Key>
+          <Property Name="IdNacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD" FromRole="BEMPL_CAT_NACIONALIDAD" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_ESTUDIO">
+          <Key>
+            <PropertyRef Name="IdNivelEstudio" />
+          </Key>
+          <Property Name="IdNivelEstudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NivelEstudioDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOS_ACADEMICOS" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO" FromRole="BEMPL_CAT_NIVEL_ESTUDIO" ToRole="BEMPL_DATOS_ACADEMICOS" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_IDIOMA">
+          <Key>
+            <PropertyRef Name="IdNivelIdioma" />
+          </Key>
+          <Property Name="IdNivelIdioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NivelIdiomaDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_IDIOMAS_POSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA" FromRole="BEMPL_CAT_NIVEL_IDIOMA" ToRole="BEMPL_IDIOMAS_POSTULANTE" />
+          <NavigationProperty Name="BEMPL_IDIOMAS_POSTULANTE1" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1" FromRole="BEMPL_CAT_NIVEL_IDIOMA" ToRole="BEMPL_IDIOMAS_POSTULANTE" />
+          </EntityType>
+        <EntityType Name="BEMPL_CAT_TIPO_IDENTIFICACION">
+          <Key>
+            <PropertyRef Name="IdTipoIdentificacion" />
+          </Key>
+          <Property Name="IdTipoIdentificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION" FromRole="BEMPL_CAT_TIPO_IDENTIFICACION" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_CIUDAD">
+          <Key>
+            <PropertyRef Name="IdCiudad" />
+          </Key>
+          <Property Name="IdCiudad" Type="Int32" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IdProvincia" Type="Int32" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD" FromRole="BEMPL_CAT_CIUDAD" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityContainer Name="TALENTO_HUMANOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BEMPL_CAT_ESTADO_CIVIL" EntityType="Self.BEMPL_CAT_ESTADO_CIVIL" />
+          <EntitySet Name="BEMPL_CAT_GENERO" EntityType="Self.BEMPL_CAT_GENERO" />
+          <EntitySet Name="BEMPL_CAT_IDIOMAS" EntityType="Self.BEMPL_CAT_IDIOMAS" />
+          <EntitySet Name="BEMPL_CAT_NACIONALIDAD" EntityType="Self.BEMPL_CAT_NACIONALIDAD" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_ESTUDIO" EntityType="Self.BEMPL_CAT_NIVEL_ESTUDIO" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_IDIOMA" EntityType="Self.BEMPL_CAT_NIVEL_IDIOMA" />
+          <EntitySet Name="BEMPL_CAT_TIPO_IDENTIFICACION" EntityType="Self.BEMPL_CAT_TIPO_IDENTIFICACION" />
+          <EntitySet Name="BEMPL_CAT_CIUDAD" EntityType="Self.BEMPL_CAT_CIUDAD" />
+          <EntitySet Name="BEMPL_CAT_PROVINCIAS" EntityType="TALENTO_HUMANOModel.BEMPL_CAT_PROVINCIAS" />
+          <EntitySet Name="BEMPL_USUARIO" EntityType="TALENTO_HUMANOModel.BEMPL_USUARIO" />
+          <EntitySet Name="BEMPL_CAT_NIVEL_ACADEMICO" EntityType="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ACADEMICO" />
+          <EntitySet Name="BEMPL_DATOS_ACADEMICOS" EntityType="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" />
+          <EntitySet Name="BEMPL_ESTADONIVELACADEMICO" EntityType="TALENTO_HUMANOModel.BEMPL_ESTADONIVELACADEMICO" />
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO">
+            <End Role="BEMPL_CAT_NIVEL_ESTUDIO" EntitySet="BEMPL_CAT_NIVEL_ESTUDIO" />
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS">
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+            <End Role="BEMPL_DATOS_ACADEMICOS1" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO">
+            <End Role="BEMPL_ESTADONIVELACADEMICO" EntitySet="BEMPL_ESTADONIVELACADEMICO" />
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1">
+            <End Role="BEMPL_CAT_NIVEL_ACADEMICO" EntitySet="BEMPL_CAT_NIVEL_ACADEMICO" />
+            <End Role="BEMPL_DATOS_ACADEMICOS" EntitySet="BEMPL_DATOS_ACADEMICOS" />
+          </AssociationSet>
+          <EntitySet Name="BEMPL_IDIOMAS_POSTULANTE" EntityType="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" />
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS" Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS">
+            <End Role="BEMPL_CAT_IDIOMAS" EntitySet="BEMPL_CAT_IDIOMAS" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA" Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA">
+            <End Role="BEMPL_CAT_NIVEL_IDIOMA" EntitySet="BEMPL_CAT_NIVEL_IDIOMA" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1" Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1">
+            <End Role="BEMPL_CAT_NIVEL_IDIOMA" EntitySet="BEMPL_CAT_NIVEL_IDIOMA" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <EntitySet Name="BEMPL_EXPERIENCIA_LABORAL" EntityType="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL" />
+          <EntitySet Name="BEMPL_DATOSPOSTULANTE" EntityType="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" />
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD">
+            <End Role="BEMPL_CAT_CIUDAD" EntitySet="BEMPL_CAT_CIUDAD" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL">
+            <End Role="BEMPL_CAT_ESTADO_CIVIL" EntitySet="BEMPL_CAT_ESTADO_CIVIL" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO">
+            <End Role="BEMPL_CAT_GENERO" EntitySet="BEMPL_CAT_GENERO" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD">
+            <End Role="BEMPL_CAT_NACIONALIDAD" EntitySet="BEMPL_CAT_NACIONALIDAD" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS">
+            <End Role="BEMPL_CAT_PROVINCIAS" EntitySet="BEMPL_CAT_PROVINCIAS" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION">
+            <End Role="BEMPL_CAT_TIPO_IDENTIFICACION" EntitySet="BEMPL_CAT_TIPO_IDENTIFICACION" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO">
+            <End Role="BEMPL_USUARIO" EntitySet="BEMPL_USUARIO" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE" Association="TALENTO_HUMANOModel.FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_EXPERIENCIA_LABORAL" EntitySet="BEMPL_EXPERIENCIA_LABORAL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE" Association="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_IDIOMAS_POSTULANTE" EntitySet="BEMPL_IDIOMAS_POSTULANTE" />
+          </AssociationSet>
+          <EntitySet Name="BEMPL_REFERENCIAS_LABORA" EntityType="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA" />
+          <EntitySet Name="BEMPL_RELACION_REF_CAT" EntityType="TALENTO_HUMANOModel.BEMPL_RELACION_REF_CAT" />
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE" Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE">
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT" Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT">
+            <End Role="BEMPL_RELACION_REF_CAT" EntitySet="BEMPL_RELACION_REF_CAT" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL" Association="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL">
+            <End Role="BEMPL_EXPERIENCIA_LABORAL" EntitySet="BEMPL_EXPERIENCIA_LABORAL" />
+            <End Role="BEMPL_REFERENCIAS_LABORA" EntitySet="BEMPL_REFERENCIAS_LABORA" />
+          </AssociationSet>
+          <EntitySet Name="BEMPL_CAT_CAPACITACIONES" EntityType="TALENTO_HUMANOModel.BEMPL_CAT_CAPACITACIONES" />
+          <AssociationSet Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES" Association="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES">
+            <End Role="BEMPL_CAT_CAPACITACIONES" EntitySet="BEMPL_CAT_CAPACITACIONES" />
+            <End Role="BEMPL_DATOSPOSTULANTE" EntitySet="BEMPL_DATOSPOSTULANTE" />
+          </AssociationSet>
+          <FunctionImport Name="sp_ReportPostulantes" ReturnType="Collection(TALENTO_HUMANOModel.sp_ReportPostulantes_Result)">
+            <Parameter Name="idGenero" Mode="In" Type="Int32" />
+            <Parameter Name="carnetDiscapacidad" Mode="In" Type="Boolean" />
+            <Parameter Name="movilizacion" Mode="In" Type="Boolean" />
+            <Parameter Name="aniosExperienciaDesde" Mode="In" Type="Int32" />
+            <Parameter Name="aniosExperienciaHasta" Mode="In" Type="Int32" />
+            <Parameter Name="sueldoPretendidoDesde" Mode="In" Type="Decimal" />
+            <Parameter Name="sueldoPretendidoHasta" Mode="In" Type="Decimal" />
+            <Parameter Name="edadDesde" Mode="In" Type="Int32" />
+            <Parameter Name="edadHasta" Mode="In" Type="Int32" />
+            <Parameter Name="puesto" Mode="In" Type="String" />
+            <Parameter Name="estudio" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
+        <EntityType Name="BEMPL_CAT_PROVINCIAS">
+          <Key>
+            <PropertyRef Name="IdProvincia" />
+          </Key>
+          <Property Name="IdProvincia" Type="Int32" Nullable="false" />
+          <Property Name="Provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS" FromRole="BEMPL_CAT_PROVINCIAS" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_USUARIO">
+          <Key>
+            <PropertyRef Name="IdUsuario" />
+          </Key>
+          <Property Name="IdUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="CorreoUsuario" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="IsRecuperaPassword" Type="Boolean" />
+          <Property Name="CreadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="EstacionCreacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO" FromRole="BEMPL_USUARIO" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <EntityType Name="BEMPL_CAT_NIVEL_ACADEMICO">
+          <Key>
+            <PropertyRef Name="IdEstadoNivelAcademico" />
+          </Key>
+          <Property Name="IdEstadoNivelAcademico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DescripcionNivelAcademico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOS_ACADEMICOS" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1" FromRole="BEMPL_CAT_NIVEL_ACADEMICO" ToRole="BEMPL_DATOS_ACADEMICOS" />
+        </EntityType>
+        <EntityType Name="BEMPL_DATOS_ACADEMICOS">
+          <Key>
+            <PropertyRef Name="IdEstudio" />
+          </Key>
+          <Property Name="IdEstudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdDatosPostulante" Type="Int32" />
+          <Property Name="Institucion" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="IdNivelEstudio" Type="Int32" />
+          <Property Name="IdEstadonivelAcademico" Type="Int32" />
+          <Property Name="AnioInicio" Type="Int32" />
+          <Property Name="MesInicio" Type="Int32" />
+          <Property Name="AnioFin" Type="Int32" />
+          <Property Name="MesFin" Type="Int32" />
+          <Property Name="AlPresente" Type="Boolean" />
+          <Property Name="Titulo" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BEMPL_CAT_NIVEL_ESTUDIO" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO" FromRole="BEMPL_DATOS_ACADEMICOS" ToRole="BEMPL_CAT_NIVEL_ESTUDIO" />
+          <NavigationProperty Name="BEMPL_DATOS_ACADEMICOS1" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS" FromRole="BEMPL_DATOS_ACADEMICOS" ToRole="BEMPL_DATOS_ACADEMICOS1" />
+          <NavigationProperty Name="BEMPL_DATOS_ACADEMICOS2" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS" FromRole="BEMPL_DATOS_ACADEMICOS1" ToRole="BEMPL_DATOS_ACADEMICOS" />
+          <NavigationProperty Name="BEMPL_ESTADONIVELACADEMICO" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO" FromRole="BEMPL_DATOS_ACADEMICOS" ToRole="BEMPL_ESTADONIVELACADEMICO" />
+          <NavigationProperty Name="BEMPL_CAT_NIVEL_ACADEMICO" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1" FromRole="BEMPL_DATOS_ACADEMICOS" ToRole="BEMPL_CAT_NIVEL_ACADEMICO" />
+          <Property Name="MesInicioDesc" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="MesFinDesc" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="BEMPL_ESTADONIVELACADEMICO">
+          <Key>
+            <PropertyRef Name="IdEstadoAcademico" />
+          </Key>
+          <Property Name="IdEstadoAcademico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Int32" />
+          <NavigationProperty Name="BEMPL_DATOS_ACADEMICOS" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO" FromRole="BEMPL_ESTADONIVELACADEMICO" ToRole="BEMPL_DATOS_ACADEMICOS" />
+        </EntityType>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_CAT_NIVEL_ESTUDIO">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ESTUDIO" Role="BEMPL_CAT_NIVEL_ESTUDIO" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Role="BEMPL_DATOS_ACADEMICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_ESTUDIO">
+              <PropertyRef Name="IdNivelEstudio" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdNivelEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_DATOS_ACADEMICOS">
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Role="BEMPL_DATOS_ACADEMICOS" Multiplicity="1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Role="BEMPL_DATOS_ACADEMICOS1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdEstudio" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS1">
+              <PropertyRef Name="IdEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO">
+          <End Type="TALENTO_HUMANOModel.BEMPL_ESTADONIVELACADEMICO" Role="BEMPL_ESTADONIVELACADEMICO" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Role="BEMPL_DATOS_ACADEMICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_ESTADONIVELACADEMICO">
+              <PropertyRef Name="IdEstadoAcademico" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdEstadonivelAcademico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOS_ACADEMICOS_BEMPL_ESTADONIVELACADEMICO1">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ACADEMICO" Role="BEMPL_CAT_NIVEL_ACADEMICO" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS" Role="BEMPL_DATOS_ACADEMICOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_ACADEMICO">
+              <PropertyRef Name="IdEstadoNivelAcademico" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOS_ACADEMICOS">
+              <PropertyRef Name="IdEstadonivelAcademico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BEMPL_IDIOMAS_POSTULANTE">
+          <Key>
+            <PropertyRef Name="IdIdiomaPostulante" />
+          </Key>
+          <Property Name="IdIdiomaPostulante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPostulante" Type="Int32" />
+          <Property Name="IdIdioma" Type="Int32" />
+          <Property Name="IdNivelIdiomaOral" Type="Int32" />
+          <Property Name="IdNivelIdiomaEscrito" Type="Int32" />
+          <NavigationProperty Name="BEMPL_CAT_IDIOMAS" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS" FromRole="BEMPL_IDIOMAS_POSTULANTE" ToRole="BEMPL_CAT_IDIOMAS" />
+          <NavigationProperty Name="BEMPL_CAT_NIVEL_IDIOMA" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA" FromRole="BEMPL_IDIOMAS_POSTULANTE" ToRole="BEMPL_CAT_NIVEL_IDIOMA" />
+          <NavigationProperty Name="BEMPL_CAT_NIVEL_IDIOMA1" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1" FromRole="BEMPL_IDIOMAS_POSTULANTE" ToRole="BEMPL_CAT_NIVEL_IDIOMA" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_IDIOMAS_POSTULANTE" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_IDIOMAS">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_IDIOMAS" Role="BEMPL_CAT_IDIOMAS" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" Role="BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_IDIOMAS">
+              <PropertyRef Name="IdIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_IDIOMA" Role="BEMPL_CAT_NIVEL_IDIOMA" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" Role="BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_IDIOMA">
+              <PropertyRef Name="IdNivelIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdNivelIdiomaOral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_CAT_NIVEL_IDIOMA1">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_IDIOMA" Role="BEMPL_CAT_NIVEL_IDIOMA" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" Role="BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NIVEL_IDIOMA">
+              <PropertyRef Name="IdNivelIdioma" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdNivelIdiomaEscrito" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BEMPL_EXPERIENCIA_LABORAL">
+          <Key>
+            <PropertyRef Name="IdExperiencia" />
+          </Key>
+          <Property Name="IdExperiencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPostulante" Type="Int32" />
+          <Property Name="Empresa" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MesIni" Type="Int32" />
+          <Property Name="AnioInicio" Type="Int32" />
+          <Property Name="MesFin" Type="Int32" />
+          <Property Name="AnioFin" Type="Int32" />
+          <Property Name="MesInicioDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MesFinDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AlPresente" Type="Boolean" />
+          <Property Name="ResumenActividades" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="PersonasACargo" Type="Int32" />
+          <Property Name="Puesto" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="PresupuestoVentasMensual" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_EXPERIENCIA_LABORAL" ToRole="BEMPL_DATOSPOSTULANTE" />
+          <NavigationProperty Name="BEMPL_REFERENCIAS_LABORA" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL" FromRole="BEMPL_EXPERIENCIA_LABORAL" ToRole="BEMPL_REFERENCIAS_LABORA" />
+        </EntityType>
+        <EntityType Name="BEMPL_DATOSPOSTULANTE">
+          <Key>
+            <PropertyRef Name="IdPostulante" />
+          </Key>
+          <Property Name="IdPostulante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IdTipoIdentificacion" Type="Int32" />
+          <Property Name="Identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IdGenero" Type="Int32" />
+          <Property Name="IdEstadoCivil" Type="Int32" />
+          <Property Name="IdProvincia" Type="Int32" />
+          <Property Name="IdCiudad" Type="Int32" />
+          <Property Name="MoilizacionPropia" Type="Boolean" />
+          <Property Name="CarnetDiscapacidad" Type="Boolean" />
+          <Property Name="DiasCambio" Type="Int32" />
+          <Property Name="AreaInteresCapacitacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UrlAdjuntoCV" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UrlVideo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="AspiracionSalarial" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UrlDiscapacidad" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DetalleDiscapacidades" Type="String" MaxLength="1048" FixedLength="false" Unicode="false" />
+          <Property Name="IdUsuario" Type="Int32" />
+          <Property Name="Correo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Celular" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PorcentajeHojaVida" Type="Int32" />
+          <Property Name="UrlImagenPerfil" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="IdNacionalidad" Type="Int32" />
+          <Property Name="IsEnviadoEmailCandidato" Type="Boolean" />
+          <Property Name="FechaHoraEnviadoEmailCandidato" Type="DateTime" Precision="3" />
+          <Property Name="CreadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="EstacionCreacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BEMPL_CAT_CIUDAD" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_CIUDAD" />
+          <NavigationProperty Name="BEMPL_CAT_ESTADO_CIVIL" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_ESTADO_CIVIL" />
+          <NavigationProperty Name="BEMPL_CAT_GENERO" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_GENERO" />
+          <NavigationProperty Name="BEMPL_CAT_NACIONALIDAD" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_NACIONALIDAD" />
+          <NavigationProperty Name="BEMPL_CAT_PROVINCIAS" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_PROVINCIAS" />
+          <NavigationProperty Name="BEMPL_CAT_TIPO_IDENTIFICACION" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_TIPO_IDENTIFICACION" />
+          <NavigationProperty Name="BEMPL_USUARIO" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_USUARIO" />
+          <NavigationProperty Name="BEMPL_EXPERIENCIA_LABORAL" Relationship="TALENTO_HUMANOModel.FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_EXPERIENCIA_LABORAL" />
+          <NavigationProperty Name="BEMPL_IDIOMAS_POSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_IDIOMAS_POSTULANTE" />
+          <NavigationProperty Name="BEMPL_REFERENCIAS_LABORA" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_REFERENCIAS_LABORA" />
+          <Property Name="AniosExperiencia" Type="Int32" />
+          <Property Name="IdCapacitacion" Type="Int32" />
+          <Property Name="Otros" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BEMPL_CAT_CAPACITACIONES" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES" FromRole="BEMPL_DATOSPOSTULANTE" ToRole="BEMPL_CAT_CAPACITACIONES" />
+        </EntityType>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CIUDAD">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_CIUDAD" Role="BEMPL_CAT_CIUDAD" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_CIUDAD">
+              <PropertyRef Name="IdCiudad" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_ESTADO_CIVIL">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_ESTADO_CIVIL" Role="BEMPL_CAT_ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_ESTADO_CIVIL">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdEstadoCivil" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_GENERO">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_GENERO" Role="BEMPL_CAT_GENERO" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_GENERO">
+              <PropertyRef Name="IdGenero" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_NACIONALIDAD">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_NACIONALIDAD" Role="BEMPL_CAT_NACIONALIDAD" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_NACIONALIDAD">
+              <PropertyRef Name="IdNacionalidad" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdNacionalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_PROVINCIAS">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_PROVINCIAS" Role="BEMPL_CAT_PROVINCIAS" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_PROVINCIAS">
+              <PropertyRef Name="IdProvincia" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdProvincia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_TIPO_IDENTIFICACION">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_TIPO_IDENTIFICACION" Role="BEMPL_CAT_TIPO_IDENTIFICACION" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_TIPO_IDENTIFICACION">
+              <PropertyRef Name="IdTipoIdentificacion" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdTipoIdentificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_USUARIO">
+          <End Type="TALENTO_HUMANOModel.BEMPL_USUARIO" Role="BEMPL_USUARIO" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_USUARIO">
+              <PropertyRef Name="IdUsuario" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_EXPERIENCIA_LABORAL_BEMPL_DATOSPOSTULANTE">
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL" Role="BEMPL_EXPERIENCIA_LABORAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_EXPERIENCIA_LABORAL">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_IDIOMAS_POSTULANTE_BEMPL_DATOSPOSTULANTE">
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE" Role="BEMPL_IDIOMAS_POSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_IDIOMAS_POSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BEMPL_REFERENCIAS_LABORA">
+          <Key>
+            <PropertyRef Name="IdReferencia" />
+          </Key>
+          <Property Name="IdReferencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdPostulante" Type="Int32" />
+          <Property Name="Nombre" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="IdRelacionReferenciaCat" Type="Int32" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE" FromRole="BEMPL_REFERENCIAS_LABORA" ToRole="BEMPL_DATOSPOSTULANTE" />
+          <NavigationProperty Name="BEMPL_RELACION_REF_CAT" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT" FromRole="BEMPL_REFERENCIAS_LABORA" ToRole="BEMPL_RELACION_REF_CAT" />
+          <Property Name="IdExperiencia" Type="Int32" />
+          <NavigationProperty Name="BEMPL_EXPERIENCIA_LABORAL" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL" FromRole="BEMPL_REFERENCIAS_LABORA" ToRole="BEMPL_EXPERIENCIA_LABORAL" />
+        </EntityType>
+        <EntityType Name="BEMPL_RELACION_REF_CAT">
+          <Key>
+            <PropertyRef Name="IdRelacionReferencia" />
+          </Key>
+          <Property Name="IdRelacionReferencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_REFERENCIAS_LABORA" Relationship="TALENTO_HUMANOModel.FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT" FromRole="BEMPL_RELACION_REF_CAT" ToRole="BEMPL_REFERENCIAS_LABORA" />
+        </EntityType>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_DATOSPOSTULANTE">
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA" Role="BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdPostulante" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdPostulante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_RELACION_REF_CAT">
+          <End Type="TALENTO_HUMANOModel.BEMPL_RELACION_REF_CAT" Role="BEMPL_RELACION_REF_CAT" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA" Role="BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_RELACION_REF_CAT">
+              <PropertyRef Name="IdRelacionReferencia" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdRelacionReferenciaCat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BEMPL_REFERENCIAS_LABORA_BEMPL_EXPERIENCIA_LABORAL">
+          <End Type="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL" Role="BEMPL_EXPERIENCIA_LABORAL" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA" Role="BEMPL_REFERENCIAS_LABORA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_EXPERIENCIA_LABORAL">
+              <PropertyRef Name="IdExperiencia" />
+            </Principal>
+            <Dependent Role="BEMPL_REFERENCIAS_LABORA">
+              <PropertyRef Name="IdExperiencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="BEMPL_CAT_CAPACITACIONES">
+          <Key>
+            <PropertyRef Name="IdCapacitacion" />
+          </Key>
+          <Property Name="IdCapacitacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="BEMPL_DATOSPOSTULANTE" Relationship="TALENTO_HUMANOModel.FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES" FromRole="BEMPL_CAT_CAPACITACIONES" ToRole="BEMPL_DATOSPOSTULANTE" />
+        </EntityType>
+        <Association Name="FK_BEMPL_DATOSPOSTULANTE_BEMPL_CAT_CAPACITACIONES">
+          <End Type="TALENTO_HUMANOModel.BEMPL_CAT_CAPACITACIONES" Role="BEMPL_CAT_CAPACITACIONES" Multiplicity="0..1" />
+          <End Type="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE" Role="BEMPL_DATOSPOSTULANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BEMPL_CAT_CAPACITACIONES">
+              <PropertyRef Name="IdCapacitacion" />
+            </Principal>
+            <Dependent Role="BEMPL_DATOSPOSTULANTE">
+              <PropertyRef Name="IdCapacitacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_ReportPostulantes_Result">
+          <Property Type="Int32" Name="IdPostulante" Nullable="false" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdTipoIdentificacion" Nullable="true" />
+          <Property Type="String" Name="Identificacion" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="IdGenero" Nullable="true" />
+          <Property Type="Int32" Name="IdEstadoCivil" Nullable="true" />
+          <Property Type="Int32" Name="IdProvincia" Nullable="true" />
+          <Property Type="Int32" Name="IdCiudad" Nullable="true" />
+          <Property Type="Boolean" Name="MoilizacionPropia" Nullable="true" />
+          <Property Type="Boolean" Name="CarnetDiscapacidad" Nullable="true" />
+          <Property Type="Int32" Name="DiasCambio" Nullable="true" />
+          <Property Type="String" Name="AreaInteresCapacitacion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="UrlAdjuntoCV" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="UrlVideo" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="AspiracionSalarial" Nullable="true" Precision="18" Scale="2" />
+          <Property Type="String" Name="UrlDiscapacidad" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="DetalleDiscapacidades" Nullable="true" MaxLength="1048" />
+          <Property Type="Int32" Name="IdUsuario" Nullable="true" />
+          <Property Type="String" Name="Correo" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" />
+          <Property Type="String" Name="Celular" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="PorcentajeHojaVida" Nullable="true" />
+          <Property Type="String" Name="UrlImagenPerfil" Nullable="true" MaxLength="350" />
+          <Property Type="Int32" Name="IdNacionalidad" Nullable="true" />
+          <Property Type="Boolean" Name="IsEnviadoEmailCandidato" Nullable="true" />
+          <Property Type="DateTime" Name="FechaHoraEnviadoEmailCandidato" Nullable="true" Precision="23" />
+          <Property Type="String" Name="CreadoPor" Nullable="true" MaxLength="32" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="EstacionCreacion" Nullable="true" MaxLength="32" />
+          <Property Type="DateTime" Name="UltimaModificacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ModificadoPor" Nullable="true" MaxLength="32" />
+          <Property Type="String" Name="EstacionModificacion" Nullable="true" MaxLength="32" />
+          <Property Type="Int32" Name="AniosExperiencia" Nullable="true" />
+          <Property Type="Int32" Name="IdCapacitacion" Nullable="true" />
+          <Property Type="String" Name="Otros" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="edad" Nullable="true" />
+          <Property Type="String" Name="Genero" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EstadoCivil" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Provincia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Ciudad" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION" Nullable="true" MaxLength="250" />
+        </ComplexType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TALENTO_HUMANOModelStoreContainer" CdmEntityContainer="TALENTO_HUMANOEntities">
+          <EntitySetMapping Name="BEMPL_CAT_ESTADO_CIVIL">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_ESTADO_CIVIL">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_ESTADO_CIVIL">
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_GENERO">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_GENERO">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_GENERO">
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_IDIOMAS">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_IDIOMAS">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_IDIOMAS">
+                <ScalarProperty Name="IdIdioma" ColumnName="IdIdioma" />
+                <ScalarProperty Name="IdiomaDescripcion" ColumnName="IdiomaDescripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_NACIONALIDAD">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NACIONALIDAD">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_NACIONALIDAD">
+                <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_NIVEL_ESTUDIO">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ESTUDIO">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_ESTUDIO">
+                <ScalarProperty Name="IdNivelEstudio" ColumnName="IdNivelEstudio" />
+                <ScalarProperty Name="NivelEstudioDescripcion" ColumnName="NivelEstudioDescripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_NIVEL_IDIOMA">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_IDIOMA">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_IDIOMA">
+                <ScalarProperty Name="IdNivelIdioma" ColumnName="IdNivelIdioma" />
+                <ScalarProperty Name="NivelIdiomaDescripcion" ColumnName="NivelIdiomaDescripcion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_TIPO_IDENTIFICACION">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_TIPO_IDENTIFICACION">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_TIPO_IDENTIFICACION">
+                <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_CIUDAD">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_CIUDAD">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_CIUDAD">
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_PROVINCIAS">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_PROVINCIAS">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_PROVINCIAS">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_USUARIO">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_USUARIO">
+              <MappingFragment StoreEntitySet="BEMPL_USUARIO">
+                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="IsRecuperaPassword" ColumnName="IsRecuperaPassword" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CorreoUsuario" ColumnName="CorreoUsuario" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_NIVEL_ACADEMICO">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ACADEMICO">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_ACADEMICO">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="DescripcionNivelAcademico" ColumnName="DescripcionNivelAcademico" />
+                <ScalarProperty Name="IdEstadoNivelAcademico" ColumnName="IdEstadoNivelAcademico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_DATOS_ACADEMICOS">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS">
+              <MappingFragment StoreEntitySet="BEMPL_DATOS_ACADEMICOS">
+                <ScalarProperty Name="MesFinDesc" ColumnName="MesFinDesc" />
+                <ScalarProperty Name="MesInicioDesc" ColumnName="MesInicioDesc" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="AlPresente" ColumnName="AlPresente" />
+                <ScalarProperty Name="MesFin" ColumnName="MesFin" />
+                <ScalarProperty Name="AnioFin" ColumnName="AnioFin" />
+                <ScalarProperty Name="MesInicio" ColumnName="MesInicio" />
+                <ScalarProperty Name="AnioInicio" ColumnName="AnioInicio" />
+                <ScalarProperty Name="IdEstadonivelAcademico" ColumnName="IdEstadonivelAcademico" />
+                <ScalarProperty Name="IdNivelEstudio" ColumnName="IdNivelEstudio" />
+                <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+                <ScalarProperty Name="IdDatosPostulante" ColumnName="IdDatosPostulante" />
+                <ScalarProperty Name="IdEstudio" ColumnName="IdEstudio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_ESTADONIVELACADEMICO">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_ESTADONIVELACADEMICO">
+              <MappingFragment StoreEntitySet="BEMPL_ESTADONIVELACADEMICO">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdEstadoAcademico" ColumnName="IdEstadoAcademico" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_IDIOMAS_POSTULANTE">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE">
+              <MappingFragment StoreEntitySet="BEMPL_IDIOMAS_POSTULANTE">
+                <ScalarProperty Name="IdNivelIdiomaEscrito" ColumnName="IdNivelIdiomaEscrito" />
+                <ScalarProperty Name="IdNivelIdiomaOral" ColumnName="IdNivelIdiomaOral" />
+                <ScalarProperty Name="IdIdioma" ColumnName="IdIdioma" />
+                <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+                <ScalarProperty Name="IdIdiomaPostulante" ColumnName="IdIdiomaPostulante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_EXPERIENCIA_LABORAL">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL">
+              <MappingFragment StoreEntitySet="BEMPL_EXPERIENCIA_LABORAL">
+                <ScalarProperty Name="PresupuestoVentasMensual" ColumnName="PresupuestoVentasMensual" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="PersonasACargo" ColumnName="PersonasACargo" />
+                <ScalarProperty Name="ResumenActividades" ColumnName="ResumenActividades" />
+                <ScalarProperty Name="AlPresente" ColumnName="AlPresente" />
+                <ScalarProperty Name="MesFinDesc" ColumnName="MesFinDesc" />
+                <ScalarProperty Name="MesInicioDesc" ColumnName="MesInicioDesc" />
+                <ScalarProperty Name="AnioFin" ColumnName="AnioFin" />
+                <ScalarProperty Name="MesFin" ColumnName="MesFin" />
+                <ScalarProperty Name="AnioInicio" ColumnName="AnioInicio" />
+                <ScalarProperty Name="MesIni" ColumnName="MesIni" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+                <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_DATOSPOSTULANTE">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE">
+              <MappingFragment StoreEntitySet="BEMPL_DATOSPOSTULANTE">
+                <ScalarProperty Name="Otros" ColumnName="Otros" />
+                <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+                <ScalarProperty Name="AniosExperiencia" ColumnName="AniosExperiencia" />
+                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaHoraEnviadoEmailCandidato" ColumnName="FechaHoraEnviadoEmailCandidato" />
+                <ScalarProperty Name="IsEnviadoEmailCandidato" ColumnName="IsEnviadoEmailCandidato" />
+                <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+                <ScalarProperty Name="UrlImagenPerfil" ColumnName="UrlImagenPerfil" />
+                <ScalarProperty Name="PorcentajeHojaVida" ColumnName="PorcentajeHojaVida" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="DetalleDiscapacidades" ColumnName="DetalleDiscapacidades" />
+                <ScalarProperty Name="UrlDiscapacidad" ColumnName="UrlDiscapacidad" />
+                <ScalarProperty Name="AspiracionSalarial" ColumnName="AspiracionSalarial" />
+                <ScalarProperty Name="UrlVideo" ColumnName="UrlVideo" />
+                <ScalarProperty Name="UrlAdjuntoCV" ColumnName="UrlAdjuntoCV" />
+                <ScalarProperty Name="AreaInteresCapacitacion" ColumnName="AreaInteresCapacitacion" />
+                <ScalarProperty Name="DiasCambio" ColumnName="DiasCambio" />
+                <ScalarProperty Name="CarnetDiscapacidad" ColumnName="CarnetDiscapacidad" />
+                <ScalarProperty Name="MoilizacionPropia" ColumnName="MoilizacionPropia" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_REFERENCIAS_LABORA">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA">
+              <MappingFragment StoreEntitySet="BEMPL_REFERENCIAS_LABORA">
+                <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+                <ScalarProperty Name="IdRelacionReferenciaCat" ColumnName="IdRelacionReferenciaCat" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+                <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_RELACION_REF_CAT">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_RELACION_REF_CAT">
+              <MappingFragment StoreEntitySet="BEMPL_RELACION_REF_CAT">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdRelacionReferencia" ColumnName="IdRelacionReferencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BEMPL_CAT_CAPACITACIONES">
+            <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_CAPACITACIONES">
+              <MappingFragment StoreEntitySet="BEMPL_CAT_CAPACITACIONES">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_ReportPostulantes" FunctionName="TALENTO_HUMANOModel.Store.sp_ReportPostulantes">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="TALENTO_HUMANOModel.sp_ReportPostulantes_Result">
+                <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+                <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+                <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+                <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+                <ScalarProperty Name="MoilizacionPropia" ColumnName="MoilizacionPropia" />
+                <ScalarProperty Name="CarnetDiscapacidad" ColumnName="CarnetDiscapacidad" />
+                <ScalarProperty Name="DiasCambio" ColumnName="DiasCambio" />
+                <ScalarProperty Name="AreaInteresCapacitacion" ColumnName="AreaInteresCapacitacion" />
+                <ScalarProperty Name="UrlAdjuntoCV" ColumnName="UrlAdjuntoCV" />
+                <ScalarProperty Name="UrlVideo" ColumnName="UrlVideo" />
+                <ScalarProperty Name="AspiracionSalarial" ColumnName="AspiracionSalarial" />
+                <ScalarProperty Name="UrlDiscapacidad" ColumnName="UrlDiscapacidad" />
+                <ScalarProperty Name="DetalleDiscapacidades" ColumnName="DetalleDiscapacidades" />
+                <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="PorcentajeHojaVida" ColumnName="PorcentajeHojaVida" />
+                <ScalarProperty Name="UrlImagenPerfil" ColumnName="UrlImagenPerfil" />
+                <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+                <ScalarProperty Name="IsEnviadoEmailCandidato" ColumnName="IsEnviadoEmailCandidato" />
+                <ScalarProperty Name="FechaHoraEnviadoEmailCandidato" ColumnName="FechaHoraEnviadoEmailCandidato" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+                <ScalarProperty Name="AniosExperiencia" ColumnName="AniosExperiencia" />
+                <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+                <ScalarProperty Name="Otros" ColumnName="Otros" />
+                <ScalarProperty Name="edad" ColumnName="edad" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
