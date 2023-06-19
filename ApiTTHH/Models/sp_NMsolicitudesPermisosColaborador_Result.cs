@@ -19,5 +19,16 @@ namespace ApiTTHH.Models
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaFin { get; set; }
         public int IdEstadoAprob { get; set; }
+        public int MesIni { get; set; }
+        public int DiaIni { get; set; }
+        public string MesFin { get; set; }
+        public int DiaFin { get; set; }
+        public string Descripcion { get; set; }
+        public int Anio { get; set; }
+        public string RespuestaSupervisor { get; set; }
+        public string RespuestaTalentoHumano { get; set; }
+        public string HoraInicio { get; set; }
+        public string HoraFin { get; set; }
+        public string Nombre { get; set; }
     }
 }

@@ -17,8 +17,8 @@ namespace ApiTTHH.Models
     
     public partial class CCQ_DESAEntities : DbContext
     {
-        public CCQ_DESAEntities()
-            : base("name=CCQ_DESAEntities")
+        public CCQ_DESAEntities(string connection = "")
+            : base(connection == string.Empty ? "name=CCQ_DESAEntities" : connection)
         {
         }
     
@@ -852,6 +852,37 @@ namespace ApiTTHH.Models
                 new ObjectParameter("idSupervisor", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosSupervisorColaborador_Result>("sp_NMsolicitudesPermisosSupervisorColaborador", idSupervisorParameter);
+        }
+    
+        public virtual ObjectResult<sp_NMsolicitudesPermisosColaborador_Result> sp_NMsolicitudesPermisosColaborador(Nullable<int> idColaborador)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosColaborador_Result>("sp_NMsolicitudesPermisosColaborador", idColaboradorParameter);
+        }
+    
+        public virtual ObjectResult<sp_CalculoCertificadoSueldo_Result> sp_CalculoCertificadoSueldo(Nullable<int> idColaborador, Nullable<int> idEmpresa)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            var idEmpresaParameter = idEmpresa.HasValue ?
+                new ObjectParameter("idEmpresa", idEmpresa) :
+                new ObjectParameter("idEmpresa", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_CalculoCertificadoSueldo_Result>("sp_CalculoCertificadoSueldo", idColaboradorParameter, idEmpresaParameter);
+        }
+    
+        public virtual ObjectResult<sp_AusenciasCCQ_Result> sp_AusenciasCCQ(Nullable<int> idColaborador)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_AusenciasCCQ_Result>("sp_AusenciasCCQ", idColaboradorParameter);
         }
     }
 }

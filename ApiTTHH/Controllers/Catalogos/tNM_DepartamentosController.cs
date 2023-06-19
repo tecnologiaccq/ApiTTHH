@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -18,13 +16,8 @@ using System.Web.Http.Description;
 using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
 using DevExpress.DataAccess.Json;
-using DevExpress.XtraReports.Parameters;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Data.Entity.Core.Objects;
-using RestSharp;
 
 namespace ApiTTHH.Controllers.Catalogos
 {
@@ -51,8 +44,8 @@ namespace ApiTTHH.Controllers.Catalogos
             return Ok(tNM_Departamentos);
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [HttpPost]
-        [Route("api/file")]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("api/file")]
         public HttpResponseMessage PostCreatePlatePdf(CertificateParameters parameters)
         {
             try
@@ -141,18 +134,18 @@ namespace ApiTTHH.Controllers.Catalogos
             report.Parameters["nombres"].Value = colaborador.ApellidosNombres;
             report.Parameters["cedula"].Value = persona.Identificacion;
             report.Parameters["fechaIngreso"].Value = colaborador.FechaIngreso.Value.Day + " de " + fullMonthNameTrabajador + " de " + colaborador.FechaIngreso.Value.Year;
-            report.Parameters["ingresos"].Value = listValores.Promedio.Value.ToString("0.##");
+            report.Parameters["ingresos"].Value = listValores.Promedio.ToString("0.##");
             report.Parameters["sueldo"].Value = nominaDefinitiva.Valor.Value.ToString("0.##");
-            decimal variable = listValores.Promedio.Value - nominaDefinitiva.Valor.Value;
+            decimal variable = listValores.Promedio - nominaDefinitiva.Valor.Value;
             report.Parameters["variables"].Value = variable.ToString("0.##");
-            report.Parameters["valorLetra"].Value = NumeroALetras(listValores.Promedio.Value);
+            report.Parameters["valorLetra"].Value = NumeroALetras(listValores.Promedio);
             report.Parameters["cargo"].Value = db.tNM_Cargos.Single(x => x.IdCargo == colaborador.IdCargo).Descripcion;
 
             return report;
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [HttpPost]
-        [Route("api/file-rol")]
+        [System.Web.Http.HttpPost]
+        [System.Web.Http.Route("api/file-rol")]
         public HttpResponseMessage PostCreateRolPdf(ParametersRoles parameters)
         {
             try
@@ -285,8 +278,8 @@ namespace ApiTTHH.Controllers.Catalogos
             }
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [HttpGet]
-        [Route("api/departamentos")]
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/departamentos")]
         public HttpResponseMessage GetDepartamentos()
         {
             db.Configuration.LazyLoadingEnabled = false;
