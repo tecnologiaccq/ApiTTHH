@@ -1,0 +1,130 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+    <#@ output extension=".generated.cs" #>
+    <#@ Assembly Name="System.Data" #>
+    <#@ import namespace="System.Data" #>
+    <#@ import namespace="System.Data.SqlClient" #>
+    <#@ import namespace="System.IO" #>
+    <#@ import namespace="System.Text.RegularExpressions" #>	
+    <#@ Assembly Name="System.Core" #>
+    <#@ import namespace="System.Linq" #>
+<#
+    // Tablas de las cuales se va a crear enumeradores
+    string[] tables = new[] {
+    "[dbo].Adm_Proveedor",
+    "[CcqCatalog].CatTipoMail",
+    "[CcqCatalog].CatConfigKey",
+};
+    // Connectionstring
+    string connectionString = @"data source=localhost;initial catalog=CCQ_Desa;user id=jcahuenas;password=Admin2023*;Min Pool Size=1;Max Pool Size=10;Connection Timeout=120;multipleactiveresultsets=True;encrypt=True;TrustServerCertificate=True";
+    // Get containing project
+    string namespaceName = "Ccq";
+#>
+
+using System;
+using System.CodeDom.Compiler;
+
+namespace <#= namespaceName #>
+{
+    /// <summary>
+    /// Enumeradores de base de datos, fecha:<#=DateTime.UtcNow.ToString() #>
+    /// </summary>	
+    public partial class Enums
+    {
+        <#  
+        foreach(var tableName in tables)
+        {
+            // Name of the Column which indicates the name
+            string columnName = "Nombre";
+            string tname=tableName.Replace("[CcqCatalog].","").Replace("[dbo].","");
+            string tnamePrefix = tname.Replace("tGN_","").Replace("tGS_","").Replace("Adm_","");
+            if(tnamePrefix.Equals("MediosContactos"))
+            {
+                tname = "MedioContacto";
+            }
+            else
+            {
+                if(tnamePrefix.Equals("TiposIdentificacion"))
+                {
+                    tname = "TipoIdentificacion";
+                    columnName = "Descripcion";
+                }
+                else
+                {
+                    if(tnamePrefix.Equals("DepartamentosSocio"))
+                    {
+                        tname = "DepartamentoSocio";
+                        columnName = "Descripcion";
+                    }
+                    else
+                    {
+                        tname = tnamePrefix;
+                    }
+                }
+            }            
+
+            string enumName = tname;
+            if(enumName!="CatalogVersion"){
+                enumName=enumName.Substring(0,3).Replace("Cat","")+enumName.Substring(3,tname.Length-3);
+            }#>
+        
+            #region <#= enumName #>  
+
+            /// <summary>
+            /// <#= enumName #> db generated enumeration
+            /// </summary>
+            [GeneratedCode("TextTemplatingFileGenerator", "10")]
+            public enum <#= enumName #>
+            {
+                <#
+                string columnId = "Id" + tname;
+                SqlConnection conn = new SqlConnection(connectionString);
+                string command = string.Format("select {0}, {1} from {2} order by {0}", columnId, columnName, tableName);
+                
+                SqlCommand comm = new SqlCommand(command, conn);
+
+                conn.Open();
+
+                SqlDataReader reader = comm.ExecuteReader();
+                bool loop = reader.Read();
+
+                while(loop)
+                {
+                #>
+                    /// <summary>
+                    /// <#= reader[columnName] #> <#=enumName#>.
+                    /// </summary>			
+                    <#
+                    if(reader[columnName].Equals("iOS"))
+                    {
+                    #>
+                        <#= reader[columnName] #> = <#= reader[columnId] #><# loop = reader.Read(); #><#= loop ? ",\r\n" : string.Empty #>
+                    <#
+                    }
+                    else
+                    {
+                    #>
+                        <#= Pascalize(reader[columnName]) #> = <#= reader[columnId] #><# loop = reader.Read(); #><#= loop ? ",\r\n" : string.Empty #>
+                    <#
+                    }
+                }//Fin while
+                conn.Close();
+            #>	
+        }<#//Fin enums#>
+
+     
+
+        #endregion
+    <#}#>//Fin del for
+    }
+}
+
+<#+
+    private string Pascalize(object value)
+    {
+        value=value.ToString().Replace("ñ","n").Replace("Ñ","N");
+        value=value.ToString().Replace("á","a").Replace("é","e").Replace("í","i").Replace("ó","o").Replace("ú","u").Replace("Á","A").Replace("É","E").Replace("Í","I").Replace("Ó","O").Replace("Ú","U");
+        Regex rx = new Regex(@"(?:[^a-zA-Z0-9]*)(?<first>[a-zA-Z0-9])(?<reminder>[a-zA-Z0-9]*)(?:[^a-zA-Z0-9]*)");
+        return rx.Replace(value.ToString(), m => m.Groups["first"].ToString().ToUpper() + m.Groups["reminder"].ToString().ToLower());
+    }
+      
+#>

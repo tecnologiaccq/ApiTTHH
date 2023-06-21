@@ -14,13 +14,17 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
+using ApiTTHH.ApiModel.Mail;
 using ApiTTHH.Models;
+using Ccq;
 using DevExpress.DataAccess.Json;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Newtonsoft.Json;
 using OnLineCCQ.ApiEnvioCorreoAlphaTech;
+using RestSharp;
+
 namespace ApiTTHH.Controllers.Vacaciones
 {
     public class tNM_SolicitudVacacionesCabController : ApiController
@@ -598,7 +602,22 @@ namespace ApiTTHH.Controllers.Vacaciones
             try
             {
                 //Call the api
-                CorreoElectronico correo = new CorreoElectronico();
+                //Obtener Proveedor
+                var result = db.Adm_ApiProvider.Where(p => p.IdApiProvider == (int)Enums.Proveedor.AlphaTech).FirstOrDefault();
+
+                if (result == null)
+                {
+                    Console.WriteLine("Error al obtener Proveedor");
+                    return;
+                }
+
+                var urlBase = result.UrlBase;
+                var metodoSendMail = result.Metodo;
+
+                var client = new RestClient();
+                var request = new RestRequest($"{urlBase}{metodoSendMail}", Method.Post);
+
+                var correo = new MailStructureModel();
                 correo.CodigoAplicacionInterna = "01";
                 correo.Listado_TO.Add(correoUsuario);
                 //if (correoElectronicoreemplazo != string.Empty) {
@@ -606,17 +625,16 @@ namespace ApiTTHH.Controllers.Vacaciones
                 //}
                 correo.TituloSubject = "SOLICITUD DE AUSENCIA";
 
-
                 var pathArchivoPlantilla = idTipoAusencia == 1 ? ConfigurationManager.AppSettings["PATH_PLANTILLA_ENVIO_EMAIL_SOLIC_AUSENCIA_VACACIONES"].ToString() : idTipoAusencia == 2 ? ConfigurationManager.AppSettings["PATH_PLANTILLA_ENVIO_EMAIL_SOLIC_AUSENCIA_PERMISOS"].ToString() : ConfigurationManager.AppSettings["PATH_PLANTILLA_ENVIO_EMAIL_APROB_RECH"].ToString();
                 string cuerpo = File.ReadAllText(pathArchivoPlantilla, Encoding.UTF8);
                 cuerpo = cuerpo.Replace("[NOMBRE_COLABORADOR]", nombres);
                 cuerpo = cuerpo.Replace("[TIPO_AUSENCIA]", tipoAusencia.ToLower()); ;
                 if (idTipoAusencia == 1)
                 {
-                    List<ArchivoAdjunto> adjuntos = new List<ArchivoAdjunto>();
-                    ArchivoAdjunto adjuntoSolicitud = new ArchivoAdjunto();
-                    adjuntoSolicitud.ContenidoArchivoCodificadoBase64 = base64File;
-                    adjuntoSolicitud.NombreArchivo = "Solicitud de Vacaciones.pdf";
+                    List<AttachmentModel> adjuntos = new List<AttachmentModel>();
+                    AttachmentModel adjuntoSolicitud = new AttachmentModel();
+                    adjuntoSolicitud.Archivo = base64File;
+                    adjuntoSolicitud.Nombre = "Solicitud de Vacaciones.pdf";
                     adjuntos.Add(adjuntoSolicitud);
                     correo.ListadoArchivosAdjuntos = adjuntos;
                     cuerpo = cuerpo.Replace("[FECHA_DESDE]", fechaDesde);
@@ -632,15 +650,20 @@ namespace ApiTTHH.Controllers.Vacaciones
                 correo.CuerpoMensaje = cuerpo;
 
                 //Invocacion al API
-               
 
-                API_Service apiService = new API_Service();
-                var response_API_SendMail = apiService.API_EnviarCorreoApiAlpha(correo);
-                Response response = response_API_SendMail.Result;
-                if (!response.IsSuccess)
+                // Json to put.
+                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "application/xml");
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(jsonToSend);
+
+                var response = client.Execute(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     Console.WriteLine("ERROR EN EL RETORNO DEL API");
-                    Console.WriteLine($"{response.Message}");
+                    Console.WriteLine($"{response.ErrorMessage}");
                     Console.ReadLine();
                     return;
                 }
@@ -665,8 +688,22 @@ namespace ApiTTHH.Controllers.Vacaciones
         {
             try
             {
-                //Call the api
-                CorreoElectronico correo = new CorreoElectronico();
+                //Obtener Proveedor
+                var result = db.Adm_ApiProvider.Where(p => p.IdApiProvider == (int)Enums.Proveedor.AlphaTech).FirstOrDefault();
+
+                if (result == null)
+                {
+                    Console.WriteLine("Error al obtener Proveedor");
+                    return;
+                }
+
+                var urlBase = result.UrlBase;
+                var metodoSendMail = result.Metodo;
+
+                var client = new RestClient();
+                var request = new RestRequest($"{urlBase}{metodoSendMail}", Method.Post);
+
+                var correo = new MailStructureModel();
                 string correoTalentoHumano = ConfigurationManager.AppSettings["CORREO_TALENTOHUMANO"];
                 correo.CodigoAplicacionInterna = "01";
                 correo.Listado_TO.Add(correoUsuario);
@@ -705,13 +742,19 @@ namespace ApiTTHH.Controllers.Vacaciones
                 correo.CuerpoMensaje = cuerpo;
 
                 //Invocacion al API
-                API_Service apiService = new API_Service();
-                var response_API_SendMail = apiService.API_EnviarCorreoApiAlpha(correo);
-                Response response = response_API_SendMail.Result;
-                if (!response.IsSuccess)
+                // Json to put.
+                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "application/xml");
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(jsonToSend);
+
+                var response = client.Execute(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     Console.WriteLine("ERROR EN EL RETORNO DEL API");
-                    Console.WriteLine($"{response.Message}");
+                    Console.WriteLine($"{response.ErrorMessage}");
                     Console.ReadLine();
                     return;
                 }
@@ -737,7 +780,22 @@ namespace ApiTTHH.Controllers.Vacaciones
             try
             {
                 //Call the api
-                CorreoElectronico correo = new CorreoElectronico();
+                //Obtener Proveedor
+                var result = db.Adm_ApiProvider.Where(p => p.IdApiProvider == (int)Enums.Proveedor.AlphaTech).FirstOrDefault();
+
+                if (result == null)
+                {
+                    Console.WriteLine("Error al obtener Proveedor");
+                    return;
+                }
+
+                var urlBase = result.UrlBase;
+                var metodoSendMail = result.Metodo;
+
+                var client = new RestClient();
+                var request = new RestRequest($"{urlBase}{metodoSendMail}", Method.Post);
+
+                var correo = new MailStructureModel();
                 string correoTalentoHumano = ConfigurationManager.AppSettings["CORREO_TALENTOHUMANO"];
                 correo.CodigoAplicacionInterna = "01";
                 
@@ -764,13 +822,19 @@ namespace ApiTTHH.Controllers.Vacaciones
                 correo.CuerpoMensaje = cuerpo;
 
                 //Invocacion al API
-                API_Service apiService = new API_Service();
-                var response_API_SendMail = apiService.API_EnviarCorreoApiAlpha(correo);
-                Response response = response_API_SendMail.Result;
-                if (!response.IsSuccess)
+                // Json to put.
+                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "application/xml");
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(jsonToSend);
+
+                var response = client.Execute(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     Console.WriteLine("ERROR EN EL RETORNO DEL API");
-                    Console.WriteLine($"{response.Message}");
+                    Console.WriteLine($"{response.ErrorMessage}");
                     Console.ReadLine();
                     return;
                 }
@@ -796,7 +860,22 @@ namespace ApiTTHH.Controllers.Vacaciones
             try
             {
                 //Call the api
-                CorreoElectronico correo = new CorreoElectronico();
+                //Obtener Proveedor
+                var result = db.Adm_ApiProvider.Where(p => p.IdApiProvider == (int)Enums.Proveedor.AlphaTech).FirstOrDefault();
+
+                if (result == null)
+                {
+                    Console.WriteLine("Error al obtener Proveedor");
+                    return;
+                }
+
+                var urlBase = result.UrlBase;
+                var metodoSendMail = result.Metodo;
+
+                var client = new RestClient();
+                var request = new RestRequest($"{urlBase}{metodoSendMail}", Method.Post);
+
+                var correo = new MailStructureModel();
                 string correoTalentoHumano = ConfigurationManager.AppSettings["CORREO_TALENTOHUMANO"];
                 correo.CodigoAplicacionInterna = "01";
 
@@ -824,13 +903,19 @@ namespace ApiTTHH.Controllers.Vacaciones
                 correo.CuerpoMensaje = cuerpo;
 
                 //Invocacion al API
-                API_Service apiService = new API_Service();
-                var response_API_SendMail = apiService.API_EnviarCorreoApiAlpha(correo);
-                Response response = response_API_SendMail.Result;
-                if (!response.IsSuccess)
+                // Json to put.
+                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Accept", "application/xml");
+                request.RequestFormat = DataFormat.Json;
+                request.AddJsonBody(jsonToSend);
+
+                var response = client.Execute(request);
+
+                if (response.StatusCode != HttpStatusCode.OK)
                 {
                     Console.WriteLine("ERROR EN EL RETORNO DEL API");
-                    Console.WriteLine($"{response.Message}");
+                    Console.WriteLine($"{response.ErrorMessage}");
                     Console.ReadLine();
                     return;
                 }

@@ -469,6 +469,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApiModel\Mail\AttachmentModel.cs" />
+    <Compile Include="ApiModel\Mail\CorreoElectronicoRetorno.cs" />
+    <Compile Include="ApiModel\Mail\MailStructureModel.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -526,6 +529,11 @@
     <Compile Include="Controllers\Vacaciones\tNM_SolicitudVacacionesCabController.cs" />
     <Compile Include="Controllers\Vacaciones\tNM_TiposAusenciaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Core\CoreEnums.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CoreEnums.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2701,6 +2709,10 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Core\CoreEnums.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreEnums.generated.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Models\ERPTTHH.Context.tt">
