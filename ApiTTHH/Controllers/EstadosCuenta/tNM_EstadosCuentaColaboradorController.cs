@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
+using System.Windows.Forms;
+using ApiTTHH.Business;
 using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
 
@@ -21,6 +23,14 @@ namespace ApiTTHH.Controllers.EstadosCuenta
     {
         private CCQ_DESAEntities db = new CCQ_DESAEntities();
         private PagosWebEntities dbPago = new PagosWebEntities();
+
+        private readonly LoginBusiness _loginBusiness;
+
+        public tNM_EstadosCuentaColaboradorController()
+        {
+            _loginBusiness = new LoginBusiness();
+        }
+
         // GET: api/tNM_EstadosCuentaColaborador
         public IQueryable<tNM_EstadosCuentaColaborador> GettNM_EstadosCuentaColaborador()
         {
@@ -95,25 +105,25 @@ namespace ApiTTHH.Controllers.EstadosCuenta
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpPost]
         [Route("api/login")]
-        public HttpResponseMessage PostLogin(UsuarioModel usuario)
+        public async Task<HttpResponseMessage> PostLogin(UsuarioModel usuario)
         {
             db.Configuration.LazyLoadingEnabled = false;
 
             //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
             try
             {
-                string cadenaConexion = ConfigurationManager.ConnectionStrings["CCQ_DESAEntities"].ConnectionString;
-                EntityConnectionStringBuilder entityString = new EntityConnectionStringBuilder(cadenaConexion);
-                String connString = @"data source=" + db.Database.Connection.DataSource + ";initial catalog=" + db.Database.Connection.Database + ";user id=" + usuario.usuario + ";password=" + usuario.password + ";MultipleActiveResultSets=True;App=EntityFramework;";
-                EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
-                esb.Metadata = "res://*/Models.ERPTTHH.csdl|res://*/Models.ERPTTHH.ssdl|res://*/Models.ERPTTHH.msl";
-                esb.Provider = "System.Data.SqlClient";
-                esb.ProviderConnectionString = connString;
-                db = new CCQ_DESAEntities(esb.ToString());
-                db.Configuration.LazyLoadingEnabled = false;
-                tNM_Colaboradores empleado = db.tNM_Colaboradores.FirstOrDefault(x => x.Usuario == usuario.usuario && x.IdEstado==1);
-                //EntityConnection entityConn = DBConnectionHelper.BuildConnection();
-                return Request.CreateResponse(HttpStatusCode.OK, empleado);
+                var result = await _loginBusiness.VerifyUserSqlConfiguredAsync(usuario);
+
+                if (result)
+                {
+                    tNM_Colaboradores empleado = db.tNM_Colaboradores.FirstOrDefault(x => x.Usuario == usuario.usuario && x.IdEstado == 1);
+                    //EntityConnection entityConn = DBConnectionHelper.BuildConnection();
+                    return Request.CreateResponse(HttpStatusCode.OK, empleado);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Usuario no existe");
+                }
             }
             catch (Exception ex)
             {

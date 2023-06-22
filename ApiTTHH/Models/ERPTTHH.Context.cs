@@ -17,8 +17,8 @@ namespace ApiTTHH.Models
     
     public partial class CCQ_DESAEntities : DbContext
     {
-        public CCQ_DESAEntities(string connection = "")
-            : base(connection == string.Empty ? "name=CCQ_DESAEntities" : connection)
+        public CCQ_DESAEntities()
+            : base("name=CCQ_DESAEntities")
         {
         }
     
