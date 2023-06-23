@@ -6,7 +6,7 @@ using System.CodeDom.Compiler;
 namespace Ccq
 {
     /// <summary>
-    /// Enumeradores de base de datos, fecha:19/6/2023 3:36:48
+    /// Enumeradores de base de datos, fecha:23/6/2023 15:17:35
     /// </summary>	
     public partial class Enums
     {
@@ -118,7 +118,17 @@ namespace Ccq
                                         /// <summary>
                     /// PrivateKeyProvider ConfigKey.
                     /// </summary>			
-                                            Privatekeyprovider = 10
+                                            Privatekeyprovider = 10,
+
+                                        /// <summary>
+                    /// SQLConnect ConfigKey.
+                    /// </summary>			
+                                            Sqlconnect = 11,
+
+                                        /// <summary>
+                    /// InitialCatalogSQL ConfigKey.
+                    /// </summary>			
+                                            Initialcatalogsql = 12
                     	
         }
      

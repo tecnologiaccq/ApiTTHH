@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using ApiTTHH.Business.Interface;
 using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
 using Ccq;
-using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
+using Microsoft.Data.SqlClient;
 
 namespace ApiTTHH.Business
 {
@@ -26,11 +24,15 @@ namespace ApiTTHH.Business
         {
             try
             {
-                var config = await _db.Adm_GeneralConfig
+                var configRemoteServer = await _db.Adm_GeneralConfig
                     .Where(c => c.IdCatConfigKey == (int)Enums.ConfigKey.Remoteservername && c.Activo == true)
                     .FirstOrDefaultAsync();
-                        
-                var result = VerifyUserSqlConfigured(model, config.Valor);
+              
+                var configInitialCatalog = await _db.Adm_GeneralConfig
+                    .Where(c => c.IdCatConfigKey == (int)Enums.ConfigKey.Initialcatalogsql && c.Activo == true)
+                    .FirstOrDefaultAsync();
+
+                var result = await VerifyUserSqlConfigured(model, configRemoteServer.Valor, configInitialCatalog.Valor);
 
                 return result;
             }
@@ -48,18 +50,24 @@ namespace ApiTTHH.Business
         /// </summary>
         /// <param name="model">Modelo Request Login</param>
         /// <returns></returns>
-        private bool VerifyUserSqlConfigured(UsuarioModel model, string remoteServerName)
+        private async Task<bool> VerifyUserSqlConfigured(UsuarioModel model, string remoteServerName, string initialCatalog)
         {
-            var dataConnection = new ServerConnection(remoteServerName)
+            var cadenaConexion = await _db.Adm_GeneralConfig
+                .Where(c => c.IdCatConfigKey == (int)Enums.ConfigKey.Sqlconnect && c.Activo == true)
+                .FirstOrDefaultAsync();
+
+            var conStr = string.Format(cadenaConexion.Valor, remoteServerName, initialCatalog, model.usuario, model.password);
+
+            using (var con = new SqlConnection(conStr))
             {
-                LoginSecure = false,
-                Login = model.usuario,
-                Password = model.password
-            };
+                var query = "Select 1";
+                var command = new SqlCommand(query, con);
 
-            var srvConnection = new Server(dataConnection);
+                con.Open();
+                command.ExecuteScalar();
 
-            return srvConnection.Status == ServerStatus.Online;
+                return (con.State == ConnectionState.Open);
+            }
         }
     }
 }
