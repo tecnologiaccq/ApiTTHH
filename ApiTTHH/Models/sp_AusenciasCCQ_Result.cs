@@ -18,7 +18,7 @@ namespace ApiTTHH.Models
         public string Descripcion { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaFin { get; set; }
-        public int Dia { get; set; }
-        public string Mes { get; set; }
+        public int dia { get; set; }
+        public string mes { get; set; }
     }
 }

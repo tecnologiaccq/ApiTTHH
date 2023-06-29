@@ -17,12 +17,12 @@ namespace ApiTTHH.Models
         public int IdSolicitudPermiso { get; set; }
         public decimal NumeroHoras { get; set; }
         public System.DateTime FechaInicio { get; set; }
-        public System.DateTime FechaFin { get; set; }
+        public Nullable<System.DateTime> FechaFin { get; set; }
         public int IdEstadoAprob { get; set; }
-        public int MesIni { get; set; }
-        public int DiaIni { get; set; }
-        public string MesFin { get; set; }
-        public int DiaFin { get; set; }
+        public string mesini { get; set; }
+        public int diaini { get; set; }
+        public string mesfin { get; set; }
+        public Nullable<int> diafin { get; set; }
         public string Descripcion { get; set; }
         public int Anio { get; set; }
         public string RespuestaSupervisor { get; set; }

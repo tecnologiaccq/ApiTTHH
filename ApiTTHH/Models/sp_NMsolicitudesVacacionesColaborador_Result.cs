@@ -15,14 +15,14 @@ namespace ApiTTHH.Models
     {
         public int IdColaborador { get; set; }
         public int IdSolicitudVacaciones { get; set; }
-        public decimal DiasSolicitados { get; set; }
+        public decimal diasSolicitados { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public System.DateTime FechaFin { get; set; }
         public int IdEstadoAprob { get; set; }
-        public string MesIni { get; set; }
-        public int DiaIni { get; set; }
-        public string MesFin { get; set; }
-        public int DiaFin { get; set; }
+        public string mesini { get; set; }
+        public int diaini { get; set; }
+        public string mesfin { get; set; }
+        public int diafin { get; set; }
         public string Descripcion { get; set; }
         public int Anio { get; set; }
         public string RespuestaSupervisor { get; set; }

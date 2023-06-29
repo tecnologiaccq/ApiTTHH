@@ -16,7 +16,7 @@ namespace ApiTTHH.Models
         public long IdHistorialVacaciones { get; set; }
         public int Periodo { get; set; }
         public decimal DiasPendientes { get; set; }
-        public decimal DiasDisfrutados { get; set; }
+        public decimal diasDisfrutados { get; set; }
         public decimal DiasDisfrutadosConFinSe { get; set; }
     }
 }
