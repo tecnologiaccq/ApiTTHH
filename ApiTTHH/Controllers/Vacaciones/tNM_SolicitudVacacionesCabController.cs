@@ -1041,6 +1041,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 //reportSolicitud.ExportToPdf(path);
                 results = getUrlAzure(pathPdf);
                 File.Delete(pathPdf);
+                File.Delete(pathHtml);
             }
             catch (Exception ex)
             {
