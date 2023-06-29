@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Globalization;
@@ -15,15 +14,16 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using ApiTTHH.ApiModel.Mail;
+using ApiTTHH.ApiModel.Solicitud;
 using ApiTTHH.Models;
 using Ccq;
-using DevExpress.DataAccess.Json;
+using DevExpress.XtraRichEdit;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.RetryPolicies;
 using Newtonsoft.Json;
-using OnLineCCQ.ApiEnvioCorreoAlphaTech;
 using RestSharp;
+using Path = System.IO.Path;
 
 namespace ApiTTHH.Controllers.Vacaciones
 {
@@ -107,19 +107,26 @@ namespace ApiTTHH.Controllers.Vacaciones
                         //var jsonSolicitud = JsonConvert.SerializeObject(solicitud);
 
                         db.SaveChanges();
-                        var res = db.tNM_SolicitudVacacionesCab.Where(x => x.IdSolicitudVacaciones == solicitud.IdSolicitudVacaciones).Select(y => new
+
+                        var nameJefeTTHH = (from c in db.tNM_Colaboradores
+                                            join p in db.tGN_Personas on c.IdPersona equals p.IdPersonas
+                                            where c.IdCargo == 145 && c.IdEstado == 1
+                                                select p.ApellidoNombre).FirstOrDefault();
+
+                        var result = db.tNM_SolicitudVacacionesCab.Where(x => x.IdSolicitudVacaciones == solicitud.IdSolicitudVacaciones).Select(y => new SolicitudVacacionesGozadasResultModel
                         {
-                            Fecha = y.FechaSolicitud,
-                            Dias = y.DiasSolicitados,
-                            fechaInicio = y.FechaInicio,
-                            fechafin = y.FechaFin,
-                            nombre = y.tNM_Colaboradores.ApellidosNombres,
-                            cargo = y.tNM_Colaboradores.tNM_Cargos.Descripcion,
-                            nombreJefe = y.tNM_Colaboradores1.ApellidosNombres,
-                            Detalle = y.tNM_SolicitudVacacionesDet.Select(z => new { diasPeriodo = z.DiasADisfrutarPeriodo, anio = z.tNM_HistorialVacaciones.Periodo, z.tNM_HistorialVacaciones.FechaInicial, z.tNM_HistorialVacaciones.FechaFinal })
+                            FechaSolicitud = y.FechaSolicitud,
+                            DiasSolicitados = y.DiasSolicitados,
+                            FechaInicio = y.FechaInicio,
+                            FechaFin = y.FechaFin,
+                            Nombre = y.tNM_Colaboradores.ApellidosNombres,
+                            Cargo = y.tNM_Colaboradores.tNM_Cargos.Descripcion,
+                            NombreJefe = y.tNM_Colaboradores1.ApellidosNombres,
+                            Detalle = y.tNM_SolicitudVacacionesDet.Select(z => new DetalleSolicitudVacacionesGozadasResultModel { DiasPeriodo = z.DiasADisfrutarPeriodo, Anio = z.tNM_HistorialVacaciones.Periodo, FechaInicial = z.tNM_HistorialVacaciones.FechaInicial, FechaFinal = z.tNM_HistorialVacaciones.FechaFinal }),
+                            NombreJefeTTHH = nameJefeTTHH
                         }).FirstOrDefault();
-                        var jsonSolicitud = JsonConvert.SerializeObject(res);
-                        List<string> resultSolicitudFile = GeneraSolicitudFile(jsonSolicitud, solicitud.IdSolicitudVacaciones, solicitud.IdColaborador.Value);
+                        
+                        List<string> resultSolicitudFile = GeneraSolicitudFile(result, solicitud.IdSolicitudVacaciones, solicitud.IdColaborador.Value);
                         solicitud.UrlSolicitud = resultSolicitudFile[0];
                         db.SaveChanges();
                         dbTransaction.Commit();
@@ -152,8 +159,8 @@ namespace ApiTTHH.Controllers.Vacaciones
                         var jefe = db.tNM_Colaboradores.FirstOrDefault(x => x.IdColaborador == solicitud.IdSupervisor);
                         var colaboradorReemplazo = db.tNM_Colaboradores.FirstOrDefault(x => x.IdColaborador == solicitud.IdColaboradorReemplazo);
                         string nombreReemplazo = colaboradorReemplazo.ApellidosNombres;
-                        string correoElectronicoJefe = "czapata@lacamaradequito.com"; //db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == jefe.IdPersona && x.IdMedioContacto == 13).Contacto;
-                        string correoElectronicoReemplazo = "czapata@lacamaradequito.com"; //db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorReemplazo.IdPersona && x.IdMedioContacto == 13).Contacto;
+                        string correoElectronicoJefe = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == jefe.IdPersona && x.IdMedioContacto == 13).Contacto;
+                        string correoElectronicoReemplazo = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorReemplazo.IdPersona && x.IdMedioContacto == 13).Contacto;
                         string tipoAusencia = db.tNM_TiposAusencia.FirstOrDefault(x => x.IdAusencia == solicitud.IdTipoAusencia).Nombre;
                         sendEmailSolicitudAusencia(correoElectronicoJefe, NombreCol, "", "", "", solicitud.IdTipoAusencia.Value, tipoAusencia, solicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitud.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), nombreReemplazo, correoElectronicoReemplazo, resultSolicitudFile[1]);
 
@@ -652,7 +659,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 //Invocacion al API
 
                 // Json to put.
-                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                var jsonToSend = JsonConvert.SerializeObject(correo, Newtonsoft.Json.Formatting.Indented);
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "application/xml");
                 request.RequestFormat = DataFormat.Json;
@@ -743,7 +750,7 @@ namespace ApiTTHH.Controllers.Vacaciones
 
                 //Invocacion al API
                 // Json to put.
-                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                var jsonToSend = JsonConvert.SerializeObject(correo, Newtonsoft.Json.Formatting.Indented);
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "application/xml");
                 request.RequestFormat = DataFormat.Json;
@@ -823,7 +830,7 @@ namespace ApiTTHH.Controllers.Vacaciones
 
                 //Invocacion al API
                 // Json to put.
-                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                var jsonToSend = JsonConvert.SerializeObject(correo, Newtonsoft.Json.Formatting.Indented);
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "application/xml");
                 request.RequestFormat = DataFormat.Json;
@@ -904,7 +911,7 @@ namespace ApiTTHH.Controllers.Vacaciones
 
                 //Invocacion al API
                 // Json to put.
-                var jsonToSend = JsonConvert.SerializeObject(correo, Formatting.Indented);
+                var jsonToSend = JsonConvert.SerializeObject(correo, Newtonsoft.Json.Formatting.Indented);
                 request.AddHeader("Content-Type", "application/json");
                 request.AddHeader("Accept", "application/xml");
                 request.RequestFormat = DataFormat.Json;
@@ -936,22 +943,104 @@ namespace ApiTTHH.Controllers.Vacaciones
             }
 
         }
-        public List<string> GeneraSolicitudFile(string json, int idSolicitud, int idColaborador)
+        public List<string> GeneraSolicitudFile(SolicitudVacacionesGozadasResultModel solicitud, int idSolicitud, int idColaborador)
         {
             List<string> results = new List<string>();
+
             try
             {
+                var configTTHH = db.ConfigTTHH.Where(c =>
+                    c.IdCatTipoSolicitud == (int)Enums.TipoSolicitud.SolicitudDeVacacionesGozadas && c.Estado == true).FirstOrDefault();
 
-                SolicitudVacacion reportSolicitud = new SolicitudVacacion();
+                var htmlOrigen = string.Concat(configTTHH.PathPlantilla, configTTHH.Plantilla);
+                var htmlContent = File.ReadAllText(string.Concat(htmlOrigen));
 
-                string path = System.Web.HttpContext.Current.Server.MapPath("~/api/pdf/SolicitudVacacion_") + idSolicitud + "_" + idColaborador + ".pdf";
-                JsonDataSource jsd = new JsonDataSource();
-                jsd.JsonSource = new CustomJsonSource(json);
-                jsd.Fill();
-                reportSolicitud.DataSource = jsd;
-                reportSolicitud.ExportToPdf(path);
-                results = getUrlAzure(path);
-                System.IO.File.Delete(path);
+                var htmlDetalle = new StringBuilder();
+
+                htmlDetalle.AppendLine("<table>");
+                htmlDetalle.AppendLine("<tr>");
+                htmlDetalle.AppendLine("<th colspan=\"4\">PERÍODOS</th>");
+                htmlDetalle.AppendLine("</tr>");
+                htmlDetalle.AppendLine("<tr>");
+                htmlDetalle.AppendLine("<th>");
+                htmlDetalle.AppendLine("Período");
+                htmlDetalle.AppendLine("</th>");
+                htmlDetalle.AppendLine("<th>");
+                htmlDetalle.AppendLine("Días a Disfrutar");
+                htmlDetalle.AppendLine("</th>");
+                htmlDetalle.AppendLine("<th>");
+                htmlDetalle.AppendLine("Fecha Inicial");
+                htmlDetalle.AppendLine("</th>");
+                htmlDetalle.AppendLine("<th>");
+                htmlDetalle.AppendLine("Fecha Final");
+                htmlDetalle.AppendLine("</th>");
+                htmlDetalle.AppendLine("</tr>");
+                
+                foreach (var item in solicitud.Detalle)
+                {
+                    htmlDetalle.AppendLine("<tr>");
+                    htmlDetalle.AppendLine("<td>");
+                    htmlDetalle.AppendLine(item.Anio.ToString());
+                    htmlDetalle.AppendLine("</td>");
+                    htmlDetalle.AppendLine("<td>");
+                    htmlDetalle.AppendLine(item.DiasPeriodo.ToString());
+                    htmlDetalle.AppendLine("</td>");
+                    htmlDetalle.AppendLine("<td>");
+                    htmlDetalle.AppendLine($"{item.FechaInicial.Value.Day} de {item.FechaInicial.Value.ToString("MMMM")} del {item.FechaInicial.Value.Year}");
+                    htmlDetalle.AppendLine("</td>");
+                    htmlDetalle.AppendLine("<td>");
+                    htmlDetalle.AppendLine($"{item.FechaFinal.Value.Day} de {item.FechaFinal.Value.ToString("MMMM")} del {item.FechaFinal.Value.Year}");
+                    htmlDetalle.AppendLine("</td>");
+                    htmlDetalle.AppendLine("</tr>");
+                }
+
+                htmlDetalle.AppendLine("</table>");
+                
+                var dataMail = new Dictionary<string, string>();
+
+                dataMail = new Dictionary<string, string>
+                {
+                    { "{fecha}", $"{DateTime.Now.Day} de {DateTime.Now.ToString("MMMM")} del {DateTime.Now.Year}" },
+                    { "{NombreColaborador}", solicitud.Nombre },
+                    { "{Cargo}", solicitud.Cargo },
+                    { "{FechaInicialVacaciones}", $"{solicitud.FechaInicio.Value.Day} de {solicitud.FechaInicio.Value.ToString("MMMM")} del {solicitud.FechaInicio.Value.Year}" },
+                    { "{FechaFinalVacaciones}", $"{solicitud.FechaFin.Value.Day} de {solicitud.FechaFin.Value.ToString("MMMM")} del {solicitud.FechaFin.Value.Year}" },
+                    { "{DetalleDias}", $"{solicitud.DiasSolicitados} Días" },
+                    { "{NombreJefeInmediato}", solicitud.NombreJefe },
+                    { "{NombreJefeTalentoHumano}", solicitud.NombreJefeTTHH },
+                    { "{TablaPeriodos}", htmlDetalle.ToString() }
+                };
+
+                foreach (var item in dataMail)
+                {
+                    htmlContent = htmlContent.Replace(item.Key, item.Value);
+                }
+
+                var pathHtml = $"{configTTHH.PathArchivoHtml}SolicitudVacacion_{idSolicitud}_{idColaborador}.html";
+                var pathPdf = $"{configTTHH.PathArchivoPdf}SolicitudVacacion_{idSolicitud}_{idColaborador}.pdf";
+
+                File.WriteAllText(pathHtml, htmlContent);
+
+                using (RichEditDocumentServer server = new RichEditDocumentServer())
+                {
+                    server.LoadDocument(pathHtml, DocumentFormat.Html);
+
+                    //Save to PDF  
+                    server.ExportToPdf(pathPdf);
+                }
+
+
+                //SolicitudVacacion reportSolicitud = new SolicitudVacacion();
+
+                //string path = System.Web.HttpContext.Current.Server.MapPath("~/api/pdf/SolicitudVacacion_") + idSolicitud + "_" + idColaborador + ".pdf";
+                //string path = "C:\\temp\\pdf\\SolicitudVacacion_.pdf";
+                //JsonDataSource jsd = new JsonDataSource();
+                //jsd.JsonSource = new CustomJsonSource(json);
+                //jsd.Fill();
+                //reportSolicitud.DataSource = jsd;
+                //reportSolicitud.ExportToPdf(path);
+                results = getUrlAzure(pathPdf);
+                File.Delete(pathPdf);
             }
             catch (Exception ex)
             {
@@ -960,6 +1049,7 @@ namespace ApiTTHH.Controllers.Vacaciones
             }
             return results;
         }
+
         public List<string> getUrlAzure(string path)
         {
             byte[] bytes = System.IO.File.ReadAllBytes(path);

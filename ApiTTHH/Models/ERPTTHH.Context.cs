@@ -30,24 +30,18 @@ namespace ApiTTHH.Models
         public virtual DbSet<CatConfigDataType> CatConfigDataType { get; set; }
         public virtual DbSet<CatConfigKey> CatConfigKey { get; set; }
         public virtual DbSet<CatError> CatError { get; set; }
-        public virtual DbSet<CatEstadoAlerta> CatEstadoAlerta { get; set; }
         public virtual DbSet<CatEstadoContacto> CatEstadoContacto { get; set; }
-        public virtual DbSet<CatEstadoEquipo> CatEstadoEquipo { get; set; }
         public virtual DbSet<CatEvento> CatEvento { get; set; }
-        public virtual DbSet<CatEventoPulsador> CatEventoPulsador { get; set; }
         public virtual DbSet<CatMensaje> CatMensaje { get; set; }
         public virtual DbSet<CatModulo> CatModulo { get; set; }
         public virtual DbSet<CatOption> CatOption { get; set; }
         public virtual DbSet<CatRole> CatRole { get; set; }
-        public virtual DbSet<CatSeveridad> CatSeveridad { get; set; }
         public virtual DbSet<CatTipoMail> CatTipoMail { get; set; }
-        public virtual DbSet<CatTipoPulsador> CatTipoPulsador { get; set; }
         public virtual DbSet<C__MigrationHistory> C__MigrationHistory { get; set; }
         public virtual DbSet<Adm_ApiProvider> Adm_ApiProvider { get; set; }
         public virtual DbSet<Adm_GeneralConfig> Adm_GeneralConfig { get; set; }
         public virtual DbSet<Adm_HistoricoLoginAdmSuscripcion> Adm_HistoricoLoginAdmSuscripcion { get; set; }
         public virtual DbSet<Adm_HistoryLoginDataManager> Adm_HistoryLoginDataManager { get; set; }
-        public virtual DbSet<Adm_Marca> Adm_Marca { get; set; }
         public virtual DbSet<Adm_OpcionPorRol> Adm_OpcionPorRol { get; set; }
         public virtual DbSet<Adm_Proveedor> Adm_Proveedor { get; set; }
         public virtual DbSet<Adm_RolPorUsuario> Adm_RolPorUsuario { get; set; }
@@ -116,9 +110,6 @@ namespace ApiTTHH.Models
         public virtual DbSet<ReportDataV2> ReportDataV2 { get; set; }
         public virtual DbSet<Resource> Resource { get; set; }
         public virtual DbSet<ResourceResources_EventEvents> ResourceResources_EventEvents { get; set; }
-        public virtual DbSet<Sec_Alerta> Sec_Alerta { get; set; }
-        public virtual DbSet<Sec_HistoricoAlerta> Sec_HistoricoAlerta { get; set; }
-        public virtual DbSet<Sec_Pulsador> Sec_Pulsador { get; set; }
         public virtual DbSet<SecuencialCatalogo> SecuencialCatalogo { get; set; }
         public virtual DbSet<SecuritySystemMemberPermissionsObject> SecuritySystemMemberPermissionsObject { get; set; }
         public virtual DbSet<SecuritySystemObjectPermissionsObject> SecuritySystemObjectPermissionsObject { get; set; }
@@ -673,6 +664,8 @@ namespace ApiTTHH.Models
         public virtual DbSet<vVistaSocioNuevo> vVistaSocioNuevo { get; set; }
         public virtual DbSet<vVistaSocioReingreso> vVistaSocioReingreso { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<CatTipoSolicitud> CatTipoSolicitud { get; set; }
+        public virtual DbSet<ConfigTTHH> ConfigTTHH { get; set; }
     
         [DbFunction("CCQ_DESAEntities", "fn_ATS_ObtenerRetenciones_Iva")]
         public virtual IQueryable<fn_ATS_ObtenerRetenciones_Iva_Result> fn_ATS_ObtenerRetenciones_Iva(Nullable<int> idEmpresa, Nullable<int> idPeriodoContable)

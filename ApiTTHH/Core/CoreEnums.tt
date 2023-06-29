@@ -13,6 +13,7 @@
     "[dbo].Adm_Proveedor",
     "[CcqCatalog].CatTipoMail",
     "[CcqCatalog].CatConfigKey",
+    "[CcqCatalog].CatTipoSolicitud",
 };
     // Connectionstring
     string connectionString = @"data source=localhost;initial catalog=CCQ_Desa;user id=jcahuenas;password=Admin2023*;Min Pool Size=1;Max Pool Size=10;Connection Timeout=120;multipleactiveresultsets=True;encrypt=True;TrustServerCertificate=True";

@@ -21,7 +21,6 @@ namespace ApiTTHH.Models
             this.Adm_HistoryLoginDataManager = new HashSet<Adm_HistoryLoginDataManager>();
             this.Lpd_HistoricoNuevoContacto = new HashSet<Lpd_HistoricoNuevoContacto>();
             this.Lpd_HistoricoSuscripcionNuevoContacto = new HashSet<Lpd_HistoricoSuscripcionNuevoContacto>();
-            this.Sec_HistoricoAlerta = new HashSet<Sec_HistoricoAlerta>();
             this.tGN_HistoricoContactoPersona = new HashSet<tGN_HistoricoContactoPersona>();
             this.tGS_HistoricoSuscripcionContacto = new HashSet<tGS_HistoricoSuscripcionContacto>();
         }
@@ -40,8 +39,6 @@ namespace ApiTTHH.Models
         public virtual ICollection<Lpd_HistoricoNuevoContacto> Lpd_HistoricoNuevoContacto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lpd_HistoricoSuscripcionNuevoContacto> Lpd_HistoricoSuscripcionNuevoContacto { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sec_HistoricoAlerta> Sec_HistoricoAlerta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tGN_HistoricoContactoPersona> tGN_HistoricoContactoPersona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

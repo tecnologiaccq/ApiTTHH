@@ -1,0 +1,142 @@
+@page {
+	size: A4;
+	margin: 1cm 1.5cm 2cm 2cm;
+}
+
+@media print {
+	html,
+	body {
+		width: 210mm;
+		height: 297mm;
+	}
+	/* ... the rest of the rules ... */
+}
+
+@font-face {
+	font-family: SourceSansPro;
+	src: url(SourceSansPro-Regular.ttf);
+}
+
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+a {
+	color: #0087C3;
+	text-decoration: none;
+}
+
+body {
+	position: relative;
+	width: 21cm;
+	height: 29.7cm;
+	margin: 0 auto;
+	color: #555555;
+	background: #FFFFFF;
+	font-family: Arial, sans-serif;
+	font-family: SourceSansPro;
+}
+
+header {
+	padding: 10px 0;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #264183;
+}
+
+#logo {
+	float: left;
+	margin-top: 8px;
+}
+
+	#logo img {
+		height: 70px;
+	}
+
+#company {
+	float: right;
+	text-align: right;
+	font-size: 14px;
+	color: #264183;
+}
+
+
+#details {
+	margin-bottom: 50px;
+}
+
+#client {
+	padding-left: 6px;
+	border-left: 6px solid #db3311;
+	float: left;
+}
+
+	#client .to {
+		color: #777777;
+	}
+
+h2.name {
+	font-size: 1.4em;
+	font-weight: normal;
+	margin: 0;
+}
+
+#invoice {
+	float: right;
+	text-align: right;
+}
+
+	#invoice h1 {
+		color: #db3311;
+		font-size: 2.4em;
+		line-height: 1em;
+		font-weight: normal;
+		margin: 0 0 10px 0;
+	}
+
+	#invoice .date {
+		font-size: 1.1em;
+		color: #777777;
+	}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: 10px;
+	border-color: black;
+	border-style: solid;
+}
+
+	table th,
+	table td {
+		padding: 10px;
+		text-align: center;
+		border-bottom: 1px solid #FFFFFF;
+		border-color: black;
+		border-style: solid;
+		border-left: none;
+		border-right: none;
+	}
+
+	table th {
+		background: #EEEEEE;
+		white-space: nowrap;
+		font-weight: normal;
+		border-color: black;
+		border-style: solid;
+		font-weight: bold;
+	}
+
+	table td {
+		text-align: center;
+	}
+
+hr {
+	position: relative;
+	top: 20px;
+	border: none;
+	height: 3px;
+	background: black;
+}

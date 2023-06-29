@@ -25,6 +25,5 @@ namespace ApiTTHH.Models
         public string ValorNuevo { get; set; }
     
         public virtual CatEvento CatEvento { get; set; }
-        public virtual Sec_Alerta Sec_Alerta { get; set; }
     }
 }

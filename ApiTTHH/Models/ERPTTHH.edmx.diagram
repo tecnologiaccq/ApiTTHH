@@ -8,24 +8,18 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.CatConfigDataType" Width="1.5" PointX="18.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatConfigKey" Width="1.5" PointX="21" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatError" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.CatEstadoAlerta" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatEstadoContacto" Width="1.5" PointX="0.75" PointY="662.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.CatEstadoEquipo" Width="1.5" PointX="3.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatEvento" Width="1.5" PointX="3" PointY="671" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.CatEventoPulsador" Width="1.5" PointX="6" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatMensaje" Width="1.5" PointX="3" PointY="668.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatModulo" Width="1.5" PointX="0.75" PointY="671.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatOption" Width="1.5" PointX="10.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatRole" Width="1.5" PointX="24.75" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.CatSeveridad" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatTipoMail" Width="1.5" PointX="12.75" PointY="25.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.CatTipoPulsador" Width="1.5" PointX="3.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.C__MigrationHistory" Width="1.5" PointX="5.75" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_ApiProvider" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_GeneralConfig" Width="1.5" PointX="23.25" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_HistoricoLoginAdmSuscripcion" Width="1.5" PointX="5.25" PointY="666.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_HistoryLoginDataManager" Width="1.5" PointX="5.25" PointY="663.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.Adm_Marca" Width="1.5" PointX="3.75" PointY="11.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_OpcionPorRol" Width="1.5" PointX="5.75" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_Proveedor" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_RolPorUsuario" Width="1.5" PointX="27" PointY="12.75" IsExpanded="true" />
@@ -94,9 +88,6 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.ReportDataV2" Width="1.5" PointX="29.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Resource" Width="1.5" PointX="13.75" PointY="11.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.ResourceResources_EventEvents" Width="1.5" PointX="16" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.Sec_Alerta" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.Sec_HistoricoAlerta" Width="1.5" PointX="10.5" PointY="337.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.Sec_Pulsador" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.SecuencialCatalogo" Width="1.5" PointX="20.75" PointY="30.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.SecuritySystemMemberPermissionsObject" Width="1.5" PointX="49.75" PointY="761.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.SecuritySystemObjectPermissionsObject" Width="1.5" PointX="49.75" PointY="764.75" IsExpanded="true" />
@@ -652,26 +643,18 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.vVistaSocioReingreso" Width="1.5" PointX="52.75" PointY="33.5" IsExpanded="true" />
         <AssociationConnector Association="CCQ_DESAModel.FK_CatConfigKey_CatConfigDataType" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_GeneralConfig_CatConfigKey" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Alerta_CatEstadoAlerta" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Ldp_ContactoNuevo_CatEstadoContacto" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Pulsador_CatEstadoEquipo" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_HistoricoLoginAdmSuscripcion_IdCatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_HistoryLoginDataManager_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_CatEvento_CatModulo" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Lpd_HistoricoNuevoContacto_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Lpd_HistoricoSuscripcionNuevoContacto_CatEvento" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_HistoricoAlerta_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGN_HistoricoContactoPersona_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGS_HistoricoSuscripcionContacto_CatEvento" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Alerta_CatEventoPulsador" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_CatMensaje_CatModulo" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_RolPorUsuario_CatRole" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Alerta_CatSeveridad" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ConfigMail_ToCatTipoMail" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Pulsador_CatTipoPulsador" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_ApiProvider_IdProveedor" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Pulsador_Adm_Marca" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Pulsador_Adm_Proveedor" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdEmpresa" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdEstadoDocumento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdGrupoComprobante" ManuallyRouted="false" />
@@ -729,8 +712,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_SecuritySystemUserCustom_PermissionPolicyUser" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGN_Personas_Oid" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ResourceResources_EventEvents_Resources" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_Alerta_Sec_Pulsador" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Sec_HistoricoAlerta_Sec_Alerta" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_SecuritySystemMemberPermissionsObject_Owner" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_SecuritySystemObjectPermissionsObject_Owner" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_SecuritySystemRole_ObjectType" ManuallyRouted="false" />
@@ -1813,6 +1794,9 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_VentasDiariasArea_Fecha" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_VentasDiariasVendedor_Fecha" ManuallyRouted="false" />
         <EntityTypeShape EntityType="CCQ_DESAModel.sysdiagrams" Width="1.5" PointX="53.375" PointY="43.75" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.CatTipoSolicitud" Width="1.5" PointX="53.375" PointY="46.75" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.ConfigTTHH" Width="1.5" PointX="55.625" PointY="46.125" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_ConfigTTHH_ToCatTipoSolicitud" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

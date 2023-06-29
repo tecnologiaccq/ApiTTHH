@@ -18,7 +18,6 @@ namespace ApiTTHH.Models
         public Adm_Proveedor()
         {
             this.Adm_ApiProvider = new HashSet<Adm_ApiProvider>();
-            this.Sec_Pulsador = new HashSet<Sec_Pulsador>();
         }
     
         public int IdProveedor { get; set; }
@@ -31,7 +30,5 @@ namespace ApiTTHH.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Adm_ApiProvider> Adm_ApiProvider { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sec_Pulsador> Sec_Pulsador { get; set; }
     }
 }

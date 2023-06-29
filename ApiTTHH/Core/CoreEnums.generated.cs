@@ -6,7 +6,7 @@ using System.CodeDom.Compiler;
 namespace Ccq
 {
     /// <summary>
-    /// Enumeradores de base de datos, fecha:23/6/2023 15:17:35
+    /// Enumeradores de base de datos, fecha:27/6/2023 21:25:45
     /// </summary>	
     public partial class Enums
     {
@@ -116,19 +116,32 @@ namespace Ccq
                                             Keyjwt = 9,
 
                                         /// <summary>
-                    /// PrivateKeyProvider ConfigKey.
-                    /// </summary>			
-                                            Privatekeyprovider = 10,
-
-                                        /// <summary>
                     /// SQLConnect ConfigKey.
                     /// </summary>			
-                                            Sqlconnect = 11,
+                                            Sqlconnect = 10,
 
                                         /// <summary>
                     /// InitialCatalogSQL ConfigKey.
                     /// </summary>			
-                                            Initialcatalogsql = 12
+                                            Initialcatalogsql = 11
+                    	
+        }
+     
+
+        #endregion
+            
+            #region TipoSolicitud  
+
+            /// <summary>
+            /// TipoSolicitud db generated enumeration
+            /// </summary>
+            [GeneratedCode("TextTemplatingFileGenerator", "10")]
+            public enum TipoSolicitud
+            {
+                                    /// <summary>
+                    /// Solicitud de Vacaciones Gozadas TipoSolicitud.
+                    /// </summary>			
+                                            SolicitudDeVacacionesGozadas = 1
                     	
         }
      

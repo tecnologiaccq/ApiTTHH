@@ -13,9 +13,9 @@ namespace ApiTTHH.Models
     
     public partial class sp_tnmDiasVacacionesColaborador_Result
     {
-        public int IdHistorialVacaciones { get; set; }
+        public long IdHistorialVacaciones { get; set; }
         public int Periodo { get; set; }
-        public int DiasPendientes { get; set; }
+        public decimal DiasPendientes { get; set; }
         public decimal DiasDisfrutados { get; set; }
         public decimal DiasDisfrutadosConFinSe { get; set; }
     }
