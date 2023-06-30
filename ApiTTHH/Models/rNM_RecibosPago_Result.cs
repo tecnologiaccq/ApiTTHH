@@ -15,7 +15,7 @@ namespace ApiTTHH.Models
     {
         public string Concepto { get; set; }
         public decimal Unidades { get; set; }
-        public int Asignacion { get; set; }
+        public decimal Asignacion { get; set; }
         public decimal Deduccion { get; set; }
         public decimal Saldo { get; set; }
     }
