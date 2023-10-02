@@ -126,8 +126,8 @@ namespace ApiTTHH.Controllers.Catalogos
             var listValores = db.sp_CalculoCertificadoSueldo(colaborador.IdColaborador, colaborador.IdEmpresa).FirstOrDefault();
             int idconceptoSueldo = colaborador.IdEmpresa == 1 ? 1 : 133;
 
-            tNM_CalendarioNominas calNomima = db.tNM_CalendarioNominas.Where(x => x.IdTipoNomina == 2 && x.IdEmpresa == colaborador.IdEmpresa && x.IdTipoColaborador==colaborador.IdTipoColaborador).OrderByDescending(x => x.IdCalendarioNomina).FirstOrDefault();
-            tNM_NominaDefinitiva nominaDefinitiva = db.tNM_NominaDefinitiva.Single(x => x.IdCalendarioNomina == calNomima.IdCalendarioNomina && x.IdColaborador == colaborador.IdColaborador && x.IdConcepto == idconceptoSueldo);
+            tNM_CalendarioNominas calNomima = db.tNM_CalendarioNominas.Where(x => x.IdComprobante != null && x.IdTipoNomina == 2 && x.IdEmpresa == colaborador.IdEmpresa && x.IdTipoColaborador==colaborador.IdTipoColaborador).OrderByDescending(x => x.IdCalendarioNomina).FirstOrDefault();
+            tNM_NominaDefinitiva nominaDefinitiva = db.tNM_NominaDefinitiva.Where(x => x.IdCalendarioNomina == calNomima.IdCalendarioNomina && x.IdColaborador == colaborador.IdColaborador && x.IdConcepto == idconceptoSueldo).FirstOrDefault();
             string fullMonthName = DateTime.Now.Date.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
             string fullMonthNameTrabajador = colaborador.FechaIngreso.Value.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
             report.Parameters["fecha"].Value = DateTime.Now.Day + " de " + fullMonthName + " de " + DateTime.Now.Year; ;

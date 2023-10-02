@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiTTHH", "ApiTTHH\ApiTTHH.csproj", "{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CCQ", "..\leyprotecciondatos\AuthLdp_CCQ\CCQ\CCQ.sqlproj", "{17951A93-82F9-4D1F-A977-F5E3B41ECDC3}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CCQ", "..\ErpDB\CCQ\CCQ.sqlproj", "{17951A93-82F9-4D1F-A977-F5E3B41ECDC3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

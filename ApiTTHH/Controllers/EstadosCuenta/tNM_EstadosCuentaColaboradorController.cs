@@ -59,42 +59,75 @@ namespace ApiTTHH.Controllers.EstadosCuenta
             //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
             try
             {
-                tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario && x.IdEstado==1);
+                tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
 
                 if (colaborador == null)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Datos de colaborador no encontrados");
                 }
+
                 if (colaborador.IdEstado == 20)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Colaborador no está activo");
+                    tNM_SaldosCuentaColaborador saldos = db.tNM_SaldosCuentaColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador);
+                    tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
+                    tNM_IngresosBeneficiosColaborador ingreso = db.tNM_IngresosBeneficiosColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador && x.idTipoBeneficio == 1);
+                    var candidatos = (from estadoCuenta in db.tNM_EstadosCuentaColaborador
+                            join beneficio in db.tNm_BeneficiosCCQ
+                                on estadoCuenta.IdTipoBeneficio equals beneficio.IdTipoBeneficio
+                            join tipoEstado in db.tNM_TiposEstadoCuenta
+                                on estadoCuenta.IdTipoEstadoCuenta equals tipoEstado.IdTipoEstadoCuenta
+                            where estadoCuenta.IdColaborador == colaborador.IdColaborador
+                            select new
+                            {
+                                idColaborador = estadoCuenta.IdColaborador,
+                                idTipoBeneficio = estadoCuenta.IdTipoBeneficio,
+                                tipoBeneficio = beneficio.Descripcion,
+                                idTipoEstadpCuenta = tipoEstado.Descripcion,
+                                valor = estadoCuenta.Valor,
+                                descripcionEstado = estadoCuenta.Descripcion,
+                                fecha = estadoCuenta.FechaCreacion,
+                                saldoCupo = 0,
+                                saldoGifcard = saldos.SaldoGiftCard,
+                                total = saldos.SaldoCupo + saldos.SaldoGiftCard,
+                                mesesDiferir = ingreso.Plazo,
+                                idReferencia = estadoCuenta.IdReferencia
+                            }
+                        ).ToList();
+
+                    return Request.CreateResponse(HttpStatusCode.OK, candidatos.OrderByDescending(x => x.fecha));
                 }
-                tNM_SaldosCuentaColaborador saldos = db.tNM_SaldosCuentaColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador);
-                tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
-                tNM_IngresosBeneficiosColaborador ingreso = db.tNM_IngresosBeneficiosColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador && x.idTipoBeneficio == 1);
-                var candidatos = (from estadoCuenta in db.tNM_EstadosCuentaColaborador
-                                  join beneficio in db.tNm_BeneficiosCCQ
-                                  on estadoCuenta.IdTipoBeneficio equals beneficio.IdTipoBeneficio
-                                  join tipoEstado in db.tNM_TiposEstadoCuenta
-                                  on estadoCuenta.IdTipoEstadoCuenta equals tipoEstado.IdTipoEstadoCuenta
-                                  where estadoCuenta.IdColaborador == colaborador.IdColaborador
-                                  select new
-                                  {
-                                      idColaborador = estadoCuenta.IdColaborador,
-                                      idTipoBeneficio = estadoCuenta.IdTipoBeneficio,
-                                      tipoBeneficio = beneficio.Descripcion,
-                                      idTipoEstadpCuenta = tipoEstado.Descripcion,
-                                      valor = estadoCuenta.Valor,
-                                      descripcionEstado = estadoCuenta.Descripcion,
-                                      fecha = estadoCuenta.FechaCreacion,
-                                      saldoCupo = saldos.SaldoCupo,
-                                      saldoGifcard = saldos.SaldoGiftCard,
-                                      total = saldos.SaldoCupo + saldos.SaldoGiftCard,
-                                      mesesDiferir = ingreso.Plazo,
-                                      idReferencia = estadoCuenta.IdReferencia
-                                  }
-                          ).ToList();
-                return Request.CreateResponse(HttpStatusCode.OK, candidatos.OrderByDescending(x => x.fecha));
+                else
+                {
+                    tNM_SaldosCuentaColaborador saldos = db.tNM_SaldosCuentaColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador);
+                    tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
+                    tNM_IngresosBeneficiosColaborador ingreso = db.tNM_IngresosBeneficiosColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador && x.idTipoBeneficio == 1);
+                    var candidatos = (from estadoCuenta in db.tNM_EstadosCuentaColaborador
+                            join beneficio in db.tNm_BeneficiosCCQ
+                                on estadoCuenta.IdTipoBeneficio equals beneficio.IdTipoBeneficio
+                            join tipoEstado in db.tNM_TiposEstadoCuenta
+                                on estadoCuenta.IdTipoEstadoCuenta equals tipoEstado.IdTipoEstadoCuenta
+                            where estadoCuenta.IdColaborador == colaborador.IdColaborador
+                            select new
+                            {
+                                idColaborador = estadoCuenta.IdColaborador,
+                                idTipoBeneficio = estadoCuenta.IdTipoBeneficio,
+                                tipoBeneficio = beneficio.Descripcion,
+                                idTipoEstadpCuenta = tipoEstado.Descripcion,
+                                valor = estadoCuenta.Valor,
+                                descripcionEstado = estadoCuenta.Descripcion,
+                                fecha = estadoCuenta.FechaCreacion,
+                                saldoCupo = saldos.SaldoCupo,
+                                saldoGifcard = saldos.SaldoGiftCard,
+                                total = saldos.SaldoCupo + saldos.SaldoGiftCard,
+                                mesesDiferir = ingreso.Plazo,
+                                idReferencia = estadoCuenta.IdReferencia
+                            }
+                        ).ToList();
+
+                    return Request.CreateResponse(HttpStatusCode.OK, candidatos.OrderByDescending(x => x.fecha));
+                }
+                
+               
             }
             catch (Exception ex)
             {
