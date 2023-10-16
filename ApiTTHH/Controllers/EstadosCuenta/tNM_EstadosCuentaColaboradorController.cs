@@ -134,7 +134,7 @@ namespace ApiTTHH.Controllers.EstadosCuenta
 
                 if (infoColaborador == null)
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Datos de colaborador no encontrados");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, "Colaborador no cuenta con Saldo para transaccionar.");
                 }
 
                 if (infoColaborador.IdEstado == 20)
