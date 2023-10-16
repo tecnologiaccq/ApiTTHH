@@ -41,6 +41,7 @@ namespace ApiTTHH.Models
             this.tGN_Empresas1 = new HashSet<tGN_Empresas>();
             this.tGS_Cuotas = new HashSet<tGS_Cuotas>();
             this.tIV_Saldos = new HashSet<tIV_Saldos>();
+            this.tIV_Transacciones = new HashSet<tIV_Transacciones>();
         }
     
         public int IdPeriodoContable { get; set; }
@@ -109,5 +110,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tGS_Cuotas> tGS_Cuotas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tIV_Saldos> tIV_Saldos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tIV_Transacciones> tIV_Transacciones { get; set; }
     }
 }

@@ -71,6 +71,19 @@ namespace ApiTTHH.Models
         public Nullable<decimal> FondosReservaAcumulado { get; set; }
         public Nullable<decimal> ValorRentaBrutoAnual { get; set; }
         public Nullable<decimal> ReduccionGastosPersonales { get; set; }
+        public Nullable<decimal> tempFraccionBasica { get; set; }
+        public Nullable<decimal> tempImpuestoBasico { get; set; }
+        public Nullable<decimal> tempFraccionExcedente { get; set; }
+        public Nullable<decimal> tempTasaExceso { get; set; }
+        public Nullable<decimal> tempBasico { get; set; }
+        public Nullable<decimal> tempExcedente { get; set; }
+        public Nullable<decimal> tempDiferencia { get; set; }
+        public Nullable<decimal> tempImpuestoExcedente { get; set; }
+        public Nullable<decimal> tempTotalImpuestoAnioSinRebaja { get; set; }
+        public Nullable<decimal> tempReduccionImpuestoLEFAM { get; set; }
+        public Nullable<decimal> tempImpuestoRentaAnualLEFAM { get; set; }
+        public Nullable<decimal> tempImpuestoRentaMensualLEFAM { get; set; }
+        public Nullable<decimal> tempImpuestoRentaRestadoRetenidoRealAlMesAnterior { get; set; }
     
         public virtual tGN_Empresas tGN_Empresas { get; set; }
         public virtual tNM_CalendarioNominas tNM_CalendarioNominas { get; set; }

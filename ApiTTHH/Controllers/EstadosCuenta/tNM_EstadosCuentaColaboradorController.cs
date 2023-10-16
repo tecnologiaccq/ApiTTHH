@@ -14,6 +14,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Windows.Forms;
 using ApiTTHH.Business;
+using ApiTTHH.ModelClass;
 using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
 
@@ -59,7 +60,7 @@ namespace ApiTTHH.Controllers.EstadosCuenta
             //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
             try
             {
-                tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
+                tNM_Colaboradores colaborador = db.tNM_Colaboradores.FirstOrDefault(x => x.Usuario == usuario && x.IdEstado == 1);
 
                 if (colaborador == null)
                 {
@@ -98,33 +99,42 @@ namespace ApiTTHH.Controllers.EstadosCuenta
                 }
                 else
                 {
-                    tNM_SaldosCuentaColaborador saldos = db.tNM_SaldosCuentaColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador);
-                    tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
-                    tNM_IngresosBeneficiosColaborador ingreso = db.tNM_IngresosBeneficiosColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador && x.idTipoBeneficio == 1);
-                    var candidatos = (from estadoCuenta in db.tNM_EstadosCuentaColaborador
-                            join beneficio in db.tNm_BeneficiosCCQ
-                                on estadoCuenta.IdTipoBeneficio equals beneficio.IdTipoBeneficio
-                            join tipoEstado in db.tNM_TiposEstadoCuenta
-                                on estadoCuenta.IdTipoEstadoCuenta equals tipoEstado.IdTipoEstadoCuenta
-                            where estadoCuenta.IdColaborador == colaborador.IdColaborador
-                            select new
-                            {
-                                idColaborador = estadoCuenta.IdColaborador,
-                                idTipoBeneficio = estadoCuenta.IdTipoBeneficio,
-                                tipoBeneficio = beneficio.Descripcion,
-                                idTipoEstadpCuenta = tipoEstado.Descripcion,
-                                valor = estadoCuenta.Valor,
-                                descripcionEstado = estadoCuenta.Descripcion,
-                                fecha = estadoCuenta.FechaCreacion,
-                                saldoCupo = saldos.SaldoCupo,
-                                saldoGifcard = saldos.SaldoGiftCard,
-                                total = saldos.SaldoCupo + saldos.SaldoGiftCard,
-                                mesesDiferir = ingreso.Plazo,
-                                idReferencia = estadoCuenta.IdReferencia
-                            }
-                        ).ToList();
+                    tNM_SaldosCuentaColaborador saldos = db.tNM_SaldosCuentaColaborador.Where(x => x.IdColaborador == colaborador.IdColaborador).FirstOrDefault();
 
-                    return Request.CreateResponse(HttpStatusCode.OK, candidatos.OrderByDescending(x => x.fecha));
+                    if (saldos != null)
+                    {
+                        tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
+                        tNM_IngresosBeneficiosColaborador ingreso = db.tNM_IngresosBeneficiosColaborador.Single(x => x.IdColaborador == colaborador.IdColaborador && x.idTipoBeneficio == 1);
+                        var candidatos = (from estadoCuenta in db.tNM_EstadosCuentaColaborador
+                                join beneficio in db.tNm_BeneficiosCCQ
+                                    on estadoCuenta.IdTipoBeneficio equals beneficio.IdTipoBeneficio
+                                join tipoEstado in db.tNM_TiposEstadoCuenta
+                                    on estadoCuenta.IdTipoEstadoCuenta equals tipoEstado.IdTipoEstadoCuenta
+                                where estadoCuenta.IdColaborador == colaborador.IdColaborador
+                                select new
+                                {
+                                    idColaborador = estadoCuenta.IdColaborador,
+                                    idTipoBeneficio = estadoCuenta.IdTipoBeneficio,
+                                    tipoBeneficio = beneficio.Descripcion,
+                                    idTipoEstadpCuenta = tipoEstado.Descripcion,
+                                    valor = estadoCuenta.Valor,
+                                    descripcionEstado = estadoCuenta.Descripcion,
+                                    fecha = estadoCuenta.FechaCreacion,
+                                    saldoCupo = saldos.SaldoCupo,
+                                    saldoGifcard = saldos.SaldoGiftCard,
+                                    total = saldos.SaldoCupo + saldos.SaldoGiftCard,
+                                    mesesDiferir = ingreso.Plazo,
+                                    idReferencia = estadoCuenta.IdReferencia
+                                }
+                            ).ToList();
+
+                        return Request.CreateResponse(HttpStatusCode.OK, candidatos.OrderByDescending(x => x.fecha));
+
+                    }
+
+                    var result = $"Colaborador no dispone de saldo para consumo.";
+
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
                 }
                 
                
@@ -147,11 +157,10 @@ namespace ApiTTHH.Controllers.EstadosCuenta
             {
                 var result = await _loginBusiness.VerifyUserSqlConfiguredAsync(usuario);
 
-                if (result)
+                if (result != null)
                 {
-                    tNM_Colaboradores empleado = db.tNM_Colaboradores.FirstOrDefault(x => x.Usuario == usuario.usuario && x.IdEstado == 1);
                     //EntityConnection entityConn = DBConnectionHelper.BuildConnection();
-                    return Request.CreateResponse(HttpStatusCode.OK, empleado);
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
                 }
                 else
                 {

@@ -23,6 +23,7 @@ namespace ApiTTHH.Models
             this.Lpd_HistoricoSuscripcionNuevoContacto = new HashSet<Lpd_HistoricoSuscripcionNuevoContacto>();
             this.tGN_HistoricoContactoPersona = new HashSet<tGN_HistoricoContactoPersona>();
             this.tGS_HistoricoSuscripcionContacto = new HashSet<tGS_HistoricoSuscripcionContacto>();
+            this.tSC_EntryHistory = new HashSet<tSC_EntryHistory>();
         }
     
         public int IdCatEvento { get; set; }
@@ -43,5 +44,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tGN_HistoricoContactoPersona> tGN_HistoricoContactoPersona { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tGS_HistoricoSuscripcionContacto> tGS_HistoricoSuscripcionContacto { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tSC_EntryHistory> tSC_EntryHistory { get; set; }
     }
 }

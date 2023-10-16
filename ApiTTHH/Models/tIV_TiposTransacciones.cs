@@ -21,6 +21,7 @@ namespace ApiTTHH.Models
             this.tIV_Contabilizacion = new HashSet<tIV_Contabilizacion>();
             this.tIV_MaestroSolicitudes = new HashSet<tIV_MaestroSolicitudes>();
             this.tIV_Transacciones = new HashSet<tIV_Transacciones>();
+            this.tIV_MaestroRecepciones = new HashSet<tIV_MaestroRecepciones>();
         }
     
         public int IdTipoTransaccion { get; set; }
@@ -43,5 +44,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tIV_MaestroSolicitudes> tIV_MaestroSolicitudes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tIV_Transacciones> tIV_Transacciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tIV_MaestroRecepciones> tIV_MaestroRecepciones { get; set; }
     }
 }

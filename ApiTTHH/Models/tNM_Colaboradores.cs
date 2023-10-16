@@ -127,6 +127,9 @@ namespace ApiTTHH.Models
         public string nickname { get; set; }
         public Nullable<int> IdTipoSangre { get; set; }
         public string UrlFoto { get; set; }
+        public int CargasLEFAM { get; set; }
+        public string NumeroTelefonoAuth2F { get; set; }
+        public bool SegundoFactor { get; set; }
     
         public virtual tGN_Bancos tGN_Bancos { get; set; }
         public virtual tGN_Empresas tGN_Empresas { get; set; }

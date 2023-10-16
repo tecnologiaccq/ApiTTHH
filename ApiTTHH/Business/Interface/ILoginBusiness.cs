@@ -1,4 +1,6 @@
-﻿using ApiTTHH.Models.Custom;
+﻿using ApiTTHH.ModelClass;
+using ApiTTHH.Models;
+using ApiTTHH.Models.Custom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,6 @@ namespace ApiTTHH.Business.Interface
 {
     public interface ILoginBusiness
     {
-        Task<bool> VerifyUserSqlConfiguredAsync(UsuarioModel model);
+        Task<ColaboradorResultModel> VerifyUserSqlConfiguredAsync(UsuarioModel model);
     }
 }

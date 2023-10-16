@@ -81,6 +81,8 @@ namespace ApiTTHH.Models
         public string TipoSangre { get; set; }
         public Nullable<int> IdNivelInstruccion { get; set; }
         public Nullable<int> IdEstadoCivil { get; set; }
+        public Nullable<int> ComisionesIdTablaComisiones { get; set; }
+        public Nullable<bool> ComisionesAplicaPagoMovilizacion { get; set; }
     
         public virtual PermissionPolicyUser PermissionPolicyUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

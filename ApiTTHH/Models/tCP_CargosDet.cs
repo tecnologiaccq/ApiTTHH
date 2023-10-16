@@ -46,6 +46,9 @@ namespace ApiTTHH.Models
         public string ModificadoPor { get; set; }
         public Nullable<System.DateTime> UltimaModificacion { get; set; }
         public string EstacionModificacion { get; set; }
+        public Nullable<int> IdTipoArticulo { get; set; }
+        public Nullable<int> IdBodega { get; set; }
+        public Nullable<int> IdUnidadStock { get; set; }
     
         public virtual tCG_ObjetosConsumos tCG_ObjetosConsumos { get; set; }
         public virtual tCG_PlanCuentasEmpresa tCG_PlanCuentasEmpresa { get; set; }
@@ -58,5 +61,8 @@ namespace ApiTTHH.Models
         public virtual tGN_TiposImpuestos tGN_TiposImpuestos1 { get; set; }
         public virtual tGN_TiposImpuestos tGN_TiposImpuestos2 { get; set; }
         public virtual tNM_Empleados tNM_Empleados { get; set; }
+        public virtual tIV_Bodegas tIV_Bodegas { get; set; }
+        public virtual tIV_TiposArticulos tIV_TiposArticulos { get; set; }
+        public virtual tIV_UnidadesMedida tIV_UnidadesMedida { get; set; }
     }
 }

@@ -47,6 +47,7 @@ namespace ApiTTHH.Models
         public Nullable<bool> EsMasivo { get; set; }
         public Nullable<int> IdPais { get; set; }
         public string PrefijoPais { get; set; }
+        public string RazonSocial { get; set; }
     
         public virtual CatEstadoContacto CatEstadoContacto { get; set; }
         public virtual tCC_LinkLpdVendedor tCC_LinkLpdVendedor { get; set; }

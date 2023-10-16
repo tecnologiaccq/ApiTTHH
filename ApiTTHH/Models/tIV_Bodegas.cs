@@ -24,6 +24,7 @@ namespace ApiTTHH.Models
             this.tIV_MaestroSolicitudes = new HashSet<tIV_MaestroSolicitudes>();
             this.tIV_Saldos = new HashSet<tIV_Saldos>();
             this.tIV_Transacciones = new HashSet<tIV_Transacciones>();
+            this.tCP_CargosDet = new HashSet<tCP_CargosDet>();
         }
     
         public int IdBodega { get; set; }
@@ -51,5 +52,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tIV_Saldos> tIV_Saldos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tIV_Transacciones> tIV_Transacciones { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tCP_CargosDet> tCP_CargosDet { get; set; }
     }
 }

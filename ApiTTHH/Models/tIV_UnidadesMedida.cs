@@ -24,6 +24,7 @@ namespace ApiTTHH.Models
             this.tIV_DetalleRecepciones1 = new HashSet<tIV_DetalleRecepciones>();
             this.tIV_DetalleSolicitudes = new HashSet<tIV_DetalleSolicitudes>();
             this.tIV_DetalleSolicitudes1 = new HashSet<tIV_DetalleSolicitudes>();
+            this.tCP_CargosDet = new HashSet<tCP_CargosDet>();
         }
     
         public int IdUnidadMedida { get; set; }
@@ -50,5 +51,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tIV_DetalleSolicitudes> tIV_DetalleSolicitudes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tIV_DetalleSolicitudes> tIV_DetalleSolicitudes1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tCP_CargosDet> tCP_CargosDet { get; set; }
     }
 }

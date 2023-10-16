@@ -28,6 +28,7 @@ namespace ApiTTHH.Models
             this.tCP_FallosDebitoBancos = new HashSet<tCP_FallosDebitoBancos>();
             this.tCP_FinanciamientoCargos = new HashSet<tCP_FinanciamientoCargos>();
             this.tCP_TemporalCruceDoc = new HashSet<tCP_TemporalCruceDoc>();
+            this.tIV_MaestroRecepciones = new HashSet<tIV_MaestroRecepciones>();
         }
     
         public int IdCargoCab { get; set; }
@@ -129,5 +130,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tCP_FinanciamientoCargos> tCP_FinanciamientoCargos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tCP_TemporalCruceDoc> tCP_TemporalCruceDoc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tIV_MaestroRecepciones> tIV_MaestroRecepciones { get; set; }
     }
 }

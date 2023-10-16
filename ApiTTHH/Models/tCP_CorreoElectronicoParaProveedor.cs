@@ -37,5 +37,6 @@ namespace ApiTTHH.Models
         public string FechaTransferencia { get; set; }
         public string Descripcion { get; set; }
         public string Referencia { get; set; }
+        public Nullable<System.DateTime> FechaHoraEnvioCorreoElectronico { get; set; }
     }
 }

@@ -93,6 +93,7 @@ namespace ApiTTHH.Models
         public Nullable<int> IdPlanCuentaEmpresaSaldo { get; set; }
         public Nullable<int> IdEmpleado { get; set; }
         public Nullable<System.DateTime> FechaComprobante { get; set; }
+        public Nullable<bool> EnviarAlDoce { get; set; }
     
         public virtual tCG_AsientosContableCab tCG_AsientosContableCab { get; set; }
         public virtual tCG_GrupoComprobantes tCG_GrupoComprobantes { get; set; }

@@ -44,13 +44,8 @@ namespace ApiTTHH.Models
         public virtual DbSet<Adm_HistoryLoginDataManager> Adm_HistoryLoginDataManager { get; set; }
         public virtual DbSet<Adm_OpcionPorRol> Adm_OpcionPorRol { get; set; }
         public virtual DbSet<Adm_Proveedor> Adm_Proveedor { get; set; }
-        public virtual DbSet<Adm_RolPorUsuario> Adm_RolPorUsuario { get; set; }
         public virtual DbSet<Analysis> Analysis { get; set; }
         public virtual DbSet<ATS_Compras> ATS_Compras { get; set; }
-        public virtual DbSet<BuzonCCQAdjuntos> BuzonCCQAdjuntos { get; set; }
-        public virtual DbSet<BuzonCCQArea> BuzonCCQArea { get; set; }
-        public virtual DbSet<BuzonCCQFormulario> BuzonCCQFormulario { get; set; }
-        public virtual DbSet<BuzonCCQTiposFeedBack> BuzonCCQTiposFeedBack { get; set; }
         public virtual DbSet<CodigosValidacion> CodigosValidacion { get; set; }
         public virtual DbSet<ConfigMail> ConfigMail { get; set; }
         public virtual DbSet<correo_listanegra> correo_listanegra { get; set; }
@@ -232,11 +227,6 @@ namespace ApiTTHH.Models
         public virtual DbSet<tCC_TiposDocumentosCCQ> tCC_TiposDocumentosCCQ { get; set; }
         public virtual DbSet<tCC_TiposVendedor> tCC_TiposVendedor { get; set; }
         public virtual DbSet<tCC_Vendedores> tCC_Vendedores { get; set; }
-        public virtual DbSet<tCCQ_EspaciosComedor> tCCQ_EspaciosComedor { get; set; }
-        public virtual DbSet<tCCQ_ReservaComedor> tCCQ_ReservaComedor { get; set; }
-        public virtual DbSet<tCCQ_TimbradoRegistros> tCCQ_TimbradoRegistros { get; set; }
-        public virtual DbSet<tCCQ_TiposTimbrado> tCCQ_TiposTimbrado { get; set; }
-        public virtual DbSet<tCCQ_TurnosComedor> tCCQ_TurnosComedor { get; set; }
         public virtual DbSet<tCEC_AnexosEventosCursos> tCEC_AnexosEventosCursos { get; set; }
         public virtual DbSet<tCEC_CategoriasEventosCursosXDictar> tCEC_CategoriasEventosCursosXDictar { get; set; }
         public virtual DbSet<tCEC_DireccionesEventosCursos> tCEC_DireccionesEventosCursos { get; set; }
@@ -334,7 +324,6 @@ namespace ApiTTHH.Models
         public virtual DbSet<tCT_TipoGrupoCuentas> tCT_TipoGrupoCuentas { get; set; }
         public virtual DbSet<tCT_TipoObjetoCosto> tCT_TipoObjetoCosto { get; set; }
         public virtual DbSet<tCT_TipoPlanCuentas> tCT_TipoPlanCuentas { get; set; }
-        public virtual DbSet<tempo_delete_correos_comex> tempo_delete_correos_comex { get; set; }
         public virtual DbSet<tFT_CuotasSociales> tFT_CuotasSociales { get; set; }
         public virtual DbSet<tFT_FacturaCab> tFT_FacturaCab { get; set; }
         public virtual DbSet<tFT_FacturaCabFormasPago> tFT_FacturaCabFormasPago { get; set; }
@@ -591,25 +580,15 @@ namespace ApiTTHH.Models
         public virtual DbSet<pbcatfmt> pbcatfmt { get; set; }
         public virtual DbSet<pbcattbl> pbcattbl { get; set; }
         public virtual DbSet<pbcatvld> pbcatvld { get; set; }
-        public virtual DbSet<tCC_CobroTarjetaDiners_fixError_DELETED> tCC_CobroTarjetaDiners_fixError_DELETED { get; set; }
         public virtual DbSet<tEM_Cuotas> tEM_Cuotas { get; set; }
         public virtual DbSet<tEM_Cuotas2> tEM_Cuotas2 { get; set; }
         public virtual DbSet<tEM_SaldosCuotas> tEM_SaldosCuotas { get; set; }
-        public virtual DbSet<tempCam_DELETED> tempCam_DELETED { get; set; }
-        public virtual DbSet<tempCobroTarjetaDiners_DELETED> tempCobroTarjetaDiners_DELETED { get; set; }
-        public virtual DbSet<tempo_delete_backup_tGN_ContactoPersona_antes_sync_datos_proyecto_pasantes> tempo_delete_backup_tGN_ContactoPersona_antes_sync_datos_proyecto_pasantes { get; set; }
-        public virtual DbSet<tempo_delete_backup_tGN_Direcciones_antes_sync_datos_proyecto_pasantes> tempo_delete_backup_tGN_Direcciones_antes_sync_datos_proyecto_pasantes { get; set; }
-        public virtual DbSet<tempo_delete_backup_tGN_Personas_antes_update_representante_legal_vbohorques_2023_03> tempo_delete_backup_tGN_Personas_antes_update_representante_legal_vbohorques_2023_03 { get; set; }
-        public virtual DbSet<temporal_CorrecionFechasAsientosMarciaSanchez> temporal_CorrecionFechasAsientosMarciaSanchez { get; set; }
-        public virtual DbSet<tGN_ContactoPersona_bckup_depuracion_atmailing> tGN_ContactoPersona_bckup_depuracion_atmailing { get; set; }
         public virtual DbSet<tGN_ContactoPersona_Suscripcion_Temporal> tGN_ContactoPersona_Suscripcion_Temporal { get; set; }
         public virtual DbSet<tNM_Empleados_Colaboradores> tNM_Empleados_Colaboradores { get; set; }
         public virtual DbSet<tNM_Formulario107> tNM_Formulario107 { get; set; }
-        public virtual DbSet<tNM_NominaDefinitiva_bkp> tNM_NominaDefinitiva_bkp { get; set; }
         public virtual DbSet<tNM_tmp_ImpuestoAgostoNuevo> tNM_tmp_ImpuestoAgostoNuevo { get; set; }
         public virtual DbSet<tPR_DetalleComparativo> tPR_DetalleComparativo { get; set; }
         public virtual DbSet<tRPt_PresupuestoVentas> tRPt_PresupuestoVentas { get; set; }
-        public virtual DbSet<zTempMigracionSociosHaciaCRM> zTempMigracionSociosHaciaCRM { get; set; }
         public virtual DbSet<HADES_tGS_Socios> HADES_tGS_Socios { get; set; }
         public virtual DbSet<temp_vClientesDN> temp_vClientesDN { get; set; }
         public virtual DbSet<v_Certificado> v_Certificado { get; set; }
@@ -666,6 +645,14 @@ namespace ApiTTHH.Models
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<CatTipoSolicitud> CatTipoSolicitud { get; set; }
         public virtual DbSet<ConfigTTHH> ConfigTTHH { get; set; }
+        public virtual DbSet<CatActividadEconomica> CatActividadEconomica { get; set; }
+        public virtual DbSet<CatApiDetailCcq> CatApiDetailCcq { get; set; }
+        public virtual DbSet<CatTipoTelefono> CatTipoTelefono { get; set; }
+        public virtual DbSet<Adm_ApiProviderCcq> Adm_ApiProviderCcq { get; set; }
+        public virtual DbSet<Log4NetLog> Log4NetLog { get; set; }
+        public virtual DbSet<tGS_AfiliateCcq> tGS_AfiliateCcq { get; set; }
+        public virtual DbSet<tNM_DeduccionGastosCargasLEFAM> tNM_DeduccionGastosCargasLEFAM { get; set; }
+        public virtual DbSet<tSC_EntryHistory> tSC_EntryHistory { get; set; }
     
         [DbFunction("CCQ_DESAEntities", "fn_ATS_ObtenerRetenciones_Iva")]
         public virtual IQueryable<fn_ATS_ObtenerRetenciones_Iva_Result> fn_ATS_ObtenerRetenciones_Iva(Nullable<int> idEmpresa, Nullable<int> idPeriodoContable)
@@ -876,6 +863,15 @@ namespace ApiTTHH.Models
                 new ObjectParameter("idColaborador", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_AusenciasCCQ_Result>("sp_AusenciasCCQ", idColaboradorParameter);
+        }
+    
+        public virtual ObjectResult<Get_Colaborador_Inactivo_Con_Saldo_Result> Get_Colaborador_Inactivo_Con_Saldo(string usuario)
+        {
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Colaborador_Inactivo_Con_Saldo_Result>("Get_Colaborador_Inactivo_Con_Saldo", usuarioParameter);
         }
     }
 }

@@ -44,5 +44,9 @@ namespace ApiTTHH.Models
         public virtual ICollection<tIV_DetalleRecepciones> tIV_DetalleRecepciones { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tIV_Transacciones> tIV_Transacciones { get; set; }
+        public virtual tCP_CargosCab tCP_CargosCab { get; set; }
+        public virtual tCP_Proveedores tCP_Proveedores { get; set; }
+        public virtual tGN_Empresas tGN_Empresas { get; set; }
+        public virtual tIV_TiposTransacciones tIV_TiposTransacciones { get; set; }
     }
 }

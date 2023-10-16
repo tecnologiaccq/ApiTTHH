@@ -20,6 +20,7 @@ namespace ApiTTHH.Models
             this.tGN_Empresas = new HashSet<tGN_Empresas>();
             this.tGN_Personas = new HashSet<tGN_Personas>();
             this.tGS_SociosPreregistro = new HashSet<tGS_SociosPreregistro>();
+            this.tGS_AfiliateCcq = new HashSet<tGS_AfiliateCcq>();
         }
     
         public int IdTipoEmpresa { get; set; }
@@ -40,5 +41,7 @@ namespace ApiTTHH.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tGS_SociosPreregistro> tGS_SociosPreregistro { get; set; }
         public virtual tGN_TiposPersonas tGN_TiposPersonas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tGS_AfiliateCcq> tGS_AfiliateCcq { get; set; }
     }
 }

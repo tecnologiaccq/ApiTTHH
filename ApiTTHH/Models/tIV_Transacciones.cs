@@ -51,5 +51,6 @@ namespace ApiTTHH.Models
         public virtual tIV_MaestroRecepciones tIV_MaestroRecepciones { get; set; }
         public virtual tIV_MaestroSolicitudes tIV_MaestroSolicitudes { get; set; }
         public virtual tIV_TiposTransacciones tIV_TiposTransacciones { get; set; }
+        public virtual tCG_PeriodoContable tCG_PeriodoContable { get; set; }
     }
 }

@@ -638,7 +638,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ModelClass\ColaboradorResultModel.cs" />
     <Compile Include="Models\Adm_ApiProvider.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Adm_ApiProviderCcq.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm_GeneralConfig.cs">
@@ -654,9 +658,6 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Adm_Proveedor.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Adm_RolPorUsuario.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AGET_TOKENS_USERS.cs">
@@ -725,16 +726,10 @@
     <Compile Include="Models\BEMPL_USUARIO.cs">
       <DependentUpon>TTHHBEMP.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BuzonCCQAdjuntos.cs">
+    <Compile Include="Models\CatActividadEconomica.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BuzonCCQArea.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BuzonCCQFormulario.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BuzonCCQTiposFeedBack.cs">
+    <Compile Include="Models\CatApiDetailCcq.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CatConfigDataType.cs">
@@ -768,6 +763,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CatTipoSolicitud.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CatTipoTelefono.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CodigosValidacion.cs">
@@ -898,6 +896,9 @@
     <Compile Include="Models\GC_UsuariosAdmin.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Get_Colaborador_Inactivo_Con_Saldo_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\HADES_tGS_Socios.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -929,6 +930,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LicenseKeys.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log4NetLog.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LogApp.cs">
@@ -1210,21 +1214,6 @@
     <Compile Include="Models\tCB_MovimientosContables.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tCCQ_EspaciosComedor.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tCCQ_ReservaComedor.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tCCQ_TimbradoRegistros.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tCCQ_TiposTimbrado.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tCCQ_TurnosComedor.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tCC_AnexosCargos.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -1358,9 +1347,6 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tCC_CobroTarjetaDiners.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tCC_CobroTarjetaDiners_fixError_DELETED.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tCC_CobroTarjetaDiscover.cs">
@@ -1762,27 +1748,6 @@
     <Compile Include="Models\tCT_TipoPlanCuentas.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\tempCam_DELETED.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempCobroTarjetaDiners_DELETED.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\temporal_CorrecionFechasAsientosMarciaSanchez.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempo_delete_backup_tGN_ContactoPersona_antes_sync_datos_proyecto_pasantes.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempo_delete_backup_tGN_Direcciones_antes_sync_datos_proyecto_pasantes.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempo_delete_backup_tGN_Personas_antes_update_representante_legal_vbohorques_2023_03.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tempo_delete_correos_comex.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\temp_vClientesDN.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -1853,9 +1818,6 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tGN_ContactoPersona.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tGN_ContactoPersona_bckup_depuracion_atmailing.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tGN_ContactoPersona_Suscripcion_Temporal.cs">
@@ -2027,6 +1989,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tGS_ActividadesCIIU.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tGS_AfiliateCcq.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tGS_AnexoSocio.cs">
@@ -2311,6 +2276,9 @@
     <Compile Include="Models\tNM_Declaracion14.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tNM_DeduccionGastosCargasLEFAM.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tNM_Departamentos.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -2393,9 +2361,6 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_NominaDefinitiva.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tNM_NominaDefinitiva_bkp.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_NominaPreliminar.cs">
@@ -2540,6 +2505,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tRP_VentasDiariasVendedor.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tSC_EntryHistory.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TTHHBEMP.Context.cs">
@@ -2738,9 +2706,6 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\XpoWorkflowInstanceControlCommandRequest.cs">
-      <DependentUpon>ERPTTHH.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\zTempMigracionSociosHaciaCRM.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

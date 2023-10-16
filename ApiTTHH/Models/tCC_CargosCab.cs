@@ -132,6 +132,14 @@ namespace ApiTTHH.Models
         public string DescripcionLocalidadEspectaculo { get; set; }
         public Nullable<bool> EsBoletoElectronicoGeneradoEspectaculo { get; set; }
         public string NombreEspectaculo { get; set; }
+        public Nullable<int> ComisionesAplicaCalculo { get; set; }
+        public Nullable<int> ComisionesIdCatalogoCategorias { get; set; }
+        public Nullable<decimal> ComisionesValorCuotaInscripcion { get; set; }
+        public Nullable<decimal> ComisionesValorAplicadoSinIVA { get; set; }
+        public string ComisionesObservaciones { get; set; }
+        public Nullable<bool> ComisionesEsMaestria { get; set; }
+        public Nullable<decimal> ComisionesValorMaestria { get; set; }
+        public Nullable<bool> IsUpdatedWithCargosCobradosPeriodosAnteriores { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EV_BoletoElectronico> EV_BoletoElectronico { get; set; }

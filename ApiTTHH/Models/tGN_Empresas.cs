@@ -108,6 +108,7 @@ namespace ApiTTHH.Models
             this.tPR_MaestroFormulacionFlujoCaja = new HashSet<tPR_MaestroFormulacionFlujoCaja>();
             this.tPR_MaestroPresupuesto = new HashSet<tPR_MaestroPresupuesto>();
             this.tPR_MaestroPresupuestoFlujoCaja = new HashSet<tPR_MaestroPresupuestoFlujoCaja>();
+            this.tIV_MaestroRecepciones = new HashSet<tIV_MaestroRecepciones>();
         }
     
         public int IdEmpresa { get; set; }
@@ -326,5 +327,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<tPR_MaestroPresupuesto> tPR_MaestroPresupuesto { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tPR_MaestroPresupuestoFlujoCaja> tPR_MaestroPresupuestoFlujoCaja { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tIV_MaestroRecepciones> tIV_MaestroRecepciones { get; set; }
     }
 }

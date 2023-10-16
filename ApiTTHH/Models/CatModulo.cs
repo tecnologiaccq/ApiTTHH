@@ -19,6 +19,7 @@ namespace ApiTTHH.Models
         {
             this.CatEvento = new HashSet<CatEvento>();
             this.CatMensaje = new HashSet<CatMensaje>();
+            this.CatApiDetailCcq = new HashSet<CatApiDetailCcq>();
         }
     
         public int IdCatModulo { get; set; }
@@ -29,5 +30,7 @@ namespace ApiTTHH.Models
         public virtual ICollection<CatEvento> CatEvento { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CatMensaje> CatMensaje { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CatApiDetailCcq> CatApiDetailCcq { get; set; }
     }
 }

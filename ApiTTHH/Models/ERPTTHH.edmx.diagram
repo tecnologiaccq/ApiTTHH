@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="006fc1a6ec6d4213801c6d23da2719bb" Name="Diagram1">
+      <Diagram DiagramId="006fc1a6ec6d4213801c6d23da2719bb" Name="Diagram1" ZoomLevel="40">
         <EntityTypeShape EntityType="CCQ_DESAModel.CatConfigDataType" Width="1.5" PointX="18.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatConfigKey" Width="1.5" PointX="21" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CatError" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
@@ -22,13 +22,8 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_HistoryLoginDataManager" Width="1.5" PointX="5.25" PointY="663.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_OpcionPorRol" Width="1.5" PointX="5.75" PointY="17.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Adm_Proveedor" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.Adm_RolPorUsuario" Width="1.5" PointX="27" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.Analysis" Width="1.5" PointX="7.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.ATS_Compras" Width="1.5" PointX="68.25" PointY="699.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.BuzonCCQAdjuntos" Width="1.5" PointX="22.25" PointY="13.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.BuzonCCQArea" Width="1.5" PointX="17.75" PointY="25.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.BuzonCCQFormulario" Width="1.5" PointX="20" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.BuzonCCQTiposFeedBack" Width="1.5" PointX="17.75" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.CodigosValidacion" Width="1.5" PointX="19.75" PointY="25.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.ConfigMail" Width="1.5" PointX="15" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.correo_listanegra" Width="1.5" PointX="25.75" PointY="1.5" IsExpanded="true" />
@@ -210,11 +205,6 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.tCC_TiposDocumentosCCQ" Width="1.5" PointX="14.25" PointY="679.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCC_TiposVendedor" Width="1.5" PointX="33.5" PointY="648.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCC_Vendedores" Width="1.5" PointX="35.75" PointY="660" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCCQ_EspaciosComedor" Width="1.5" PointX="15.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCCQ_ReservaComedor" Width="1.5" PointX="18" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCCQ_TimbradoRegistros" Width="1.5" PointX="18.75" PointY="34.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCCQ_TiposTimbrado" Width="1.5" PointX="33.75" PointY="19.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCCQ_TurnosComedor" Width="1.5" PointX="15.75" PointY="18.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCEC_AnexosEventosCursos" Width="1.5" PointX="42.75" PointY="651" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCEC_CategoriasEventosCursosXDictar" Width="1.5" PointX="38.25" PointY="632.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCEC_DireccionesEventosCursos" Width="1.5" PointX="36" PointY="626.625" IsExpanded="true" />
@@ -312,7 +302,6 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.tCT_TipoGrupoCuentas" Width="1.5" PointX="24.5" PointY="605.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCT_TipoObjetoCosto" Width="1.5" PointX="24.5" PointY="610.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tCT_TipoPlanCuentas" Width="1.5" PointX="29" PointY="621.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempo_delete_correos_comex" Width="1.5" PointX="18.75" PointY="39.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tFT_CuotasSociales" Width="1.5" PointX="38.75" PointY="24.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tFT_FacturaCab" Width="1.5" PointX="22.25" PointY="665" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tFT_FacturaCabFormasPago" Width="1.5" PointX="24.5" PointY="658.75" IsExpanded="true" />
@@ -569,25 +558,15 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.pbcatfmt" Width="1.5" PointX="42.75" PointY="20.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.pbcattbl" Width="1.5" PointX="42.75" PointY="23.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.pbcatvld" Width="1.5" PointX="22.75" PointY="43.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tCC_CobroTarjetaDiners_fixError_DELETED" Width="1.5" PointX="42.75" PointY="30.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tEM_Cuotas" Width="1.5" PointX="36.75" PointY="43.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tEM_Cuotas2" Width="1.5" PointX="42.75" PointY="39.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tEM_SaldosCuotas" Width="1.5" PointX="42.75" PointY="43.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempCam_DELETED" Width="1.5" PointX="43.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempCobroTarjetaDiners_DELETED" Width="1.5" PointX="43.75" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempo_delete_backup_tGN_ContactoPersona_antes_sync_datos_proyecto_pasantes" Width="1.5" PointX="18.75" PointY="44.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempo_delete_backup_tGN_Direcciones_antes_sync_datos_proyecto_pasantes" Width="1.5" PointX="24.75" PointY="44.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tempo_delete_backup_tGN_Personas_antes_update_representante_legal_vbohorques_2023_03" Width="1.5" PointX="32.75" PointY="44.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.temporal_CorrecionFechasAsientosMarciaSanchez" Width="1.5" PointX="6.75" PointY="45.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tGN_ContactoPersona_bckup_depuracion_atmailing" Width="1.5" PointX="44.75" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tGN_ContactoPersona_Suscripcion_Temporal" Width="1.5" PointX="24.75" PointY="646.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Empleados_Colaboradores" Width="1.5" PointX="12.75" PointY="45.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Formulario107" Width="1.5" PointX="44.75" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_NominaDefinitiva_bkp" Width="1.5" PointX="44.75" PointY="27.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_tmp_ImpuestoAgostoNuevo" Width="1.5" PointX="26.75" PointY="45.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tPR_DetalleComparativo" Width="1.5" PointX="28.75" PointY="45.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tRPt_PresupuestoVentas" Width="1.5" PointX="44.75" PointY="34.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.zTempMigracionSociosHaciaCRM" Width="1.5" PointX="44.75" PointY="37.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.HADES_tGS_Socios" Width="1.5" PointX="45.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.temp_vClientesDN" Width="1.5" PointX="8.75" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.v_Certificado" Width="1.5" PointX="2.75" PointY="46.5" IsExpanded="true" />
@@ -652,7 +631,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tGN_HistoricoContactoPersona_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGS_HistoricoSuscripcionContacto_CatEvento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_CatMensaje_CatModulo" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_Adm_RolPorUsuario_CatRole" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ConfigMail_ToCatTipoMail" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_Adm_ApiProvider_IdProveedor" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdEmpresa" ManuallyRouted="false" />
@@ -663,8 +641,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdSustentoSRI" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ATS_Compras_IdTipoDocumento" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tCP_CargosCabReembolso_ATS_Compras" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_BuzonCCQAdjuntos_BuzonCCQFormulario" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_BuzonCCQFormulario_BuzonCCQTiposFeedBack" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_SecuritySystemRoleRoles_DashboardDefinitionDashboardDefinitions_DashboardDefinitions" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_EV_BoletoElectronico_tCC_CargosCab" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK__EV_Direcc__IdUrl__3FC35AF6" ManuallyRouted="false" />
@@ -1126,8 +1102,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tGS_Socios_IdVendedor" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGS_SociosPreregistro_tCC_Vendedores" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_VentasDiariasVendedor_IdVendedor" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tCCQ_ReservaComedor_tCCQ_EspaciosComedor" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tCCQ_ReservaComedor_tCCQ_TurnosComedor" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tCEC_AnexosEventosCursos_tCEC_EventosCursosXDictar" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tCEC_EventosCursosXDictar_tCEC_CategoriasEventosCursosXDictar" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tCEC_UbicacionesEventosCursos_tCEC_DireccionesEventosCursos" ManuallyRouted="false" />
@@ -1797,6 +1771,30 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.CatTipoSolicitud" Width="1.5" PointX="53.375" PointY="46.75" />
         <EntityTypeShape EntityType="CCQ_DESAModel.ConfigTTHH" Width="1.5" PointX="55.625" PointY="46.125" />
         <AssociationConnector Association="CCQ_DESAModel.FK_ConfigTTHH_ToCatTipoSolicitud" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.CatActividadEconomica" Width="1.5" PointX="54.75" PointY="751.125" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.CatApiDetailCcq" Width="1.5" PointX="3" PointY="659.25" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.CatTipoTelefono" Width="1.5" PointX="54.75" PointY="748.5" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.Adm_ApiProviderCcq" Width="1.5" PointX="5.25" PointY="658.875" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.Log4NetLog" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tGS_AfiliateCcq" Width="1.5" PointX="57" PointY="739.875" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_DeduccionGastosCargasLEFAM" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tSC_EntryHistory" Width="1.5" PointX="5.25" PointY="687.75" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tGS_AfiliateCcq_CatActividadEconomica" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_Adm_ApiProviderCcq_CatModulo" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_CatApiDetailCcq_CatModulo" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tSC_EntryHistory_ToCatEvento" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tGS_AfiliateCcq_CatTipoTelefono" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tIV_Transacciones_IdPeriodoContable" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tIV_MaestroRecepciones_Factura" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tCP_CargosDet_IdBodega" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tCP_CargosDet_IdTipoArticulo" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tCP_CargosDet_IdUnidadStock" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tIV_MaestroRecepciones_Idproveedor" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tIV_MaestroRecepciones_IdEmpresa" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tGS_AfiliateCcq_tGN_TiposEmpresas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tGS_AfiliateCcq_tGN_TiposIdentificacion" />
+        <AssociationConnector Association="CCQ_DESAModel.tGS_AfiliateCcq_IdAsesorAsignado_FK" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tIV_MaestroRecepciones_IdTipoTransaccion" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

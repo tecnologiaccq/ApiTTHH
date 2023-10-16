@@ -14,17 +14,8 @@ namespace ApiTTHH.Models
     
     public partial class CatRole
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CatRole()
-        {
-            this.Adm_RolPorUsuario = new HashSet<Adm_RolPorUsuario>();
-        }
-    
         public int IdCatRole { get; set; }
         public string Nombre { get; set; }
         public bool Activo { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Adm_RolPorUsuario> Adm_RolPorUsuario { get; set; }
     }
 }
