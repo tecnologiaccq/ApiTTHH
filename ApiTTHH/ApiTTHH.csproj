@@ -639,6 +639,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="ModelClass\ColaboradorResultModel.cs" />
+    <Compile Include="ModelClass\EstadoCuentaColaboradorResultModel.cs" />
     <Compile Include="Models\Adm_ApiProvider.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -897,6 +898,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Get_Colaborador_Inactivo_Con_Saldo_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Get_EstadoCuenta_Colaborador_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\HADES_tGS_Socios.cs">

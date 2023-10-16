@@ -873,5 +873,30 @@ namespace ApiTTHH.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_Colaborador_Inactivo_Con_Saldo_Result>("Get_Colaborador_Inactivo_Con_Saldo", usuarioParameter);
         }
+    
+        public virtual ObjectResult<Get_EstadoCuenta_Colaborador_Result> Get_EstadoCuenta_Colaborador(Nullable<int> idColaborador, Nullable<int> estadoColaborador, Nullable<decimal> saldoCupo, Nullable<decimal> saldoGiftCard, Nullable<int> plazo)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            var estadoColaboradorParameter = estadoColaborador.HasValue ?
+                new ObjectParameter("estadoColaborador", estadoColaborador) :
+                new ObjectParameter("estadoColaborador", typeof(int));
+    
+            var saldoCupoParameter = saldoCupo.HasValue ?
+                new ObjectParameter("saldoCupo", saldoCupo) :
+                new ObjectParameter("saldoCupo", typeof(decimal));
+    
+            var saldoGiftCardParameter = saldoGiftCard.HasValue ?
+                new ObjectParameter("saldoGiftCard", saldoGiftCard) :
+                new ObjectParameter("saldoGiftCard", typeof(decimal));
+    
+            var plazoParameter = plazo.HasValue ?
+                new ObjectParameter("plazo", plazo) :
+                new ObjectParameter("plazo", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Get_EstadoCuenta_Colaborador_Result>("Get_EstadoCuenta_Colaborador", idColaboradorParameter, estadoColaboradorParameter, saldoCupoParameter, saldoGiftCardParameter, plazoParameter);
+        }
     }
 }
