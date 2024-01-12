@@ -1,4 +1,14 @@
-﻿using System;
+﻿using ApiTTHH.ApiModel.Mail;
+using ApiTTHH.ApiModel.Solicitud;
+using ApiTTHH.Models;
+using Ccq;
+using DevExpress.XtraRichEdit;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Microsoft.WindowsAzure.Storage.RetryPolicies;
+using Newtonsoft.Json;
+using RestSharp;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
@@ -13,16 +23,6 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using System.Web.Http.Description;
-using ApiTTHH.ApiModel.Mail;
-using ApiTTHH.ApiModel.Solicitud;
-using ApiTTHH.Models;
-using Ccq;
-using DevExpress.XtraRichEdit;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.RetryPolicies;
-using Newtonsoft.Json;
-using RestSharp;
 using Path = System.IO.Path;
 
 namespace ApiTTHH.Controllers.Vacaciones
@@ -111,7 +111,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                         var nameJefeTTHH = (from c in db.tNM_Colaboradores
                                             join p in db.tGN_Personas on c.IdPersona equals p.IdPersonas
                                             where c.IdCargo == 145 && c.IdEstado == 1
-                                                select p.ApellidoNombre).FirstOrDefault();
+                                            select p.ApellidoNombre).FirstOrDefault();
 
                         var result = db.tNM_SolicitudVacacionesCab.Where(x => x.IdSolicitudVacaciones == solicitud.IdSolicitudVacaciones).Select(y => new SolicitudVacacionesGozadasResultModel
                         {
@@ -125,7 +125,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                             Detalle = y.tNM_SolicitudVacacionesDet.Select(z => new DetalleSolicitudVacacionesGozadasResultModel { DiasPeriodo = z.DiasADisfrutarPeriodo, Anio = z.tNM_HistorialVacaciones.Periodo, FechaInicial = z.tNM_HistorialVacaciones.FechaInicial, FechaFinal = z.tNM_HistorialVacaciones.FechaFinal }),
                             NombreJefeTTHH = nameJefeTTHH
                         }).FirstOrDefault();
-                        
+
                         List<string> resultSolicitudFile = GeneraSolicitudFile(result, solicitud.IdSolicitudVacaciones, solicitud.IdColaborador.Value);
                         solicitud.UrlSolicitud = resultSolicitudFile[0];
                         db.SaveChanges();
@@ -162,7 +162,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                         string correoElectronicoJefe = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == jefe.IdPersona && x.IdMedioContacto == 13).Contacto;
                         string correoElectronicoReemplazo = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorReemplazo.IdPersona && x.IdMedioContacto == 13).Contacto;
                         string tipoAusencia = db.tNM_TiposAusencia.FirstOrDefault(x => x.IdAusencia == solicitud.IdTipoAusencia).Nombre;
-                        sendEmailSolicitudAusencia(correoElectronicoJefe, NombreCol, "", "", "", solicitud.IdTipoAusencia.Value, tipoAusencia, solicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitud.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), nombreReemplazo, correoElectronicoReemplazo, resultSolicitudFile[1]);
+                        sendEmailSolicitudAusencia(correoElectronicoJefe, NombreCol, string.Empty, string.Empty, string.Empty, solicitud.IdTipoAusencia.Value, tipoAusencia, solicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitud.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), nombreReemplazo, correoElectronicoReemplazo, resultSolicitudFile[1]);
 
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
@@ -256,12 +256,12 @@ namespace ApiTTHH.Controllers.Vacaciones
                         string NombreCol = colaboradorSol.nickname == null ? colaboradorSol.ApellidosNombres : colaboradorSol.nickname;
                         string correoElectronicoCol = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorSol.IdPersona && x.IdMedioContacto == 13).Contacto;
                         string tipoAusencia = db.tNM_TiposAusencia.FirstOrDefault(x => x.IdAusencia == solicitudCabUpdate.IdTipoAusencia).Nombre;
-                        string motivo = solicitudCabUpdate.RespuestaSupervisor == null ? "" : solicitudCabUpdate.RespuestaSupervisor;
+                        string motivo = solicitudCabUpdate.RespuestaSupervisor == null ? string.Empty : solicitudCabUpdate.RespuestaSupervisor;
                         string estadoAprob = db.tNM_EstadosFlujoAusencias.FirstOrDefault(x => x.IDEstado == solicitudCabUpdate.IdEstadoAprob).Descripcion;
                         var colaboradorReemplazo = db.tNM_Colaboradores.FirstOrDefault(x => x.IdColaborador == solicitudCabUpdate.IdColaboradorReemplazo);
                         string nombreReemplazo = colaboradorReemplazo.ApellidosNombres;
                         string correoElectronicoReemplazo = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorReemplazo.IdPersona && x.IdMedioContacto == 13).Contacto;
-                        sendEmailSolicitudAusenciaAprobRech(correoElectronicoCol, NombreCol, "", "", "", solicitudCabUpdate.IdTipoAusencia.Value, motivo, tipoAusencia, solicitudCabUpdate.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudCabUpdate.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudCabUpdate.IdEstadoAprob.Value, estadoAprob, nombreReemplazo, correoElectronicoReemplazo);
+                        sendEmailSolicitudAusenciaAprobRech(correoElectronicoCol, NombreCol, string.Empty, string.Empty, string.Empty, solicitudCabUpdate.IdTipoAusencia.Value, motivo, tipoAusencia, solicitudCabUpdate.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudCabUpdate.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudCabUpdate.IdEstadoAprob.Value, estadoAprob, nombreReemplazo, correoElectronicoReemplazo);
 
 
                         return Request.CreateResponse(HttpStatusCode.OK);
@@ -292,18 +292,18 @@ namespace ApiTTHH.Controllers.Vacaciones
             {
                 tNM_SolicitudPermiso permisoSolicitud = db.tNM_SolicitudPermiso.Find(solicitud.IdSolicitudPermiso);
                 tNM_Colaboradores jefe = db.tNM_Colaboradores.First(x => x.IdColaborador == permisoSolicitud.IdSupervisor);
-                string correoJefe = db.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13 && x.IdPersona==jefe.IdPersona).Contacto;
+                string correoJefe = db.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13 && x.IdPersona == jefe.IdPersona).Contacto;
                 tNM_Colaboradores colaborador = db.tNM_Colaboradores.Find(permisoSolicitud.Idcolaborador);
-                string correoSolicitante = db.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13 && x.IdPersona==colaborador.IdPersona).Contacto;
+                string correoSolicitante = db.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13 && x.IdPersona == colaborador.IdPersona).Contacto;
                 tNM_TiposAusencia tNM_TiposAusencia = db.tNM_TiposAusencia.Find(permisoSolicitud.IdTipoAusencia);
                 using (var dbTransaction = db.Database.BeginTransaction())
                 {
                     try
                     {
 
-                         permisoSolicitud = db.tNM_SolicitudPermiso.Find(solicitud.IdSolicitudPermiso);
-                       
-                        if (solicitud.RespuestaTalentoHumano == null || solicitud.RespuestaTalentoHumano.Trim()=="")
+                        permisoSolicitud = db.tNM_SolicitudPermiso.Find(solicitud.IdSolicitudPermiso);
+
+                        if (solicitud.RespuestaTalentoHumano == null || solicitud.RespuestaTalentoHumano.Trim() == string.Empty)
                         {
                             permisoSolicitud.IdEstadoAprob = db.tNM_EstadosFlujoAusencias.First(x => x.CodigoEstado == "APR").IDEstado;
                             permisoSolicitud.RespuestaTalentoHumano = null;
@@ -315,7 +315,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                         }
                         tNM_EstadosFlujoAusencias estadosFlujoAusencias = db.tNM_EstadosFlujoAusencias.Find(permisoSolicitud.IdEstadoAprob);
                         db.SaveChanges();
-                        sendEmailAprobacionRechazoAusenciaOtros(correoSolicitante, colaborador.ApellidosNombres, tNM_TiposAusencia.Nombre, permisoSolicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), permisoSolicitud.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), correoJefe, solicitud.RespuestaTalentoHumano == null ? "": solicitud.RespuestaTalentoHumano, estadosFlujoAusencias.Descripcion) ;
+                        sendEmailAprobacionRechazoAusenciaOtros(correoSolicitante, colaborador.ApellidosNombres, tNM_TiposAusencia.Nombre, permisoSolicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), permisoSolicitud.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), correoJefe, solicitud.RespuestaTalentoHumano == null ? string.Empty : solicitud.RespuestaTalentoHumano, estadosFlujoAusencias.Descripcion);
                         dbTransaction.Commit();
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
@@ -352,6 +352,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
             }
         }
+
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
         [Route("api/solicitudespermisos/{idColaborador}")]
@@ -468,7 +469,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                         //}
                         var jefe = db.tNM_Colaboradores.FirstOrDefault(x => x.IdColaborador == colaboradorSol.IdSupervisor);
                         string correoElectronicoJefe = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == jefe.IdPersona && x.IdMedioContacto == 13).Contacto;
-                        sendEmailSolicitudAusencia(correoElectronicoJefe, NombreCol, "", solicitud.HoraInicio.Value.ToString("HH:mm"), solicitud.HoraFin.Value.ToString("HH:mm"), solicitud.IdTipoAusencia.Value, tipoAusencia.Nombre, solicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), "", "", "", "");
+                        sendEmailSolicitudAusencia(correoElectronicoJefe, NombreCol, string.Empty, solicitud.HoraInicio.Value.ToString("HH:mm"), solicitud.HoraFin.Value.ToString("HH:mm"), solicitud.IdTipoAusencia.Value, tipoAusencia.Nombre, solicitud.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), string.Empty, string.Empty, string.Empty, string.Empty);
 
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
@@ -540,10 +541,10 @@ namespace ApiTTHH.Controllers.Vacaciones
                         }
                         string NombreCol = colaboradorSol.nickname == null ? colaboradorSol.ApellidosNombres.Split(' ')[2] : colaboradorSol.nickname;
                         string correoElectronicoCol = db.tGN_ContactoPersona.FirstOrDefault(x => x.IdPersona == colaboradorSol.IdPersona && x.IdMedioContacto == 13).Contacto;
-                        string motivo = solicitudUpdate.RespuestaSupervisor == null ? "" : solicitudUpdate.RespuestaSupervisor;
+                        string motivo = solicitudUpdate.RespuestaSupervisor == null ? string.Empty : solicitudUpdate.RespuestaSupervisor;
                         string estadoAprob = db.tNM_EstadosFlujoAusencias.FirstOrDefault(x => x.IDEstado == solicitudUpdate.IdEstadoAprob).Descripcion;
 
-                        sendEmailSolicitudAusenciaAprobRech(correoElectronicoCol, NombreCol, "", solicitudUpdate.HoraInicio.Value.ToString("HH:mm"), solicitudUpdate.HoraFin.Value.ToString("HH:mm"), solicitudUpdate.IdTipoAusencia.Value, motivo, tipoAusencia.Nombre, solicitudUpdate.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), "", solicitudUpdate.IdEstadoAprob.Value, estadoAprob, "", "");
+                        sendEmailSolicitudAusenciaAprobRech(correoElectronicoCol, NombreCol, string.Empty, solicitudUpdate.HoraInicio.Value.ToString("HH:mm"), solicitudUpdate.HoraFin.Value.ToString("HH:mm"), solicitudUpdate.IdTipoAusencia.Value, motivo, tipoAusencia.Nombre, solicitudUpdate.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), string.Empty, solicitudUpdate.IdEstadoAprob.Value, estadoAprob, string.Empty, string.Empty);
                         return Request.CreateResponse(HttpStatusCode.OK);
                     }
                     catch (Exception ex)
@@ -805,11 +806,11 @@ namespace ApiTTHH.Controllers.Vacaciones
                 var correo = new MailStructureModel();
                 string correoTalentoHumano = ConfigurationManager.AppSettings["CORREO_TALENTOHUMANO"];
                 correo.CodigoAplicacionInterna = "01";
-                
+
                 correo.Listado_TO.Add(correoTalentoHumano);
                 //if (correoElectronicoreemplazo != string.Empty) {
-                    correo.Listado_CC.Add(correoUsuario);
-                    correo.Listado_CC.Add(correojefe);
+                correo.Listado_CC.Add(correoUsuario);
+                correo.Listado_CC.Add(correojefe);
                 //}
                 correo.TituloSubject = "SOLICITUD DE AUSENCIA";
 
@@ -818,14 +819,14 @@ namespace ApiTTHH.Controllers.Vacaciones
                 string cuerpo = File.ReadAllText(pathArchivoPlantilla, Encoding.UTF8);
                 cuerpo = cuerpo.Replace("[NOMBRE_COLABORADOR]", nombres);
                 cuerpo = cuerpo.Replace("[TIPO_AUSENCIA]", tipoAusencia.ToLower()); ;
-                
-                  
-                    
-                    cuerpo = cuerpo.Replace("[FECHA_DESDE]", fechaDesde);
-                    cuerpo = cuerpo.Replace("[FECHA_HASTA]", FechaHasta);
-                    
-                
-              
+
+
+
+                cuerpo = cuerpo.Replace("[FECHA_DESDE]", fechaDesde);
+                cuerpo = cuerpo.Replace("[FECHA_HASTA]", FechaHasta);
+
+
+
                 correo.CuerpoMensaje = cuerpo;
 
                 //Invocacion al API
@@ -862,7 +863,7 @@ namespace ApiTTHH.Controllers.Vacaciones
             }
 
         }
-        public void sendEmailAprobacionRechazoAusenciaOtros(string correoUsuario, string nombres, string tipoAusencia, string fechaDesde, string FechaHasta, string correojefe,string motivo,string estadoAutorizacion)
+        public void sendEmailAprobacionRechazoAusenciaOtros(string correoUsuario, string nombres, string tipoAusencia, string fechaDesde, string FechaHasta, string correojefe, string motivo, string estadoAutorizacion)
         {
             try
             {
@@ -975,7 +976,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 htmlDetalle.AppendLine("Fecha Final");
                 htmlDetalle.AppendLine("</th>");
                 htmlDetalle.AppendLine("</tr>");
-                
+
                 foreach (var item in solicitud.Detalle)
                 {
                     htmlDetalle.AppendLine("<tr>");
@@ -995,7 +996,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 }
 
                 htmlDetalle.AppendLine("</table>");
-                
+
                 var dataMail = new Dictionary<string, string>();
 
                 dataMail = new Dictionary<string, string>
@@ -1054,7 +1055,7 @@ namespace ApiTTHH.Controllers.Vacaciones
         public List<string> getUrlAzure(string path)
         {
             byte[] bytes = System.IO.File.ReadAllBytes(path);
-            string url = "";
+            string url = string.Empty;
             List<string> results = new List<string>();
             string filename = Path.GetFileName(path);
             string extension = Path.GetExtension(filename);
@@ -1105,7 +1106,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                 solicitudPermiso = JsonConvert.DeserializeObject<tNM_SolicitudPermiso>(solicitudCabjson);
                 string correoJefe = db.tNM_Colaboradores.First(x => x.IdColaborador == solicitudPermiso.IdSupervisor).tGN_Personas.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13).Contacto;
                 string correoSolicitante = db.tNM_Colaboradores.First(x => x.IdColaborador == solicitudPermiso.Idcolaborador).tGN_Personas.tGN_ContactoPersona.First(x => x.IdMedioContacto == 13).Contacto;
-                
+
                 tNM_Colaboradores colaborador = db.tNM_Colaboradores.Find(solicitudPermiso.Idcolaborador);
                 //CodigosValidacion codigoValidacion = db.CodigosValidacion.FirstOrDefault(x => x.Código == formulario.Codigo && x.GUID == formulario.GUID);
                 //if (codigoValidacion == null)
@@ -1145,7 +1146,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                             db.tNM_AdjuntoSolicitudPermiso.AddRange(adjuntosDB);
                             db.SaveChanges();
                         }
-                        sendEmailSolicitudAusenciaOtros(correoSolicitante,colaborador.ApellidosNombres , tNM_TiposAusencia.Nombre, solicitudPermiso.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudPermiso.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), correoJefe);
+                        sendEmailSolicitudAusenciaOtros(correoSolicitante, colaborador.ApellidosNombres, tNM_TiposAusencia.Nombre, solicitudPermiso.FechaInicio.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), solicitudPermiso.FechaFin.Value.ToString("MMMM dd, yyyy", CultureInfo.CreateSpecificCulture("es")), correoJefe);
                         dbTransaction.Commit();
                         //BuzonCCQTiposFeedBack tipos = db.BuzonCCQTiposFeedBack.FirstOrDefault(x => x.IdTipoFeedBack == formularioDB.IdTipoFeedBack);
                         //formularioDB.BuzonCCQTiposFeedBack = tipos;
@@ -1167,7 +1168,7 @@ namespace ApiTTHH.Controllers.Vacaciones
         }
         public async Task<string> getUrlAzurePermisos(HttpContent provider, int idColaborador)
         {
-            string url = "";
+            string url = string.Empty;
             Stream fileStream = await provider.ReadAsStreamAsync();
             string filename = provider.Headers.ContentDisposition.FileName.Replace('"', ' ').Trim();
             string extension = Path.GetExtension(filename);

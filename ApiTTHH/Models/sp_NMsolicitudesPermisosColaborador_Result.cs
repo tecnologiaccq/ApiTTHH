@@ -15,7 +15,7 @@ namespace ApiTTHH.Models
     {
         public int Idcolaborador { get; set; }
         public int IdSolicitudPermiso { get; set; }
-        public decimal NumeroHoras { get; set; }
+        public Nullable<decimal> NumeroHoras { get; set; }
         public System.DateTime FechaInicio { get; set; }
         public Nullable<System.DateTime> FechaFin { get; set; }
         public int IdEstadoAprob { get; set; }
