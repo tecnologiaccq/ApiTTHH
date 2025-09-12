@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PagosWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PA_Cobro">
+          <Key>
+            <PropertyRef Name="IdCobro" />
+          </Key>
+          <Property Name="IdCobro" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEstado" Type="int" Nullable="false" />
+          <Property Name="IdAsiento" Type="int" />
+          <Property Name="CodigoComprobante" Type="char" MaxLength="3" />
+          <Property Name="NumeroComprobante" Type="bigint" />
+          <Property Name="Notificado" Type="bit" />
+          <Property Name="Intereses" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Subtotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Ice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdInstitucion" Type="int" />
+          <Property Name="Referencia" Type="varchar" MaxLength="32" StoreGeneratedPattern="Computed" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Identificacion" Type="varchar" MaxLength="20" />
+          <Property Name="CodigoSocio" Type="int" />
+          <Property Name="CorreoElectronicoTH" Type="varchar" MaxLength="50" />
+          <Property Name="GUI" Type="varchar" MaxLength="48" />
+          <Property Name="EstaEnviadoCorreoElectronicoTH" Type="bit" />
+          <Property Name="FechaHoraEnviadoCorreoElectronicoTH" Type="datetime" />
+          <Property Name="UrlComprobante" Type="varchar" MaxLength="255" />
+          <Property Name="ObservacionPagoInterdin" Type="varchar" MaxLength="300" />
+          <Property Name="IdDescargoCab" Type="int" />
+          <Property Name="P2P_RequestDate" Type="datetime" />
+          <Property Name="P2P_RequestId" Type="int" />
+          <Property Name="P2P_RequestURL" Type="varchar" MaxLength="255" />
+          <Property Name="P2P_RequestStatusCodigo" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_RequestStatusReason" Type="varchar" MaxLength="100" />
+          <Property Name="P2P_RequestStatusMessage" Type="varchar" MaxLength="100" />
+          <Property Name="P2P_Payment_Authorization" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payment_StatusStatus" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payment_StatusReason" Type="varchar" MaxLength="100" />
+          <Property Name="P2P_Payment_StatusMessage" Type="varchar" MaxLength="100" />
+          <Property Name="P2P_Payment_StatusDate" Type="datetime" />
+          <Property Name="P2P_Payment_InternalReference" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_Payment_PaymentMethod" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payment_IssuerName" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payment_Amount" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_Receipt" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_Payment_Franchise" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_Payment_Refunded" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_Payment_TotalAmount" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_InterestAmount" Type="decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_LastDigits" Type="varchar" MaxLength="4" />
+          <Property Name="P2P_Payer_Document" Type="varchar" MaxLength="25" />
+          <Property Name="P2P_Payer_DocumentType" Type="varchar" MaxLength="20" />
+          <Property Name="P2P_Payer_Name" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payer_Surname" Type="varchar" MaxLength="50" />
+          <Property Name="P2P_Payer_Email" Type="varchar" MaxLength="80" />
+          <Property Name="P2P_Payer_Mobile" Type="varchar" MaxLength="25" />
+          <Property Name="P2P_IdEstadoTransaccion" Type="int" />
+          <Property Name="P2P_Payment_FormaPago" Type="varchar" MaxLength="3" />
+          <Property Name="P2P_Payment_NumeroMeses" Type="int" />
+          <Property Name="P2P_Payment_Type" Type="varchar" MaxLength="2" />
+          <Property Name="P2P_Payment_Code" Type="varchar" MaxLength="2" />
+          <Property Name="P2P_Payment_GroupCode" Type="varchar" MaxLength="2" />
+          <Property Name="CreadoPor" Type="varchar" MaxLength="32" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="EstacionCreacion" Type="varchar" MaxLength="32" />
+          <Property Name="ModificadoPor" Type="varchar" MaxLength="32" />
+          <Property Name="UltimaModificacion" Type="datetime" />
+          <Property Name="EstacionModificacion" Type="varchar" MaxLength="32" />
+          <Property Name="P2P_Payment_Description" Type="varchar" MaxLength="5000" />
+          <Property Name="khk_token" Type="varchar" MaxLength="150" />
+          <Property Name="khk_recap" Type="varchar" MaxLength="10" />
+          <Property Name="khk_acquirerBank" Type="varchar" MaxLength="50" />
+          <Property Name="khk_ip" Type="varchar" MaxLength="20" />
+          <Property Name="khk_maskedCardNumber" Type="varchar" MaxLength="20" />
+          <Property Name="khk_approvedTransactionAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_subtotalIva" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_subtotalIva0" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_created" Type="varchar" MaxLength="20" />
+          <Property Name="khk_responseCode" Type="varchar" MaxLength="50" />
+          <Property Name="khk_transactionType" Type="varchar" MaxLength="25" />
+          <Property Name="khk_approvalCode" Type="varchar" MaxLength="10" />
+          <Property Name="khk_transactionStatus" Type="varchar" MaxLength="25" />
+          <Property Name="khk_syncMode" Type="varchar" MaxLength="10" />
+          <Property Name="khk_currencyCode" Type="varchar" MaxLength="3" />
+          <Property Name="khk_merchantId" Type="varchar" MaxLength="25" />
+          <Property Name="khk_processorId" Type="varchar" MaxLength="48" />
+          <Property Name="khk_transactionId" Type="varchar" MaxLength="25" />
+          <Property Name="khk_responseText" Type="varchar" MaxLength="250" />
+          <Property Name="khk_cardHolderName" Type="varchar" MaxLength="96" />
+          <Property Name="khk_lastFourDigits" Type="varchar" MaxLength="4" />
+          <Property Name="khk_binCard" Type="varchar" MaxLength="8" />
+          <Property Name="khk_paymentBrand" Type="varchar" MaxLength="25" />
+          <Property Name="khk_iceValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_requestAmount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_ivaValue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="khk_merchantName" Type="varchar" MaxLength="50" />
+          <Property Name="khk_processorName" Type="varchar" MaxLength="50" />
+          <Property Name="khk_processorBankName" Type="varchar" MaxLength="100" />
+          <Property Name="khk_transactionReference" Type="varchar" MaxLength="48" />
+          <Property Name="khk_bank" Type="varchar" MaxLength="96" />
+          <Property Name="khk_type" Type="varchar" MaxLength="20" />
+          <Property Name="khk_code" Type="varchar" MaxLength="6" />
+          <Property Name="khk_message" Type="varchar" MaxLength="96" />
+          <Property Name="khk_code_01" Type="varchar" MaxLength="2" />
+          <Property Name="khk_message_01" Type="varchar" MaxLength="255" />
+          <Property Name="khk_code_02" Type="varchar" MaxLength="2" />
+          <Property Name="khk_message_02" Type="varchar" MaxLength="255" />
+          <Property Name="khk_code_03" Type="varchar" MaxLength="2" />
+          <Property Name="khk_message_03" Type="varchar" MaxLength="255" />
+          <Property Name="khk_ticketNumber" Type="varchar" MaxLength="20" />
+          <Property Name="khk_cardType" Type="varchar" MaxLength="20" />
+          <Property Name="khk_lastFourDigitsOfCard" Type="varchar" MaxLength="4" />
+          <Property Name="khk_creditTipe" Type="varchar" MaxLength="5" />
+          <Property Name="khk_graceMonths" Type="varchar" MaxLength="5" />
+          <Property Name="khk_Months" Type="int" />
+          <Property Name="EnProcesoERP" Type="bit" />
+          <Property Name="SubtotalIva0" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SubtotalIva" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="idSitio" Type="int" />
+          <Property Name="idEmpresa" Type="int" />
+          <Property Name="idColaborador" Type="int" />
+          <Property Name="valorCupoUsado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="valorGiftCardUsado" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="PagosWebModelStoreContainer">
+          <EntitySet Name="PA_Cobro" EntityType="Self.PA_Cobro" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PagosWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PA_Cobro">
+          <Key>
+            <PropertyRef Name="IdCobro" />
+          </Key>
+          <Property Name="IdCobro" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEstado" Type="Int32" Nullable="false" />
+          <Property Name="IdAsiento" Type="Int32" />
+          <Property Name="CodigoComprobante" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="NumeroComprobante" Type="Int64" />
+          <Property Name="Notificado" Type="Boolean" />
+          <Property Name="Intereses" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Iva" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Ice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="IdInstitucion" Type="Int32" />
+          <Property Name="Referencia" Type="String" MaxLength="32" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Identificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoSocio" Type="Int32" />
+          <Property Name="CorreoElectronicoTH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GUI" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="EstaEnviadoCorreoElectronicoTH" Type="Boolean" />
+          <Property Name="FechaHoraEnviadoCorreoElectronicoTH" Type="DateTime" Precision="3" />
+          <Property Name="UrlComprobante" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ObservacionPagoInterdin" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="IdDescargoCab" Type="Int32" />
+          <Property Name="P2P_RequestDate" Type="DateTime" Precision="3" />
+          <Property Name="P2P_RequestId" Type="Int32" />
+          <Property Name="P2P_RequestURL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_RequestStatusCodigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_RequestStatusReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_RequestStatusMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Authorization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_StatusStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_StatusReason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_StatusMessage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_StatusDate" Type="DateTime" Precision="3" />
+          <Property Name="P2P_Payment_InternalReference" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_PaymentMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_IssuerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Amount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_Receipt" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Franchise" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Refunded" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_TotalAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_InterestAmount" Type="Decimal" Precision="18" Scale="5" />
+          <Property Name="P2P_Payment_LastDigits" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_Document" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_DocumentType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_Email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payer_Mobile" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_IdEstadoTransaccion" Type="Int32" />
+          <Property Name="P2P_Payment_FormaPago" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_NumeroMeses" Type="Int32" />
+          <Property Name="P2P_Payment_Type" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_GroupCode" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CreadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="EstacionCreacion" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="false" />
+          <Property Name="P2P_Payment_Description" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="khk_token" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="khk_recap" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="khk_acquirerBank" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="khk_ip" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_maskedCardNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_approvedTransactionAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_subtotalIva" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_subtotalIva0" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_created" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_responseCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="khk_transactionType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="khk_approvalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="khk_transactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="khk_syncMode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="khk_currencyCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="khk_merchantId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="khk_processorId" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="khk_transactionId" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="khk_responseText" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="khk_cardHolderName" Type="String" MaxLength="96" FixedLength="false" Unicode="false" />
+          <Property Name="khk_lastFourDigits" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="khk_binCard" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="khk_paymentBrand" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="khk_iceValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_requestAmount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_ivaValue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="khk_merchantName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="khk_processorName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="khk_processorBankName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="khk_transactionReference" Type="String" MaxLength="48" FixedLength="false" Unicode="false" />
+          <Property Name="khk_bank" Type="String" MaxLength="96" FixedLength="false" Unicode="false" />
+          <Property Name="khk_type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_code" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="khk_message" Type="String" MaxLength="96" FixedLength="false" Unicode="false" />
+          <Property Name="khk_code_01" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="khk_message_01" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="khk_code_02" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="khk_message_02" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="khk_code_03" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="khk_message_03" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="khk_ticketNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_cardType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="khk_lastFourDigitsOfCard" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="khk_creditTipe" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="khk_graceMonths" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="khk_Months" Type="Int32" />
+          <Property Name="EnProcesoERP" Type="Boolean" />
+          <Property Name="SubtotalIva0" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SubtotalIva" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="idSitio" Type="Int32" />
+          <Property Name="idEmpresa" Type="Int32" />
+          <Property Name="idColaborador" Type="Int32" />
+          <Property Name="valorCupoUsado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="valorGiftCardUsado" Type="Decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityContainer Name="PagosWebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PA_Cobro" EntityType="Self.PA_Cobro" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PagosWebModelStoreContainer" CdmEntityContainer="PagosWebEntities">
+          <EntitySetMapping Name="PA_Cobro">
+            <EntityTypeMapping TypeName="PagosWebModel.PA_Cobro">
+              <MappingFragment StoreEntitySet="PA_Cobro">
+                <ScalarProperty Name="valorGiftCardUsado" ColumnName="valorGiftCardUsado" />
+                <ScalarProperty Name="valorCupoUsado" ColumnName="valorCupoUsado" />
+                <ScalarProperty Name="idColaborador" ColumnName="idColaborador" />
+                <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+                <ScalarProperty Name="IdCobro" ColumnName="IdCobro" />
+                <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+                <ScalarProperty Name="IdAsiento" ColumnName="IdAsiento" />
+                <ScalarProperty Name="CodigoComprobante" ColumnName="CodigoComprobante" />
+                <ScalarProperty Name="NumeroComprobante" ColumnName="NumeroComprobante" />
+                <ScalarProperty Name="Notificado" ColumnName="Notificado" />
+                <ScalarProperty Name="Intereses" ColumnName="Intereses" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Iva" ColumnName="Iva" />
+                <ScalarProperty Name="Ice" ColumnName="Ice" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="IdInstitucion" ColumnName="IdInstitucion" />
+                <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="CodigoSocio" ColumnName="CodigoSocio" />
+                <ScalarProperty Name="CorreoElectronicoTH" ColumnName="CorreoElectronicoTH" />
+                <ScalarProperty Name="GUI" ColumnName="GUI" />
+                <ScalarProperty Name="EstaEnviadoCorreoElectronicoTH" ColumnName="EstaEnviadoCorreoElectronicoTH" />
+                <ScalarProperty Name="FechaHoraEnviadoCorreoElectronicoTH" ColumnName="FechaHoraEnviadoCorreoElectronicoTH" />
+                <ScalarProperty Name="UrlComprobante" ColumnName="UrlComprobante" />
+                <ScalarProperty Name="ObservacionPagoInterdin" ColumnName="ObservacionPagoInterdin" />
+                <ScalarProperty Name="IdDescargoCab" ColumnName="IdDescargoCab" />
+                <ScalarProperty Name="P2P_RequestDate" ColumnName="P2P_RequestDate" />
+                <ScalarProperty Name="P2P_RequestId" ColumnName="P2P_RequestId" />
+                <ScalarProperty Name="P2P_RequestURL" ColumnName="P2P_RequestURL" />
+                <ScalarProperty Name="P2P_RequestStatusCodigo" ColumnName="P2P_RequestStatusCodigo" />
+                <ScalarProperty Name="P2P_RequestStatusReason" ColumnName="P2P_RequestStatusReason" />
+                <ScalarProperty Name="P2P_RequestStatusMessage" ColumnName="P2P_RequestStatusMessage" />
+                <ScalarProperty Name="P2P_Payment_Authorization" ColumnName="P2P_Payment_Authorization" />
+                <ScalarProperty Name="P2P_Payment_StatusStatus" ColumnName="P2P_Payment_StatusStatus" />
+                <ScalarProperty Name="P2P_Payment_StatusReason" ColumnName="P2P_Payment_StatusReason" />
+                <ScalarProperty Name="P2P_Payment_StatusMessage" ColumnName="P2P_Payment_StatusMessage" />
+                <ScalarProperty Name="P2P_Payment_StatusDate" ColumnName="P2P_Payment_StatusDate" />
+                <ScalarProperty Name="P2P_Payment_InternalReference" ColumnName="P2P_Payment_InternalReference" />
+                <ScalarProperty Name="P2P_Payment_PaymentMethod" ColumnName="P2P_Payment_PaymentMethod" />
+                <ScalarProperty Name="P2P_Payment_IssuerName" ColumnName="P2P_Payment_IssuerName" />
+                <ScalarProperty Name="P2P_Payment_Amount" ColumnName="P2P_Payment_Amount" />
+                <ScalarProperty Name="P2P_Payment_Receipt" ColumnName="P2P_Payment_Receipt" />
+                <ScalarProperty Name="P2P_Payment_Franchise" ColumnName="P2P_Payment_Franchise" />
+                <ScalarProperty Name="P2P_Payment_Refunded" ColumnName="P2P_Payment_Refunded" />
+                <ScalarProperty Name="P2P_Payment_TotalAmount" ColumnName="P2P_Payment_TotalAmount" />
+                <ScalarProperty Name="P2P_Payment_InterestAmount" ColumnName="P2P_Payment_InterestAmount" />
+                <ScalarProperty Name="P2P_Payment_LastDigits" ColumnName="P2P_Payment_LastDigits" />
+                <ScalarProperty Name="P2P_Payer_Document" ColumnName="P2P_Payer_Document" />
+                <ScalarProperty Name="P2P_Payer_DocumentType" ColumnName="P2P_Payer_DocumentType" />
+                <ScalarProperty Name="P2P_Payer_Name" ColumnName="P2P_Payer_Name" />
+                <ScalarProperty Name="P2P_Payer_Surname" ColumnName="P2P_Payer_Surname" />
+                <ScalarProperty Name="P2P_Payer_Email" ColumnName="P2P_Payer_Email" />
+                <ScalarProperty Name="P2P_Payer_Mobile" ColumnName="P2P_Payer_Mobile" />
+                <ScalarProperty Name="P2P_IdEstadoTransaccion" ColumnName="P2P_IdEstadoTransaccion" />
+                <ScalarProperty Name="P2P_Payment_FormaPago" ColumnName="P2P_Payment_FormaPago" />
+                <ScalarProperty Name="P2P_Payment_NumeroMeses" ColumnName="P2P_Payment_NumeroMeses" />
+                <ScalarProperty Name="P2P_Payment_Type" ColumnName="P2P_Payment_Type" />
+                <ScalarProperty Name="P2P_Payment_Code" ColumnName="P2P_Payment_Code" />
+                <ScalarProperty Name="P2P_Payment_GroupCode" ColumnName="P2P_Payment_GroupCode" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+                <ScalarProperty Name="P2P_Payment_Description" ColumnName="P2P_Payment_Description" />
+                <ScalarProperty Name="khk_token" ColumnName="khk_token" />
+                <ScalarProperty Name="khk_recap" ColumnName="khk_recap" />
+                <ScalarProperty Name="khk_acquirerBank" ColumnName="khk_acquirerBank" />
+                <ScalarProperty Name="khk_ip" ColumnName="khk_ip" />
+                <ScalarProperty Name="khk_maskedCardNumber" ColumnName="khk_maskedCardNumber" />
+                <ScalarProperty Name="khk_approvedTransactionAmount" ColumnName="khk_approvedTransactionAmount" />
+                <ScalarProperty Name="khk_subtotalIva" ColumnName="khk_subtotalIva" />
+                <ScalarProperty Name="khk_subtotalIva0" ColumnName="khk_subtotalIva0" />
+                <ScalarProperty Name="khk_created" ColumnName="khk_created" />
+                <ScalarProperty Name="khk_responseCode" ColumnName="khk_responseCode" />
+                <ScalarProperty Name="khk_transactionType" ColumnName="khk_transactionType" />
+                <ScalarProperty Name="khk_approvalCode" ColumnName="khk_approvalCode" />
+                <ScalarProperty Name="khk_transactionStatus" ColumnName="khk_transactionStatus" />
+                <ScalarProperty Name="khk_syncMode" ColumnName="khk_syncMode" />
+                <ScalarProperty Name="khk_currencyCode" ColumnName="khk_currencyCode" />
+                <ScalarProperty Name="khk_merchantId" ColumnName="khk_merchantId" />
+                <ScalarProperty Name="khk_processorId" ColumnName="khk_processorId" />
+                <ScalarProperty Name="khk_transactionId" ColumnName="khk_transactionId" />
+                <ScalarProperty Name="khk_responseText" ColumnName="khk_responseText" />
+                <ScalarProperty Name="khk_cardHolderName" ColumnName="khk_cardHolderName" />
+                <ScalarProperty Name="khk_lastFourDigits" ColumnName="khk_lastFourDigits" />
+                <ScalarProperty Name="khk_binCard" ColumnName="khk_binCard" />
+                <ScalarProperty Name="khk_paymentBrand" ColumnName="khk_paymentBrand" />
+                <ScalarProperty Name="khk_iceValue" ColumnName="khk_iceValue" />
+                <ScalarProperty Name="khk_requestAmount" ColumnName="khk_requestAmount" />
+                <ScalarProperty Name="khk_ivaValue" ColumnName="khk_ivaValue" />
+                <ScalarProperty Name="khk_merchantName" ColumnName="khk_merchantName" />
+                <ScalarProperty Name="khk_processorName" ColumnName="khk_processorName" />
+                <ScalarProperty Name="khk_processorBankName" ColumnName="khk_processorBankName" />
+                <ScalarProperty Name="khk_transactionReference" ColumnName="khk_transactionReference" />
+                <ScalarProperty Name="khk_bank" ColumnName="khk_bank" />
+                <ScalarProperty Name="khk_type" ColumnName="khk_type" />
+                <ScalarProperty Name="khk_code" ColumnName="khk_code" />
+                <ScalarProperty Name="khk_message" ColumnName="khk_message" />
+                <ScalarProperty Name="khk_code_01" ColumnName="khk_code_01" />
+                <ScalarProperty Name="khk_message_01" ColumnName="khk_message_01" />
+                <ScalarProperty Name="khk_code_02" ColumnName="khk_code_02" />
+                <ScalarProperty Name="khk_message_02" ColumnName="khk_message_02" />
+                <ScalarProperty Name="khk_code_03" ColumnName="khk_code_03" />
+                <ScalarProperty Name="khk_message_03" ColumnName="khk_message_03" />
+                <ScalarProperty Name="khk_ticketNumber" ColumnName="khk_ticketNumber" />
+                <ScalarProperty Name="khk_cardType" ColumnName="khk_cardType" />
+                <ScalarProperty Name="khk_lastFourDigitsOfCard" ColumnName="khk_lastFourDigitsOfCard" />
+                <ScalarProperty Name="khk_creditTipe" ColumnName="khk_creditTipe" />
+                <ScalarProperty Name="khk_graceMonths" ColumnName="khk_graceMonths" />
+                <ScalarProperty Name="khk_Months" ColumnName="khk_Months" />
+                <ScalarProperty Name="EnProcesoERP" ColumnName="EnProcesoERP" />
+                <ScalarProperty Name="SubtotalIva0" ColumnName="SubtotalIva0" />
+                <ScalarProperty Name="SubtotalIva" ColumnName="SubtotalIva" />
+                <ScalarProperty Name="idSitio" ColumnName="idSitio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

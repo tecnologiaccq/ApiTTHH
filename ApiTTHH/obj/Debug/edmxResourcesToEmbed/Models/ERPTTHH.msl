@@ -1,0 +1,2128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CCQ_DESAModelStoreContainer" CdmEntityContainer="CCQ_DESAEntities">
+    <EntitySetMapping Name="tNM_AdjuntoSolicitudPermiso">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_AdjuntoSolicitudPermiso">
+        <MappingFragment StoreEntitySet="tNM_AdjuntoSolicitudPermiso">
+          <ScalarProperty Name="IdAdjuntoPermiso" ColumnName="IdAdjuntoPermiso" />
+          <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="UrlAdjunto" ColumnName="UrlAdjunto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_AnexosSolicitudes">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_AnexosSolicitudes">
+        <MappingFragment StoreEntitySet="tNM_AnexosSolicitudes">
+          <ScalarProperty Name="Oid" ColumnName="Oid" />
+          <ScalarProperty Name="File" ColumnName="File" />
+          <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+          <ScalarProperty Name="IdTipoAnexo" ColumnName="IdTipoAnexo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="OptimisticLockField" ColumnName="OptimisticLockField" />
+          <ScalarProperty Name="GCRecord" ColumnName="GCRecord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Areas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Areas">
+        <MappingFragment StoreEntitySet="tNM_Areas">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_BasesCalculadas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_BasesCalculadas">
+        <MappingFragment StoreEntitySet="tNM_BasesCalculadas">
+          <ScalarProperty Name="tempAux_2" ColumnName="tempAux_2" />
+          <ScalarProperty Name="tempAux_1" ColumnName="tempAux_1" />
+          <ScalarProperty Name="tempFactorProvisionDiasAdicionales" ColumnName="tempFactorProvisionDiasAdicionales" />
+          <ScalarProperty Name="tempNumeroDiasAdicionales" ColumnName="tempNumeroDiasAdicionales" />
+          <ScalarProperty Name="tempNumeroAniosEnEmpresa" ColumnName="tempNumeroAniosEnEmpresa" />
+          <ScalarProperty Name="tempFactorProvisionDiasNormales" ColumnName="tempFactorProvisionDiasNormales" />
+          <ScalarProperty Name="ProvisionVacacionesDiasAdicionales" ColumnName="ProvisionVacacionesDiasAdicionales" />
+          <ScalarProperty Name="ProvisionVacacionesDiasNormales" ColumnName="ProvisionVacacionesDiasNormales" />
+          <ScalarProperty Name="IdBaseCalculada" ColumnName="IdBaseCalculada" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Sueldo" ColumnName="Sueldo" />
+          <ScalarProperty Name="SueldoHora" ColumnName="SueldoHora" />
+          <ScalarProperty Name="SalarioBasicoUnificado" ColumnName="SalarioBasicoUnificado" />
+          <ScalarProperty Name="SueldoBaseTotal" ColumnName="SueldoBaseTotal" />
+          <ScalarProperty Name="AnticipoQuincena" ColumnName="AnticipoQuincena" />
+          <ScalarProperty Name="AdelantoSueldo" ColumnName="AdelantoSueldo" />
+          <ScalarProperty Name="IngresosGP" ColumnName="IngresosGP" />
+          <ScalarProperty Name="IngresosAcumulados" ColumnName="IngresosAcumulados" />
+          <ScalarProperty Name="IngresosGPxDevengar" ColumnName="IngresosGPxDevengar" />
+          <ScalarProperty Name="IngresosProyectados" ColumnName="IngresosProyectados" />
+          <ScalarProperty Name="OtrosIngresosGP" ColumnName="OtrosIngresosGP" />
+          <ScalarProperty Name="GastosPersonales" ColumnName="GastosPersonales" />
+          <ScalarProperty Name="AporteIESSAcumulado" ColumnName="AporteIESSAcumulado" />
+          <ScalarProperty Name="AporteIESSxPagar" ColumnName="AporteIESSxPagar" />
+          <ScalarProperty Name="AporteIESSProyectado" ColumnName="AporteIESSProyectado" />
+          <ScalarProperty Name="AporteIESSMes" ColumnName="AporteIESSMes" />
+          <ScalarProperty Name="PorcentajeDiscapacidad" ColumnName="PorcentajeDiscapacidad" />
+          <ScalarProperty Name="PorcentajeBeneficioDiscapacidad" ColumnName="PorcentajeBeneficioDiscapacidad" />
+          <ScalarProperty Name="BeneficioDiscapacidad" ColumnName="BeneficioDiscapacidad" />
+          <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+          <ScalarProperty Name="ImpuestoRetenidoAcumulado" ColumnName="ImpuestoRetenidoAcumulado" />
+          <ScalarProperty Name="ImpuestoARetener" ColumnName="ImpuestoARetener" />
+          <ScalarProperty Name="ImpuestoDelMes" ColumnName="ImpuestoDelMes" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Anticipo13" ColumnName="Anticipo13" />
+          <ScalarProperty Name="Anticipo14" ColumnName="Anticipo14" />
+          <ScalarProperty Name="Provision13" ColumnName="Provision13" />
+          <ScalarProperty Name="Provision14" ColumnName="Provision14" />
+          <ScalarProperty Name="SueldoTotal" ColumnName="SueldoTotal" />
+          <ScalarProperty Name="FactorProporcional" ColumnName="FactorProporcional" />
+          <ScalarProperty Name="BaseIESS" ColumnName="BaseIESS" />
+          <ScalarProperty Name="ExoneracionTerceraEdad" ColumnName="ExoneracionTerceraEdad" />
+          <ScalarProperty Name="ExoneracionDiscapacidad" ColumnName="ExoneracionDiscapacidad" />
+          <ScalarProperty Name="ProporcionalFondoReserva" ColumnName="ProporcionalFondoReserva" />
+          <ScalarProperty Name="EMailEnviado" ColumnName="EMailEnviado" />
+          <ScalarProperty Name="DiasTrabajados" ColumnName="DiasTrabajados" />
+          <ScalarProperty Name="UltimoSueldo" ColumnName="UltimoSueldo" />
+          <ScalarProperty Name="UltimoIngreso" ColumnName="UltimoIngreso" />
+          <ScalarProperty Name="AnosCompletos" ColumnName="AnosCompletos" />
+          <ScalarProperty Name="AnosIncompletos" ColumnName="AnosIncompletos" />
+          <ScalarProperty Name="DiasFaltantes" ColumnName="DiasFaltantes" />
+          <ScalarProperty Name="IngresoAnual" ColumnName="IngresoAnual" />
+          <ScalarProperty Name="MaximaRemuneracion" ColumnName="MaximaRemuneracion" />
+          <ScalarProperty Name="IngresosUltimoAno" ColumnName="IngresosUltimoAno" />
+          <ScalarProperty Name="DecimoAcumulado" ColumnName="DecimoAcumulado" />
+          <ScalarProperty Name="FondosReservaAcumulado" ColumnName="FondosReservaAcumulado" />
+          <ScalarProperty Name="ValorRentaBrutoAnual" ColumnName="ValorRentaBrutoAnual" />
+          <ScalarProperty Name="ReduccionGastosPersonales" ColumnName="ReduccionGastosPersonales" />
+          <ScalarProperty Name="tempFraccionBasica" ColumnName="tempFraccionBasica" />
+          <ScalarProperty Name="tempImpuestoBasico" ColumnName="tempImpuestoBasico" />
+          <ScalarProperty Name="tempFraccionExcedente" ColumnName="tempFraccionExcedente" />
+          <ScalarProperty Name="tempTasaExceso" ColumnName="tempTasaExceso" />
+          <ScalarProperty Name="tempBasico" ColumnName="tempBasico" />
+          <ScalarProperty Name="tempExcedente" ColumnName="tempExcedente" />
+          <ScalarProperty Name="tempDiferencia" ColumnName="tempDiferencia" />
+          <ScalarProperty Name="tempImpuestoExcedente" ColumnName="tempImpuestoExcedente" />
+          <ScalarProperty Name="tempTotalImpuestoAnioSinRebaja" ColumnName="tempTotalImpuestoAnioSinRebaja" />
+          <ScalarProperty Name="tempReduccionImpuestoLEFAM" ColumnName="tempReduccionImpuestoLEFAM" />
+          <ScalarProperty Name="tempImpuestoRentaAnualLEFAM" ColumnName="tempImpuestoRentaAnualLEFAM" />
+          <ScalarProperty Name="tempImpuestoRentaMensualLEFAM" ColumnName="tempImpuestoRentaMensualLEFAM" />
+          <ScalarProperty Name="tempImpuestoRentaRestadoRetenidoRealAlMesAnterior" ColumnName="tempImpuestoRentaRestadoRetenidoRealAlMesAnterior" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_BasesCalculo">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_BasesCalculo">
+        <MappingFragment StoreEntitySet="tNM_BasesCalculo">
+          <ScalarProperty Name="IdBaseCalculo" ColumnName="IdBaseCalculo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNm_BeneficiosCCQ">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNm_BeneficiosCCQ">
+        <MappingFragment StoreEntitySet="tNm_BeneficiosCCQ">
+          <ScalarProperty Name="IdTipoBeneficio" ColumnName="IdTipoBeneficio" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_BitacoraColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_BitacoraColaboradores">
+        <MappingFragment StoreEntitySet="tNM_BitacoraColaboradores">
+          <ScalarProperty Name="IdBitacoraColaborador" ColumnName="IdBitacoraColaborador" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CalendarioNominas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CalendarioNominas">
+        <MappingFragment StoreEntitySet="tNM_CalendarioNominas">
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="FechaCorte" ColumnName="FechaCorte" />
+          <ScalarProperty Name="IdTipoNomina" ColumnName="IdTipoNomina" />
+          <ScalarProperty Name="IdTipoColaborador" ColumnName="IdTipoColaborador" />
+          <ScalarProperty Name="IdClaseColaborador" ColumnName="IdClaseColaborador" />
+          <ScalarProperty Name="IdCategoriaColaborador" ColumnName="IdCategoriaColaborador" />
+          <ScalarProperty Name="IdGrupoColaborador" ColumnName="IdGrupoColaborador" />
+          <ScalarProperty Name="IdProyectoColaborador" ColumnName="IdProyectoColaborador" />
+          <ScalarProperty Name="IdProgramaColaborador" ColumnName="IdProgramaColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaPreliminar" ColumnName="FechaPreliminar" />
+          <ScalarProperty Name="UsuarioPreliminar" ColumnName="UsuarioPreliminar" />
+          <ScalarProperty Name="FechaDefinitiva" ColumnName="FechaDefinitiva" />
+          <ScalarProperty Name="UsuarioDefinitiva" ColumnName="UsuarioDefinitiva" />
+          <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CalendarioNominasEnvioMail">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CalendarioNominasEnvioMail">
+        <MappingFragment StoreEntitySet="tNM_CalendarioNominasEnvioMail">
+          <ScalarProperty Name="IdCalendarioNominaEnvioMail" ColumnName="IdCalendarioNominaEnvioMail" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Enviado" ColumnName="Enviado" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="ErrorEnvioCorreo" ColumnName="ErrorEnvioCorreo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CambiosDepartamentos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CambiosDepartamentos">
+        <MappingFragment StoreEntitySet="tNM_CambiosDepartamentos">
+          <ScalarProperty Name="IdCambioDepartamento" ColumnName="IdCambioDepartamento" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdDepartamentoAnterior" ColumnName="IdDepartamentoAnterior" />
+          <ScalarProperty Name="IdDepartamentoNuevo" ColumnName="IdDepartamentoNuevo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CapacitacionColaborador">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CapacitacionColaborador">
+        <MappingFragment StoreEntitySet="tNM_CapacitacionColaborador">
+          <ScalarProperty Name="IdCapacitacionColaborador" ColumnName="IdCapacitacionColaborador" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="FechaGraduacion" ColumnName="FechaGraduacion" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+          <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Titulo_Curso" ColumnName="Titulo/Curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Cargos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Cargos">
+        <MappingFragment StoreEntitySet="tNM_Cargos">
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CategoriasColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CategoriasColaboradores">
+        <MappingFragment StoreEntitySet="tNM_CategoriasColaboradores">
+          <ScalarProperty Name="IdCategoriaColaborador" ColumnName="IdCategoriaColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CategoriasOcupacionales">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CategoriasOcupacionales">
+        <MappingFragment StoreEntitySet="tNM_CategoriasOcupacionales">
+          <ScalarProperty Name="IdCategoriaOcupacional" ColumnName="IdCategoriaOcupacional" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ClasesColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ClasesColaboradores">
+        <MappingFragment StoreEntitySet="tNM_ClasesColaboradores">
+          <ScalarProperty Name="IdClaseColaborador" ColumnName="IdClaseColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Colaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Colaboradores">
+        <MappingFragment StoreEntitySet="tNM_Colaboradores">
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdTipoDiscapacidad" ColumnName="IdTipoDiscapacidad" />
+          <ScalarProperty Name="PorcentajeDiscapacidad" ColumnName="PorcentajeDiscapacidad" />
+          <ScalarProperty Name="IdTipoColaborador" ColumnName="IdTipoColaborador" />
+          <ScalarProperty Name="IdClaseColaborador" ColumnName="IdClaseColaborador" />
+          <ScalarProperty Name="IdCategoriaColaborador" ColumnName="IdCategoriaColaborador" />
+          <ScalarProperty Name="IdGrupoColaborador" ColumnName="IdGrupoColaborador" />
+          <ScalarProperty Name="IdProyectoColaborador" ColumnName="IdProyectoColaborador" />
+          <ScalarProperty Name="IdProgramaColaborador" ColumnName="IdProgramaColaborador" />
+          <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+          <ScalarProperty Name="IdTipoCuenta" ColumnName="IdTipoCuenta" />
+          <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+          <ScalarProperty Name="IdMedioPago" ColumnName="IdMedioPago" />
+          <ScalarProperty Name="IdTipoContrato" ColumnName="IdTipoContrato" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="EsSupervisor" ColumnName="EsSupervisor" />
+          <ScalarProperty Name="ApruebaTH" ColumnName="ApruebaTH" />
+          <ScalarProperty Name="EsNominista" ColumnName="EsNominista" />
+          <ScalarProperty Name="EsFinanciero" ColumnName="EsFinanciero" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="NumeroDiscapacitado" ColumnName="NumeroDiscapacitado" />
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="IdSectorialIESS" ColumnName="IdSectorialIESS" />
+          <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdMotivoEgreso" ColumnName="IdMotivoEgreso" />
+          <ScalarProperty Name="FechaEgreso" ColumnName="FechaEgreso" />
+          <ScalarProperty Name="EsReelegible" ColumnName="EsReelegible" />
+          <ScalarProperty Name="IdCategoriaOcupacional" ColumnName="IdCategoriaOcupacional" />
+          <ScalarProperty Name="IdBiometrico" ColumnName="IdBiometrico" />
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+          <ScalarProperty Name="TiempoAlmuerzo" ColumnName="TiempoAlmuerzo" />
+          <ScalarProperty Name="IdCategoria1" ColumnName="IdCategoria1" />
+          <ScalarProperty Name="IdCategoria2" ColumnName="IdCategoria2" />
+          <ScalarProperty Name="IdCategoria3" ColumnName="IdCategoria3" />
+          <ScalarProperty Name="IdCategoria4" ColumnName="IdCategoria4" />
+          <ScalarProperty Name="IdCategoria5" ColumnName="IdCategoria5" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="ApellidosNombres" ColumnName="ApellidosNombres" />
+          <ScalarProperty Name="eMail" ColumnName="eMail" />
+          <ScalarProperty Name="HorasSemanalesJornadaParcial" ColumnName="HorasSemanalesJornadaParcial" />
+          <ScalarProperty Name="FechaJubilacion" ColumnName="FechaJubilacion" />
+          <ScalarProperty Name="TieneBeneficioGalapagos" ColumnName="TieneBeneficioGalapagos" />
+          <ScalarProperty Name="CodigoEstablecimiento" ColumnName="CodigoEstablecimiento" />
+          <ScalarProperty Name="ResideEnElExterior" ColumnName="ResideEnElExterior" />
+          <ScalarProperty Name="TieneConvenioDobleImposicion" ColumnName="TieneConvenioDobleImposicion" />
+          <ScalarProperty Name="CondicionDiscapacidad" ColumnName="CondicionDiscapacidad" />
+          <ScalarProperty Name="TipoIdDiscapacitado" ColumnName="TipoIdDiscapacitado" />
+          <ScalarProperty Name="IdDiscapacitado" ColumnName="IdDiscapacitado" />
+          <ScalarProperty Name="TieneSalarioNeto" ColumnName="TieneSalarioNeto" />
+          <ScalarProperty Name="IdTipoRelacion" ColumnName="IdTipoRelacion" />
+          <ScalarProperty Name="FechaDefuncion" ColumnName="FechaDefuncion" />
+          <ScalarProperty Name="EnviarCorreoRolPago" ColumnName="EnviarCorreoRolPago" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="IdTipoSangre" ColumnName="IdTipoSangre" />
+          <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+          <ScalarProperty Name="CargasLEFAM" ColumnName="CargasLEFAM" />
+          <ScalarProperty Name="NumeroTelefonoAuth2F" ColumnName="NumeroTelefonoAuth2F" />
+          <ScalarProperty Name="SegundoFactor" ColumnName="SegundoFactor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ColaboradoresAuditoria">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ColaboradoresAuditoria">
+        <MappingFragment StoreEntitySet="tNM_ColaboradoresAuditoria">
+          <ScalarProperty Name="IdColaboradorAuditoria" ColumnName="IdColaboradorAuditoria" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdDepartamentoAnterior" ColumnName="IdDepartamentoAnterior" />
+          <ScalarProperty Name="IdDepartamentoNuevo" ColumnName="IdDepartamentoNuevo" />
+          <ScalarProperty Name="IdTipoDiscapacidadAnterior" ColumnName="IdTipoDiscapacidadAnterior" />
+          <ScalarProperty Name="IdTipoDiscapacidadNuevo" ColumnName="IdTipoDiscapacidadNuevo" />
+          <ScalarProperty Name="PorcentajeDiscapacidadAnterior" ColumnName="PorcentajeDiscapacidadAnterior" />
+          <ScalarProperty Name="PorcentajeDiscapacidadNuevo" ColumnName="PorcentajeDiscapacidadNuevo" />
+          <ScalarProperty Name="NumeroDiscapacitadoAnterior" ColumnName="NumeroDiscapacitadoAnterior" />
+          <ScalarProperty Name="NumeroDiscapacitadoNuevo" ColumnName="NumeroDiscapacitadoNuevo" />
+          <ScalarProperty Name="IdTipoColaboradorAnterior" ColumnName="IdTipoColaboradorAnterior" />
+          <ScalarProperty Name="IdTipoColaboradorNuevo" ColumnName="IdTipoColaboradorNuevo" />
+          <ScalarProperty Name="IdClaseColaboradorAnterior" ColumnName="IdClaseColaboradorAnterior" />
+          <ScalarProperty Name="IdClaseColaboradorNuevo" ColumnName="IdClaseColaboradorNuevo" />
+          <ScalarProperty Name="IdCategoriaColaboradorAnterior" ColumnName="IdCategoriaColaboradorAnterior" />
+          <ScalarProperty Name="IdCategoriaColaboradorNuevo" ColumnName="IdCategoriaColaboradorNuevo" />
+          <ScalarProperty Name="IdGrupoColaboradorAnterior" ColumnName="IdGrupoColaboradorAnterior" />
+          <ScalarProperty Name="IdGrupoColaboradorNuevo" ColumnName="IdGrupoColaboradorNuevo" />
+          <ScalarProperty Name="IdProyectoColaboradorAnterior" ColumnName="IdProyectoColaboradorAnterior" />
+          <ScalarProperty Name="IdProyectoColaboradorNuevo" ColumnName="IdProyectoColaboradorNuevo" />
+          <ScalarProperty Name="IdProgramaColaboradorAnterior" ColumnName="IdProgramaColaboradorAnterior" />
+          <ScalarProperty Name="IdProgramaColaboradorNuevo" ColumnName="IdProgramaColaboradorNuevo" />
+          <ScalarProperty Name="IdTurnoAnterior" ColumnName="IdTurnoAnterior" />
+          <ScalarProperty Name="IdTurnoNuevo" ColumnName="IdTurnoNuevo" />
+          <ScalarProperty Name="FechaIngresoAnterior" ColumnName="FechaIngresoAnterior" />
+          <ScalarProperty Name="FechaIngresoNuevo" ColumnName="FechaIngresoNuevo" />
+          <ScalarProperty Name="IdEstadoAnterior" ColumnName="IdEstadoAnterior" />
+          <ScalarProperty Name="IdEstadoNuevo" ColumnName="IdEstadoNuevo" />
+          <ScalarProperty Name="IdSupervisorAnterior" ColumnName="IdSupervisorAnterior" />
+          <ScalarProperty Name="IdSupervisorNuevo" ColumnName="IdSupervisorNuevo" />
+          <ScalarProperty Name="IdBancoAnterior" ColumnName="IdBancoAnterior" />
+          <ScalarProperty Name="IdBancoNuevo" ColumnName="IdBancoNuevo" />
+          <ScalarProperty Name="IdTipoCuentaAnterior" ColumnName="IdTipoCuentaAnterior" />
+          <ScalarProperty Name="IdTipoCuentaNuevo" ColumnName="IdTipoCuentaNuevo" />
+          <ScalarProperty Name="NumeroCuentaAnterior" ColumnName="NumeroCuentaAnterior" />
+          <ScalarProperty Name="NumeroCuentaNuevo" ColumnName="NumeroCuentaNuevo" />
+          <ScalarProperty Name="IdMedioPagoAnterior" ColumnName="IdMedioPagoAnterior" />
+          <ScalarProperty Name="IdMedioPagoNuevo" ColumnName="IdMedioPagoNuevo" />
+          <ScalarProperty Name="IdTipoContratoAnterior" ColumnName="IdTipoContratoAnterior" />
+          <ScalarProperty Name="IdTipoContratoNuevo" ColumnName="IdTipoContratoNuevo" />
+          <ScalarProperty Name="IdCargoAnterior" ColumnName="IdCargoAnterior" />
+          <ScalarProperty Name="IdCargoNuevo" ColumnName="IdCargoNuevo" />
+          <ScalarProperty Name="EsSupervisorAnterior" ColumnName="EsSupervisorAnterior" />
+          <ScalarProperty Name="EsSupervisorNuevo" ColumnName="EsSupervisorNuevo" />
+          <ScalarProperty Name="ApruebaTHAnterior" ColumnName="ApruebaTHAnterior" />
+          <ScalarProperty Name="ApruebaTHNuevo" ColumnName="ApruebaTHNuevo" />
+          <ScalarProperty Name="EsNoministaAnterior" ColumnName="EsNoministaAnterior" />
+          <ScalarProperty Name="EsNoministaNuevo" ColumnName="EsNoministaNuevo" />
+          <ScalarProperty Name="IdSucursalAnterior" ColumnName="IdSucursalAnterior" />
+          <ScalarProperty Name="IdSucursalNuevo" ColumnName="IdSucursalNuevo" />
+          <ScalarProperty Name="IdSectorialIESSAnterior" ColumnName="IdSectorialIESSAnterior" />
+          <ScalarProperty Name="IdSectorialIESSNuevo" ColumnName="IdSectorialIESSNuevo" />
+          <ScalarProperty Name="IdTituloAnterior" ColumnName="IdTituloAnterior" />
+          <ScalarProperty Name="IdTituloNuevo" ColumnName="IdTituloNuevo" />
+          <ScalarProperty Name="IdAreaAnterior" ColumnName="IdAreaAnterior" />
+          <ScalarProperty Name="IdAreaNuevo" ColumnName="IdAreaNuevo" />
+          <ScalarProperty Name="IdMotivoEgresoAnterior" ColumnName="IdMotivoEgresoAnterior" />
+          <ScalarProperty Name="IdMotivoEgresoNuevo" ColumnName="IdMotivoEgresoNuevo" />
+          <ScalarProperty Name="FechaEgresoAnterior" ColumnName="FechaEgresoAnterior" />
+          <ScalarProperty Name="FechaEgresoNuevo" ColumnName="FechaEgresoNuevo" />
+          <ScalarProperty Name="IdCategoriaOcupacionalAnterior" ColumnName="IdCategoriaOcupacionalAnterior" />
+          <ScalarProperty Name="IdCategoriaOcupacionalNuevo" ColumnName="IdCategoriaOcupacionalNuevo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Competencias">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Competencias">
+        <MappingFragment StoreEntitySet="tNM_Competencias">
+          <ScalarProperty Name="IdCompetencia" ColumnName="IdCompetencia" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CompetenciasCargo">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CompetenciasCargo">
+        <MappingFragment StoreEntitySet="tNM_CompetenciasCargo">
+          <ScalarProperty Name="IdCompetenciaCargo" ColumnName="IdCompetenciaCargo" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="IdCompetencia" ColumnName="IdCompetencia" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CompetenciasColaborador">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CompetenciasColaborador">
+        <MappingFragment StoreEntitySet="tNM_CompetenciasColaborador">
+          <ScalarProperty Name="IdCompetenciaColaborador" ColumnName="IdCompetenciaColaborador" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdCompetencia" ColumnName="IdCompetencia" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ConceptoCetificado">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ConceptoCetificado">
+        <MappingFragment StoreEntitySet="tNM_ConceptoCetificado">
+          <ScalarProperty Name="IdConceptoCertificado" ColumnName="IdConceptoCertificado" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Conceptos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Conceptos">
+        <MappingFragment StoreEntitySet="tNM_Conceptos">
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="CodigoConcepto" ColumnName="CodigoConcepto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="EsFijo" ColumnName="EsFijo" />
+          <ScalarProperty Name="EsVariable" ColumnName="EsVariable" />
+          <ScalarProperty Name="EsAsignacion" ColumnName="EsAsignacion" />
+          <ScalarProperty Name="EsProvision" ColumnName="EsProvision" />
+          <ScalarProperty Name="EsOculto" ColumnName="EsOculto" />
+          <ScalarProperty Name="IdCuentaDb" ColumnName="IdCuentaDb" />
+          <ScalarProperty Name="IdCuentaCr" ColumnName="IdCuentaCr" />
+          <ScalarProperty Name="ContabilizaCentroCostosDb" ColumnName="ContabilizaCentroCostosDb" />
+          <ScalarProperty Name="ContabilizaColaboradorDb" ColumnName="ContabilizaColaboradorDb" />
+          <ScalarProperty Name="MantieneSaldos" ColumnName="MantieneSaldos" />
+          <ScalarProperty Name="EsSaldoAcumulado" ColumnName="EsSaldoAcumulado" />
+          <ScalarProperty Name="InactivarEnSaldoCero" ColumnName="InactivarEnSaldoCero" />
+          <ScalarProperty Name="FactorCalculo" ColumnName="FactorCalculo" />
+          <ScalarProperty Name="IdFormaCalculo" ColumnName="IdFormaCalculo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Explicacion" ColumnName="Explicacion" />
+          <ScalarProperty Name="ImprimirCero" ColumnName="ImprimirCero" />
+          <ScalarProperty Name="ImprimirAcumulado" ColumnName="ImprimirAcumulado" />
+          <ScalarProperty Name="GrabaImpuestoRenta" ColumnName="GrabaImpuestoRenta" />
+          <ScalarProperty Name="EsAnticipoSueldo" ColumnName="EsAnticipoSueldo" />
+          <ScalarProperty Name="IdBaseCalculo" ColumnName="IdBaseCalculo" />
+          <ScalarProperty Name="EsAnticipoQuincena" ColumnName="EsAnticipoQuincena" />
+          <ScalarProperty Name="EsGlobal" ColumnName="EsGlobal" />
+          <ScalarProperty Name="EsAportePersonalIESS" ColumnName="EsAportePersonalIESS" />
+          <ScalarProperty Name="EsRetencionImpuesto" ColumnName="EsRetencionImpuesto" />
+          <ScalarProperty Name="EsDistribuible" ColumnName="EsDistribuible" />
+          <ScalarProperty Name="EsAnticipo13" ColumnName="EsAnticipo13" />
+          <ScalarProperty Name="EsAnticipo14" ColumnName="EsAnticipo14" />
+          <ScalarProperty Name="ContabilizaCentroCostosCr" ColumnName="ContabilizaCentroCostosCr" />
+          <ScalarProperty Name="ContabilizaColaboradorCr" ColumnName="ContabilizaColaboradorCr" />
+          <ScalarProperty Name="ContabilizaCentroCostos" ColumnName="ContabilizaCentroCostos" />
+          <ScalarProperty Name="ContabilizaColaborador" ColumnName="ContabilizaColaborador" />
+          <ScalarProperty Name="EsProporcional" ColumnName="EsProporcional" />
+          <ScalarProperty Name="Provision13" ColumnName="Provision13" />
+          <ScalarProperty Name="SumaSueldoTotal" ColumnName="SumaSueldoTotal" />
+          <ScalarProperty Name="SumaBaseIESS" ColumnName="SumaBaseIESS" />
+          <ScalarProperty Name="ProporcionalFondoReserva" ColumnName="ProporcionalFondoReserva" />
+          <ScalarProperty Name="EsUtilidades" ColumnName="EsUtilidades" />
+          <ScalarProperty Name="CodigoF107" ColumnName="CodigoF107" />
+          <ScalarProperty Name="EsProporcionalEnLiquidacion" ColumnName="EsProporcionalEnLiquidacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ConceptosFijos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ConceptosFijos">
+        <MappingFragment StoreEntitySet="tNM_ConceptosFijos">
+          <ScalarProperty Name="IdConceptoFijo" ColumnName="IdConceptoFijo" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
+          <ScalarProperty Name="CuotasPagadas" ColumnName="CuotasPagadas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ConceptosGlobales">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ConceptosGlobales">
+        <MappingFragment StoreEntitySet="tNM_ConceptosGlobales">
+          <ScalarProperty Name="IdConceptoGlobal" ColumnName="IdConceptoGlobal" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ConceptosTiposNomina">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ConceptosTiposNomina">
+        <MappingFragment StoreEntitySet="tNM_ConceptosTiposNomina">
+          <ScalarProperty Name="IdConceptosTiposNomina" ColumnName="IdConceptosTiposNomina" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="IdTipoNomina" ColumnName="IdTipoNomina" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_CondicionDiscapacidad">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_CondicionDiscapacidad">
+        <MappingFragment StoreEntitySet="tNM_CondicionDiscapacidad">
+          <ScalarProperty Name="IdCondicionDiscapacidad" ColumnName="IdCondicionDiscapacidad" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_DatosBiometrico">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_DatosBiometrico">
+        <MappingFragment StoreEntitySet="tNM_DatosBiometrico">
+          <ScalarProperty Name="IdDatosBiometrico" ColumnName="IdDatosBiometrico" />
+          <ScalarProperty Name="IdBiometrico" ColumnName="IdBiometrico" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="HoraSAlmuerzo" ColumnName="HoraSAlmuerzo" />
+          <ScalarProperty Name="HoraEAlmuerzo" ColumnName="HoraEAlmuerzo" />
+          <ScalarProperty Name="TiempoAlmuerzo" ColumnName="TiempoAlmuerzo" />
+          <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+          <ScalarProperty Name="HoraEntradaT" ColumnName="HoraEntradaT" />
+          <ScalarProperty Name="HoraSalidaT" ColumnName="HoraSalidaT" />
+          <ScalarProperty Name="TiempoAlmuerzoT" ColumnName="TiempoAlmuerzoT" />
+          <ScalarProperty Name="RetrasoEntrada" ColumnName="RetrasoEntrada" />
+          <ScalarProperty Name="AdelantoSalida" ColumnName="AdelantoSalida" />
+          <ScalarProperty Name="RetrasoAlmuerzo" ColumnName="RetrasoAlmuerzo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Declaracion13">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Declaracion13">
+        <MappingFragment StoreEntitySet="tNM_Declaracion13">
+          <ScalarProperty Name="IdDeclaracion13" ColumnName="IdDeclaracion13" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="DiasLaborados" ColumnName="DiasLaborados" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="JornadaParcial" ColumnName="JornadaParcial" />
+          <ScalarProperty Name="HorasSemanales" ColumnName="HorasSemanales" />
+          <ScalarProperty Name="PoseeDiscapacidad" ColumnName="PoseeDiscapacidad" />
+          <ScalarProperty Name="FechaJubilacion" ColumnName="FechaJubilacion" />
+          <ScalarProperty Name="ValorRetencion" ColumnName="ValorRetencion" />
+          <ScalarProperty Name="Mensualiza13" ColumnName="Mensualiza13" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="TotalGanado" ColumnName="TotalGanado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Declaracion14">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Declaracion14">
+        <MappingFragment StoreEntitySet="tNM_Declaracion14">
+          <ScalarProperty Name="IdDeclaracion14" ColumnName="IdDeclaracion14" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="Ocupacion" ColumnName="Ocupacion" />
+          <ScalarProperty Name="DiasLaborados" ColumnName="DiasLaborados" />
+          <ScalarProperty Name="TipoPago" ColumnName="TipoPago" />
+          <ScalarProperty Name="JornadaParcial" ColumnName="JornadaParcial" />
+          <ScalarProperty Name="HorasSemanales" ColumnName="HorasSemanales" />
+          <ScalarProperty Name="PoseeDiscapacidad" ColumnName="PoseeDiscapacidad" />
+          <ScalarProperty Name="FechaJubilacion" ColumnName="FechaJubilacion" />
+          <ScalarProperty Name="ValorRetencion" ColumnName="ValorRetencion" />
+          <ScalarProperty Name="Mensualiza14" ColumnName="Mensualiza14" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_DeduccionGastosCargasLEFAM">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_DeduccionGastosCargasLEFAM">
+        <MappingFragment StoreEntitySet="tNM_DeduccionGastosCargasLEFAM">
+          <ScalarProperty Name="IdDeduccionGastosCargasLEFAM" ColumnName="IdDeduccionGastosCargasLEFAM" />
+          <ScalarProperty Name="CargasFamiliares" ColumnName="CargasFamiliares" />
+          <ScalarProperty Name="CanastasBasicas" ColumnName="CanastasBasicas" />
+          <ScalarProperty Name="GastoDeducibleMax" ColumnName="GastoDeducibleMax" />
+          <ScalarProperty Name="RebajaImpuestos" ColumnName="RebajaImpuestos" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Departamentos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Departamentos">
+        <MappingFragment StoreEntitySet="tNM_Departamentos">
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Dependientes">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Dependientes">
+        <MappingFragment StoreEntitySet="tNM_Dependientes">
+          <ScalarProperty Name="IdDependientes" ColumnName="IdDependientes" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdDependiente" ColumnName="IdDependiente" />
+          <ScalarProperty Name="IdParentesco" ColumnName="IdParentesco" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_DetalleVacaciones">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_DetalleVacaciones">
+        <MappingFragment StoreEntitySet="tNM_DetalleVacaciones">
+          <ScalarProperty Name="IdDetalleVacaciones" ColumnName="IdDetalleVacaciones" />
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="FechaReintegro" ColumnName="FechaReintegro" />
+          <ScalarProperty Name="DiasDisfrutados" ColumnName="DiasDisfrutados" />
+          <ScalarProperty Name="DiasCancelados" ColumnName="DiasCancelados" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="FinesSemana" ColumnName="FinesSemana" />
+          <ScalarProperty Name="IdVacacion" ColumnName="IdVacacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Distribucion">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Distribucion">
+        <MappingFragment StoreEntitySet="tNM_Distribucion">
+          <ScalarProperty Name="IdDistribucion" ColumnName="IdDistribucion" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdCentroCostos" ColumnName="IdCentroCostos" />
+          <ScalarProperty Name="PorcentajeDistribucion" ColumnName="PorcentajeDistribucion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Empleados">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Empleados">
+        <MappingFragment StoreEntitySet="tNM_Empleados">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdTipoDiscapacidad" ColumnName="IdTipoDiscapacidad" />
+          <ScalarProperty Name="PorcentajeDiscapacidad" ColumnName="PorcentajeDiscapacidad" />
+          <ScalarProperty Name="IdTipoColaborador" ColumnName="IdTipoColaborador" />
+          <ScalarProperty Name="IdTurno" ColumnName="IdTurno" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="IdBanco" ColumnName="IdBanco" />
+          <ScalarProperty Name="IdTipoCuenta" ColumnName="IdTipoCuenta" />
+          <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+          <ScalarProperty Name="IdMedioPago" ColumnName="IdMedioPago" />
+          <ScalarProperty Name="IdTipoContrato" ColumnName="IdTipoContrato" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="EsSupervisor" ColumnName="EsSupervisor" />
+          <ScalarProperty Name="ApruebaTH" ColumnName="ApruebaTH" />
+          <ScalarProperty Name="EsNominista" ColumnName="EsNominista" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_EntradasSalidas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_EntradasSalidas">
+        <MappingFragment StoreEntitySet="tNM_EntradasSalidas">
+          <ScalarProperty Name="IdEntradasSalidas" ColumnName="IdEntradasSalidas" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+          <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+          <ScalarProperty Name="HorasExtrasDiurnas" ColumnName="HorasExtrasDiurnas" />
+          <ScalarProperty Name="HorasExtrasNocturnas" ColumnName="HorasExtrasNocturnas" />
+          <ScalarProperty Name="EsFeriado" ColumnName="EsFeriado" />
+          <ScalarProperty Name="RevisadoPor" ColumnName="RevisadoPor" />
+          <ScalarProperty Name="FechaRevision" ColumnName="FechaRevision" />
+          <ScalarProperty Name="EnviarParaAprobacion" ColumnName="EnviarParaAprobacion" />
+          <ScalarProperty Name="EnviadoA" ColumnName="EnviadoA" />
+          <ScalarProperty Name="FechaEnvio" ColumnName="FechaEnvio" />
+          <ScalarProperty Name="AprobadoPor" ColumnName="AprobadoPor" />
+          <ScalarProperty Name="FechaAprobacion" ColumnName="FechaAprobacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_EstadosColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_EstadosColaboradores">
+        <MappingFragment StoreEntitySet="tNM_EstadosColaboradores">
+          <ScalarProperty Name="IdEstadoColaborador" ColumnName="IdEstadoColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_EstadosCuentaColaborador">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_EstadosCuentaColaborador">
+        <MappingFragment StoreEntitySet="tNM_EstadosCuentaColaborador">
+          <ScalarProperty Name="IdEstadoCuenta" ColumnName="IdEstadoCuenta" />
+          <ScalarProperty Name="IdTipoBeneficio" ColumnName="IdTipoBeneficio" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdTipoEstadoCuenta" ColumnName="IdTipoEstadoCuenta" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_EstadosFlujoAusencias">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_EstadosFlujoAusencias">
+        <MappingFragment StoreEntitySet="tNM_EstadosFlujoAusencias">
+          <ScalarProperty Name="IDEstado" ColumnName="IDEstado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Beneficio" ColumnName="Beneficio" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CodigoEstado" ColumnName="CodigoEstado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Feriados">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Feriados">
+        <MappingFragment StoreEntitySet="tNM_Feriados">
+          <ScalarProperty Name="IdFeriado" ColumnName="IdFeriado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="FechaDelFeriado" ColumnName="FechaDelFeriado" />
+          <ScalarProperty Name="FechaEfectivaFeriado" ColumnName="FechaEfectivaFeriado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_FormasCalculo">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_FormasCalculo">
+        <MappingFragment StoreEntitySet="tNM_FormasCalculo">
+          <ScalarProperty Name="IdFormaCalculo" ColumnName="IdFormaCalculo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_FormularioGP">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_FormularioGP">
+        <MappingFragment StoreEntitySet="tNM_FormularioGP">
+          <ScalarProperty Name="RebajaImpuestoRentaGastosPersonalesProyectados" ColumnName="RebajaImpuestoRentaGastosPersonalesProyectados" />
+          <ScalarProperty Name="GastosTurismo" ColumnName="GastosTurismo" />
+          <ScalarProperty Name="IdFormularioGP" ColumnName="IdFormularioGP" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="EjercicioFiscal" ColumnName="EjercicioFiscal" />
+          <ScalarProperty Name="Ingreso" ColumnName="Ingreso" />
+          <ScalarProperty Name="OtrosIngresos" ColumnName="OtrosIngresos" />
+          <ScalarProperty Name="GastosVivienda" ColumnName="GastosVivienda" />
+          <ScalarProperty Name="GastosEducacion" ColumnName="GastosEducacion" />
+          <ScalarProperty Name="GastosSalud" ColumnName="GastosSalud" />
+          <ScalarProperty Name="GastosVestimenta" ColumnName="GastosVestimenta" />
+          <ScalarProperty Name="GastosAlimentacion" ColumnName="GastosAlimentacion" />
+          <ScalarProperty Name="AportePersonalIESS" ColumnName="AportePersonalIESS" />
+          <ScalarProperty Name="BaseImponible" ColumnName="BaseImponible" />
+          <ScalarProperty Name="ImpuestoARetener" ColumnName="ImpuestoARetener" />
+          <ScalarProperty Name="PorcentajeRetencion" ColumnName="PorcentajeRetencion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="GastosArte" ColumnName="GastosArte" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_GruposArchivoBancoCalendarioNomina">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_GruposArchivoBancoCalendarioNomina">
+        <MappingFragment StoreEntitySet="tNM_GruposArchivoBancoCalendarioNomina">
+          <ScalarProperty Name="IdGrupoArchivoBanco" ColumnName="IdGrupoArchivoBanco" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="NroGrupo" ColumnName="NroGrupo" />
+          <ScalarProperty Name="NombreGrupo" ColumnName="NombreGrupo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_GruposColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_GruposColaboradores">
+        <MappingFragment StoreEntitySet="tNM_GruposColaboradores">
+          <ScalarProperty Name="IdGrupoColaborador" ColumnName="IdGrupoColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_HistoriaLaboral">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_HistoriaLaboral">
+        <MappingFragment StoreEntitySet="tNM_HistoriaLaboral">
+          <ScalarProperty Name="IdHistoriaLaboral" ColumnName="IdHistoriaLaboral" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Texto" ColumnName="Texto" />
+          <ScalarProperty Name="IdHistorialConceptoFijo" ColumnName="IdHistorialConceptoFijo" />
+          <ScalarProperty Name="IdHistorialCargo" ColumnName="IdHistorialCargo" />
+          <ScalarProperty Name="IdCambioDepartamento" ColumnName="IdCambioDepartamento" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_HistorialCargos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_HistorialCargos">
+        <MappingFragment StoreEntitySet="tNM_HistorialCargos">
+          <ScalarProperty Name="IdHistorialCargo" ColumnName="IdHistorialCargo" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdCargoAnterior" ColumnName="IdCargoAnterior" />
+          <ScalarProperty Name="IdCargoNuevo" ColumnName="IdCargoNuevo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_HistorialConceptosFijos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_HistorialConceptosFijos">
+        <MappingFragment StoreEntitySet="tNM_HistorialConceptosFijos">
+          <ScalarProperty Name="IdHistorialConceptosFijos" ColumnName="IdHistorialConceptosFijos" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="UnidadesAnterior" ColumnName="UnidadesAnterior" />
+          <ScalarProperty Name="UnidadesNuevo" ColumnName="UnidadesNuevo" />
+          <ScalarProperty Name="ValorAnterior" ColumnName="ValorAnterior" />
+          <ScalarProperty Name="ValorNuevo" ColumnName="ValorNuevo" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="ActivoAnterior" ColumnName="ActivoAnterior" />
+          <ScalarProperty Name="ActivoNuevo" ColumnName="ActivoNuevo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_HistorialVacaciones">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_HistorialVacaciones">
+        <MappingFragment StoreEntitySet="tNM_HistorialVacaciones">
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+          <ScalarProperty Name="DiasPendientesDisfrute" ColumnName="DiasPendientesDisfrute" />
+          <ScalarProperty Name="DiasPendientesCancelar" ColumnName="DiasPendientesCancelar" />
+          <ScalarProperty Name="FechaInicial" ColumnName="FechaInicial" />
+          <ScalarProperty Name="FechaFinal" ColumnName="FechaFinal" />
+          <ScalarProperty Name="IngresoPeriodo" ColumnName="IngresoPeriodo" />
+          <ScalarProperty Name="DiasDisfrutados" ColumnName="DiasDisfrutados" />
+          <ScalarProperty Name="DiasCancelados" ColumnName="DiasCancelados" />
+          <ScalarProperty Name="DiasBase" ColumnName="DiasBase" />
+          <ScalarProperty Name="DiasBaseAdicional" ColumnName="DiasBaseAdicional" />
+          <ScalarProperty Name="FinesSemana" ColumnName="FinesSemana" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="FinesSemanaSolicitados" ColumnName="FinesSemanaSolicitados" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="FechaReintegro" ColumnName="FechaReintegro" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="asuetoid" ColumnName="asuetoid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_IngresosBeneficiosColaborador">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_IngresosBeneficiosColaborador">
+        <MappingFragment StoreEntitySet="tNM_IngresosBeneficiosColaborador">
+          <ScalarProperty Name="IdIngresoBeneficio" ColumnName="IdIngresoBeneficio" />
+          <ScalarProperty Name="idTipoBeneficio" ColumnName="idTipoBeneficio" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Plazo" ColumnName="Plazo" />
+          <ScalarProperty Name="ActivaCumpleaños" ColumnName="ActivaCumpleaños" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_JustificacionPermiso">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_JustificacionPermiso">
+        <MappingFragment StoreEntitySet="tNM_JustificacionPermiso">
+          <ScalarProperty Name="IdJustificacion" ColumnName="IdJustificacion" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
+          <ScalarProperty Name="Extension" ColumnName="Extension" />
+          <ScalarProperty Name="UrlJustificacion" ColumnName="UrlJustificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_LimitesGP">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_LimitesGP">
+        <MappingFragment StoreEntitySet="tNM_LimitesGP">
+          <ScalarProperty Name="IdLimiteGP" ColumnName="IdLimiteGP" />
+          <ScalarProperty Name="EjercicioFiscal" ColumnName="EjercicioFiscal" />
+          <ScalarProperty Name="GastosVivienda" ColumnName="GastosVivienda" />
+          <ScalarProperty Name="GastosEducacion" ColumnName="GastosEducacion" />
+          <ScalarProperty Name="GastosSalud" ColumnName="GastosSalud" />
+          <ScalarProperty Name="GastosVestimenta" ColumnName="GastosVestimenta" />
+          <ScalarProperty Name="GastosAlimentacion" ColumnName="GastosAlimentacion" />
+          <ScalarProperty Name="GastosArteCultura" ColumnName="GastosArteCultura" />
+          <ScalarProperty Name="GastosEnfermedadesCatastroficas" ColumnName="GastosEnfermedadesCatastroficas" />
+          <ScalarProperty Name="ExoneracionDiscapacidad" ColumnName="ExoneracionDiscapacidad" />
+          <ScalarProperty Name="ExoneracionTerceraEdad" ColumnName="ExoneracionTerceraEdad" />
+          <ScalarProperty Name="GastosTotales" ColumnName="GastosTotales" />
+          <ScalarProperty Name="PorcentajeTotal" ColumnName="PorcentajeTotal" />
+          <ScalarProperty Name="ImpuestoARetener" ColumnName="ImpuestoARetener" />
+          <ScalarProperty Name="PorcentajeRetencion" ColumnName="PorcentajeRetencion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_LiquidacionLaboral">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_LiquidacionLaboral">
+        <MappingFragment StoreEntitySet="tNM_LiquidacionLaboral">
+          <ScalarProperty Name="IdLiquidacionLaboral" ColumnName="IdLiquidacionLaboral" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="FechaEgreso" ColumnName="FechaEgreso" />
+          <ScalarProperty Name="IdMotivoEgreso" ColumnName="IdMotivoEgreso" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="EstadoProceso" ColumnName="EstadoProceso" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdModoCalculo" ColumnName="IdModoCalculo" />
+          <ScalarProperty Name="DiasFaltantes" ColumnName="DiasFaltantes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_MediosPago">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_MediosPago">
+        <MappingFragment StoreEntitySet="tNM_MediosPago">
+          <ScalarProperty Name="IdMediosPago" ColumnName="IdMediosPago" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="EsChequeOEfectivo" ColumnName="EsChequeOEfectivo" />
+          <ScalarProperty Name="TipoPagoIESS" ColumnName="TipoPagoIESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ModosCalculoLiquidacion">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ModosCalculoLiquidacion">
+        <MappingFragment StoreEntitySet="tNM_ModosCalculoLiquidacion">
+          <ScalarProperty Name="IdModoCalculo" ColumnName="IdModoCalculo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_MotivosEgreso">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_MotivosEgreso">
+        <MappingFragment StoreEntitySet="tNM_MotivosEgreso">
+          <ScalarProperty Name="IdMotivoEgreso" ColumnName="IdMotivoEgreso" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="CodigoIESS" ColumnName="CodigoIESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_NominaDefinitiva">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_NominaDefinitiva">
+        <MappingFragment StoreEntitySet="tNM_NominaDefinitiva">
+          <ScalarProperty Name="IdNominaDefinitiva" ColumnName="IdNominaDefinitiva" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="IdCuentaDb" ColumnName="IdCuentaDb" />
+          <ScalarProperty Name="IdCuentaCr" ColumnName="IdCuentaCr" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Cancelado" ColumnName="Cancelado" />
+          <ScalarProperty Name="NumeroCuotas" ColumnName="NumeroCuotas" />
+          <ScalarProperty Name="CuotasPagadas" ColumnName="CuotasPagadas" />
+          <ScalarProperty Name="AplicadoFactorProporcional" ColumnName="AplicadoFactorProporcional" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ValorMes" ColumnName="ValorMes" />
+          <ScalarProperty Name="IdConceptoMes" ColumnName="IdConceptoMes" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_NominaPreliminar">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_NominaPreliminar">
+        <MappingFragment StoreEntitySet="tNM_NominaPreliminar">
+          <ScalarProperty Name="IdNominaPreliminar" ColumnName="IdNominaPreliminar" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="AplicadoFactorProporcional" ColumnName="AplicadoFactorProporcional" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ValorMes" ColumnName="ValorMes" />
+          <ScalarProperty Name="IdConceptoMes" ColumnName="IdConceptoMes" />
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_PagosFueraNomina">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_PagosFueraNomina">
+        <MappingFragment StoreEntitySet="tNM_PagosFueraNomina">
+          <ScalarProperty Name="IdPagoFueraNomina" ColumnName="IdPagoFueraNomina" />
+          <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="IdComprobante" ColumnName="IdComprobante" />
+          <ScalarProperty Name="IdCuentaDb" ColumnName="IdCuentaDb" />
+          <ScalarProperty Name="IdCuentaCr" ColumnName="IdCuentaCr" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Cancelado" ColumnName="Cancelado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ProgramasColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ProgramasColaboradores">
+        <MappingFragment StoreEntitySet="tNM_ProgramasColaboradores">
+          <ScalarProperty Name="IdProgramaColaborador" ColumnName="IdProgramaColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ProyectosColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ProyectosColaboradores">
+        <MappingFragment StoreEntitySet="tNM_ProyectosColaboradores">
+          <ScalarProperty Name="IdProyectoColaborador" ColumnName="IdProyectoColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_RelacionIESS">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_RelacionIESS">
+        <MappingFragment StoreEntitySet="tNM_RelacionIESS">
+          <ScalarProperty Name="IdRelacionIESS" ColumnName="IdRelacionIESS" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoIESS" ColumnName="CodigoIESS" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SaldosCuentaColaborador">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SaldosCuentaColaborador">
+        <MappingFragment StoreEntitySet="tNM_SaldosCuentaColaborador">
+          <ScalarProperty Name="IdSaldosCuentasColaborador" ColumnName="IdSaldosCuentasColaborador" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="SaldoCupo" ColumnName="SaldoCupo" />
+          <ScalarProperty Name="SaldoGiftCard" ColumnName="SaldoGiftCard" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SectorialIESS">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SectorialIESS">
+        <MappingFragment StoreEntitySet="tNM_SectorialIESS">
+          <ScalarProperty Name="IdSectorialIESS" ColumnName="IdSectorialIESS" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Solicitudes">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Solicitudes">
+        <MappingFragment StoreEntitySet="tNM_Solicitudes">
+          <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdTipoSolicitud" ColumnName="IdTipoSolicitud" />
+          <ScalarProperty Name="IdSubTipoSolicitud" ColumnName="IdSubTipoSolicitud" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="Explicacion" ColumnName="Explicacion" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="FechaEnvioSupervisor" ColumnName="FechaEnvioSupervisor" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="FueAprobadaSupervisor" ColumnName="FueAprobadaSupervisor" />
+          <ScalarProperty Name="UsuarioSupervisor" ColumnName="UsuarioSupervisor" />
+          <ScalarProperty Name="FechaAprobacionSupervisor" ColumnName="FechaAprobacionSupervisor" />
+          <ScalarProperty Name="FechaEnvioFinanciero" ColumnName="FechaEnvioFinanciero" />
+          <ScalarProperty Name="RespuestaFinanciero" ColumnName="RespuestaFinanciero" />
+          <ScalarProperty Name="FueAprobadaFinanciero" ColumnName="FueAprobadaFinanciero" />
+          <ScalarProperty Name="UsuarioFinanciero" ColumnName="UsuarioFinanciero" />
+          <ScalarProperty Name="FechaAprobacionFinanciero" ColumnName="FechaAprobacionFinanciero" />
+          <ScalarProperty Name="FechaEnvioTH" ColumnName="FechaEnvioTH" />
+          <ScalarProperty Name="FueAprobadaTH" ColumnName="FueAprobadaTH" />
+          <ScalarProperty Name="UsuarioTH" ColumnName="UsuarioTH" />
+          <ScalarProperty Name="FechaAprobacionTH" ColumnName="FechaAprobacionTH" />
+          <ScalarProperty Name="RespuestaTH" ColumnName="RespuestaTH" />
+          <ScalarProperty Name="NotificadoNomina" ColumnName="NotificadoNomina" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="ValorPrestamo" ColumnName="ValorPrestamo" />
+          <ScalarProperty Name="CantidadCuotasPrestamo" ColumnName="CantidadCuotasPrestamo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SolicitudesTablaAmortizacion">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudesTablaAmortizacion">
+        <MappingFragment StoreEntitySet="tNM_SolicitudesTablaAmortizacion">
+          <ScalarProperty Name="IdSolicitudTablaAmortizacion" ColumnName="IdSolicitudTablaAmortizacion" />
+          <ScalarProperty Name="IdSolicitud" ColumnName="IdSolicitud" />
+          <ScalarProperty Name="IdTipoSolicitud" ColumnName="IdTipoSolicitud" />
+          <ScalarProperty Name="IdSubTipoSolicitud" ColumnName="IdSubTipoSolicitud" />
+          <ScalarProperty Name="Anio" ColumnName="Anio" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="Capital" ColumnName="Capital" />
+          <ScalarProperty Name="Interes" ColumnName="Interes" />
+          <ScalarProperty Name="ValorCuota" ColumnName="ValorCuota" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SolicitudPermiso">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudPermiso">
+        <MappingFragment StoreEntitySet="tNM_SolicitudPermiso">
+          <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SolicitudVacacionesCab">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudVacacionesCab">
+        <MappingFragment StoreEntitySet="tNM_SolicitudVacacionesCab">
+          <ScalarProperty Name="IdSolicitudVacaciones" ColumnName="IdSolicitudVacaciones" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="FechaAprobacionSupervisor" ColumnName="FechaAprobacionSupervisor" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SolicitudVacacionesDet">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudVacacionesDet">
+        <MappingFragment StoreEntitySet="tNM_SolicitudVacacionesDet">
+          <ScalarProperty Name="IdSolictudVacacionesDet" ColumnName="IdSolictudVacacionesDet" />
+          <ScalarProperty Name="IdSolictudVacacionesCab" ColumnName="IdSolictudVacacionesCab" />
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="DiasADisfrutarPeriodo" ColumnName="DiasADisfrutarPeriodo" />
+          <ScalarProperty Name="DiasFinesDeSemana" ColumnName="DiasFinesDeSemana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_SubtipoSolicitudes">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SubtipoSolicitudes">
+        <MappingFragment StoreEntitySet="tNM_SubtipoSolicitudes">
+          <ScalarProperty Name="IdSubtipoSolicitud" ColumnName="IdSubtipoSolicitud" />
+          <ScalarProperty Name="IdTipoSolicitud" ColumnName="IdTipoSolicitud" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ApruebaSupervisor" ColumnName="ApruebaSupervisor" />
+          <ScalarProperty Name="OrdenAprobacionSupervisor" ColumnName="OrdenAprobacionSupervisor" />
+          <ScalarProperty Name="ApruebaTH" ColumnName="ApruebaTH" />
+          <ScalarProperty Name="OrdenAprobacionTH" ColumnName="OrdenAprobacionTH" />
+          <ScalarProperty Name="ApruebaFinanciero" ColumnName="ApruebaFinanciero" />
+          <ScalarProperty Name="OrdenAprobacionFinanciero" ColumnName="OrdenAprobacionFinanciero" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="RequiereTablaAmortizacion" ColumnName="RequiereTablaAmortizacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Sucursales">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Sucursales">
+        <MappingFragment StoreEntitySet="tNM_Sucursales">
+          <ScalarProperty Name="IdSucursal" ColumnName="IdSucursal" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TablaBeneficioDiscapacidad">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TablaBeneficioDiscapacidad">
+        <MappingFragment StoreEntitySet="tNM_TablaBeneficioDiscapacidad">
+          <ScalarProperty Name="IdTablaBeneficioDiscapacidad" ColumnName="IdTablaBeneficioDiscapacidad" />
+          <ScalarProperty Name="AnoFiscal" ColumnName="AnoFiscal" />
+          <ScalarProperty Name="Desde" ColumnName="Desde" />
+          <ScalarProperty Name="Hasta" ColumnName="Hasta" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TablaIR">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TablaIR">
+        <MappingFragment StoreEntitySet="tNM_TablaIR">
+          <ScalarProperty Name="IdTablaIR" ColumnName="IdTablaIR" />
+          <ScalarProperty Name="AnoFiscal" ColumnName="AnoFiscal" />
+          <ScalarProperty Name="Basico" ColumnName="Basico" />
+          <ScalarProperty Name="Excedente" ColumnName="Excedente" />
+          <ScalarProperty Name="ImpuestoBasico" ColumnName="ImpuestoBasico" />
+          <ScalarProperty Name="FraccionExcedente" ColumnName="FraccionExcedente" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposAusencia">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposAusencia">
+        <MappingFragment StoreEntitySet="tNM_TiposAusencia">
+          <ScalarProperty Name="IdAusencia" ColumnName="IdAusencia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="ApruebaJefe" ColumnName="ApruebaJefe" />
+          <ScalarProperty Name="ApruebaTTHH" ColumnName="ApruebaTTHH" />
+          <ScalarProperty Name="AplicaSoloDia" ColumnName="AplicaSoloDia" />
+          <ScalarProperty Name="AplicaHoras" ColumnName="AplicaHoras" />
+          <ScalarProperty Name="MaximaHorasPermitidasDia" ColumnName="MaximaHorasPermitidasDia" />
+          <ScalarProperty Name="AplicaRangoFechas" ColumnName="AplicaRangoFechas" />
+          <ScalarProperty Name="IncluyeFinesDeSemana" ColumnName="IncluyeFinesDeSemana" />
+          <ScalarProperty Name="NumeroDiasFinSemanaPermitidos" ColumnName="NumeroDiasFinSemanaPermitidos" />
+          <ScalarProperty Name="RequiereJustificacion" ColumnName="RequiereJustificacion" />
+          <ScalarProperty Name="MinimoNumeroDeSoporte" ColumnName="MinimoNumeroDeSoporte" />
+          <ScalarProperty Name="AplicaRecuperacionHoras" ColumnName="AplicaRecuperacionHoras" />
+          <ScalarProperty Name="MaximoHorasARecuperarDia" ColumnName="MaximoHorasARecuperarDia" />
+          <ScalarProperty Name="MaximoDiasSolicitarVacaciones" ColumnName="MaximoDiasSolicitarVacaciones" />
+          <ScalarProperty Name="MinimoDiasSolicitarVacaciones" ColumnName="MinimoDiasSolicitarVacaciones" />
+          <ScalarProperty Name="AplicaDiasVacacionFeriado" ColumnName="AplicaDiasVacacionFeriado" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ruta" ColumnName="ruta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposColaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposColaboradores">
+        <MappingFragment StoreEntitySet="tNM_TiposColaboradores">
+          <ScalarProperty Name="IdTipoColaborador" ColumnName="IdTipoColaborador" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="PorcentajeAportePersonalIESS" ColumnName="PorcentajeAportePersonalIESS" />
+          <ScalarProperty Name="PorcentajeAportePatronalIESS" ColumnName="PorcentajeAportePatronalIESS" />
+          <ScalarProperty Name="PorcentajeAportePatronalIECE" ColumnName="PorcentajeAportePatronalIECE" />
+          <ScalarProperty Name="PorcentajeAportePatronalSECAP" ColumnName="PorcentajeAportePatronalSECAP" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposContrato">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposContrato">
+        <MappingFragment StoreEntitySet="tNM_TiposContrato">
+          <ScalarProperty Name="IdTipoContrato" ColumnName="IdTipoContrato" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Caracteristicas" ColumnName="Caracteristicas" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="IdRelacionIESS" ColumnName="IdRelacionIESS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposDiscapacidad">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposDiscapacidad">
+        <MappingFragment StoreEntitySet="tNM_TiposDiscapacidad">
+          <ScalarProperty Name="IdTipoDiscapacidad" ColumnName="IdTipoDiscapacidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposEstadoCuenta">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposEstadoCuenta">
+        <MappingFragment StoreEntitySet="tNM_TiposEstadoCuenta">
+          <ScalarProperty Name="IdTipoEstadoCuenta" ColumnName="IdTipoEstadoCuenta" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposNomina">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposNomina">
+        <MappingFragment StoreEntitySet="tNM_TiposNomina">
+          <ScalarProperty Name="IdTipoNomina" ColumnName="IdTipoNomina" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposRelacion">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposRelacion">
+        <MappingFragment StoreEntitySet="tNM_TiposRelacion">
+          <ScalarProperty Name="IdTipoRelacion" ColumnName="IdTipoRelacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_TiposSolicitudes">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposSolicitudes">
+        <MappingFragment StoreEntitySet="tNM_TiposSolicitudes">
+          <ScalarProperty Name="IdTipoSolicitud" ColumnName="IdTipoSolicitud" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Titulos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Titulos">
+        <MappingFragment StoreEntitySet="tNM_Titulos">
+          <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Vacaciones">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Vacaciones">
+        <MappingFragment StoreEntitySet="tNM_Vacaciones">
+          <ScalarProperty Name="IdVacacion" ColumnName="IdVacacion" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+          <ScalarProperty Name="Explicacion" ColumnName="Explicacion" />
+          <ScalarProperty Name="Respuesta" ColumnName="Respuesta" />
+          <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+          <ScalarProperty Name="FechaEnvioSupervisor" ColumnName="FechaEnvioSupervisor" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="FueAprobadaSupervisor" ColumnName="FueAprobadaSupervisor" />
+          <ScalarProperty Name="UsuarioSupervisor" ColumnName="UsuarioSupervisor" />
+          <ScalarProperty Name="FechaAprobacionSupervisor" ColumnName="FechaAprobacionSupervisor" />
+          <ScalarProperty Name="FechaEnvioTH" ColumnName="FechaEnvioTH" />
+          <ScalarProperty Name="FueAprobadaTH" ColumnName="FueAprobadaTH" />
+          <ScalarProperty Name="UsuarioTH" ColumnName="UsuarioTH" />
+          <ScalarProperty Name="FechaAprobacionTH" ColumnName="FechaAprobacionTH" />
+          <ScalarProperty Name="RespuestaTH" ColumnName="RespuestaTH" />
+          <ScalarProperty Name="NotificadoNomina" ColumnName="NotificadoNomina" />
+          <ScalarProperty Name="FechaNotificacion" ColumnName="FechaNotificacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="FechaSalida" ColumnName="FechaSalida" />
+          <ScalarProperty Name="FueProcesada" ColumnName="FueProcesada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_VacacionesDetalle">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_VacacionesDetalle">
+        <MappingFragment StoreEntitySet="tNM_VacacionesDetalle">
+          <ScalarProperty Name="IdVacacionDetalle" ColumnName="IdVacacionDetalle" />
+          <ScalarProperty Name="IdVacacion" ColumnName="IdVacacion" />
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_ValidacionNomina">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_ValidacionNomina">
+        <MappingFragment StoreEntitySet="tNM_ValidacionNomina">
+          <ScalarProperty Name="IdValidacionNomina" ColumnName="IdValidacionNomina" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Asignaciones" ColumnName="Asignaciones" />
+          <ScalarProperty Name="Deducciones" ColumnName="Deducciones" />
+          <ScalarProperty Name="Neto" ColumnName="Neto" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Variaciones">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Variaciones">
+        <MappingFragment StoreEntitySet="tNM_Variaciones">
+          <ScalarProperty Name="IdVariacion" ColumnName="IdVariacion" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Empleados_Colaboradores">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Empleados_Colaboradores">
+        <MappingFragment StoreEntitySet="tNM_Empleados_Colaboradores">
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_Formulario107">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_Formulario107">
+        <MappingFragment StoreEntitySet="tNM_Formulario107">
+          <ScalarProperty Name="IdFormulario107" ColumnName="IdFormulario107" />
+          <ScalarProperty Name="IdFormulario" ColumnName="IdFormulario" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="c102Ejercicio" ColumnName="c102Ejercicio" />
+          <ScalarProperty Name="c103Fecha" ColumnName="c103Fecha" />
+          <ScalarProperty Name="c199RUCContador" ColumnName="c199RUCContador" />
+          <ScalarProperty Name="c201Identificacion" ColumnName="c201Identificacion" />
+          <ScalarProperty Name="c202ApellidosNombres" ColumnName="c202ApellidosNombres" />
+          <ScalarProperty Name="c301Sueldos" ColumnName="c301Sueldos" />
+          <ScalarProperty Name="c303SobSuelComRemu" ColumnName="c303SobSuelComRemu" />
+          <ScalarProperty Name="c305Utilidades" ColumnName="c305Utilidades" />
+          <ScalarProperty Name="c307OtrosEmpleadores" ColumnName="c307OtrosEmpleadores" />
+          <ScalarProperty Name="c311DecimoTercero" ColumnName="c311DecimoTercero" />
+          <ScalarProperty Name="c313DecimoCuarto" ColumnName="c313DecimoCuarto" />
+          <ScalarProperty Name="c315FondoReserva" ColumnName="c315FondoReserva" />
+          <ScalarProperty Name="c317OtrosIngresosNoGravados" ColumnName="c317OtrosIngresosNoGravados" />
+          <ScalarProperty Name="c349IngresosGravados" ColumnName="c349IngresosGravados" />
+          <ScalarProperty Name="c351AportePersonalIESS" ColumnName="c351AportePersonalIESS" />
+          <ScalarProperty Name="c353AportePersonalIESSOtros" ColumnName="c353AportePersonalIESSOtros" />
+          <ScalarProperty Name="c361GastosVivienda" ColumnName="c361GastosVivienda" />
+          <ScalarProperty Name="c363GastosSalud" ColumnName="c363GastosSalud" />
+          <ScalarProperty Name="c365GastosEducacion" ColumnName="c365GastosEducacion" />
+          <ScalarProperty Name="c367GastosAlimentacion" ColumnName="c367GastosAlimentacion" />
+          <ScalarProperty Name="c369GastosVestimenta" ColumnName="c369GastosVestimenta" />
+          <ScalarProperty Name="c370GastosArte" ColumnName="c370GastosArte" />
+          <ScalarProperty Name="c371ExoneracionDiscapacidad" ColumnName="c371ExoneracionDiscapacidad" />
+          <ScalarProperty Name="c373ExoneracionTerceraEdad" ColumnName="c373ExoneracionTerceraEdad" />
+          <ScalarProperty Name="c381ImpuestoAsumido" ColumnName="c381ImpuestoAsumido" />
+          <ScalarProperty Name="c399BaseImponible" ColumnName="c399BaseImponible" />
+          <ScalarProperty Name="c401ImpuestoCausado" ColumnName="c401ImpuestoCausado" />
+          <ScalarProperty Name="c403AsumidoOtros" ColumnName="c403AsumidoOtros" />
+          <ScalarProperty Name="c405ImpuestoAsumido" ColumnName="c405ImpuestoAsumido" />
+          <ScalarProperty Name="c407ImpuestoRetenido" ColumnName="c407ImpuestoRetenido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tNM_tmp_ImpuestoAgostoNuevo">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_tmp_ImpuestoAgostoNuevo">
+        <MappingFragment StoreEntitySet="tNM_tmp_ImpuestoAgostoNuevo">
+          <ScalarProperty Name="IdNominaDefinitiva" ColumnName="IdNominaDefinitiva" />
+          <ScalarProperty Name="IdCalendarioNomina" ColumnName="IdCalendarioNomina" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdConcepto" ColumnName="IdConcepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+          <ScalarProperty Name="IdCuentaDb" ColumnName="IdCuentaDb" />
+          <ScalarProperty Name="IdCuentaCr" ColumnName="IdCuentaCr" />
+          <ScalarProperty Name="IdDepartamento" ColumnName="IdDepartamento" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="Cancelado" ColumnName="Cancelado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tGN_Personas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_Personas">
+        <MappingFragment StoreEntitySet="tGN_Personas">
+          <ScalarProperty Name="ComisionesAplicaPagoMovilizacion" ColumnName="ComisionesAplicaPagoMovilizacion" />
+          <ScalarProperty Name="ComisionesIdTablaComisiones" ColumnName="ComisionesIdTablaComisiones" />
+          <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="IdNivelInstruccion" ColumnName="IdNivelInstruccion" />
+          <ScalarProperty Name="TipoSangre" ColumnName="TipoSangre" />
+          <ScalarProperty Name="NombreApellido" ColumnName="NombreApellido" />
+          <ScalarProperty Name="ApellidoNombre" ColumnName="ApellidoNombre" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="emailafiliadoid" ColumnName="emailafiliadoid" />
+          <ScalarProperty Name="cod_afil_sin_identificacion" ColumnName="cod_afil_sin_identificacion" />
+          <ScalarProperty Name="cod_afil_empreado" ColumnName="cod_afil_empreado" />
+          <ScalarProperty Name="cod_repre" ColumnName="cod_repre" />
+          <ScalarProperty Name="cod_directivo" ColumnName="cod_directivo" />
+          <ScalarProperty Name="cod_benef" ColumnName="cod_benef" />
+          <ScalarProperty Name="cod_cobrador" ColumnName="cod_cobrador" />
+          <ScalarProperty Name="cod_vendedor" ColumnName="cod_vendedor" />
+          <ScalarProperty Name="cod_asesor" ColumnName="cod_asesor" />
+          <ScalarProperty Name="cod_afil" ColumnName="cod_afil" />
+          <ScalarProperty Name="MarcaMigracion" ColumnName="MarcaMigracion" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="RecibeNotificacionAtenciones" ColumnName="RecibeNotificacionAtenciones" />
+          <ScalarProperty Name="CodigoSocio" ColumnName="CodigoSocio" />
+          <ScalarProperty Name="Oid" ColumnName="Oid" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+          <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+          <ScalarProperty Name="SegundoNombre" ColumnName="SegundoNombre" />
+          <ScalarProperty Name="PrimerNombre" ColumnName="PrimerNombre" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+          <ScalarProperty Name="IdPais" ColumnName="IdPais" />
+          <ScalarProperty Name="IdTipoEmpresa" ColumnName="IdTipoEmpresa" />
+          <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+          <ScalarProperty Name="IdPersonas" ColumnName="IdPersonas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tGN_Empresas">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_Empresas">
+        <MappingFragment StoreEntitySet="tGN_Empresas">
+          <ScalarProperty Name="ObligadoContabilidad" ColumnName="ObligadoContabilidad" />
+          <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
+          <ScalarProperty Name="UrlLogo" ColumnName="UrlLogo" />
+          <ScalarProperty Name="MenuWeb" ColumnName="MenuWeb" />
+          <ScalarProperty Name="Firma2" ColumnName="Firma2" />
+          <ScalarProperty Name="Firma1" ColumnName="Firma1" />
+          <ScalarProperty Name="EstaPausadoServiciosDOCE" ColumnName="EstaPausadoServiciosDOCE" />
+          <ScalarProperty Name="IdPeriodoUltimaGeneracionCuotas" ColumnName="IdPeriodoUltimaGeneracionCuotas" />
+          <ScalarProperty Name="IdSocioDoce" ColumnName="IdSocioDoce" />
+          <ScalarProperty Name="IdTipoEmpresa" ColumnName="IdTipoEmpresa" />
+          <ScalarProperty Name="NombreContador" ColumnName="NombreContador" />
+          <ScalarProperty Name="RUC" ColumnName="RUC" />
+          <ScalarProperty Name="RepresentanteLegal" ColumnName="RepresentanteLegal" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="ProduccionSRI" ColumnName="ProduccionSRI" />
+          <ScalarProperty Name="IdContador" ColumnName="IdContador" />
+          <ScalarProperty Name="TipoIdContador" ColumnName="TipoIdContador" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="IdFiscal" ColumnName="IdFiscal" />
+          <ScalarProperty Name="NombreRepresentanteLegal" ColumnName="NombreRepresentanteLegal" />
+          <ScalarProperty Name="IdRepresentanteLegal" ColumnName="IdRepresentanteLegal" />
+          <ScalarProperty Name="TipoIdRepresentanteLegal" ColumnName="TipoIdRepresentanteLegal" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_AusenciasCCQ" FunctionName="CCQ_DESAModel.Store.sp_AusenciasCCQ">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_AusenciasCCQ_Result">
+          <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_CalculoCertificadoSueldo" FunctionName="CCQ_DESAModel.Store.sp_CalculoCertificadoSueldo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_CalculoCertificadoSueldo_Result">
+          <ScalarProperty Name="valorTotal" ColumnName="valorTotal" />
+          <ScalarProperty Name="Promedio" ColumnName="Promedio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_tnmDiasVacacionesColaborador" FunctionName="CCQ_DESAModel.Store.sp_tnmDiasVacacionesColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_tnmDiasVacacionesColaborador_Result">
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+          <ScalarProperty Name="DiasPendientes" ColumnName="DiasPendientes" />
+          <ScalarProperty Name="DiasDisfrutados" ColumnName="DiasDisfrutados" />
+          <ScalarProperty Name="DiasDisfrutadosConFinSe" ColumnName="DiasDisfrutadosConFinSe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_tNMFeriados" FunctionName="CCQ_DESAModel.Store.sp_tNMFeriados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_tNMFeriados_Result">
+          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+          <ScalarProperty Name="MES" ColumnName="MES" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tGN_ContactoPersona">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_ContactoPersona">
+        <MappingFragment StoreEntitySet="tGN_ContactoPersona">
+          <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
+          <ScalarProperty Name="IsOkFormatoEmail" ColumnName="IsOkFormatoEmail" />
+          <ScalarProperty Name="IdContactoNuevo" ColumnName="IdContactoNuevo" />
+          <ScalarProperty Name="EsMasivo" ColumnName="EsMasivo" />
+          <ScalarProperty Name="EsAwe" ColumnName="EsAwe" />
+          <ScalarProperty Name="FechaDesuscripcion" ColumnName="FechaDesuscripcion" />
+          <ScalarProperty Name="IdLinkLpdVendedor" ColumnName="IdLinkLpdVendedor" />
+          <ScalarProperty Name="FechaVencimientoAutorizacion" ColumnName="FechaVencimientoAutorizacion" />
+          <ScalarProperty Name="FechaMailEnvioOtp" ColumnName="FechaMailEnvioOtp" />
+          <ScalarProperty Name="IdEnvioApiAlphaOtp" ColumnName="IdEnvioApiAlphaOtp" />
+          <ScalarProperty Name="CodigoOtp" ColumnName="CodigoOtp" />
+          <ScalarProperty Name="IdEnvioApiAlpha" ColumnName="IdEnvioApiAlpha" />
+          <ScalarProperty Name="FechaAutorizacion" ColumnName="FechaAutorizacion" />
+          <ScalarProperty Name="AutorizacionLdp" ColumnName="AutorizacionLdp" />
+          <ScalarProperty Name="IsDevueltoDesdeTemporal" ColumnName="IsDevueltoDesdeTemporal" />
+          <ScalarProperty Name="IsNewDesdeSync" ColumnName="IsNewDesdeSync" />
+          <ScalarProperty Name="IdDepartamentoSocio" ColumnName="IdDepartamentoSocio" />
+          <ScalarProperty Name="Referencia2" ColumnName="Referencia2" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="cod_afil" ColumnName="cod_afil" />
+          <ScalarProperty Name="emailafiliadoid" ColumnName="emailafiliadoid" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="Principal" ColumnName="Principal" />
+          <ScalarProperty Name="Contacto" ColumnName="Contacto" />
+          <ScalarProperty Name="IdMedioContacto" ColumnName="IdMedioContacto" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IdContactoPersona" ColumnName="IdContactoPersona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="rNM_RecibosPago" FunctionName="CCQ_DESAModel.Store.rNM_RecibosPago">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.rNM_RecibosPago_Result">
+          <ScalarProperty Name="Concepto" ColumnName="Concepto" />
+          <ScalarProperty Name="Unidades" ColumnName="Unidades" />
+          <ScalarProperty Name="Asignacion" ColumnName="Asignacion" />
+          <ScalarProperty Name="Deduccion" ColumnName="Deduccion" />
+          <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesVacacionesColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesVacacionesColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesVacacionesColaborador_Result">
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="IdSolicitudVacaciones" ColumnName="IdSolicitudVacaciones" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
+          <ScalarProperty Name="reemplazo" ColumnName="reemplazo" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosSupervisorColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosSupervisorColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosSupervisorColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesVacacionesAprobJefe" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesVacacionesAprobJefe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesVacacionesAprobJefe_Result">
+          <ScalarProperty Name="IdSolicitudVacaciones" ColumnName="IdSolicitudVacaciones" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="ApellidosNombres" ColumnName="ApellidosNombres" />
+          <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
+          <ScalarProperty Name="reemplazo" ColumnName="reemplazo" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="INTRANET_ObtenerCumpleanios" FunctionName="CCQ_DESAModel.Store.INTRANET_ObtenerCumpleanios">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.INTRANET_ObtenerCumpleanios_Result">
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+          <ScalarProperty Name="Colaborador" ColumnName="Colaborador" />
+          <ScalarProperty Name="NumeroMes" ColumnName="NumeroMes" />
+          <ScalarProperty Name="DiaNacimiento" ColumnName="DiaNacimiento" />
+          <ScalarProperty Name="DepartamentoCCQ" ColumnName="DepartamentoCCQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

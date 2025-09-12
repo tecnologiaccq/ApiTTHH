@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4ed69efb1711454daa6ea3a5c08d6ee2" Name="Diagram1" ZoomLevel="43">
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AdjuntoSolicitudPermiso" Width="1.5" PointX="10.5" PointY="120.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AnexosSolicitudes" Width="1.5" PointX="19.5" PointY="88.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Areas" Width="1.5" PointX="3.75" PointY="69.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_BasesCalculadas" Width="1.5" PointX="8.25" PointY="97.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_BasesCalculo" Width="1.5" PointX="10.5" PointY="76" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNm_BeneficiosCCQ" Width="1.5" PointX="15" PointY="124.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_BitacoraColaboradores" Width="1.5" PointX="8.25" PointY="85.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CalendarioNominas" Width="1.5" PointX="18" PointY="68.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CalendarioNominasEnvioMail" Width="1.5" PointX="11.25" PointY="105.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CambiosDepartamentos" Width="1.5" PointX="11.25" PointY="100.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CapacitacionColaborador" Width="1.5" PointX="8.25" PointY="114.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Cargos" Width="1.5" PointX="0.75" PointY="105.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CategoriasColaboradores" Width="1.5" PointX="3.75" PointY="74.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CategoriasOcupacionales" Width="1.5" PointX="3.75" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ClasesColaboradores" Width="1.5" PointX="3.75" PointY="82.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Colaboradores" Width="1.5" PointX="6" PointY="94" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ColaboradoresAuditoria" Width="1.5" PointX="14.25" PointY="96.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Competencias" Width="1.5" PointX="9" PointY="126.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CompetenciasCargo" Width="1.5" PointX="3" PointY="105.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CompetenciasColaborador" Width="1.5" PointX="11.25" PointY="110.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ConceptoCetificado" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Conceptos" Width="1.5" PointX="12.75" PointY="72.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ConceptosFijos" Width="1.5" PointX="17.25" PointY="104.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ConceptosGlobales" Width="1.5" PointX="23.25" PointY="75.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ConceptosTiposNomina" Width="1.5" PointX="18" PointY="79" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_CondicionDiscapacidad" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_DatosBiometrico" Width="1.5" PointX="8.25" PointY="150.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Declaracion13" Width="1.5" PointX="20.25" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Declaracion14" Width="1.5" PointX="20.25" PointY="77.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_DeduccionGastosCargasLEFAM" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Departamentos" Width="1.5" PointX="3.75" PointY="86.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Dependientes" Width="1.5" PointX="8.25" PointY="156.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_DetalleVacaciones" Width="1.5" PointX="10.5" PointY="226.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Distribucion" Width="1.5" PointX="8.25" PointY="160.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Empleados" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_EntradasSalidas" Width="1.5" PointX="17.25" PointY="98.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_EstadosColaboradores" Width="1.5" PointX="3.75" PointY="91.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_EstadosCuentaColaborador" Width="1.5" PointX="17.25" PointY="111.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_EstadosFlujoAusencias" Width="1.5" PointX="12" PointY="91" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Feriados" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_FormasCalculo" Width="1.5" PointX="10.5" PointY="79.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_FormularioGP" Width="1.5" PointX="8.25" PointY="175.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_GruposArchivoBancoCalendarioNomina" Width="1.5" PointX="11.25" PointY="95.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_GruposColaboradores" Width="1.5" PointX="3.75" PointY="95.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_HistoriaLaboral" Width="1.5" PointX="22.5" PointY="105" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_HistorialCargos" Width="1.5" PointX="11.25" PointY="115.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_HistorialConceptosFijos" Width="1.5" PointX="20.25" PointY="104.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_HistorialVacaciones" Width="1.5" PointX="8.25" PointY="196" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_IngresosBeneficiosColaborador" Width="1.5" PointX="17.25" PointY="116.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_JustificacionPermiso" Width="1.5" PointX="10.5" PointY="123.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_LimitesGP" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_LiquidacionLaboral" Width="1.5" PointX="20.25" PointY="99" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_MediosPago" Width="1.5" PointX="3.75" PointY="99.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ModosCalculoLiquidacion" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_MotivosEgreso" Width="1.5" PointX="3.75" PointY="110.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_NominaDefinitiva" Width="1.5" PointX="20.25" PointY="110.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_NominaPreliminar" Width="1.5" PointX="20.25" PointY="92.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_PagosFueraNomina" Width="1.5" PointX="8.25" PointY="91.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ProgramasColaboradores" Width="1.5" PointX="3.75" PointY="114.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ProyectosColaboradores" Width="1.5" PointX="3.75" PointY="118.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_RelacionIESS" Width="1.5" PointX="1.5" PointY="135.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SaldosCuentaColaborador" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SectorialIESS" Width="1.5" PointX="3.75" PointY="122.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Solicitudes" Width="1.5" PointX="17.25" PointY="88.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudesTablaAmortizacion" Width="1.5" PointX="22.5" PointY="90.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudPermiso" Width="1.5" PointX="8.25" PointY="119.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudVacacionesCab" Width="1.5" PointX="14.25" PointY="90.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudVacacionesDet" Width="1.5" PointX="10.5" PointY="198" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SubtipoSolicitudes" Width="1.5" PointX="15" PointY="78.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Sucursales" Width="1.5" PointX="3.75" PointY="126.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TablaBeneficioDiscapacidad" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TablaIR" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposAusencia" Width="1.5" PointX="12" PointY="66.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposColaboradores" Width="1.5" PointX="3.75" PointY="130.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposContrato" Width="1.5" PointX="3.75" PointY="135.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposDiscapacidad" Width="1.5" PointX="3.75" PointY="139.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposEstadoCuenta" Width="1.5" PointX="15" PointY="127.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposNomina" Width="1.5" PointX="15.75" PointY="71.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposRelacion" Width="1.5" PointX="3.75" PointY="143.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposSolicitudes" Width="1.5" PointX="12.75" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Titulos" Width="1.5" PointX="3.75" PointY="147.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Vacaciones" Width="1.5" PointX="8.25" PointY="253.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_VacacionesDetalle" Width="1.5" PointX="13.5" PointY="226.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_ValidacionNomina" Width="1.5" PointX="20.25" PointY="118.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Variaciones" Width="1.5" PointX="14.25" PointY="119.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Empleados_Colaboradores" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Formulario107" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_tmp_ImpuestoAgostoNuevo" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_AnexosSolicitudes_IdSolicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdArea" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdAreaAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdAreaNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Departamentos_tNM_Areas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_BasesCalculadas_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_BasesCalculadas_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Conceptos_tNM_BasesCalculo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_EstadosCuentaColaborador_tNm_BeneficiosCCQ" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_IngresosBeneficiosColaborador_tNm_BeneficiosCCQ" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_BitacoraColaboradores_IdColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_BitacoraColaboradores_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK__tNM_Liqui__IdCal__6CAE3D62" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_IdTipoNomina" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_CategoriasColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_ClasesColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_GruposColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_ProgramasColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_ProyectosColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tNM_TiposColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominasEnvioMail_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosGlobales_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Declaracion13_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Declaracion14_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_GruposArchivoBancoCalendarioNomina_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaDefinitiva_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaPreliminar_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ValidacionNomina_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Variaciones_tNM_CalendarioNominas" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominasEnvioMail_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CambiosDepartamentos_IdDepartamentoAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CambiosDepartamentos_IdDepartamentoNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CambiosDepartamentos_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_CambiosDepartamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CapacitacionColaborador_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_Cargos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_CargosAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_CargosNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CompetenciasCargo_IdCargo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CompetenciasCargo_tNM_Cargos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialCargos_IdCargoAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialCargos_IdCargoNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_CategoriasColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_CategoriasColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_CategoriasColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdCategoriaOcupacional" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdCategoriaOcupacionalAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdCategoriaOcupacionalNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_ClasesColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ClasesColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ClasesColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdMotivoEgreso" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdSectorialIESS" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdTipoRelacion" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdTitulo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_EstadosColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_GruposColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_MediosPago" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_ProgramasColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_ProyectosColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_Sucursales" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_TiposColaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_TiposContrato" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tNM_TiposDiscapacidad" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdSupervisorAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdSupervisorNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CompetenciasColaborador_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosFijos_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_DatosBiometrico_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Dependientes_IdColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Distribucion_Colaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_EntradasSalidas_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_EstadosCuentaColaborador_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_FormularioGP_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_GruposArchivoBancoCalendarioNomina_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialCargos_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialConceptosFijos_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialVacaciones_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_IngresosBeneficiosColaborador_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_LiquidacionLaboral_IdColaborador" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaDefinitiva_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaPreliminar_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_PagosFueraNomina_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_Colaboradores2" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores1" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Vacaciones_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Vacaciones_tNM_Colaboradores2" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ValidacionNomina_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Variaciones_tNM_Colaboradores" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdMotivoEgresoAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdMotivoEgresoNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdSectorialIESSAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdSectorialIESSNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdTituloAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdTituloNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_DepartamentosAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_DepartamentosNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_EstadosColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_EstadosColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_GruposColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_GruposColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_MediosPagoAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_MediosPagoNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ProgramasColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ProgramasColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ProyectosColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_ProyectosColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_SucursalesAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_SucursalesNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposColaboradoresAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposColaboradoresNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposContratoAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposContratoNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposDiscapacidadAnterior" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_tNM_TiposDiscapacidadNuevo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CompetenciasCargo_tNM_Competencias" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CompetenciasColaborador_tNM_Competencias" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Conceptos_IdFormaCalculo" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosFijos_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosGlobales_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosTiposNomina_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistorialConceptosFijos_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaDefinitiva_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaPreliminar_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_PagosFueraNomina_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SubtipoSolicitudes_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Variaciones_tNM_Conceptos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ConceptosTiposNomina_tNM_TiposNomina" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_NominaDefinitiva_tNM_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_PagosFueraNomina_tNM_Departamentos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_DetalleVacaciones_IdHistorialVacaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_DetalleVacaciones_tNM_Vacaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Empleados_IdSupervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_EstadosCuentaColaborador_tNM_TiposEstadoCuenta" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_HistorialCargos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_HistorialConceptosFijos" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesDet_tNM_HistorialVacaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_VacacionesDetalle_tNM_HistorialVacaciones" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_LiquidacionLaboral_IdMotivoEgreso" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_TiposContrato_IdRelacionIESS" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_SubtiposSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_TiposSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_Solicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_SubtipoSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SubtipoSolicitudes_tNM_TiposSolicitudes" ManuallyRouted="false" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_VacacionesDetalle_tNM_Vacaciones" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tGN_Personas" Width="1.5" PointX="0.75" PointY="75.5" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tGN_Personas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Dependientes_tGN_PersonasColaborador" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Dependientes_tGN_PersonasDependiente" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Empleados_tGN_Personas" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tGN_Empresas" Width="1.5" PointX="0.75" PointY="86.875" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Areas_IdEmpresa" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_BasesCalculadas_tGN_Empresas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_CalendarioNominas_tGN_Empresas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_tGN_Empresas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Conceptos_IdEmpresa" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Departamentos_IdEmpresa" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Empleados_tGN_Empresas" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_FormularioGP_tGN_Empresas" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tGN_ContactoPersona" Width="1.5" PointX="3" PointY="62" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tGN_ContactoPersona_tGN_TPersonas" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="INTEGRACIONESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AGET_TOKENS_USERS">
+    <Key>
+      <PropertyRef Name="IdToken" />
+    </Key>
+    <Property Name="IdToken" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Token" Type="varchar" MaxLength="550" />
+    <Property Name="Usuario" Type="varchar" MaxLength="50" />
+    <Property Name="IdColaborador" Type="int" />
+  </EntityType>
+  <EntityContainer Name="INTEGRACIONESModelStoreContainer">
+    <EntitySet Name="AGET_TOKENS_USERS" EntityType="Self.AGET_TOKENS_USERS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

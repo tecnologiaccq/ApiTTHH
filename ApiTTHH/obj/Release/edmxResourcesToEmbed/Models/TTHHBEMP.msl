@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TALENTO_HUMANOModelStoreContainer" CdmEntityContainer="TALENTO_HUMANOEntities">
+    <EntitySetMapping Name="BEMPL_CAT_ESTADO_CIVIL">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_ESTADO_CIVIL">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_ESTADO_CIVIL">
+          <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_GENERO">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_GENERO">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_GENERO">
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_IDIOMAS">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_IDIOMAS">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_IDIOMAS">
+          <ScalarProperty Name="IdIdioma" ColumnName="IdIdioma" />
+          <ScalarProperty Name="IdiomaDescripcion" ColumnName="IdiomaDescripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_NACIONALIDAD">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NACIONALIDAD">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_NACIONALIDAD">
+          <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_NIVEL_ESTUDIO">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ESTUDIO">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_ESTUDIO">
+          <ScalarProperty Name="IdNivelEstudio" ColumnName="IdNivelEstudio" />
+          <ScalarProperty Name="NivelEstudioDescripcion" ColumnName="NivelEstudioDescripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_NIVEL_IDIOMA">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_IDIOMA">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_IDIOMA">
+          <ScalarProperty Name="IdNivelIdioma" ColumnName="IdNivelIdioma" />
+          <ScalarProperty Name="NivelIdiomaDescripcion" ColumnName="NivelIdiomaDescripcion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_TIPO_IDENTIFICACION">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_TIPO_IDENTIFICACION">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_TIPO_IDENTIFICACION">
+          <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_CIUDAD">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_CIUDAD">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_CIUDAD">
+          <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_PROVINCIAS">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_PROVINCIAS">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_PROVINCIAS">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_USUARIO">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_USUARIO">
+        <MappingFragment StoreEntitySet="BEMPL_USUARIO">
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="IsRecuperaPassword" ColumnName="IsRecuperaPassword" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CorreoUsuario" ColumnName="CorreoUsuario" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_NIVEL_ACADEMICO">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_NIVEL_ACADEMICO">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_NIVEL_ACADEMICO">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="DescripcionNivelAcademico" ColumnName="DescripcionNivelAcademico" />
+          <ScalarProperty Name="IdEstadoNivelAcademico" ColumnName="IdEstadoNivelAcademico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_DATOS_ACADEMICOS">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_DATOS_ACADEMICOS">
+        <MappingFragment StoreEntitySet="BEMPL_DATOS_ACADEMICOS">
+          <ScalarProperty Name="MesFinDesc" ColumnName="MesFinDesc" />
+          <ScalarProperty Name="MesInicioDesc" ColumnName="MesInicioDesc" />
+          <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+          <ScalarProperty Name="AlPresente" ColumnName="AlPresente" />
+          <ScalarProperty Name="MesFin" ColumnName="MesFin" />
+          <ScalarProperty Name="AnioFin" ColumnName="AnioFin" />
+          <ScalarProperty Name="MesInicio" ColumnName="MesInicio" />
+          <ScalarProperty Name="AnioInicio" ColumnName="AnioInicio" />
+          <ScalarProperty Name="IdEstadonivelAcademico" ColumnName="IdEstadonivelAcademico" />
+          <ScalarProperty Name="IdNivelEstudio" ColumnName="IdNivelEstudio" />
+          <ScalarProperty Name="Institucion" ColumnName="Institucion" />
+          <ScalarProperty Name="IdDatosPostulante" ColumnName="IdDatosPostulante" />
+          <ScalarProperty Name="IdEstudio" ColumnName="IdEstudio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_ESTADONIVELACADEMICO">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_ESTADONIVELACADEMICO">
+        <MappingFragment StoreEntitySet="BEMPL_ESTADONIVELACADEMICO">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEstadoAcademico" ColumnName="IdEstadoAcademico" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_IDIOMAS_POSTULANTE">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_IDIOMAS_POSTULANTE">
+        <MappingFragment StoreEntitySet="BEMPL_IDIOMAS_POSTULANTE">
+          <ScalarProperty Name="IdNivelIdiomaEscrito" ColumnName="IdNivelIdiomaEscrito" />
+          <ScalarProperty Name="IdNivelIdiomaOral" ColumnName="IdNivelIdiomaOral" />
+          <ScalarProperty Name="IdIdioma" ColumnName="IdIdioma" />
+          <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+          <ScalarProperty Name="IdIdiomaPostulante" ColumnName="IdIdiomaPostulante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_EXPERIENCIA_LABORAL">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_EXPERIENCIA_LABORAL">
+        <MappingFragment StoreEntitySet="BEMPL_EXPERIENCIA_LABORAL">
+          <ScalarProperty Name="PresupuestoVentasMensual" ColumnName="PresupuestoVentasMensual" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+          <ScalarProperty Name="PersonasACargo" ColumnName="PersonasACargo" />
+          <ScalarProperty Name="ResumenActividades" ColumnName="ResumenActividades" />
+          <ScalarProperty Name="AlPresente" ColumnName="AlPresente" />
+          <ScalarProperty Name="MesFinDesc" ColumnName="MesFinDesc" />
+          <ScalarProperty Name="MesInicioDesc" ColumnName="MesInicioDesc" />
+          <ScalarProperty Name="AnioFin" ColumnName="AnioFin" />
+          <ScalarProperty Name="MesFin" ColumnName="MesFin" />
+          <ScalarProperty Name="AnioInicio" ColumnName="AnioInicio" />
+          <ScalarProperty Name="MesIni" ColumnName="MesIni" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+          <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_DATOSPOSTULANTE">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_DATOSPOSTULANTE">
+        <MappingFragment StoreEntitySet="BEMPL_DATOSPOSTULANTE">
+          <ScalarProperty Name="Otros" ColumnName="Otros" />
+          <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+          <ScalarProperty Name="AniosExperiencia" ColumnName="AniosExperiencia" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaHoraEnviadoEmailCandidato" ColumnName="FechaHoraEnviadoEmailCandidato" />
+          <ScalarProperty Name="IsEnviadoEmailCandidato" ColumnName="IsEnviadoEmailCandidato" />
+          <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+          <ScalarProperty Name="UrlImagenPerfil" ColumnName="UrlImagenPerfil" />
+          <ScalarProperty Name="PorcentajeHojaVida" ColumnName="PorcentajeHojaVida" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="DetalleDiscapacidades" ColumnName="DetalleDiscapacidades" />
+          <ScalarProperty Name="UrlDiscapacidad" ColumnName="UrlDiscapacidad" />
+          <ScalarProperty Name="AspiracionSalarial" ColumnName="AspiracionSalarial" />
+          <ScalarProperty Name="UrlVideo" ColumnName="UrlVideo" />
+          <ScalarProperty Name="UrlAdjuntoCV" ColumnName="UrlAdjuntoCV" />
+          <ScalarProperty Name="AreaInteresCapacitacion" ColumnName="AreaInteresCapacitacion" />
+          <ScalarProperty Name="DiasCambio" ColumnName="DiasCambio" />
+          <ScalarProperty Name="CarnetDiscapacidad" ColumnName="CarnetDiscapacidad" />
+          <ScalarProperty Name="MoilizacionPropia" ColumnName="MoilizacionPropia" />
+          <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_REFERENCIAS_LABORA">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_REFERENCIAS_LABORA">
+        <MappingFragment StoreEntitySet="BEMPL_REFERENCIAS_LABORA">
+          <ScalarProperty Name="IdExperiencia" ColumnName="IdExperiencia" />
+          <ScalarProperty Name="IdRelacionReferenciaCat" ColumnName="IdRelacionReferenciaCat" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+          <ScalarProperty Name="IdReferencia" ColumnName="IdReferencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_RELACION_REF_CAT">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_RELACION_REF_CAT">
+        <MappingFragment StoreEntitySet="BEMPL_RELACION_REF_CAT">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdRelacionReferencia" ColumnName="IdRelacionReferencia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BEMPL_CAT_CAPACITACIONES">
+      <EntityTypeMapping TypeName="TALENTO_HUMANOModel.BEMPL_CAT_CAPACITACIONES">
+        <MappingFragment StoreEntitySet="BEMPL_CAT_CAPACITACIONES">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_ReportPostulantes" FunctionName="TALENTO_HUMANOModel.Store.sp_ReportPostulantes">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TALENTO_HUMANOModel.sp_ReportPostulantes_Result">
+          <ScalarProperty Name="IdPostulante" ColumnName="IdPostulante" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdTipoIdentificacion" ColumnName="IdTipoIdentificacion" />
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="IdGenero" ColumnName="IdGenero" />
+          <ScalarProperty Name="IdEstadoCivil" ColumnName="IdEstadoCivil" />
+          <ScalarProperty Name="IdProvincia" ColumnName="IdProvincia" />
+          <ScalarProperty Name="IdCiudad" ColumnName="IdCiudad" />
+          <ScalarProperty Name="MoilizacionPropia" ColumnName="MoilizacionPropia" />
+          <ScalarProperty Name="CarnetDiscapacidad" ColumnName="CarnetDiscapacidad" />
+          <ScalarProperty Name="DiasCambio" ColumnName="DiasCambio" />
+          <ScalarProperty Name="AreaInteresCapacitacion" ColumnName="AreaInteresCapacitacion" />
+          <ScalarProperty Name="UrlAdjuntoCV" ColumnName="UrlAdjuntoCV" />
+          <ScalarProperty Name="UrlVideo" ColumnName="UrlVideo" />
+          <ScalarProperty Name="AspiracionSalarial" ColumnName="AspiracionSalarial" />
+          <ScalarProperty Name="UrlDiscapacidad" ColumnName="UrlDiscapacidad" />
+          <ScalarProperty Name="DetalleDiscapacidades" ColumnName="DetalleDiscapacidades" />
+          <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="PorcentajeHojaVida" ColumnName="PorcentajeHojaVida" />
+          <ScalarProperty Name="UrlImagenPerfil" ColumnName="UrlImagenPerfil" />
+          <ScalarProperty Name="IdNacionalidad" ColumnName="IdNacionalidad" />
+          <ScalarProperty Name="IsEnviadoEmailCandidato" ColumnName="IsEnviadoEmailCandidato" />
+          <ScalarProperty Name="FechaHoraEnviadoEmailCandidato" ColumnName="FechaHoraEnviadoEmailCandidato" />
+          <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+          <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+          <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+          <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+          <ScalarProperty Name="AniosExperiencia" ColumnName="AniosExperiencia" />
+          <ScalarProperty Name="IdCapacitacion" ColumnName="IdCapacitacion" />
+          <ScalarProperty Name="Otros" ColumnName="Otros" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="Genero" ColumnName="Genero" />
+          <ScalarProperty Name="EstadoCivil" ColumnName="EstadoCivil" />
+          <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+          <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

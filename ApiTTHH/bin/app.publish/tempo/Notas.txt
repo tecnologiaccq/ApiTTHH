@@ -1,0 +1,13 @@
+﻿public partial class CCQ_DESAEntities : DbContext
+{
+    public CCQ_DESAEntities()
+        : base("name=CCQ_DESAEntities")
+    {
+    }
+	public CCQ_DESAEntities(string conexion)
+	 : base(conexion)
+	{
+	}
+
+
+	}

@@ -1,0 +1,136 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|c:\\users\\gcalapaqui\\source\\repos\\apitthh\\apitthh\\controllers\\vacaciones\\tnm_solicitudvacacionescabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\controllers\\vacaciones\\tnm_solicitudvacacionescabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\controllers\\catalogos\\tnm_departamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\controllers\\catalogos\\tnm_departamentoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\reportes\\deducciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\reportes\\deducciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\reportes\\roldepagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\reportes\\roldepagos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\reportes\\asignaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\reportes\\asignaciones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\controllers\\intranet\\intranetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\controllers\\intranet\\intranetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\apitthh\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tNM_SolicitudVacacionesCabController.cs",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "RelativeToolTip": "ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "ViewState": "AgIAAKcCAAAAAAAAAAAswL4CAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T13:41:32.147Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Deducciones.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\Deducciones.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Reportes\\Deducciones.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\Deducciones.cs [Design]",
+              "RelativeToolTip": "ApiTTHH\\Reportes\\Deducciones.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T21:54:32.832Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Asignaciones.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\Asignaciones.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Reportes\\Asignaciones.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\Asignaciones.cs [Design]",
+              "RelativeToolTip": "ApiTTHH\\Reportes\\Asignaciones.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T21:54:23.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RoldePagos.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\RoldePagos.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Reportes\\RoldePagos.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Reportes\\RoldePagos.cs [Design]",
+              "RelativeToolTip": "ApiTTHH\\Reportes\\RoldePagos.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T21:53:58.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "tNM_DepartamentosController.cs",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Catalogos\\tNM_DepartamentosController.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Controllers\\Catalogos\\tNM_DepartamentosController.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Catalogos\\tNM_DepartamentosController.cs",
+              "RelativeToolTip": "ApiTTHH\\Controllers\\Catalogos\\tNM_DepartamentosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T21:12:35.999Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Web.config",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Web.config",
+              "RelativeDocumentMoniker": "ApiTTHH\\Web.config",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Web.config",
+              "RelativeToolTip": "ApiTTHH\\Web.config",
+              "ViewState": "AgIAAAcAAAAAAAAAAABBwBwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-07-28T22:01:11.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IntranetController.cs",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Intranet\\IntranetController.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Controllers\\Intranet\\IntranetController.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Intranet\\IntranetController.cs",
+              "RelativeToolTip": "ApiTTHH\\Controllers\\Intranet\\IntranetController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-28T21:52:09.576Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

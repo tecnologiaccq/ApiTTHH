@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="INTEGRACIONESModelStoreContainer" CdmEntityContainer="INTEGRACIONESEntities">
+    <EntitySetMapping Name="AGET_TOKENS_USERS">
+      <EntityTypeMapping TypeName="INTEGRACIONESModel.AGET_TOKENS_USERS">
+        <MappingFragment StoreEntitySet="AGET_TOKENS_USERS">
+          <ScalarProperty Name="IdToken" ColumnName="IdToken" />
+          <ScalarProperty Name="Token" ColumnName="Token" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
