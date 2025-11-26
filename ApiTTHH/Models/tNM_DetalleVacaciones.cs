@@ -15,7 +15,7 @@ namespace ApiTTHH.Models
     public partial class tNM_DetalleVacaciones
     {
         public long IdDetalleVacaciones { get; set; }
-        public long IdHistorialVacaciones { get; set; }
+        public long? IdHistorialVacaciones { get; set; }
         public Nullable<System.DateTime> FechaSalida { get; set; }
         public Nullable<System.DateTime> FechaReintegro { get; set; }
         public Nullable<decimal> DiasDisfrutados { get; set; }

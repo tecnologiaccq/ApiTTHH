@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|c:\\users\\gcalapaqui\\source\\repos\\apitthh\\apitthh\\controllers\\vacaciones\\tnm_solicitudvacacionescabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1CF9224B-D9BA-43CE-9854-1A57C6444D8F}|ApiTTHH\\ApiTTHH.csproj|solutionrelative:apitthh\\controllers\\vacaciones\\tnm_solicitudvacacionescabcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "tNM_SolicitudVacacionesCabController.cs",
+              "DocumentMoniker": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "RelativeDocumentMoniker": "ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "ToolTip": "C:\\Users\\gcalapaqui\\source\\repos\\ApiTTHH\\ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "RelativeToolTip": "ApiTTHH\\Controllers\\Vacaciones\\tNM_SolicitudVacacionesCabController.cs",
+              "ViewState": "AgIAAPYBAAAAAAAAAAAgwDICAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-17T22:14:34.26Z",
+              "EditorCaption": ""
             }
           ]
         }

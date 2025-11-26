@@ -317,7 +317,7 @@ namespace ApiTTHH.Controllers.Vacaciones
                                 historialUpdate.DiasPendientesCancelar = historialUpdate.DiasPendientesCancelar - detalle.DiasADisfrutarPeriodo - diasFinesSemana;
                                 historialUpdate.DiasDisfrutados = historialUpdate.DiasDisfrutados != null ? historialUpdate.DiasDisfrutados + detalle.DiasADisfrutarPeriodo + diasFinesSemana : detalle.DiasADisfrutarPeriodo + diasFinesSemana;
                                 historialUpdate.DiasCancelados = historialUpdate.DiasCancelados != null ? historialUpdate.DiasCancelados + detalle.DiasADisfrutarPeriodo + diasFinesSemana : detalle.DiasADisfrutarPeriodo + diasFinesSemana;
-                                //historialUpdate.FinesSemana = 2;
+                                historialUpdate.FinesSemana = 2;
                                 db.tNM_DetalleVacaciones.Add(detallevacacionFin);
 
                             }
