@@ -1413,6 +1413,8 @@
     <EntitySetMapping Name="tNM_SolicitudPermiso">
       <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudPermiso">
         <MappingFragment StoreEntitySet="tNM_SolicitudPermiso">
+          <ScalarProperty Name="IdMotivoSolicitudPermiso" ColumnName="IdMotivoSolicitudPermiso" />
+          <ScalarProperty Name="IdTipoCalamidadDomestica" ColumnName="IdTipoCalamidadDomestica" />
           <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
           <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
           <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
@@ -1441,6 +1443,7 @@
     <EntitySetMapping Name="tNM_SolicitudVacacionesCab">
       <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudVacacionesCab">
         <MappingFragment StoreEntitySet="tNM_SolicitudVacacionesCab">
+          <ScalarProperty Name="Observacion" ColumnName="Observacion" />
           <ScalarProperty Name="IdSolicitudVacaciones" ColumnName="IdSolicitudVacaciones" />
           <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
           <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
@@ -1543,6 +1546,7 @@
     <EntitySetMapping Name="tNM_TiposAusencia">
       <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposAusencia">
         <MappingFragment StoreEntitySet="tNM_TiposAusencia">
+          <ScalarProperty Name="isTeletrabajo" ColumnName="isTeletrabajo" />
           <ScalarProperty Name="IdAusencia" ColumnName="IdAusencia" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -1892,6 +1896,8 @@
     <EntitySetMapping Name="tGN_Empresas">
       <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_Empresas">
         <MappingFragment StoreEntitySet="tGN_Empresas">
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="ShowInMenuERP" ColumnName="ShowInMenuERP" />
           <ScalarProperty Name="ObligadoContabilidad" ColumnName="ObligadoContabilidad" />
           <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
           <ScalarProperty Name="UrlLogo" ColumnName="UrlLogo" />
@@ -1971,6 +1977,8 @@
     <EntitySetMapping Name="tGN_ContactoPersona">
       <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_ContactoPersona">
         <MappingFragment StoreEntitySet="tGN_ContactoPersona">
+          <ScalarProperty Name="Origen" ColumnName="Origen" />
+          <ScalarProperty Name="Nota1" ColumnName="Nota1" />
           <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
           <ScalarProperty Name="IsOkFormatoEmail" ColumnName="IsOkFormatoEmail" />
           <ScalarProperty Name="IdContactoNuevo" ColumnName="IdContactoNuevo" />
@@ -2121,6 +2129,159 @@
           <ScalarProperty Name="NumeroMes" ColumnName="NumeroMes" />
           <ScalarProperty Name="DiaNacimiento" ColumnName="DiaNacimiento" />
           <ScalarProperty Name="DepartamentoCCQ" ColumnName="DepartamentoCCQ" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosTTHHColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosTTHHColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosTTHHColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tNM_TiposCalamidadDomestica">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposCalamidadDomestica">
+        <MappingFragment StoreEntitySet="tNM_TiposCalamidadDomestica">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdTipoCalamidadDomestica" ColumnName="IdTipoCalamidadDomestica" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosTeletrabajoColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosTeletrabajoColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador" FunctionName="CCQ_DESAModel.Store.sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result">
+          <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+          <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+          <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+          <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+          <ScalarProperty Name="nickname" ColumnName="nickname" />
+          <ScalarProperty Name="MESINI" ColumnName="MESINI" />
+          <ScalarProperty Name="DIAINI" ColumnName="DIAINI" />
+          <ScalarProperty Name="MESFIN" ColumnName="MESFIN" />
+          <ScalarProperty Name="DIAFIN" ColumnName="DIAFIN" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="anio" ColumnName="anio" />
+          <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+          <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+          <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+          <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="tNM_MotivoSolicitudPermisos">
+      <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_MotivoSolicitudPermisos">
+        <MappingFragment StoreEntitySet="tNM_MotivoSolicitudPermisos">
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdMotivoSolicitudPermiso" ColumnName="IdMotivoSolicitudPermiso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_tnmDiasNoDisponiblesColaborador" FunctionName="CCQ_DESAModel.Store.sp_tnmDiasNoDisponiblesColaborador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_tnmDiasNoDisponiblesColaborador_Result">
+          <ScalarProperty Name="IdHistorialVacaciones" ColumnName="IdHistorialVacaciones" />
+          <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+          <ScalarProperty Name="DiasPendientes" ColumnName="DiasPendientes" />
+          <ScalarProperty Name="DiasDisfrutados" ColumnName="DiasDisfrutados" />
+          <ScalarProperty Name="DiasDisfrutadosConFinSe" ColumnName="DiasDisfrutadosConFinSe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad" FunctionName="CCQ_DESAModel.Store.tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result">
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="DiasTranscurridos" ColumnName="DiasTranscurridos" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_AusenciasMaternidadPaternidad" FunctionName="CCQ_DESAModel.Store.sp_AusenciasMaternidadPaternidad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CCQ_DESAModel.sp_AusenciasMaternidadPaternidad_Result">
+          <ScalarProperty Name="UrlFoto" ColumnName="UrlFoto" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Dia" ColumnName="Dia" />
+          <ScalarProperty Name="Mes" ColumnName="Mes" />
+          <ScalarProperty Name="DiasRestantes" ColumnName="DiasRestantes" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

@@ -46,6 +46,8 @@ namespace ApiTTHH.Models
         public Nullable<int> IdContactoNuevo { get; set; }
         public Nullable<bool> IsOkFormatoEmail { get; set; }
         public string VersionPrograma { get; set; }
+        public string Nota1 { get; set; }
+        public string Origen { get; set; }
     
         public virtual tGN_Personas tGN_Personas { get; set; }
     }

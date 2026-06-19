@@ -47,14 +47,14 @@ namespace ApiTTHH.Models
             this.tNM_PagosFueraNomina = new HashSet<tNM_PagosFueraNomina>();
             this.tNM_Solicitudes = new HashSet<tNM_Solicitudes>();
             this.tNM_Solicitudes1 = new HashSet<tNM_Solicitudes>();
-            this.tNM_SolicitudPermiso = new HashSet<tNM_SolicitudPermiso>();
-            this.tNM_SolicitudPermiso1 = new HashSet<tNM_SolicitudPermiso>();
             this.tNM_SolicitudVacacionesCab = new HashSet<tNM_SolicitudVacacionesCab>();
             this.tNM_SolicitudVacacionesCab1 = new HashSet<tNM_SolicitudVacacionesCab>();
             this.tNM_Vacaciones = new HashSet<tNM_Vacaciones>();
             this.tNM_Vacaciones1 = new HashSet<tNM_Vacaciones>();
             this.tNM_ValidacionNomina = new HashSet<tNM_ValidacionNomina>();
             this.tNM_Variaciones = new HashSet<tNM_Variaciones>();
+            this.tNM_SolicitudPermiso = new HashSet<tNM_SolicitudPermiso>();
+            this.tNM_SolicitudPermiso1 = new HashSet<tNM_SolicitudPermiso>();
         }
     
         public int IdColaborador { get; set; }
@@ -212,10 +212,6 @@ namespace ApiTTHH.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_Solicitudes> tNM_Solicitudes1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_SolicitudVacacionesCab> tNM_SolicitudVacacionesCab { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_SolicitudVacacionesCab> tNM_SolicitudVacacionesCab1 { get; set; }
@@ -229,5 +225,9 @@ namespace ApiTTHH.Models
         public virtual ICollection<tNM_Variaciones> tNM_Variaciones { get; set; }
         public virtual tGN_Personas tGN_Personas { get; set; }
         public virtual tGN_Empresas tGN_Empresas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso1 { get; set; }
     }
 }

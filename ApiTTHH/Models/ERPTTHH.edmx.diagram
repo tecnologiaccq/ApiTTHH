@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ed69efb1711454daa6ea3a5c08d6ee2" Name="Diagram1" ZoomLevel="43">
+      <Diagram DiagramId="4ed69efb1711454daa6ea3a5c08d6ee2" Name="Diagram1" ZoomLevel="80">
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AdjuntoSolicitudPermiso" Width="1.5" PointX="10.5" PointY="120.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AnexosSolicitudes" Width="1.5" PointX="19.5" PointY="88.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Areas" Width="1.5" PointX="3.75" PointY="69.75" IsExpanded="true" />
@@ -70,21 +70,19 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SectorialIESS" Width="1.5" PointX="3.75" PointY="122.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Solicitudes" Width="1.5" PointX="17.25" PointY="88.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudesTablaAmortizacion" Width="1.5" PointX="22.5" PointY="90.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudPermiso" Width="1.5" PointX="8.25" PointY="119.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudVacacionesCab" Width="1.5" PointX="14.25" PointY="90.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudVacacionesDet" Width="1.5" PointX="10.5" PointY="198" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SubtipoSolicitudes" Width="1.5" PointX="15" PointY="78.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Sucursales" Width="1.5" PointX="3.75" PointY="126.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TablaBeneficioDiscapacidad" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TablaIR" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposAusencia" Width="1.5" PointX="12" PointY="66.125" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposColaboradores" Width="1.5" PointX="3.75" PointY="130.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposContrato" Width="1.5" PointX="3.75" PointY="135.375" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposDiscapacidad" Width="1.5" PointX="3.75" PointY="139.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposEstadoCuenta" Width="1.5" PointX="15" PointY="127.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposNomina" Width="1.5" PointX="15.75" PointY="71.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposRelacion" Width="1.5" PointX="3.75" PointY="143.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposSolicitudes" Width="1.5" PointX="12.75" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposSolicitudes" Width="1.5" PointX="11" PointY="86.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Titulos" Width="1.5" PointX="3.75" PointY="147.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Vacaciones" Width="1.5" PointX="8.25" PointY="253.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_VacacionesDetalle" Width="1.5" PointX="13.5" PointY="226.5" IsExpanded="true" />
@@ -93,7 +91,6 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Empleados_Colaboradores" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Formulario107" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_tmp_ImpuestoAgostoNuevo" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_AnexosSolicitudes_IdSolicitud" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Colaboradores_IdArea" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_ColaboradoresAuditoria_IdAreaAnterior" ManuallyRouted="false" />
@@ -184,8 +181,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_PagosFueraNomina_tNM_Colaboradores" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_Colaboradores" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_Colaboradores2" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores1" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Vacaciones_tNM_Colaboradores" ManuallyRouted="false" />
@@ -237,13 +232,11 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_DetalleVacaciones_tNM_Vacaciones" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Empleados_IdSupervisor" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_EstadosCuentaColaborador_tNM_TiposEstadoCuenta" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_HistorialCargos" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_HistoriaLaboral_tNM_HistorialConceptosFijos" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesDet_tNM_HistorialVacaciones" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_VacacionesDetalle_tNM_HistorialVacaciones" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_LiquidacionLaboral_IdMotivoEgreso" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_TiposContrato_IdRelacionIESS" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_Solicitudes_tNM_SubtiposSolicitudes" ManuallyRouted="false" />
@@ -251,8 +244,6 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_Solicitudes" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_SubtipoSolicitudes" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" ManuallyRouted="false" />
-        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SubtipoSolicitudes_tNM_TiposSolicitudes" ManuallyRouted="false" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_VacacionesDetalle_tNM_Vacaciones" ManuallyRouted="false" />
@@ -272,6 +263,19 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_FormularioGP_tGN_Empresas" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tGN_ContactoPersona" Width="1.5" PointX="3" PointY="62" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGN_ContactoPersona_tGN_TPersonas" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" Width="1.5" PointX="21" PointY="126.125" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_SolicitudPermiso" Width="1.5" PointX="23.25" PointY="110.25" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposAusencia" Width="1.5" PointX="12" PointY="66.375" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposCalamidadDomestica" Width="1.5" PointX="21" PointY="123.625" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

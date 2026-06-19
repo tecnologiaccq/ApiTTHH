@@ -37,7 +37,6 @@ namespace ApiTTHH.Reportes
             this.xrRichText3 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrRichText2 = new DevExpress.XtraReports.UI.XRRichText();
-            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.numericChartRangeControlClient1 = new DevExpress.XtraEditors.NumericChartRangeControlClient();
@@ -53,7 +52,6 @@ namespace ApiTTHH.Reportes
             this.valorLetra = new DevExpress.XtraReports.Parameters.Parameter();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -73,7 +71,6 @@ namespace ApiTTHH.Reportes
             this.xrRichText3,
             this.xrLabel3,
             this.xrRichText2,
-            this.xrRichText1,
             this.xrLabel2,
             this.xrLabel1});
             this.Detail.HeightF = 708.4166F;
@@ -83,7 +80,7 @@ namespace ApiTTHH.Reportes
             // 
             this.xrRichText3.Font = new DevExpress.Drawing.DXFont("Arial", 11.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
             new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 553.6667F);
+            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 355.75F);
             this.xrRichText3.Name = "xrRichText3";
             this.xrRichText3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrRichText3.SerializableRtfString = resources.GetString("xrRichText3.SerializableRtfString");
@@ -91,7 +88,7 @@ namespace ApiTTHH.Reportes
             // 
             // xrLabel3
             // 
-            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 410.8751F);
+            this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(0F, 270.2501F);
             this.xrLabel3.Multiline = true;
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -106,17 +103,7 @@ namespace ApiTTHH.Reportes
             this.xrRichText2.Name = "xrRichText2";
             this.xrRichText2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrRichText2.SerializableRtfString = resources.GetString("xrRichText2.SerializableRtfString");
-            this.xrRichText2.SizeF = new System.Drawing.SizeF(627.0001F, 171.1668F);
-            // 
-            // xrRichText1
-            // 
-            this.xrRichText1.Font = new DevExpress.Drawing.DXFont("Arial", 11.25F, DevExpress.Drawing.DXFontStyle.Regular, DevExpress.Drawing.DXGraphicsUnit.Point, new DevExpress.Drawing.DXFontAdditionalProperty[] {
-            new DevExpress.Drawing.DXFontAdditionalProperty("GdiCharSet", ((byte)(0)))});
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 123.4583F);
-            this.xrRichText1.Name = "xrRichText1";
-            this.xrRichText1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
-            this.xrRichText1.SizeF = new System.Drawing.SizeF(627.0001F, 23.00002F);
+            this.xrRichText2.SizeF = new System.Drawing.SizeF(627.0001F, 79.50017F);
             // 
             // xrLabel2
             // 
@@ -129,7 +116,7 @@ namespace ApiTTHH.Reportes
             this.xrLabel2.SizeF = new System.Drawing.SizeF(627F, 23F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseTextAlignment = false;
-            this.xrLabel2.Text = "CERTIFICADO";
+            this.xrLabel2.Text = "CERTIFICADO DE TRABAJO";
             this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrLabel1
@@ -206,7 +193,6 @@ namespace ApiTTHH.Reportes
             watermark1});
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericChartRangeControlClient2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
@@ -218,7 +204,6 @@ namespace ApiTTHH.Reportes
         private DevExpress.XtraReports.UI.TopMarginBand TopMargin;
         private DevExpress.XtraReports.UI.BottomMarginBand BottomMargin;
         private DevExpress.XtraReports.UI.DetailBand Detail;
-        private DevExpress.XtraReports.UI.XRRichText xrRichText1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
         private DevExpress.XtraEditors.NumericChartRangeControlClient numericChartRangeControlClient1;

@@ -1,6 +1,8 @@
 ﻿using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
+using DevExpress.Data.XtraReports.ReportGeneration;
 using DevExpress.DataAccess.Json;
+using DevExpress.XtraPrinting.Drawing;
 using DevExpress.XtraReports.Parameters;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -9,6 +11,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
@@ -59,6 +62,38 @@ namespace ApiTTHH.Controllers.Catalogos
             {
                 Reportes.CertificadoLaboralSueldo certificadoSueldo = new Reportes.CertificadoLaboralSueldo();
                 Reportes.CertificadoLaboral certificadoSinSueldo = new Reportes.CertificadoLaboral();
+
+
+                // ===== CAMBIAR IMAGEN DE MARCA DE AGUA DESDE URL CERTIFICADO CON SUELDO =====
+
+                string urlImagen = ConfigurationManager.AppSettings["PlantillaCCQ"];
+                certificadoSueldo.Watermarks.Clear();
+                Watermark watermark = new Watermark();
+
+                using (var webClient = new System.Net.WebClient())
+                {
+                    byte[] imageBytes = webClient.DownloadData(urlImagen);
+                    // Convertir byte[] a base64 string
+                    string base64Image = Convert.ToBase64String(imageBytes);
+                    watermark.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", base64Image);
+                }
+                certificadoSueldo.Watermarks.Add(watermark);
+                // ====================================================
+
+                // ===== CAMBIAR IMAGEN DE MARCA DE AGUA DESDE URL CERTIFICADO SIN SUELDO =====
+
+                certificadoSinSueldo.Watermarks.Clear();
+                Watermark watermark1 = new Watermark();
+
+                using (var webClient = new System.Net.WebClient())
+                {
+                    byte[] imageBytes = webClient.DownloadData(urlImagen);
+                    // Convertir byte[] a base64 string
+                    string base64Image = Convert.ToBase64String(imageBytes);
+                    watermark1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", base64Image);
+                }
+                certificadoSinSueldo.Watermarks.Add(watermark1);
+                // ====================================================
                 db.Configuration.LazyLoadingEnabled = false;
                 tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.IdColaborador == parameters.idColaborador);
                 tGN_Personas persona = db.tGN_Personas.Single(x => x.IdPersonas == colaborador.IdPersona);
@@ -68,6 +103,8 @@ namespace ApiTTHH.Controllers.Catalogos
                 string path = System.Web.HttpContext.Current.Server.MapPath("~/api/pdf/") + guid + ".pdf";
 
                 MemoryStream ms = new MemoryStream();
+
+
 
                 if (parameters.idTipoCertificate == 1)
                 {
@@ -121,30 +158,41 @@ namespace ApiTTHH.Controllers.Catalogos
         {
             string fullMonthName = DateTime.Now.Date.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
             string fullMonthNameTrabajador = colaborador.FechaIngreso.Value.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            report.Parameters["fecha"].Value = DateTime.Now.Day + " de " + fullMonthName + " de " + DateTime.Now.Year; ;
+            DateTime fechaActual = DateTime.Now;
+            report.Parameters["fecha"].Value =
+                $"{fechaActual.Day:00} de {fullMonthName} de {fechaActual.Year}";
             report.Parameters["nombres"].Value = colaborador.ApellidosNombres;
             report.Parameters["cedula"].Value = persona.Identificacion;
-            report.Parameters["fechaIngreso"].Value = colaborador.FechaIngreso.Value.Day + " de " + fullMonthNameTrabajador + " de " + colaborador.FechaIngreso.Value.Year;
+            report.Parameters["fechaIngreso"].Value =
+                $"{colaborador.FechaIngreso.Value.Day:00} de {fullMonthNameTrabajador} de {colaborador.FechaIngreso.Value.Year}";
             report.Parameters["cargo"].Value = db.tNM_Cargos.Single(x => x.IdCargo == colaborador.IdCargo).Descripcion;
             return report;
         }
         public Reportes.CertificadoLaboralSueldo getCertificadoConSueldo(tGN_Personas persona, tNM_Colaboradores colaborador, Reportes.CertificadoLaboralSueldo report)
         {
             var listValores = db.sp_CalculoCertificadoSueldo(colaborador.IdColaborador, colaborador.IdEmpresa).FirstOrDefault();
-            int idconceptoSueldo = colaborador.IdEmpresa == 1 ? 1 : 133;
-
+            int idconceptoSueldo = colaborador.IdEmpresa == 1 ? 1 :
+                                   colaborador.IdEmpresa == 2 ? 133 :
+                                   colaborador.IdEmpresa == 5 ? 347 :
+                                   0;
             //listValores.Promedio;
             //listValores.valor
 
-            tNM_CalendarioNominas calNomima = db.tNM_CalendarioNominas.Where(x => x.IdTipoNomina == 2 && x.IdEmpresa == colaborador.IdEmpresa && x.IdTipoColaborador == colaborador.IdTipoColaborador).OrderByDescending(x => x.IdCalendarioNomina).FirstOrDefault();
-            tNM_NominaDefinitiva nominaDefinitiva = db.tNM_NominaDefinitiva.Single(x => x.IdCalendarioNomina == calNomima.IdCalendarioNomina && x.IdColaborador == colaborador.IdColaborador && x.IdConcepto == idconceptoSueldo);
+            //tNM_CalendarioNominas calNomima = db.tNM_CalendarioNominas.Where(x => x.IdTipoNomina == 2 && x.IdEmpresa == colaborador.IdEmpresa && x.IdTipoColaborador == colaborador.IdTipoColaborador).OrderByDescending(x => x.IdCalendarioNomina).FirstOrDefault();
+
+            //SE ACTUALIZA PARA TE TOME EL ULTIMO CALENDARIO NÓMINA PROCESADO PORQUE ESTABA TOMANDO EL ÚLTIMO CREADO
+            tNM_CalendarioNominas calNomima = db.tNM_CalendarioNominas.Where(x => x.IdTipoNomina == 2 && x.IdEmpresa == colaborador.IdEmpresa && x.IdTipoColaborador == colaborador.IdTipoColaborador && x.IdComprobante != null && x.IdComprobante > 0).OrderByDescending(x => x.IdCalendarioNomina).FirstOrDefault();
+
+            tNM_NominaDefinitiva nominaDefinitiva = db.tNM_NominaDefinitiva.Single(x => x.IdCalendarioNomina == calNomima.IdCalendarioNomina && x.IdColaborador == colaborador.IdColaborador && x.IdConcepto == idconceptoSueldo );
             string fullMonthName = DateTime.Now.Date.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
             string fullMonthNameTrabajador = colaborador.FechaIngreso.Value.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
-            report.Parameters["fecha"].Value = DateTime.Now.Day + " de " + fullMonthName + " de " + DateTime.Now.Year; ;
+            DateTime fechaActual = DateTime.Now;
+            report.Parameters["fecha"].Value =
+                $"{fechaActual.Day:00} de {fullMonthName} de {fechaActual.Year}";
             report.Parameters["nombres"].Value = colaborador.ApellidosNombres;
             report.Parameters["cedula"].Value = persona.Identificacion;
-            report.Parameters["fechaIngreso"].Value = colaborador.FechaIngreso.Value.Day + " de " + fullMonthNameTrabajador + " de " + colaborador.FechaIngreso.Value.Year;
-
+            report.Parameters["fechaIngreso"].Value =
+                $"{colaborador.FechaIngreso.Value.Day:00} de {fullMonthNameTrabajador} de {colaborador.FechaIngreso.Value.Year}";
 
             #region comentado hasta corregir, LGUAIRACAJA, 01/MAY/2024
             report.Parameters["ingresos"].Value = listValores.Promedio.Value.ToString("0.##");
@@ -180,6 +228,7 @@ namespace ApiTTHH.Controllers.Catalogos
                 tNM_TiposNomina tipoNomina = db.tNM_TiposNomina.FirstOrDefault(x => x.IdTipoNomina == calendarioNomina.IdTipoNomina);
                 string fullMonthName = fechaInicio.Date.ToString("MMMM", CultureInfo.CreateSpecificCulture("es"));
                 tNM_NominaDefinitiva nomde = db.tNM_NominaDefinitiva.FirstOrDefault(x => x.IdColaborador == colaborador.IdColaborador && x.IdCalendarioNomina == calendarioNomina.IdCalendarioNomina);
+
                 if (nomde == null)
                 {
 
@@ -234,14 +283,36 @@ namespace ApiTTHH.Controllers.Catalogos
                 Asignaciones reportRolAsignaciones = new Asignaciones();
                 Deducciones reporteRoleDeducciones = new Deducciones();
 
+                // ===== CAMBIAR IMAGEN DE MARCA DE AGUA DESDE URL =====
+
+                string urlImagen = urlImagen = ConfigurationManager.AppSettings["PlantillaCCQ"];
+
+                if (colaborador.IdEmpresa == 2)
+                {
+                    urlImagen = ConfigurationManager.AppSettings["PlantillaCEC"];
+                }else if(colaborador.IdEmpresa == 5)
+                {
+                    urlImagen = ConfigurationManager.AppSettings["PlantillaSEISO"];
+                }
+
+                    reportRol.Watermarks.Clear();
+                Watermark watermark = new Watermark();
+
+                using (var webClient = new System.Net.WebClient())
+                {
+                    byte[] imageBytes = webClient.DownloadData(urlImagen);
+                    // Convertir byte[] a base64 string
+                    string base64Image = Convert.ToBase64String(imageBytes);
+                    watermark.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", base64Image);
+                }
+                reportRol.Watermarks.Add(watermark);
+                // ====================================================
+
                 string guid = Guid.NewGuid().ToString().Replace("-", string.Empty);
                 string path = System.Web.HttpContext.Current.Server.MapPath("~/api/pdf/") + guid + ".pdf";
-                // GENESIS CALAPAQUI: TODO:  02/julio/2025
-
 
                 JsonDataSource jsd = new JsonDataSource();
                 string url = Url.Content("~/api/pdf/");
-
 
                 jsd.JsonSource = new CustomJsonSource(jsonDatasource);
                 jsd.Fill();
@@ -253,9 +324,9 @@ namespace ApiTTHH.Controllers.Catalogos
                 reporteRoleDeducciones.DataMember = "asignacioness";
                 reportRol.xrSubreport1.ReportSource = reportRolAsignaciones;
                 reportRol.xrSubreport2.ReportSource = reporteRoleDeducciones;
+
                 MemoryStream ms = new MemoryStream();
                 reportRol.ExportToPdf(path);
-
 
 
 

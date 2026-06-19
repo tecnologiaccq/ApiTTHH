@@ -58,6 +58,8 @@ namespace ApiTTHH.Models
         public string UrlLogo { get; set; }
         public Nullable<int> ContribuyenteEspecial { get; set; }
         public string ObligadoContabilidad { get; set; }
+        public Nullable<bool> ShowInMenuERP { get; set; }
+        public string Codigo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_Areas> tNM_Areas { get; set; }

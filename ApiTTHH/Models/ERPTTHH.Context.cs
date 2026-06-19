@@ -92,14 +92,12 @@ namespace ApiTTHH.Models
         public virtual DbSet<tNM_SectorialIESS> tNM_SectorialIESS { get; set; }
         public virtual DbSet<tNM_Solicitudes> tNM_Solicitudes { get; set; }
         public virtual DbSet<tNM_SolicitudesTablaAmortizacion> tNM_SolicitudesTablaAmortizacion { get; set; }
-        public virtual DbSet<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
         public virtual DbSet<tNM_SolicitudVacacionesCab> tNM_SolicitudVacacionesCab { get; set; }
         public virtual DbSet<tNM_SolicitudVacacionesDet> tNM_SolicitudVacacionesDet { get; set; }
         public virtual DbSet<tNM_SubtipoSolicitudes> tNM_SubtipoSolicitudes { get; set; }
         public virtual DbSet<tNM_Sucursales> tNM_Sucursales { get; set; }
         public virtual DbSet<tNM_TablaBeneficioDiscapacidad> tNM_TablaBeneficioDiscapacidad { get; set; }
         public virtual DbSet<tNM_TablaIR> tNM_TablaIR { get; set; }
-        public virtual DbSet<tNM_TiposAusencia> tNM_TiposAusencia { get; set; }
         public virtual DbSet<tNM_TiposColaboradores> tNM_TiposColaboradores { get; set; }
         public virtual DbSet<tNM_TiposContrato> tNM_TiposContrato { get; set; }
         public virtual DbSet<tNM_TiposDiscapacidad> tNM_TiposDiscapacidad { get; set; }
@@ -118,6 +116,10 @@ namespace ApiTTHH.Models
         public virtual DbSet<tGN_Personas> tGN_Personas { get; set; }
         public virtual DbSet<tGN_Empresas> tGN_Empresas { get; set; }
         public virtual DbSet<tGN_ContactoPersona> tGN_ContactoPersona { get; set; }
+        public virtual DbSet<tNM_MotivoSolicitudPermisos> tNM_MotivoSolicitudPermisos { get; set; }
+        public virtual DbSet<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
+        public virtual DbSet<tNM_TiposAusencia> tNM_TiposAusencia { get; set; }
+        public virtual DbSet<tNM_TiposCalamidadDomestica> tNM_TiposCalamidadDomestica { get; set; }
     
         public virtual ObjectResult<sp_AusenciasCCQ_Result> sp_AusenciasCCQ(Nullable<int> idColaborador)
         {
@@ -207,6 +209,61 @@ namespace ApiTTHH.Models
         public virtual ObjectResult<INTRANET_ObtenerCumpleanios_Result> INTRANET_ObtenerCumpleanios()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<INTRANET_ObtenerCumpleanios_Result>("INTRANET_ObtenerCumpleanios");
+        }
+    
+        public virtual ObjectResult<sp_NMsolicitudesPermisosTTHHColaborador_Result> sp_NMsolicitudesPermisosTTHHColaborador()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosTTHHColaborador_Result>("sp_NMsolicitudesPermisosTTHHColaborador");
+        }
+    
+        public virtual ObjectResult<sp_NMsolicitudesPermisosTeletrabajoColaborador_Result> sp_NMsolicitudesPermisosTeletrabajoColaborador(Nullable<int> idColaborador)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosTeletrabajoColaborador_Result>("sp_NMsolicitudesPermisosTeletrabajoColaborador", idColaboradorParameter);
+        }
+    
+        public virtual ObjectResult<sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result> sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador(Nullable<int> idSupervisor)
+        {
+            var idSupervisorParameter = idSupervisor.HasValue ?
+                new ObjectParameter("idSupervisor", idSupervisor) :
+                new ObjectParameter("idSupervisor", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result>("sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador", idSupervisorParameter);
+        }
+    
+        public virtual ObjectResult<sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result> sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result>("sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador");
+        }
+    
+        public virtual ObjectResult<sp_tnmDiasNoDisponiblesColaborador_Result> sp_tnmDiasNoDisponiblesColaborador(Nullable<int> idColbaorador)
+        {
+            var idColbaoradorParameter = idColbaorador.HasValue ?
+                new ObjectParameter("idColbaorador", idColbaorador) :
+                new ObjectParameter("idColbaorador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_tnmDiasNoDisponiblesColaborador_Result>("sp_tnmDiasNoDisponiblesColaborador", idColbaoradorParameter);
+        }
+    
+        public virtual ObjectResult<tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result> tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad(Nullable<int> idColaborador)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("IdColaborador", idColaborador) :
+                new ObjectParameter("IdColaborador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result>("tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad", idColaboradorParameter);
+        }
+    
+        public virtual ObjectResult<sp_AusenciasMaternidadPaternidad_Result> sp_AusenciasMaternidadPaternidad(Nullable<int> idColaborador)
+        {
+            var idColaboradorParameter = idColaborador.HasValue ?
+                new ObjectParameter("idColaborador", idColaborador) :
+                new ObjectParameter("idColaborador", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_AusenciasMaternidadPaternidad_Result>("sp_AusenciasMaternidadPaternidad", idColaboradorParameter);
         }
     }
 }

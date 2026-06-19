@@ -36,6 +36,8 @@
     <Property Name="IdContactoNuevo" Type="int" />
     <Property Name="IsOkFormatoEmail" Type="bit" />
     <Property Name="VersionPrograma" Type="varchar" MaxLength="100" />
+    <Property Name="Nota1" Type="varchar" MaxLength="512" />
+    <Property Name="Origen" Type="varchar" MaxLength="30" />
   </EntityType>
   <EntityType Name="tGN_Empresas">
     <Key>
@@ -72,6 +74,8 @@
     <Property Name="UrlLogo" Type="nvarchar" MaxLength="255" />
     <Property Name="ContribuyenteEspecial" Type="int" />
     <Property Name="ObligadoContabilidad" Type="char" MaxLength="2" />
+    <Property Name="ShowInMenuERP" Type="bit" />
+    <Property Name="Codigo" Type="varchar" MaxLength="10" />
   </EntityType>
   <EntityType Name="tGN_Personas">
     <Key>
@@ -1312,6 +1316,14 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
     <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
     <Property Name="CodigoIESS" Type="nvarchar" MaxLength="2" />
   </EntityType>
+  <EntityType Name="tNM_MotivoSolicitudPermisos">
+    <Key>
+      <PropertyRef Name="IdMotivoSolicitudPermiso" />
+    </Key>
+    <Property Name="IdMotivoSolicitudPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
+  </EntityType>
   <EntityType Name="tNM_NominaDefinitiva">
     <Key>
       <PropertyRef Name="IdNominaDefinitiva" />
@@ -1542,6 +1554,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
     <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
     <Property Name="UrlSolicitud" Type="varchar" MaxLength="450" />
     <Property Name="Observaciones" Type="varchar" MaxLength="500" />
+    <Property Name="IdTipoCalamidadDomestica" Type="int" />
+    <Property Name="IdMotivoSolicitudPermiso" Type="int" />
   </EntityType>
   <EntityType Name="tNM_SolicitudVacacionesCab">
     <Key>
@@ -1560,6 +1574,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
     <Property Name="DiasSolicitados" Type="decimal" Precision="5" Scale="2" />
     <Property Name="IdColaboradorReemplazo" Type="int" />
     <Property Name="UrlSolicitud" Type="varchar" MaxLength="450" />
+    <Property Name="Observacion" Type="varchar" MaxLength="255" />
   </EntityType>
   <EntityType Name="tNM_SolicitudVacacionesDet">
     <Key>
@@ -1663,6 +1678,15 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
     <Property Name="AplicaDiasVacacionFeriado" Type="bit" />
     <Property Name="Estado" Type="bit" />
     <Property Name="ruta" Type="varchar" MaxLength="50" />
+    <Property Name="isTeletrabajo" Type="bit" />
+  </EntityType>
+  <EntityType Name="tNM_TiposCalamidadDomestica">
+    <Key>
+      <PropertyRef Name="IdTipoCalamidadDomestica" />
+    </Key>
+    <Property Name="IdTipoCalamidadDomestica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="Activo" Type="bit" />
   </EntityType>
   <EntityType Name="tNM_TiposColaboradores">
     <Key>
@@ -3736,6 +3760,30 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+    <End Role="tNM_MotivoSolicitudPermisos" Type="Self.tNM_MotivoSolicitudPermisos" Multiplicity="0..1" />
+    <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tNM_MotivoSolicitudPermisos">
+        <PropertyRef Name="IdMotivoSolicitudPermiso" />
+      </Principal>
+      <Dependent Role="tNM_SolicitudPermiso">
+        <PropertyRef Name="IdMotivoSolicitudPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+    <End Role="tNM_TiposCalamidadDomestica" Type="Self.tNM_TiposCalamidadDomestica" Multiplicity="0..1" />
+    <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tNM_TiposCalamidadDomestica">
+        <PropertyRef Name="IdTipoCalamidadDomestica" />
+      </Principal>
+      <Dependent Role="tNM_SolicitudPermiso">
+        <PropertyRef Name="IdTipoCalamidadDomestica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores">
     <End Role="tNM_Colaboradores" Type="Self.tNM_Colaboradores" Multiplicity="0..1" />
     <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
@@ -4012,6 +4060,9 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
   <Function Name="sp_AusenciasCCQ" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idColaborador" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_AusenciasMaternidadPaternidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idColaborador" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_CalculoCertificadoSueldo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idColaborador" Type="int" Mode="In" />
     <Parameter Name="idEmpresa" Type="int" Mode="In" />
@@ -4022,16 +4073,30 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
   <Function Name="sp_NMsolicitudesPermisosSupervisorColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idSupervisor" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_NMsolicitudesPermisosTeletrabajoColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idColaborador" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idSupervisor" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_NMsolicitudesPermisosTTHHColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="sp_NMsolicitudesVacacionesAprobJefe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idSupervisor" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_NMsolicitudesVacacionesColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idColaborador" Type="int" Mode="In" />
   </Function>
+  <Function Name="sp_tnmDiasNoDisponiblesColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idColbaorador" Type="int" Mode="In" />
+  </Function>
   <Function Name="sp_tnmDiasVacacionesColaborador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="idColbaorador" Type="int" Mode="In" />
   </Function>
   <Function Name="sp_tNMFeriados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdColaborador" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="CCQ_DESAModelStoreContainer">
     <EntitySet Name="tGN_ContactoPersona" EntityType="Self.tGN_ContactoPersona" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tGN_Empresas" EntityType="Self.tGN_Empresas" Schema="dbo" store:Type="Tables" />
@@ -4091,6 +4156,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
     <EntitySet Name="tNM_MediosPago" EntityType="Self.tNM_MediosPago" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_ModosCalculoLiquidacion" EntityType="Self.tNM_ModosCalculoLiquidacion" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_MotivosEgreso" EntityType="Self.tNM_MotivosEgreso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tNM_MotivoSolicitudPermisos" EntityType="Self.tNM_MotivoSolicitudPermisos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_NominaDefinitiva" EntityType="Self.tNM_NominaDefinitiva" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_NominaPreliminar" EntityType="Self.tNM_NominaPreliminar" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_PagosFueraNomina" EntityType="Self.tNM_PagosFueraNomina" Schema="dbo" store:Type="Tables" />
@@ -4109,6 +4175,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
     <EntitySet Name="tNM_TablaBeneficioDiscapacidad" EntityType="Self.tNM_TablaBeneficioDiscapacidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_TablaIR" EntityType="Self.tNM_TablaIR" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_TiposAusencia" EntityType="Self.tNM_TiposAusencia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tNM_TiposCalamidadDomestica" EntityType="Self.tNM_TiposCalamidadDomestica" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_TiposColaboradores" EntityType="Self.tNM_TiposColaboradores" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_TiposContrato" EntityType="Self.tNM_TiposContrato" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tNM_TiposDiscapacidad" EntityType="Self.tNM_TiposDiscapacidad" Schema="dbo" store:Type="Tables" />
@@ -4804,6 +4871,14 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
     <AssociationSet Name="FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes" Association="Self.FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes">
       <End Role="tNM_TiposSolicitudes" EntitySet="tNM_TiposSolicitudes" />
       <End Role="tNM_SolicitudesTablaAmortizacion" EntitySet="tNM_SolicitudesTablaAmortizacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" Association="Self.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+      <End Role="tNM_MotivoSolicitudPermisos" EntitySet="tNM_MotivoSolicitudPermisos" />
+      <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" Association="Self.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+      <End Role="tNM_TiposCalamidadDomestica" EntitySet="tNM_TiposCalamidadDomestica" />
+      <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
     </AssociationSet>
     <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores" Association="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores">
       <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />

@@ -33,12 +33,13 @@ namespace ApiTTHH.Models
         public Nullable<decimal> DiasSolicitados { get; set; }
         public Nullable<int> IdColaboradorReemplazo { get; set; }
         public string UrlSolicitud { get; set; }
+        public string Observacion { get; set; }
     
         public virtual tNM_Colaboradores tNM_Colaboradores { get; set; }
         public virtual tNM_Colaboradores tNM_Colaboradores1 { get; set; }
         public virtual tNM_EstadosFlujoAusencias tNM_EstadosFlujoAusencias { get; set; }
-        public virtual tNM_TiposAusencia tNM_TiposAusencia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_SolicitudVacacionesDet> tNM_SolicitudVacacionesDet { get; set; }
+        public virtual tNM_TiposAusencia tNM_TiposAusencia { get; set; }
     }
 }

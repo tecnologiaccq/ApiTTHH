@@ -23,7 +23,8 @@ namespace ApiTTHH.Controllers.Vacaciones
         public IQueryable<tNM_TiposAusencia> GettNM_TiposAusencia()
         {
             db.Configuration.LazyLoadingEnabled = false;
-            return db.tNM_TiposAusencia.Where(x=>x.Estado==true);
+            return db.tNM_TiposAusencia.Where(x=>x.Estado==true && x.isTeletrabajo != true).OrderBy(x => x.Nombre);
+        
         }
 
         // GET: api/tNM_TiposAusencia/5
@@ -119,6 +120,32 @@ namespace ApiTTHH.Controllers.Vacaciones
         private bool tNM_TiposAusenciaExists(int id)
         {
             return db.tNM_TiposAusencia.Count(e => e.IdAusencia == id) > 0;
+        }
+
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [Route("api/ObtenerTiposCalamidadDomestica")]
+        public IQueryable<tNM_TiposCalamidadDomestica> GettNM_TiposCalamidadDomestica()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            return db.tNM_TiposCalamidadDomestica.Where(x => x.Activo == true).OrderBy(x => x.Descripcion);
+        }
+
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [Route("api/ObtenerTiposTeletrabajo")]
+        public IQueryable<tNM_TiposAusencia> GettNM_TiposTeletrabajo()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            return db.tNM_TiposAusencia.Where(x => x.Estado == true && x.isTeletrabajo == true);
+        }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [Route("api/ObtenerMotivosSolicitudPermisos")]
+        public IQueryable<tNM_MotivoSolicitudPermisos> GettNM_MotivosSolicitudPermisos()
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+            return db.tNM_MotivoSolicitudPermisos.Where(x => x.Activo == true);
         }
     }
 }

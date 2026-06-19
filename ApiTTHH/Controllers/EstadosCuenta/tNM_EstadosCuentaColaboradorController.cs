@@ -14,6 +14,7 @@ using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using ApiTTHH.Models;
 using ApiTTHH.Models.Custom;
+using ApiTTHH.Models.Custom.DTOs;
 
 namespace ApiTTHH.Controllers.EstadosCuenta
 {
@@ -99,30 +100,65 @@ namespace ApiTTHH.Controllers.EstadosCuenta
         {
             db.Configuration.LazyLoadingEnabled = false;
 
-            //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
             try
             {
-                //string cadenaConexion = ConfigurationManager.ConnectionStrings["CCQ_DESAEntities"].ConnectionString;
-                //EntityConnectionStringBuilder entityString = new EntityConnectionStringBuilder(cadenaConexion);
-                //String connString = @"data source=" + db.Database.Connection.DataSource + ";initial catalog=" + db.Database.Connection.Database + ";user id=" + usuario.usuario + ";password=" + usuario.password + ";MultipleActiveResultSets=True;App=EntityFramework;";
-               // EntityConnectionStringBuilder esb = new EntityConnectionStringBuilder();
-               // esb.Metadata = "res://*/Models.ERPTTHH.csdl|res://*/Models.ERPTTHH.ssdl|res://*/Models.ERPTTHH.msl";
-                //esb.Provider = "System.Data.SqlClient";
-                //esb.ProviderConnectionString = connString;
-                //db = new CCQ_DESAEntities(esb.ToString());
-                //db = new CCQ_DESAEntities();
-                //db.Configuration.LazyLoadingEnabled = false;
-                tNM_Colaboradores empleado = db.tNM_Colaboradores.FirstOrDefault(x => x.Usuario == usuario.usuario && x.IdEstado==1);
-                //EntityConnection entityConn = DBConnectionHelper.BuildConnection();
-                return Request.CreateResponse(HttpStatusCode.OK, empleado);
+                var empleado = db.tNM_Colaboradores
+                    .FirstOrDefault(x => x.Usuario == usuario.usuario && x.IdEstado == 1);
+
+                if (empleado == null)
+                {
+                    return Request.CreateErrorResponse(
+                        HttpStatusCode.Unauthorized,
+                        "Usuario o contraseña incorrectos"
+                    );
+                }
+
+                string nombreSupervisor = db.tNM_Colaboradores
+                    .Where(x => x.IdColaborador == empleado.IdSupervisor)
+                    .Select(x => x.ApellidosNombres)
+                    .FirstOrDefault();
+
+                var response = new LoginResponseDto
+                {
+                    IdColaborador = empleado.IdColaborador,
+                    IdPersona = empleado.IdPersona,
+                    IdEmpresa = empleado.IdEmpresa,
+                    IdDepartamento = empleado.IdDepartamento,
+                    IdTipoDiscapacidad = empleado.IdTipoDiscapacidad,
+                    PorcentajeDiscapacidad = empleado.PorcentajeDiscapacidad,
+                    IdTipoColaborador = empleado.IdTipoColaborador,
+                    FechaIngreso = empleado.FechaIngreso,
+                    IdEstado = empleado.IdEstado,
+                    IdSupervisor = empleado.IdSupervisor,
+                    Usuario = empleado.Usuario,
+                    EsSupervisor = empleado.EsSupervisor,
+                    ApruebaTH = empleado.ApruebaTH,
+                    EsNominista = empleado.EsNominista,
+                    EsFinanciero = empleado.EsFinanciero,
+                    Identificacion = empleado.Identificacion,
+                    ApellidosNombres = empleado.ApellidosNombres,
+                    eMail = empleado.eMail,
+                    nickname = empleado.nickname,
+                    EnviarCorreoRolPago = empleado.EnviarCorreoRolPago,
+                    IdTipoSangre = empleado.IdTipoSangre,
+                    UrlFoto = empleado.UrlFoto,
+                    CargasLEFAM = empleado.CargasLEFAM,
+                    NumeroTelefonoAuth2F = empleado.NumeroTelefonoAuth2F,
+                    SegundoFactor = empleado.SegundoFactor,
+                    ApellidosNombresSupervisor = nombreSupervisor
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, response);
             }
             catch (Exception ex)
             {
-                var message = ex.ToString(); // o ex.InnerException?.Message ?? ex.Message
-                return Request.CreateErrorResponse(HttpStatusCode.InternalServerError, message);
+                return Request.CreateErrorResponse(
+                    HttpStatusCode.InternalServerError,
+                    ex.InnerException?.Message ?? ex.Message
+                );
             }
-
         }
+
         // [EnableCors(origins: "*", headers: "*", methods: "*")]
         //[HttpPost]
         //[Route("api/reg-token")]

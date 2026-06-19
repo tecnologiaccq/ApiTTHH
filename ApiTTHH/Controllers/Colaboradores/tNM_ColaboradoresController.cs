@@ -100,6 +100,27 @@ namespace ApiTTHH.Controllers.Colaboradores
         }
         [EnableCors(origins: "*", headers: "*", methods: "*")]
         [HttpGet]
+        [Route("api/ausencias-maternidad-paternidad/{idColaborador}")]
+        public HttpResponseMessage GetAusenciaMaternidadPaternidad(int idColaborador)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
+
+            try
+            {
+                var result = db.sp_AusenciasMaternidadPaternidad(idColaborador);
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                var message = string.Format(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+            }
+
+        }
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
         [Route("api/vacacionesdias/{idColaborador}")]
         public HttpResponseMessage GetColaboradorDiasVacaciones(int idColaborador)
         {
@@ -114,6 +135,63 @@ namespace ApiTTHH.Controllers.Colaboradores
             {
                 var message = string.Format(ex.Message);
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+            }
+        }
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        [Route("api/vacacionesnodisponibles/{idColaborador}")]
+        public HttpResponseMessage GetDiasVacacionesNoDisponiblesPorColaborador(int idColaborador)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, db.sp_tnmDiasNoDisponiblesColaborador(idColaborador));
+            }
+            catch (Exception ex)
+            {
+                var message = string.Format(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+            }
+        }
+
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        [Route("api/periodosnodisponibles/{idColaborador}")]
+        public HttpResponseMessage GetPeriodosNoDisponibles(int idColaborador)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            //tNM_Colaboradores colaborador = db.tNM_Colaboradores.Single(x => x.Usuario == usuario);
+            try
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, db.sp_tnmDiasVacacionesColaborador(idColaborador));
+            }
+            catch (Exception ex)
+            {
+                var message = string.Format(ex.Message);
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, message);
+            }
+        }
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        [HttpGet]
+        [Route("api/diasPosterioresUltimoPeriodoMaternidadPaternidad/{idColaborador}")]
+        public IHttpActionResult GetDiasPosterioresUltimoPeriodoMaternidadPaternidad(int idColaborador)
+        {
+            db.Configuration.LazyLoadingEnabled = false;
+
+            try
+            {
+                var resultado = db
+                    .tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad(idColaborador)
+                        .FirstOrDefault();
+
+                return Ok<tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result>(resultado);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
             }
         }
 

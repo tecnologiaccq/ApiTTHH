@@ -43,6 +43,8 @@ namespace ApiTTHH.Models
         public string EstacionModificacion { get; set; }
         public string UrlSolicitud { get; set; }
         public string Observaciones { get; set; }
+        public Nullable<int> IdTipoCalamidadDomestica { get; set; }
+        public Nullable<int> IdMotivoSolicitudPermiso { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_AdjuntoSolicitudPermiso> tNM_AdjuntoSolicitudPermiso { get; set; }
@@ -51,6 +53,8 @@ namespace ApiTTHH.Models
         public virtual tNM_EstadosFlujoAusencias tNM_EstadosFlujoAusencias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_JustificacionPermiso> tNM_JustificacionPermiso { get; set; }
+        public virtual tNM_MotivoSolicitudPermisos tNM_MotivoSolicitudPermisos { get; set; }
+        public virtual tNM_TiposCalamidadDomestica tNM_TiposCalamidadDomestica { get; set; }
         public virtual tNM_TiposAusencia tNM_TiposAusencia { get; set; }
     }
 }

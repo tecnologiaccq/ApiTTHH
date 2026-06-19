@@ -41,6 +41,8 @@
           <Property Name="IdContactoNuevo" Type="int" />
           <Property Name="IsOkFormatoEmail" Type="bit" />
           <Property Name="VersionPrograma" Type="varchar" MaxLength="100" />
+          <Property Name="Nota1" Type="varchar" MaxLength="512" />
+          <Property Name="Origen" Type="varchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="tGN_Empresas">
           <Key>
@@ -77,6 +79,8 @@
           <Property Name="UrlLogo" Type="nvarchar" MaxLength="255" />
           <Property Name="ContribuyenteEspecial" Type="int" />
           <Property Name="ObligadoContabilidad" Type="char" MaxLength="2" />
+          <Property Name="ShowInMenuERP" Type="bit" />
+          <Property Name="Codigo" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="tGN_Personas">
           <Key>
@@ -1317,6 +1321,14 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
           <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
           <Property Name="CodigoIESS" Type="nvarchar" MaxLength="2" />
         </EntityType>
+        <EntityType Name="tNM_MotivoSolicitudPermisos">
+          <Key>
+            <PropertyRef Name="IdMotivoSolicitudPermiso" />
+          </Key>
+          <Property Name="IdMotivoSolicitudPermiso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="Activo" Type="bit" />
+        </EntityType>
         <EntityType Name="tNM_NominaDefinitiva">
           <Key>
             <PropertyRef Name="IdNominaDefinitiva" />
@@ -1547,6 +1559,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
           <Property Name="EstacionModificacion" Type="nvarchar" MaxLength="32" />
           <Property Name="UrlSolicitud" Type="varchar" MaxLength="450" />
           <Property Name="Observaciones" Type="varchar" MaxLength="500" />
+          <Property Name="IdTipoCalamidadDomestica" Type="int" />
+          <Property Name="IdMotivoSolicitudPermiso" Type="int" />
         </EntityType>
         <EntityType Name="tNM_SolicitudVacacionesCab">
           <Key>
@@ -1565,6 +1579,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
           <Property Name="DiasSolicitados" Type="decimal" Precision="5" Scale="2" />
           <Property Name="IdColaboradorReemplazo" Type="int" />
           <Property Name="UrlSolicitud" Type="varchar" MaxLength="450" />
+          <Property Name="Observacion" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="tNM_SolicitudVacacionesDet">
           <Key>
@@ -1668,6 +1683,16 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_Formulario107' does not have a pr
           <Property Name="AplicaDiasVacacionFeriado" Type="bit" />
           <Property Name="Estado" Type="bit" />
           <Property Name="ruta" Type="varchar" MaxLength="50" />
+          <Property Name="isTeletrabajo" Type="bit" />
+          <Property Name="MaxDiasGestionarPermisos" Type="int" />
+        </EntityType>
+        <EntityType Name="tNM_TiposCalamidadDomestica">
+          <Key>
+            <PropertyRef Name="IdTipoCalamidadDomestica" />
+          </Key>
+          <Property Name="IdTipoCalamidadDomestica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="150" />
+          <Property Name="Activo" Type="bit" />
         </EntityType>
         <EntityType Name="tNM_TiposColaboradores">
           <Key>
@@ -3741,6 +3766,30 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+          <End Role="tNM_MotivoSolicitudPermisos" Type="Self.tNM_MotivoSolicitudPermisos" Multiplicity="0..1" />
+          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_MotivoSolicitudPermisos">
+              <PropertyRef Name="IdMotivoSolicitudPermiso" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdMotivoSolicitudPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+          <End Role="tNM_TiposCalamidadDomestica" Type="Self.tNM_TiposCalamidadDomestica" Multiplicity="0..1" />
+          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_TiposCalamidadDomestica">
+              <PropertyRef Name="IdTipoCalamidadDomestica" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdTipoCalamidadDomestica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores">
           <End Role="tNM_Colaboradores" Type="Self.tNM_Colaboradores" Multiplicity="0..1" />
           <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
@@ -4096,6 +4145,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySet Name="tNM_MediosPago" EntityType="Self.tNM_MediosPago" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_ModosCalculoLiquidacion" EntityType="Self.tNM_ModosCalculoLiquidacion" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_MotivosEgreso" EntityType="Self.tNM_MotivosEgreso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tNM_MotivoSolicitudPermisos" EntityType="Self.tNM_MotivoSolicitudPermisos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_NominaDefinitiva" EntityType="Self.tNM_NominaDefinitiva" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_NominaPreliminar" EntityType="Self.tNM_NominaPreliminar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_PagosFueraNomina" EntityType="Self.tNM_PagosFueraNomina" Schema="dbo" store:Type="Tables" />
@@ -4114,6 +4164,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySet Name="tNM_TablaBeneficioDiscapacidad" EntityType="Self.tNM_TablaBeneficioDiscapacidad" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_TablaIR" EntityType="Self.tNM_TablaIR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_TiposAusencia" EntityType="Self.tNM_TiposAusencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tNM_TiposCalamidadDomestica" EntityType="Self.tNM_TiposCalamidadDomestica" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_TiposColaboradores" EntityType="Self.tNM_TiposColaboradores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_TiposContrato" EntityType="Self.tNM_TiposContrato" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tNM_TiposDiscapacidad" EntityType="Self.tNM_TiposDiscapacidad" Schema="dbo" store:Type="Tables" />
@@ -4810,6 +4861,14 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             <End Role="tNM_TiposSolicitudes" EntitySet="tNM_TiposSolicitudes" />
             <End Role="tNM_SolicitudesTablaAmortizacion" EntitySet="tNM_SolicitudesTablaAmortizacion" />
           </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" Association="Self.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+            <End Role="tNM_MotivoSolicitudPermisos" EntitySet="tNM_MotivoSolicitudPermisos" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" Association="Self.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+            <End Role="tNM_TiposCalamidadDomestica" EntitySet="tNM_TiposCalamidadDomestica" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
           <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores" Association="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores">
             <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
             <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
@@ -4911,7 +4970,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="NombreArchivo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="IdSolicitudPermiso" Type="Int32" />
           <Property Name="UrlAdjunto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" FromRole="tNM_AdjuntoSolicitudPermiso" ToRole="tNM_SolicitudPermiso" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" FromRole="tNM_AdjuntoSolicitudPermiso" ToRole="tNM_SolicitudPermiso" />
         </EntityType>
         <EntityType Name="tNM_AnexosSolicitudes">
           <Key>
@@ -5375,8 +5434,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <NavigationProperty Name="tNM_PagosFueraNomina" Relationship="Self.FK_tNM_PagosFueraNomina_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_PagosFueraNomina" />
           <NavigationProperty Name="tNM_Solicitudes" Relationship="Self.FK_tNM_Solicitudes_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_Solicitudes" />
           <NavigationProperty Name="tNM_Solicitudes1" Relationship="Self.FK_tNM_Solicitudes_tNM_Colaboradores2" FromRole="tNM_Colaboradores" ToRole="tNM_Solicitudes" />
-          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudPermiso" />
-          <NavigationProperty Name="tNM_SolicitudPermiso1" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudPermiso" />
           <NavigationProperty Name="tNM_SolicitudVacacionesCab" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudVacacionesCab" />
           <NavigationProperty Name="tNM_SolicitudVacacionesCab1" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores1" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudVacacionesCab" />
           <NavigationProperty Name="tNM_Vacaciones" Relationship="Self.FK_tNM_Vacaciones_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_Vacaciones" />
@@ -5385,6 +5442,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <NavigationProperty Name="tNM_Variaciones" Relationship="Self.FK_tNM_Variaciones_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_Variaciones" />
           <NavigationProperty Name="tGN_Personas" Relationship="CCQ_DESAModel.FK_tNM_Colaboradores_tGN_Personas" FromRole="tNM_Colaboradores" ToRole="tGN_Personas" />
           <NavigationProperty Name="tGN_Empresas" Relationship="CCQ_DESAModel.FK_tNM_Colaboradores_tGN_Empresas" FromRole="tNM_Colaboradores" ToRole="tGN_Empresas" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudPermiso" />
+          <NavigationProperty Name="tNM_SolicitudPermiso1" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" FromRole="tNM_Colaboradores" ToRole="tNM_SolicitudPermiso" />
         </EntityType>
         <EntityType Name="tNM_ColaboradoresAuditoria">
           <Key>
@@ -5974,8 +6033,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="Beneficio" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
           <Property Name="Estado" Type="Boolean" />
           <Property Name="CodigoEstado" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" FromRole="tNM_EstadosFlujoAusencias" ToRole="tNM_SolicitudPermiso" />
           <NavigationProperty Name="tNM_SolicitudVacacionesCab" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" FromRole="tNM_EstadosFlujoAusencias" ToRole="tNM_SolicitudVacacionesCab" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" FromRole="tNM_EstadosFlujoAusencias" ToRole="tNM_SolicitudPermiso" />
         </EntityType>
         <EntityType Name="tNM_Feriados">
           <Key>
@@ -6197,7 +6256,7 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="NombreArchivo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UrlJustificacion" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" FromRole="tNM_JustificacionPermiso" ToRole="tNM_SolicitudPermiso" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" FromRole="tNM_JustificacionPermiso" ToRole="tNM_SolicitudPermiso" />
         </EntityType>
         <EntityType Name="tNM_LimitesGP">
           <Key>
@@ -6531,39 +6590,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <NavigationProperty Name="tNM_SubtipoSolicitudes" Relationship="Self.FK_tNM_SolicitudesTablaAmortizacion_tNM_SubtipoSolicitudes" FromRole="tNM_SolicitudesTablaAmortizacion" ToRole="tNM_SubtipoSolicitudes" />
           <NavigationProperty Name="tNM_TiposSolicitudes" Relationship="Self.FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes" FromRole="tNM_SolicitudesTablaAmortizacion" ToRole="tNM_TiposSolicitudes" />
         </EntityType>
-        <EntityType Name="tNM_SolicitudPermiso">
-          <Key>
-            <PropertyRef Name="IdSolicitudPermiso" />
-          </Key>
-          <Property Name="IdSolicitudPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="IdTipoAusencia" Type="Int32" />
-          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
-          <Property Name="FechaFin" Type="DateTime" Precision="0" />
-          <Property Name="HoraInicio" Type="DateTime" Precision="3" />
-          <Property Name="HoraFin" Type="DateTime" Precision="3" />
-          <Property Name="NumeroHoras" Type="Decimal" Precision="5" Scale="2" />
-          <Property Name="IdEstadoAprob" Type="Int32" />
-          <Property Name="Idcolaborador" Type="Int32" />
-          <Property Name="IdSupervisor" Type="Int32" />
-          <Property Name="RespuestaSupervisor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="RespuestaTalentoHumano" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DiasSolicitados" Type="Int32" />
-          <Property Name="IdColaboradorReemplazo" Type="Int32" />
-          <Property Name="CreadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
-          <Property Name="EstacionCreacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
-          <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="tNM_AdjuntoSolicitudPermiso" Relationship="Self.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_AdjuntoSolicitudPermiso" />
-          <NavigationProperty Name="tNM_Colaboradores" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores" FromRole="tNM_SolicitudPermiso" ToRole="tNM_Colaboradores" />
-          <NavigationProperty Name="tNM_Colaboradores1" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" FromRole="tNM_SolicitudPermiso" ToRole="tNM_Colaboradores" />
-          <NavigationProperty Name="tNM_EstadosFlujoAusencias" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" FromRole="tNM_SolicitudPermiso" ToRole="tNM_EstadosFlujoAusencias" />
-          <NavigationProperty Name="tNM_JustificacionPermiso" Relationship="Self.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_JustificacionPermiso" />
-          <NavigationProperty Name="tNM_TiposAusencia" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_SolicitudPermiso" ToRole="tNM_TiposAusencia" />
-          <Property Name="UrlSolicitud" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
-          <Property Name="Observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="tNM_SolicitudVacacionesCab">
           <Key>
             <PropertyRef Name="IdSolicitudVacaciones" />
@@ -6584,8 +6610,9 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <NavigationProperty Name="tNM_Colaboradores" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_Colaboradores" />
           <NavigationProperty Name="tNM_Colaboradores1" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores1" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_Colaboradores" />
           <NavigationProperty Name="tNM_EstadosFlujoAusencias" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_EstadosFlujoAusencias" />
-          <NavigationProperty Name="tNM_TiposAusencia" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_TiposAusencia" />
           <NavigationProperty Name="tNM_SolicitudVacacionesDet" Relationship="Self.FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_SolicitudVacacionesDet" />
+          <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tNM_TiposAusencia" Relationship="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_TiposAusencia" />
         </EntityType>
         <EntityType Name="tNM_SolicitudVacacionesDet">
           <Key>
@@ -6673,33 +6700,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
           <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="tNM_TiposAusencia">
-          <Key>
-            <PropertyRef Name="IdAusencia" />
-          </Key>
-          <Property Name="IdAusencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ApruebaJefe" Type="Boolean" />
-          <Property Name="ApruebaTTHH" Type="Boolean" />
-          <Property Name="AplicaSoloDia" Type="Boolean" />
-          <Property Name="AplicaHoras" Type="Boolean" />
-          <Property Name="MaximaHorasPermitidasDia" Type="Int32" />
-          <Property Name="AplicaRangoFechas" Type="Boolean" />
-          <Property Name="IncluyeFinesDeSemana" Type="Boolean" />
-          <Property Name="NumeroDiasFinSemanaPermitidos" Type="Int32" />
-          <Property Name="RequiereJustificacion" Type="Boolean" />
-          <Property Name="MinimoNumeroDeSoporte" Type="Int32" />
-          <Property Name="AplicaRecuperacionHoras" Type="Boolean" />
-          <Property Name="MaximoHorasARecuperarDia" Type="Int32" />
-          <Property Name="MaximoDiasSolicitarVacaciones" Type="Int32" />
-          <Property Name="MinimoDiasSolicitarVacaciones" Type="Int32" />
-          <Property Name="AplicaDiasVacacionFeriado" Type="Boolean" />
-          <Property Name="Estado" Type="Boolean" />
-          <Property Name="ruta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudPermiso" />
-          <NavigationProperty Name="tNM_SolicitudVacacionesCab" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudVacacionesCab" />
         </EntityType>
         <EntityType Name="tNM_TiposColaboradores">
           <Key>
@@ -6996,18 +6996,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
           <Property Name="Cancelado" Type="Boolean" Nullable="false" />
         </EntityType>
-        <Association Name="FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso">
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="0..1" />
-          <End Role="tNM_AdjuntoSolicitudPermiso" Type="Self.tNM_AdjuntoSolicitudPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="IdSolicitudPermiso" />
-            </Principal>
-            <Dependent Role="tNM_AdjuntoSolicitudPermiso">
-              <PropertyRef Name="IdSolicitudPermiso" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tNM_AnexosSolicitudes_IdSolicitud">
           <End Role="tNM_Solicitudes" Type="Self.tNM_Solicitudes" Multiplicity="0..1" />
           <End Role="tNM_AnexosSolicitudes" Type="Self.tNM_AnexosSolicitudes" Multiplicity="*" />
@@ -8096,30 +8084,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores">
-          <End Role="tNM_Colaboradores" Type="Self.tNM_Colaboradores" Multiplicity="0..1" />
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_Colaboradores">
-              <PropertyRef Name="IdColaborador" />
-            </Principal>
-            <Dependent Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="Idcolaborador" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores1">
-          <End Role="tNM_Colaboradores" Type="Self.tNM_Colaboradores" Multiplicity="0..1" />
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_Colaboradores">
-              <PropertyRef Name="IdColaborador" />
-            </Principal>
-            <Dependent Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="IdSupervisor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores">
           <End Role="tNM_Colaboradores" Type="Self.tNM_Colaboradores" Multiplicity="0..1" />
           <End Role="tNM_SolicitudVacacionesCab" Type="Self.tNM_SolicitudVacacionesCab" Multiplicity="*" />
@@ -8734,18 +8698,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias">
-          <End Role="tNM_EstadosFlujoAusencias" Type="Self.tNM_EstadosFlujoAusencias" Multiplicity="0..1" />
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_EstadosFlujoAusencias">
-              <PropertyRef Name="IDEstado" />
-            </Principal>
-            <Dependent Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="IdEstadoAprob" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias">
           <End Role="tNM_EstadosFlujoAusencias" Type="Self.tNM_EstadosFlujoAusencias" Multiplicity="0..1" />
           <End Role="tNM_SolicitudVacacionesCab" Type="Self.tNM_SolicitudVacacionesCab" Multiplicity="*" />
@@ -8803,18 +8755,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             </Principal>
             <Dependent Role="tNM_VacacionesDetalle">
               <PropertyRef Name="IdHistorialVacaciones" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso">
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="0..1" />
-          <End Role="tNM_JustificacionPermiso" Type="Self.tNM_JustificacionPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="IdSolicitudPermiso" />
-            </Principal>
-            <Dependent Role="tNM_JustificacionPermiso">
-              <PropertyRef Name="IdSolicitudPermiso" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -8899,30 +8839,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             </Principal>
             <Dependent Role="tNM_SolicitudesTablaAmortizacion">
               <PropertyRef Name="IdTipoSolicitud" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tNM_SolicitudPermiso_tNM_TiposAusencia">
-          <End Role="tNM_TiposAusencia" Type="Self.tNM_TiposAusencia" Multiplicity="0..1" />
-          <End Role="tNM_SolicitudPermiso" Type="Self.tNM_SolicitudPermiso" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_TiposAusencia">
-              <PropertyRef Name="IdAusencia" />
-            </Principal>
-            <Dependent Role="tNM_SolicitudPermiso">
-              <PropertyRef Name="IdTipoAusencia" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia">
-          <End Role="tNM_TiposAusencia" Type="Self.tNM_TiposAusencia" Multiplicity="0..1" />
-          <End Role="tNM_SolicitudVacacionesCab" Type="Self.tNM_SolicitudVacacionesCab" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tNM_TiposAusencia">
-              <PropertyRef Name="IdAusencia" />
-            </Principal>
-            <Dependent Role="tNM_SolicitudVacacionesCab">
-              <PropertyRef Name="IdTipoAusencia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -9030,14 +8946,12 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySet Name="tNM_SectorialIESS" EntityType="Self.tNM_SectorialIESS" />
           <EntitySet Name="tNM_Solicitudes" EntityType="Self.tNM_Solicitudes" />
           <EntitySet Name="tNM_SolicitudesTablaAmortizacion" EntityType="Self.tNM_SolicitudesTablaAmortizacion" />
-          <EntitySet Name="tNM_SolicitudPermiso" EntityType="Self.tNM_SolicitudPermiso" />
           <EntitySet Name="tNM_SolicitudVacacionesCab" EntityType="Self.tNM_SolicitudVacacionesCab" />
           <EntitySet Name="tNM_SolicitudVacacionesDet" EntityType="Self.tNM_SolicitudVacacionesDet" />
           <EntitySet Name="tNM_SubtipoSolicitudes" EntityType="Self.tNM_SubtipoSolicitudes" />
           <EntitySet Name="tNM_Sucursales" EntityType="Self.tNM_Sucursales" />
           <EntitySet Name="tNM_TablaBeneficioDiscapacidad" EntityType="Self.tNM_TablaBeneficioDiscapacidad" />
           <EntitySet Name="tNM_TablaIR" EntityType="Self.tNM_TablaIR" />
-          <EntitySet Name="tNM_TiposAusencia" EntityType="Self.tNM_TiposAusencia" />
           <EntitySet Name="tNM_TiposColaboradores" EntityType="Self.tNM_TiposColaboradores" />
           <EntitySet Name="tNM_TiposContrato" EntityType="Self.tNM_TiposContrato" />
           <EntitySet Name="tNM_TiposDiscapacidad" EntityType="Self.tNM_TiposDiscapacidad" />
@@ -9053,10 +8967,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySet Name="tNM_Empleados_Colaboradores" EntityType="Self.tNM_Empleados_Colaboradores" />
           <EntitySet Name="tNM_Formulario107" EntityType="Self.tNM_Formulario107" />
           <EntitySet Name="tNM_tmp_ImpuestoAgostoNuevo" EntityType="Self.tNM_tmp_ImpuestoAgostoNuevo" />
-          <AssociationSet Name="FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" Association="Self.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso">
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-            <End Role="tNM_AdjuntoSolicitudPermiso" EntitySet="tNM_AdjuntoSolicitudPermiso" />
-          </AssociationSet>
           <AssociationSet Name="FK_tNM_AnexosSolicitudes_IdSolicitud" Association="Self.FK_tNM_AnexosSolicitudes_IdSolicitud">
             <End Role="tNM_Solicitudes" EntitySet="tNM_Solicitudes" />
             <End Role="tNM_AnexosSolicitudes" EntitySet="tNM_AnexosSolicitudes" />
@@ -9417,14 +9327,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
             <End Role="tNM_Solicitudes" EntitySet="tNM_Solicitudes" />
           </AssociationSet>
-          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores" Association="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores">
-            <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores1" Association="Self.FK_tNM_SolicitudPermiso_tNM_Colaboradores1">
-            <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-          </AssociationSet>
           <AssociationSet Name="FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores" Association="Self.FK_tNM_SolicitudVacacionesCab_tNM_Colaboradores">
             <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
             <End Role="tNM_SolicitudVacacionesCab" EntitySet="tNM_SolicitudVacacionesCab" />
@@ -9629,10 +9531,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
             <End Role="tNM_TiposEstadoCuenta" EntitySet="tNM_TiposEstadoCuenta" />
             <End Role="tNM_EstadosCuentaColaborador" EntitySet="tNM_EstadosCuentaColaborador" />
           </AssociationSet>
-          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" Association="Self.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias">
-            <End Role="tNM_EstadosFlujoAusencias" EntitySet="tNM_EstadosFlujoAusencias" />
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-          </AssociationSet>
           <AssociationSet Name="FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" Association="Self.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias">
             <End Role="tNM_EstadosFlujoAusencias" EntitySet="tNM_EstadosFlujoAusencias" />
             <End Role="tNM_SolicitudVacacionesCab" EntitySet="tNM_SolicitudVacacionesCab" />
@@ -9652,10 +9550,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <AssociationSet Name="FK_tNM_VacacionesDetalle_tNM_HistorialVacaciones" Association="Self.FK_tNM_VacacionesDetalle_tNM_HistorialVacaciones">
             <End Role="tNM_HistorialVacaciones" EntitySet="tNM_HistorialVacaciones" />
             <End Role="tNM_VacacionesDetalle" EntitySet="tNM_VacacionesDetalle" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" Association="Self.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso">
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-            <End Role="tNM_JustificacionPermiso" EntitySet="tNM_JustificacionPermiso" />
           </AssociationSet>
           <AssociationSet Name="FK_tNM_LiquidacionLaboral_IdMotivoEgreso" Association="Self.FK_tNM_LiquidacionLaboral_IdMotivoEgreso">
             <End Role="tNM_MotivosEgreso" EntitySet="tNM_MotivosEgreso" />
@@ -9684,14 +9578,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <AssociationSet Name="FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes" Association="Self.FK_tNM_SolicitudesTablaAmortizacion_tNM_TiposSolicitudes">
             <End Role="tNM_TiposSolicitudes" EntitySet="tNM_TiposSolicitudes" />
             <End Role="tNM_SolicitudesTablaAmortizacion" EntitySet="tNM_SolicitudesTablaAmortizacion" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_TiposAusencia" Association="Self.FK_tNM_SolicitudPermiso_tNM_TiposAusencia">
-            <End Role="tNM_TiposAusencia" EntitySet="tNM_TiposAusencia" />
-            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
-          </AssociationSet>
-          <AssociationSet Name="FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" Association="Self.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia">
-            <End Role="tNM_TiposAusencia" EntitySet="tNM_TiposAusencia" />
-            <End Role="tNM_SolicitudVacacionesCab" EntitySet="tNM_SolicitudVacacionesCab" />
           </AssociationSet>
           <AssociationSet Name="FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab" Association="Self.FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab">
             <End Role="tNM_SolicitudVacacionesCab" EntitySet="tNM_SolicitudVacacionesCab" />
@@ -9788,6 +9674,63 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Parameter Name="idSupervisor" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="INTRANET_ObtenerCumpleanios" ReturnType="Collection(CCQ_DESAModel.INTRANET_ObtenerCumpleanios_Result)" />
+          <FunctionImport Name="sp_NMsolicitudesPermisosTTHHColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTTHHColaborador_Result)" />
+          <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoColaborador_Result)">
+          <Parameter Name="idColaborador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result)">
+          <Parameter Name="idSupervisor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result)" />
+          <FunctionImport Name="sp_tnmDiasNoDisponiblesColaborador" ReturnType="Collection(CCQ_DESAModel.sp_tnmDiasNoDisponiblesColaborador_Result)">
+          <Parameter Name="idColbaorador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad" ReturnType="Collection(CCQ_DESAModel.tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result)">
+          <Parameter Name="IdColaborador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_AusenciasMaternidadPaternidad" ReturnType="Collection(CCQ_DESAModel.sp_AusenciasMaternidadPaternidad_Result)">
+          <Parameter Name="idColaborador" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tNM_MotivoSolicitudPermisos" EntityType="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" />
+          <EntitySet Name="tNM_SolicitudPermiso" EntityType="CCQ_DESAModel.tNM_SolicitudPermiso" />
+          <EntitySet Name="tNM_TiposAusencia" EntityType="CCQ_DESAModel.tNM_TiposAusencia" />
+          <EntitySet Name="tNM_TiposCalamidadDomestica" EntityType="CCQ_DESAModel.tNM_TiposCalamidadDomestica" />
+          <AssociationSet Name="FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" Association="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso">
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+            <End Role="tNM_AdjuntoSolicitudPermiso" EntitySet="tNM_AdjuntoSolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores">
+            <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores1" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1">
+            <End Role="tNM_Colaboradores" EntitySet="tNM_Colaboradores" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias">
+            <End Role="tNM_EstadosFlujoAusencias" EntitySet="tNM_EstadosFlujoAusencias" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" Association="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso">
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+            <End Role="tNM_JustificacionPermiso" EntitySet="tNM_JustificacionPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+            <End Role="tNM_MotivoSolicitudPermisos" EntitySet="tNM_MotivoSolicitudPermisos" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+            <End Role="tNM_TiposCalamidadDomestica" EntitySet="tNM_TiposCalamidadDomestica" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudPermiso_tNM_TiposAusencia" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia">
+            <End Role="tNM_TiposAusencia" EntitySet="tNM_TiposAusencia" />
+            <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" Association="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia">
+            <End Role="tNM_TiposAusencia" EntitySet="tNM_TiposAusencia" />
+            <End Role="tNM_SolicitudVacacionesCab" EntitySet="tNM_SolicitudVacacionesCab" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tGN_Personas">
           <Key>
@@ -9931,6 +9874,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <NavigationProperty Name="tNM_FormularioGP" Relationship="CCQ_DESAModel.FK_tNM_FormularioGP_tGN_Empresas" FromRole="tGN_Empresas" ToRole="tNM_FormularioGP" />
           <Property Name="ContribuyenteEspecial" Type="Int32" />
           <Property Name="ObligadoContabilidad" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="ShowInMenuERP" Type="Boolean" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_tNM_Areas_IdEmpresa">
           <End Type="CCQ_DESAModel.tGN_Empresas" Role="tGN_Empresas" Multiplicity="0..1" />
@@ -10091,6 +10036,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Name="IdContactoNuevo" Type="Int32" />
           <Property Name="IsOkFormatoEmail" Type="Boolean" />
           <Property Name="VersionPrograma" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Nota1" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+          <Property Name="Origen" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_tGN_ContactoPersona_tGN_TPersonas">
           <End Type="CCQ_DESAModel.tGN_Personas" Role="tGN_Personas" Multiplicity="1" />
@@ -10198,6 +10145,305 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <Property Type="Int32" Name="DiaNacimiento" Nullable="true" />
           <Property Type="String" Name="DepartamentoCCQ" Nullable="true" MaxLength="64" />
         </ComplexType>
+        <ComplexType Name="sp_NMsolicitudesPermisosTTHHColaborador_Result">
+          <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+          <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+          <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+          <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAINI" Nullable="true" />
+          <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="anio" Nullable="true" />
+          <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoColaborador_Result">
+          <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+          <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+          <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+          <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+          <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAINI" Nullable="true" />
+          <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="anio" Nullable="true" />
+          <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+        </ComplexType>
+        <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result">
+          <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+          <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+          <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+          <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAINI" Nullable="true" />
+          <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="anio" Nullable="true" />
+          <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result">
+          <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+          <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+          <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+          <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAINI" Nullable="true" />
+          <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+          <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="anio" Nullable="true" />
+          <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_tnmDiasNoDisponiblesColaborador_Result">
+          <Property Type="Int64" Name="IdHistorialVacaciones" Nullable="true" />
+          <Property Type="Int32" Name="PERIODO" Nullable="true" />
+          <Property Type="Decimal" Name="DiasPendientes" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="DiasDisfrutados" Nullable="true" Precision="9" Scale="2" />
+          <Property Type="Decimal" Name="DiasDisfrutadosConFinSe" Nullable="true" Precision="9" Scale="2" />
+        </ComplexType>
+        <ComplexType Name="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result">
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="DiasTranscurridos" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_AusenciasMaternidadPaternidad_Result">
+          <Property Type="String" Name="UrlFoto" Nullable="true" MaxLength="350" />
+          <Property Type="String" Name="Nombres" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+          <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+          <Property Type="Int32" Name="Dia" Nullable="true" />
+          <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
+          <Property Type="Int32" Name="DiasRestantes" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="tNM_MotivoSolicitudPermisos">
+          <Key>
+            <PropertyRef Name="IdMotivoSolicitudPermiso" />
+          </Key>
+          <Property Name="IdMotivoSolicitudPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" FromRole="tNM_MotivoSolicitudPermisos" ToRole="tNM_SolicitudPermiso" />
+        </EntityType>
+        <EntityType Name="tNM_SolicitudPermiso">
+          <Key>
+            <PropertyRef Name="IdSolicitudPermiso" />
+          </Key>
+          <Property Name="IdSolicitudPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoAusencia" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="FechaFin" Type="DateTime" Precision="0" />
+          <Property Name="HoraInicio" Type="DateTime" Precision="3" />
+          <Property Name="HoraFin" Type="DateTime" Precision="3" />
+          <Property Name="NumeroHoras" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="IdEstadoAprob" Type="Int32" />
+          <Property Name="Idcolaborador" Type="Int32" />
+          <Property Name="IdSupervisor" Type="Int32" />
+          <Property Name="RespuestaSupervisor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="RespuestaTalentoHumano" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DiasSolicitados" Type="Int32" />
+          <Property Name="IdColaboradorReemplazo" Type="Int32" />
+          <Property Name="CreadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="EstacionCreacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UltimaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="ModificadoPor" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="EstacionModificacion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="UrlSolicitud" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
+          <Property Name="Observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IdTipoCalamidadDomestica" Type="Int32" />
+          <Property Name="IdMotivoSolicitudPermiso" Type="Int32" />
+          <NavigationProperty Name="tNM_AdjuntoSolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_AdjuntoSolicitudPermiso" />
+          <NavigationProperty Name="tNM_Colaboradores" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores" FromRole="tNM_SolicitudPermiso" ToRole="tNM_Colaboradores" />
+          <NavigationProperty Name="tNM_Colaboradores1" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_Colaboradores1" FromRole="tNM_SolicitudPermiso" ToRole="tNM_Colaboradores" />
+          <NavigationProperty Name="tNM_EstadosFlujoAusencias" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias" FromRole="tNM_SolicitudPermiso" ToRole="tNM_EstadosFlujoAusencias" />
+          <NavigationProperty Name="tNM_JustificacionPermiso" Relationship="CCQ_DESAModel.FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_JustificacionPermiso" />
+          <NavigationProperty Name="tNM_MotivoSolicitudPermisos" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_MotivoSolicitudPermisos" />
+          <NavigationProperty Name="tNM_TiposCalamidadDomestica" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" FromRole="tNM_SolicitudPermiso" ToRole="tNM_TiposCalamidadDomestica" />
+          <NavigationProperty Name="tNM_TiposAusencia" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_SolicitudPermiso" ToRole="tNM_TiposAusencia" />
+        </EntityType>
+        <EntityType Name="tNM_TiposAusencia">
+          <Key>
+            <PropertyRef Name="IdAusencia" />
+          </Key>
+          <Property Name="IdAusencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ApruebaJefe" Type="Boolean" />
+          <Property Name="ApruebaTTHH" Type="Boolean" />
+          <Property Name="AplicaSoloDia" Type="Boolean" />
+          <Property Name="AplicaHoras" Type="Boolean" />
+          <Property Name="MaximaHorasPermitidasDia" Type="Int32" />
+          <Property Name="AplicaRangoFechas" Type="Boolean" />
+          <Property Name="IncluyeFinesDeSemana" Type="Boolean" />
+          <Property Name="NumeroDiasFinSemanaPermitidos" Type="Int32" />
+          <Property Name="RequiereJustificacion" Type="Boolean" />
+          <Property Name="MinimoNumeroDeSoporte" Type="Int32" />
+          <Property Name="AplicaRecuperacionHoras" Type="Boolean" />
+          <Property Name="MaximoHorasARecuperarDia" Type="Int32" />
+          <Property Name="MaximoDiasSolicitarVacaciones" Type="Int32" />
+          <Property Name="MinimoDiasSolicitarVacaciones" Type="Int32" />
+          <Property Name="AplicaDiasVacacionFeriado" Type="Boolean" />
+          <Property Name="Estado" Type="Boolean" />
+          <Property Name="ruta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="isTeletrabajo" Type="Boolean" />
+          <Property Name="MaxDiasGestionarPermisos" Type="Int32" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudPermiso" />
+          <NavigationProperty Name="tNM_SolicitudVacacionesCab" Relationship="CCQ_DESAModel.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudVacacionesCab" />
+        </EntityType>
+        <EntityType Name="tNM_TiposCalamidadDomestica">
+          <Key>
+            <PropertyRef Name="IdTipoCalamidadDomestica" />
+          </Key>
+          <Property Name="IdTipoCalamidadDomestica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" />
+          <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" FromRole="tNM_TiposCalamidadDomestica" ToRole="tNM_SolicitudPermiso" />
+        </EntityType>
+        <Association Name="FK_tNM_AdjuntoSolicitudPermiso_tNM_SolicitudPermiso">
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_AdjuntoSolicitudPermiso" Role="tNM_AdjuntoSolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdSolicitudPermiso" />
+            </Principal>
+            <Dependent Role="tNM_AdjuntoSolicitudPermiso">
+              <PropertyRef Name="IdSolicitudPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores">
+          <End Type="CCQ_DESAModel.tNM_Colaboradores" Role="tNM_Colaboradores" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_Colaboradores">
+              <PropertyRef Name="IdColaborador" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="Idcolaborador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_tNM_Colaboradores1">
+          <End Type="CCQ_DESAModel.tNM_Colaboradores" Role="tNM_Colaboradores" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_Colaboradores">
+              <PropertyRef Name="IdColaborador" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdSupervisor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_tNM_EstadosFlujoAusencias">
+          <End Type="CCQ_DESAModel.tNM_EstadosFlujoAusencias" Role="tNM_EstadosFlujoAusencias" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_EstadosFlujoAusencias">
+              <PropertyRef Name="IDEstado" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdEstadoAprob" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_JustificacionPermiso_tNM_SolicitudPermiso">
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_JustificacionPermiso" Role="tNM_JustificacionPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdSolicitudPermiso" />
+            </Principal>
+            <Dependent Role="tNM_JustificacionPermiso">
+              <PropertyRef Name="IdSolicitudPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+          <End Type="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" Role="tNM_MotivoSolicitudPermisos" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_MotivoSolicitudPermisos">
+              <PropertyRef Name="IdMotivoSolicitudPermiso" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdMotivoSolicitudPermiso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+          <End Type="CCQ_DESAModel.tNM_TiposCalamidadDomestica" Role="tNM_TiposCalamidadDomestica" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_TiposCalamidadDomestica">
+              <PropertyRef Name="IdTipoCalamidadDomestica" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdTipoCalamidadDomestica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudPermiso_tNM_TiposAusencia">
+          <End Type="CCQ_DESAModel.tNM_TiposAusencia" Role="tNM_TiposAusencia" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_TiposAusencia">
+              <PropertyRef Name="IdAusencia" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudPermiso">
+              <PropertyRef Name="IdTipoAusencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia">
+          <End Type="CCQ_DESAModel.tNM_TiposAusencia" Role="tNM_TiposAusencia" Multiplicity="0..1" />
+          <End Type="CCQ_DESAModel.tNM_SolicitudVacacionesCab" Role="tNM_SolicitudVacacionesCab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tNM_TiposAusencia">
+              <PropertyRef Name="IdAusencia" />
+            </Principal>
+            <Dependent Role="tNM_SolicitudVacacionesCab">
+              <PropertyRef Name="IdTipoAusencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -11613,37 +11859,10 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tNM_SolicitudPermiso">
-            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudPermiso">
-              <MappingFragment StoreEntitySet="tNM_SolicitudPermiso">
-                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
-                <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
-                <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
-                <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
-                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
-                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
-                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
-                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
-                <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
-                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
-                <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
-                <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
-                <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
-                <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
-                <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
-                <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
-                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
-                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
-                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
-                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
-                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
-                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tNM_SolicitudVacacionesCab">
             <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudVacacionesCab">
               <MappingFragment StoreEntitySet="tNM_SolicitudVacacionesCab">
+                <ScalarProperty Name="Observacion" ColumnName="Observacion" />
                 <ScalarProperty Name="IdSolicitudVacaciones" ColumnName="IdSolicitudVacaciones" />
                 <ScalarProperty Name="IdColaborador" ColumnName="IdColaborador" />
                 <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
@@ -11740,32 +11959,6 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
                 <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
                 <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
                 <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tNM_TiposAusencia">
-            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposAusencia">
-              <MappingFragment StoreEntitySet="tNM_TiposAusencia">
-                <ScalarProperty Name="IdAusencia" ColumnName="IdAusencia" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="ApruebaJefe" ColumnName="ApruebaJefe" />
-                <ScalarProperty Name="ApruebaTTHH" ColumnName="ApruebaTTHH" />
-                <ScalarProperty Name="AplicaSoloDia" ColumnName="AplicaSoloDia" />
-                <ScalarProperty Name="AplicaHoras" ColumnName="AplicaHoras" />
-                <ScalarProperty Name="MaximaHorasPermitidasDia" ColumnName="MaximaHorasPermitidasDia" />
-                <ScalarProperty Name="AplicaRangoFechas" ColumnName="AplicaRangoFechas" />
-                <ScalarProperty Name="IncluyeFinesDeSemana" ColumnName="IncluyeFinesDeSemana" />
-                <ScalarProperty Name="NumeroDiasFinSemanaPermitidos" ColumnName="NumeroDiasFinSemanaPermitidos" />
-                <ScalarProperty Name="RequiereJustificacion" ColumnName="RequiereJustificacion" />
-                <ScalarProperty Name="MinimoNumeroDeSoporte" ColumnName="MinimoNumeroDeSoporte" />
-                <ScalarProperty Name="AplicaRecuperacionHoras" ColumnName="AplicaRecuperacionHoras" />
-                <ScalarProperty Name="MaximoHorasARecuperarDia" ColumnName="MaximoHorasARecuperarDia" />
-                <ScalarProperty Name="MaximoDiasSolicitarVacaciones" ColumnName="MaximoDiasSolicitarVacaciones" />
-                <ScalarProperty Name="MinimoDiasSolicitarVacaciones" ColumnName="MinimoDiasSolicitarVacaciones" />
-                <ScalarProperty Name="AplicaDiasVacacionFeriado" ColumnName="AplicaDiasVacacionFeriado" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="ruta" ColumnName="ruta" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -12095,6 +12288,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySetMapping Name="tGN_Empresas">
             <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_Empresas">
               <MappingFragment StoreEntitySet="tGN_Empresas">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="ShowInMenuERP" ColumnName="ShowInMenuERP" />
                 <ScalarProperty Name="ObligadoContabilidad" ColumnName="ObligadoContabilidad" />
                 <ScalarProperty Name="ContribuyenteEspecial" ColumnName="ContribuyenteEspecial" />
                 <ScalarProperty Name="UrlLogo" ColumnName="UrlLogo" />
@@ -12174,6 +12369,8 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
           <EntitySetMapping Name="tGN_ContactoPersona">
             <EntityTypeMapping TypeName="CCQ_DESAModel.tGN_ContactoPersona">
               <MappingFragment StoreEntitySet="tGN_ContactoPersona">
+                <ScalarProperty Name="Origen" ColumnName="Origen" />
+                <ScalarProperty Name="Nota1" ColumnName="Nota1" />
                 <ScalarProperty Name="VersionPrograma" ColumnName="VersionPrograma" />
                 <ScalarProperty Name="IsOkFormatoEmail" ColumnName="IsOkFormatoEmail" />
                 <ScalarProperty Name="IdContactoNuevo" ColumnName="IdContactoNuevo" />
@@ -12327,7 +12524,83 @@ warning 6002: The table/view 'CCQ_DESA.dbo.tNM_tmp_ImpuestoAgostoNuevo' does not
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="tNM_MotivoSolicitudPermisos">
+            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_MotivoSolicitudPermisos">
+              <MappingFragment StoreEntitySet="tNM_MotivoSolicitudPermisos">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdMotivoSolicitudPermiso" ColumnName="IdMotivoSolicitudPermiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tNM_SolicitudPermiso">
+            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_SolicitudPermiso">
+              <MappingFragment StoreEntitySet="tNM_SolicitudPermiso">
+                <ScalarProperty Name="IdMotivoSolicitudPermiso" ColumnName="IdMotivoSolicitudPermiso" />
+                <ScalarProperty Name="IdTipoCalamidadDomestica" ColumnName="IdTipoCalamidadDomestica" />
+                <ScalarProperty Name="Observaciones" ColumnName="Observaciones" />
+                <ScalarProperty Name="UrlSolicitud" ColumnName="UrlSolicitud" />
+                <ScalarProperty Name="EstacionModificacion" ColumnName="EstacionModificacion" />
+                <ScalarProperty Name="ModificadoPor" ColumnName="ModificadoPor" />
+                <ScalarProperty Name="UltimaModificacion" ColumnName="UltimaModificacion" />
+                <ScalarProperty Name="EstacionCreacion" ColumnName="EstacionCreacion" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="CreadoPor" ColumnName="CreadoPor" />
+                <ScalarProperty Name="IdColaboradorReemplazo" ColumnName="IdColaboradorReemplazo" />
+                <ScalarProperty Name="DiasSolicitados" ColumnName="DiasSolicitados" />
+                <ScalarProperty Name="RespuestaTalentoHumano" ColumnName="RespuestaTalentoHumano" />
+                <ScalarProperty Name="RespuestaSupervisor" ColumnName="RespuestaSupervisor" />
+                <ScalarProperty Name="IdSupervisor" ColumnName="IdSupervisor" />
+                <ScalarProperty Name="Idcolaborador" ColumnName="Idcolaborador" />
+                <ScalarProperty Name="IdEstadoAprob" ColumnName="IdEstadoAprob" />
+                <ScalarProperty Name="NumeroHoras" ColumnName="NumeroHoras" />
+                <ScalarProperty Name="HoraFin" ColumnName="HoraFin" />
+                <ScalarProperty Name="HoraInicio" ColumnName="HoraInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="IdTipoAusencia" ColumnName="IdTipoAusencia" />
+                <ScalarProperty Name="IdSolicitudPermiso" ColumnName="IdSolicitudPermiso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tNM_TiposAusencia">
+            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposAusencia">
+              <MappingFragment StoreEntitySet="tNM_TiposAusencia">
+                <ScalarProperty Name="MaxDiasGestionarPermisos" ColumnName="MaxDiasGestionarPermisos" />
+                <ScalarProperty Name="isTeletrabajo" ColumnName="isTeletrabajo" />
+                <ScalarProperty Name="ruta" ColumnName="ruta" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="AplicaDiasVacacionFeriado" ColumnName="AplicaDiasVacacionFeriado" />
+                <ScalarProperty Name="MinimoDiasSolicitarVacaciones" ColumnName="MinimoDiasSolicitarVacaciones" />
+                <ScalarProperty Name="MaximoDiasSolicitarVacaciones" ColumnName="MaximoDiasSolicitarVacaciones" />
+                <ScalarProperty Name="MaximoHorasARecuperarDia" ColumnName="MaximoHorasARecuperarDia" />
+                <ScalarProperty Name="AplicaRecuperacionHoras" ColumnName="AplicaRecuperacionHoras" />
+                <ScalarProperty Name="MinimoNumeroDeSoporte" ColumnName="MinimoNumeroDeSoporte" />
+                <ScalarProperty Name="RequiereJustificacion" ColumnName="RequiereJustificacion" />
+                <ScalarProperty Name="NumeroDiasFinSemanaPermitidos" ColumnName="NumeroDiasFinSemanaPermitidos" />
+                <ScalarProperty Name="IncluyeFinesDeSemana" ColumnName="IncluyeFinesDeSemana" />
+                <ScalarProperty Name="AplicaRangoFechas" ColumnName="AplicaRangoFechas" />
+                <ScalarProperty Name="MaximaHorasPermitidasDia" ColumnName="MaximaHorasPermitidasDia" />
+                <ScalarProperty Name="AplicaHoras" ColumnName="AplicaHoras" />
+                <ScalarProperty Name="AplicaSoloDia" ColumnName="AplicaSoloDia" />
+                <ScalarProperty Name="ApruebaTTHH" ColumnName="ApruebaTTHH" />
+                <ScalarProperty Name="ApruebaJefe" ColumnName="ApruebaJefe" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="IdAusencia" ColumnName="IdAusencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tNM_TiposCalamidadDomestica">
+            <EntityTypeMapping TypeName="CCQ_DESAModel.tNM_TiposCalamidadDomestica">
+              <MappingFragment StoreEntitySet="tNM_TiposCalamidadDomestica">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdTipoCalamidadDomestica" ColumnName="IdTipoCalamidadDomestica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

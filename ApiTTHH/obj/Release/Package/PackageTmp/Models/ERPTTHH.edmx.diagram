@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4ed69efb1711454daa6ea3a5c08d6ee2" Name="Diagram1" ZoomLevel="43">
+      <Diagram DiagramId="4ed69efb1711454daa6ea3a5c08d6ee2" Name="Diagram1" ZoomLevel="67">
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AdjuntoSolicitudPermiso" Width="1.5" PointX="10.5" PointY="120.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_AnexosSolicitudes" Width="1.5" PointX="19.5" PointY="88.875" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Areas" Width="1.5" PointX="3.75" PointY="69.75" IsExpanded="true" />
@@ -84,7 +84,7 @@
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposEstadoCuenta" Width="1.5" PointX="15" PointY="127.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposNomina" Width="1.5" PointX="15.75" PointY="71.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposRelacion" Width="1.5" PointX="3.75" PointY="143.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposSolicitudes" Width="1.5" PointX="12.75" PointY="86.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposSolicitudes" Width="1.5" PointX="11" PointY="86.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Titulos" Width="1.5" PointX="3.75" PointY="147.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_Vacaciones" Width="1.5" PointX="8.25" PointY="253.25" IsExpanded="true" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tNM_VacacionesDetalle" Width="1.5" PointX="13.5" PointY="226.5" IsExpanded="true" />
@@ -272,6 +272,10 @@
         <AssociationConnector Association="CCQ_DESAModel.FK_tNM_FormularioGP_tGN_Empresas" />
         <EntityTypeShape EntityType="CCQ_DESAModel.tGN_ContactoPersona" Width="1.5" PointX="3" PointY="62" />
         <AssociationConnector Association="CCQ_DESAModel.FK_tGN_ContactoPersona_tGN_TPersonas" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_TiposCalamidadDomestica" Width="1.5" PointX="0.75" PointY="11.75" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" />
+        <EntityTypeShape EntityType="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" Width="1.5" PointX="11.375" PointY="9.875" />
+        <AssociationConnector Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

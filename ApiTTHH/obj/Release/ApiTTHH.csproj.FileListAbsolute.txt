@@ -219,3 +219,4 @@ C:\Users\gcalapaqui\source\repos\ApiTTHH\ApiTTHH\bin\DevExpress.XtraPivotGrid.v2
 C:\Users\gcalapaqui\source\repos\ApiTTHH\ApiTTHH\bin\DevExpress.XtraDiagram.v24.2.xml
 C:\Users\gcalapaqui\source\repos\ApiTTHH\ApiTTHH\bin\DevExpress.Diagram.v24.2.Core.xml
 C:\Users\gcalapaqui\source\repos\ApiTTHH\ApiTTHH\obj\Release\ApiTTHH.Reportes.SolicitudPermiso.resources
+C:\Users\gcalapaqui\source\repos\ApiTTHH\ApiTTHH\obj\Release\ApiTTHH.Reportes.SolicitudPermisoMaternidadPaternidad.resources

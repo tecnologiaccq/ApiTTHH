@@ -41,6 +41,8 @@ namespace ApiTTHH.Models
         public Nullable<bool> AplicaDiasVacacionFeriado { get; set; }
         public Nullable<bool> Estado { get; set; }
         public string ruta { get; set; }
+        public Nullable<bool> isTeletrabajo { get; set; }
+        public Nullable<int> MaxDiasGestionarPermisos { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }

@@ -17,8 +17,8 @@ namespace ApiTTHH.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tNM_EstadosFlujoAusencias()
         {
-            this.tNM_SolicitudPermiso = new HashSet<tNM_SolicitudPermiso>();
             this.tNM_SolicitudVacacionesCab = new HashSet<tNM_SolicitudVacacionesCab>();
+            this.tNM_SolicitudPermiso = new HashSet<tNM_SolicitudPermiso>();
         }
     
         public int IDEstado { get; set; }
@@ -28,8 +28,8 @@ namespace ApiTTHH.Models
         public string CodigoEstado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tNM_SolicitudVacacionesCab> tNM_SolicitudVacacionesCab { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tNM_SolicitudPermiso> tNM_SolicitudPermiso { get; set; }
     }
 }

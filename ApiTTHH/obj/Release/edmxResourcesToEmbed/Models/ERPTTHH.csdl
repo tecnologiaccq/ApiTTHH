@@ -1660,6 +1660,10 @@
     <NavigationProperty Name="tNM_TiposAusencia" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_SolicitudPermiso" ToRole="tNM_TiposAusencia" />
     <Property Name="UrlSolicitud" Type="String" MaxLength="450" FixedLength="false" Unicode="false" />
     <Property Name="Observaciones" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IdTipoCalamidadDomestica" Type="Int32" />
+    <NavigationProperty Name="tNM_TiposCalamidadDomestica" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" FromRole="tNM_SolicitudPermiso" ToRole="tNM_TiposCalamidadDomestica" />
+    <Property Name="IdMotivoSolicitudPermiso" Type="Int32" />
+    <NavigationProperty Name="tNM_MotivoSolicitudPermisos" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" FromRole="tNM_SolicitudPermiso" ToRole="tNM_MotivoSolicitudPermisos" />
   </EntityType>
   <EntityType Name="tNM_SolicitudVacacionesCab">
     <Key>
@@ -1683,6 +1687,7 @@
     <NavigationProperty Name="tNM_EstadosFlujoAusencias" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_EstadosFlujoAusencias" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_EstadosFlujoAusencias" />
     <NavigationProperty Name="tNM_TiposAusencia" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_TiposAusencia" />
     <NavigationProperty Name="tNM_SolicitudVacacionesDet" Relationship="Self.FK_tNM_SolicitudVacacionesDet_tNM_SolicitudVacacionesCab" FromRole="tNM_SolicitudVacacionesCab" ToRole="tNM_SolicitudVacacionesDet" />
+    <Property Name="Observacion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tNM_SolicitudVacacionesDet">
     <Key>
@@ -1797,6 +1802,7 @@
     <Property Name="ruta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="Self.FK_tNM_SolicitudPermiso_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudPermiso" />
     <NavigationProperty Name="tNM_SolicitudVacacionesCab" Relationship="Self.FK_tNM_SolicitudVacacionesCab_tNM_TiposAusencia" FromRole="tNM_TiposAusencia" ToRole="tNM_SolicitudVacacionesCab" />
+    <Property Name="isTeletrabajo" Type="Boolean" />
   </EntityType>
   <EntityType Name="tNM_TiposColaboradores">
     <Key>
@@ -4885,6 +4891,33 @@
       <Parameter Name="idSupervisor" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="INTRANET_ObtenerCumpleanios" ReturnType="Collection(CCQ_DESAModel.INTRANET_ObtenerCumpleanios_Result)" />
+    <FunctionImport Name="sp_NMsolicitudesPermisosTTHHColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTTHHColaborador_Result)" />
+    <EntitySet Name="tNM_TiposCalamidadDomestica" EntityType="CCQ_DESAModel.tNM_TiposCalamidadDomestica" />
+    <AssociationSet Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+      <End Role="tNM_TiposCalamidadDomestica" EntitySet="tNM_TiposCalamidadDomestica" />
+      <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+    </AssociationSet>
+    <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoColaborador_Result)">
+      <Parameter Name="idColaborador" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result)">
+      <Parameter Name="idSupervisor" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador" ReturnType="Collection(CCQ_DESAModel.sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result)" />
+    <EntitySet Name="tNM_MotivoSolicitudPermisos" EntityType="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" />
+    <AssociationSet Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" Association="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+      <End Role="tNM_MotivoSolicitudPermisos" EntitySet="tNM_MotivoSolicitudPermisos" />
+      <End Role="tNM_SolicitudPermiso" EntitySet="tNM_SolicitudPermiso" />
+    </AssociationSet>
+    <FunctionImport Name="sp_tnmDiasNoDisponiblesColaborador" ReturnType="Collection(CCQ_DESAModel.sp_tnmDiasNoDisponiblesColaborador_Result)">
+      <Parameter Name="idColbaorador" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad" ReturnType="Collection(CCQ_DESAModel.tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result)">
+      <Parameter Name="IdColaborador" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_AusenciasMaternidadPaternidad" ReturnType="Collection(CCQ_DESAModel.sp_AusenciasMaternidadPaternidad_Result)">
+      <Parameter Name="idColaborador" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="tGN_Personas">
     <Key>
@@ -5028,6 +5061,8 @@
     <NavigationProperty Name="tNM_FormularioGP" Relationship="CCQ_DESAModel.FK_tNM_FormularioGP_tGN_Empresas" FromRole="tGN_Empresas" ToRole="tNM_FormularioGP" />
     <Property Name="ContribuyenteEspecial" Type="Int32" />
     <Property Name="ObligadoContabilidad" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Name="ShowInMenuERP" Type="Boolean" />
+    <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_tNM_Areas_IdEmpresa">
     <End Type="CCQ_DESAModel.tGN_Empresas" Role="tGN_Empresas" Multiplicity="0..1" />
@@ -5188,6 +5223,8 @@
     <Property Name="IdContactoNuevo" Type="Int32" />
     <Property Name="IsOkFormatoEmail" Type="Boolean" />
     <Property Name="VersionPrograma" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Nota1" Type="String" MaxLength="512" FixedLength="false" Unicode="false" />
+    <Property Name="Origen" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_tGN_ContactoPersona_tGN_TPersonas">
     <End Type="CCQ_DESAModel.tGN_Personas" Role="tGN_Personas" Multiplicity="1" />
@@ -5294,5 +5331,154 @@
     <Property Type="Int32" Name="NumeroMes" Nullable="true" />
     <Property Type="Int32" Name="DiaNacimiento" Nullable="true" />
     <Property Type="String" Name="DepartamentoCCQ" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="sp_NMsolicitudesPermisosTTHHColaborador_Result">
+    <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+    <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+    <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+    <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAINI" Nullable="true" />
+    <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="anio" Nullable="true" />
+    <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tNM_TiposCalamidadDomestica">
+    <Key>
+      <PropertyRef Name="IdTipoCalamidadDomestica" />
+    </Key>
+    <Property Name="IdTipoCalamidadDomestica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_TipoCalamidadDomestica" FromRole="tNM_TiposCalamidadDomestica" ToRole="tNM_SolicitudPermiso" />
+  </EntityType>
+  <Association Name="FK_tNM_SolicitudPermiso_TipoCalamidadDomestica">
+    <End Type="CCQ_DESAModel.tNM_TiposCalamidadDomestica" Role="tNM_TiposCalamidadDomestica" Multiplicity="0..1" />
+    <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tNM_TiposCalamidadDomestica">
+        <PropertyRef Name="IdTipoCalamidadDomestica" />
+      </Principal>
+      <Dependent Role="tNM_SolicitudPermiso">
+        <PropertyRef Name="IdTipoCalamidadDomestica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoColaborador_Result">
+    <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+    <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+    <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+    <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+    <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAINI" Nullable="true" />
+    <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="anio" Nullable="true" />
+    <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result">
+    <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+    <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+    <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+    <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAINI" Nullable="true" />
+    <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="anio" Nullable="true" />
+    <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result">
+    <Property Type="Int32" Name="Idcolaborador" Nullable="true" />
+    <Property Type="Int32" Name="IdSolicitudPermiso" Nullable="false" />
+    <Property Type="Decimal" Name="NumeroHoras" Nullable="true" Precision="5" Scale="2" />
+    <Property Type="String" Name="UrlSolicitud" Nullable="true" MaxLength="450" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="IdEstadoAprob" Nullable="true" />
+    <Property Type="String" Name="nickname" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MESINI" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAINI" Nullable="true" />
+    <Property Type="String" Name="MESFIN" Nullable="true" MaxLength="3" />
+    <Property Type="Int32" Name="DIAFIN" Nullable="true" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="anio" Nullable="true" />
+    <Property Type="String" Name="RespuestaSupervisor" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="RespuestaTalentoHumano" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="HoraInicio" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="HoraFin" Nullable="true" MaxLength="4000" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="IdTipoAusencia" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="tNM_MotivoSolicitudPermisos">
+    <Key>
+      <PropertyRef Name="IdMotivoSolicitudPermiso" />
+    </Key>
+    <Property Name="IdMotivoSolicitudPermiso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Activo" Type="Boolean" />
+    <NavigationProperty Name="tNM_SolicitudPermiso" Relationship="CCQ_DESAModel.FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso" FromRole="tNM_MotivoSolicitudPermisos" ToRole="tNM_SolicitudPermiso" />
+  </EntityType>
+  <Association Name="FK_tNM_SolicitudPermiso_MotivoSolicitudPermiso">
+    <End Type="CCQ_DESAModel.tNM_MotivoSolicitudPermisos" Role="tNM_MotivoSolicitudPermisos" Multiplicity="0..1" />
+    <End Type="CCQ_DESAModel.tNM_SolicitudPermiso" Role="tNM_SolicitudPermiso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tNM_MotivoSolicitudPermisos">
+        <PropertyRef Name="IdMotivoSolicitudPermiso" />
+      </Principal>
+      <Dependent Role="tNM_SolicitudPermiso">
+        <PropertyRef Name="IdMotivoSolicitudPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_tnmDiasNoDisponiblesColaborador_Result">
+    <Property Type="Int64" Name="IdHistorialVacaciones" Nullable="true" />
+    <Property Type="Int32" Name="PERIODO" Nullable="true" />
+    <Property Type="Decimal" Name="DiasPendientes" Nullable="true" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="DiasDisfrutados" Nullable="true" Precision="9" Scale="2" />
+    <Property Type="Decimal" Name="DiasDisfrutadosConFinSe" Nullable="true" Precision="9" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result">
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="DiasTranscurridos" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_AusenciasMaternidadPaternidad_Result">
+    <Property Type="String" Name="UrlFoto" Nullable="true" MaxLength="350" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="FechaInicio" Nullable="true" />
+    <Property Type="DateTime" Name="FechaFin" Nullable="true" />
+    <Property Type="Int32" Name="Dia" Nullable="true" />
+    <Property Type="String" Name="Mes" Nullable="true" MaxLength="30" />
+    <Property Type="Int32" Name="DiasRestantes" Nullable="true" />
   </ComplexType>
 </Schema>

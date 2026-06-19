@@ -327,6 +327,9 @@
     <Compile Include="Controllers\Catalogos\tNM_DepartamentosController.cs" />
     <Compile Include="Controllers\Catalogos\tNM_TiposColaboradoresController.cs" />
     <Compile Include="Controllers\Colaboradores\tNM_ColaboradoresController.cs" />
+    <Compile Include="Comun\Permisos\EnviarNotificacionEmail.cs" />
+    <Compile Include="Comun\Permisos\GenerarFormatoSolicitudes.cs" />
+    <Compile Include="Comun\Permisos\SubirArchivosAzure.cs" />
     <Compile Include="Controllers\EstadosCuenta\tNM_EstadosCuentaColaboradorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Intranet\IntranetController.cs" />
@@ -398,11 +401,13 @@
       <DependentUpon>TTHHBEMP.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Custom\Adjunto.cs" />
+    <Compile Include="Models\Custom\ArchivoTemporal.cs" />
     <Compile Include="Models\Custom\AsiganicionRol.cs" />
     <Compile Include="Models\Custom\BuzonTransparencia.cs" />
     <Compile Include="Models\Custom\CertificateParameters.cs" />
     <Compile Include="Models\Custom\Correo.cs" />
     <Compile Include="Models\Custom\Cupo.cs" />
+    <Compile Include="Models\Custom\DTOs\LoginResponseDto.cs" />
     <Compile Include="Models\Custom\InformacionPostulanteCustom.cs" />
     <Compile Include="Models\Custom\Pago.cs" />
     <Compile Include="Models\Custom\ParametersRoles.cs" />
@@ -465,6 +470,9 @@
     <Compile Include="Models\sp_AusenciasCCQ_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_AusenciasMaternidadPaternidad_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sp_CalculoCertificadoSueldo_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
@@ -472,6 +480,18 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_NMsolicitudesPermisosSupervisorColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosTeletrabajoColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosTeletrabajoSupervisorColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosTeletrabajoTTHHColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_NMsolicitudesPermisosTTHHColaborador_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_NMsolicitudesVacacionesAprobJefe_Result.cs">
@@ -482,6 +502,9 @@
     </Compile>
     <Compile Include="Models\sp_ReportPostulantes_Result.cs">
       <DependentUpon>TTHHBEMP.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_tnmDiasNoDisponiblesColaborador_Result.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sp_tnmDiasVacacionesColaborador_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
@@ -669,10 +692,16 @@
     <Compile Include="Models\tNM_MotivosEgreso.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\tNM_MotivoSolicitudPermisos.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tNM_NominaDefinitiva.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_NominaPreliminar.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_ObtenerDiasPosterioresUltimoPeriodoMaternidadPaternidad_Result.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_PagosFueraNomina.cs">
@@ -721,6 +750,9 @@
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_TiposAusencia.cs">
+      <DependentUpon>ERPTTHH.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tNM_TiposCalamidadDomestica.cs">
       <DependentUpon>ERPTTHH.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tNM_TiposColaboradores.cs">
@@ -803,6 +835,12 @@
     </Compile>
     <Compile Include="Reportes\RoldePagos.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\SolicitudPermisoMaternidadPaternidad.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\SolicitudPermisoMaternidadPaternidad.Designer.cs">
+      <DependentUpon>SolicitudPermisoMaternidadPaternidad.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\SolicitudPermiso.cs">
       <SubType>Component</SubType>
@@ -1010,11 +1048,15 @@
     <EmbeddedResource Include="Reportes\RoldePagos.resx">
       <DependentUpon>RoldePagos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\SolicitudPermisoMaternidadPaternidad.resx">
+      <DependentUpon>SolicitudPermisoMaternidadPaternidad.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\SolicitudPermiso.resx">
       <DependentUpon>SolicitudPermiso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\SolicitudVacacion.resx">
       <DependentUpon>SolicitudVacacion.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
